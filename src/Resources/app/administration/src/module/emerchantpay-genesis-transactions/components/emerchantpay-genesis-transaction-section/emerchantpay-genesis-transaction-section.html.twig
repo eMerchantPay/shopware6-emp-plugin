@@ -1,0 +1,112 @@
+<sw-card :title="$tc('emerchantpay-genesis-transactions.payment-transaction.title')">
+
+    {% block emerchantpay_genesis_transaction_actions_container %}
+        <emerchantpay-genesis-transaction-actions :v-if="actionTransaction"
+                                                  :isVoidAvailable="canVoid"
+                                                  :isCaptureAvailable="canCapture"
+                                                  :isRefundAvailable="canRefund"
+                                                  :actionTransaction="actionTransaction"
+                                                  @reference-action-event="executedReferenceAction">
+        </emerchantpay-genesis-transaction-actions>
+    {% endblock %}
+
+    {% block emerchantpay_genesis_transaction_states_card %}
+        <sw-card-section divider="top" v-if="initialTransaction">
+            <sw-container columns="1fr" gap="0px 30px">
+
+                {% block emerchantpay_genesis_transaction_initial_container %}
+                    <h3>
+                        {{ $tc('emerchantpay-genesis-transactions.payment-transaction.initial-title') }} - {{ initialTransaction.transaction_type }}
+                    </h3>
+                    <sw-description-list>
+                        <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.unique_id') }}</dt>
+                        <dd>{{ initialTransaction.unique_id }}</dd>
+
+                        <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.reference_id') }}</dt>
+                        <dd>{{ initialTransaction.reference_id }}</dd>
+
+                        <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.amount') }}</dt>
+                        <dd>{{ initialTransaction.amount }}</dd>
+
+                        <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.status') }}</dt>
+                        <dd>{{ initialTransaction.status }}</dd>
+                    </sw-description-list>
+                {% endblock %}
+
+                {% block emerchantpay_genesis_transaction_capture_container %}
+                    <div v-if="captureTransaction">
+                        <h3>
+                            {{ $tc('emerchantpay-genesis-transactions.payment-transaction.capture-title') }} - {{ captureTransaction.transaction_type }}
+                        </h3>
+                        <sw-description-list>
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.unique_id') }}</dt>
+                            <dd>{{ captureTransaction.unique_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.reference_id') }}</dt>
+                            <dd>{{ captureTransaction.reference_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.amount') }}</dt>
+                            <dd>{{ captureTransaction.amount }} {{ captureTransaction.currency }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.status') }}</dt>
+                            <dd>{{ captureTransaction.status }}</dd>
+                        </sw-description-list>
+                    </div>
+                {% endblock %}
+
+                {% block emerchantpay_genesis_transaction_refund_container %}
+                    <div v-if="refundTransaction">
+                        <h3>
+                            {{ $tc('emerchantpay-genesis-transactions.payment-transaction.refund-title') }} - {{ refundTransaction.transaction_type }}
+                        </h3>
+                        <sw-description-list>
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.unique_id') }}</dt>
+                            <dd>{{ refundTransaction.unique_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.reference_id') }}</dt>
+                            <dd>{{ refundTransaction.reference_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.amount') }}</dt>
+                            <dd>{{ refundTransaction.amount }} {{ refundTransaction.currency }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.status') }}</dt>
+                            <dd>{{ refundTransaction.status }}</dd>
+                        </sw-description-list>
+                    </div>
+                {% endblock %}
+
+                {% block emerchantpay_genesis_transaction_void_container %}
+                    <div v-if="voidTransaction">
+                        <h3>
+                            {{ $tc('emerchantpay-genesis-transactions.payment-transaction.void-title') }} - {{ voidTransaction.transaction_type }}
+                        </h3>
+                        <sw-description-list>
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.unique_id') }}</dt>
+                            <dd>{{ voidTransaction.unique_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-history.reference_id') }}</dt>
+                            <dd>{{ voidTransaction.reference_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.status') }}</dt>
+                            <dd>{{ voidTransaction.status }}</dd>
+                        </sw-description-list>
+                    </div>
+                {% endblock %}
+            </sw-container>
+        </sw-card-section>
+    {% endblock %}
+
+    {% block emerchantpay_genesis_missing_initial_transaction %}
+    <sw-card-section v-if="!initialTransaction">
+        <sw-container>
+            <h2>
+                <sw-icon name="default-communication-speech-bubble" color="#1abc9c"></sw-icon>
+                {{ $tc('emerchantpay-genesis-transactions.payment-transaction.missing-approved') }}
+            </h2>
+            <p>{{ $tc('emerchantpay-genesis-transactions.payment-transaction.missing-approved-description') }}</p>
+        </sw-container>
+    </sw-card-section>
+    {% endblock %}
+
+    <sw-loader v-if="isTransactionLoading"></sw-loader>
+</sw-card>

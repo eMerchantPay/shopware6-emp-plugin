@@ -1,0 +1,73 @@
+{
+  "emerchantpay-genesis-transactions": {
+    "tab-title": "emerchantpay",
+    "header-actions": {
+      "refund": "Refund",
+      "capture": "Capture",
+      "void": "Void"
+    },
+    "payment-card": {
+      "title": "Payment",
+      "transaction_id": "Transaction ID",
+      "unique_id": "Unique ID",
+      "amount": "Amount",
+      "currency": "Currency",
+      "created_at": "Created",
+      "mode": "Mode"
+    },
+    "payment-transaction": {
+      "title": "Transaction",
+      "initial-title": "Initial",
+      "capture-title": "Captured",
+      "refund-title": "Refunded",
+      "void-title": "Voided",
+      "checkout": "Checkout",
+      "transaction_type": "Transaction Type",
+      "amount": "Amount",
+      "status": "Status",
+      "missing-approved": "Initial Transaction with APPROVED state not found",
+      "missing-approved-description": "The notification hasn't received yet, payment has been cancelled or error acquired during the payment process!"
+    },
+    "payment-history": {
+      "title": "History",
+      "unique_id": "UniqueID",
+      "reference_id": "ReferenceID",
+      "status": "Status",
+      "transaction_type": "Transaction Type",
+      "mode": "Mode",
+      "amount": "Amount",
+      "currency": "Currency",
+      "created_at": "Created",
+      "updated_at": "Updated"
+    },
+    "transaction-actions": {
+      "void": "Void",
+      "refund": "Refund",
+      "capture": "Capture",
+      "cancel": "Cancel",
+      "descriptions": {
+        "void": "You are about to Cancel a %transaction_type% transaction with Amount: %amount% %currency%",
+        "refund": "You are about to Refund a %transaction_type% transaction with Amount: %amount% %currency%",
+        "capture": "You are about to Capture a %transaction_type% transaction with Amount: %amount% %currency%"
+      },
+      "messages": {
+        "capture-success": "Successful Captured Amount",
+        "capture-failure": "Error during Capture Amount",
+        "capture-decline": "Capture was Declined from the Gateway",
+        "void-success": "Successful Voided transaction",
+        "void-failure": "Error during Void transaction",
+        "refund-success": "Successful Refunded Amount",
+        "refund-failure": "Error during Refund Amount",
+        "refund-pending": "Refund is Pending Approval with Amount",
+        "refund-decline": "Refund was Declined from the Gateway"
+      }
+    },
+    "notifications": {
+      "error-title": "Error",
+      "success-title": "Success",
+      "errors": {
+        "payment-not-found": "Given Order do not have emerchantpay Genesis Payments"
+      }
+    }
+  }
+}

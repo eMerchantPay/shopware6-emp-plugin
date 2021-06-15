@@ -1,0 +1,6 @@
+.idea
+vendor/*
+!vendor/composer
+!vendor/autoload.php
+!vendor/genesisgateway
+.DS_Store

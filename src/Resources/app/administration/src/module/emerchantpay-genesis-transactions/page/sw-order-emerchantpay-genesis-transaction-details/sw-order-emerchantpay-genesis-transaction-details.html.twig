@@ -1,0 +1,55 @@
+{% block emerchantpay_genesis_order_card %}
+    <div>
+        {% block emerchantpay_genesis_payment_card %}
+            <sw-card :title="$tc('emerchantpay-genesis-transactions.payment-card.title')">
+                <sw-card-section>
+                    <sw-container columns="1fr">
+                        <h3>{{ $tc('emerchantpay-genesis-transactions.payment-card.title') }}</h3>
+                        <sw-description-list>
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.transaction_id') }}</dt>
+                            <dd>{{ paymentData.transaction_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.unique_id') }}</dt>
+                            <dd>{{ paymentData.unique_id }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.amount') }}</dt>
+                            <dd>{{ paymentData.amount }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.currency') }}</dt>
+                            <dd>{{ paymentData.currency }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.mode') }}</dt>
+                            <dd>{{ paymentData.mode }}</dd>
+
+                            <dt>{{ $tc('emerchantpay-genesis-transactions.payment-card.created_at') }}</dt>
+                            <dd>{{ paymentData.created_at }}</dd>
+                        </sw-description-list>
+                    </sw-container>
+                </sw-card-section>
+
+                <sw-loader v-if="isPaymentLoading"></sw-loader>
+            </sw-card>
+        {% endblock %}
+
+        {% block emerchantpay_genesis_transaction_card %}
+            <emerchantpay-genesis-transaction-section v-if="!isPaymentLoading"
+                                                      :paymentData="paymentData"
+                                                      @reload-event="reloadData">
+            </emerchantpay-genesis-transaction-section>
+        {% endblock %}
+
+        {% block emerchantpay_genesis_history_card %}
+            <sw-card :title="$tc('emerchantpay-genesis-transactions.payment-history.title')">
+                <template #grid>
+                    <sw-data-grid :dataSource="transactionHistory"
+                                  :columns="transactionColumns"
+                                  :showActions="false"
+                                  :showSelection="false">
+                    </sw-data-grid>
+                </template>
+
+                <sw-loader v-if="isHistoryLoading"></sw-loader>
+            </sw-card>
+        {% endblock %}
+    </div>
+{% endblock %}

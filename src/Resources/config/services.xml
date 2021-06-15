@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Emerchantpay\Genesis\Utils\Logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">emerchantpay_genesis</argument>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Utils\Config">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\Payment\Checkout">
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Mappers\PaymentData"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Mappers\ReferenceData"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\CheckoutPayment">
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+
+        <service id="Emerchantpay\Genesis\Core\Flow\ReturnUrl\ReturnUrlDefinition">
+            <tag name="shopware.entity.definition" entity="emerchantpay_genesis_return_url_mapping" />
+        </service>
+
+        <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisReturnController" public="true">
+            <argument type="service" id="Emerchantpay\Genesis\Service\Flow\ReturnUrl"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\Flow\ReturnUrl">
+            <argument type="service" id="emerchantpay_genesis_return_url_mapping.repository"/>
+            <argument type="service" id="Symfony\Component\Routing\RouterInterface"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Core\Payment\Transaction\TransactionDefinition">
+            <tag name="shopware.entity.definition" entity="emerchantpay_genesis_payment_entity" />
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\Payment\Transaction">
+            <argument type="service" id="emerchantpay_genesis_payment_entity.repository"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Utils\Mappers\PaymentData">
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Flow\ReturnUrl"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Data\PaymentData"/>
+            <argument type="service" id="currency.repository"/>
+            <argument type="service" id="order_address.repository"/>
+            <argument type="service" id="country_state.repository"/>
+            <argument type="service" id="country.repository"/>
+            <argument type="service" id="customer_address.repository"/>
+            <argument type="service" id="Symfony\Component\Routing\RouterInterface"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Utils\Data\PaymentData">
+            <factory class="Emerchantpay\Genesis\Utils\Data\PaymentData" method="invoke"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisIpnController" public="true">
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Api\Reference\Administration\EmerchantpayGenesisTransactionController"
+                 public="true">
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\ReferenceTransactions"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Api\Utils\Administration\EmerchantpayGenesisUtilsController" public="true"/>
+
+        <service id="Emerchantpay\Genesis\Utils\TransactionTree"/>
+
+        <service id="Emerchantpay\Genesis\Utils\ReferenceTransactions">
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\TransactionTree"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Utils\Data\ReferenceData">
+            <factory class="Emerchantpay\Genesis\Utils\Data\ReferenceData" method="invoke"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Utils\Mappers\ReferenceData">
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Data\ReferenceData"/>
+        </service>
+
+    </services>
+</container>

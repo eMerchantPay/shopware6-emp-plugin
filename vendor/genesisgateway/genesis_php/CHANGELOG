@@ -1,0 +1,631 @@
+1.18.9
+-----
+**Features**:
+* Added support to the Business Attributes with various date formats
+* Deprecated Trustly Withdrawal transaction request
+* Added support of optional Bank Code attribute to the P24 transaction request
+* Added allowed banks validation to the optional attributes BIC for the iDeal transaction request
+* Add support of optional attribute Return Pending URL for the iDeal transaction request
+
+1.18.8
+-----
+**Features**:
+* Added new transaction type Post Finance
+
+1.18.7
+-----
+**Features**:
+* Added support of optional attribute Credential On File to the following transaction requests:
+    * Account Verification
+    * Authorize
+    * Authorize3D
+    * Sale
+    * Sale3D
+    * InitRecurringSale
+    * InitRecurringSale3D
+    * Payout
+* Added support of Ucof attributes credential_on_file_transaction_identifier and credential_on_file_settlement_date to the following transaction requests:
+    * Authorize
+    * Sale
+* Deprecated QIWI and InstantTransfer transaction requests
+* Removed QIWI payment type for PPRO transaction type
+* Refactored the 3DSv2 helper methods and now the signature generation is done with the help of \Genesis\Genesis\Utils\Threeds\V2::generateSignature
+* Added support for optional SCA attributes to the following transaction requests:
+    * Authorize
+    * Sale
+* Added auth_network_outage to the list with supported exemptions
+* Added Alipay QR payment type support to the OnlineBanking\Payin transaction request
+* Added support for the following currencies and their available banks to the OnlineBanking\Payin transaction request:
+    * MXN
+    * PEN
+    * EUR
+    * BRL
+    * CHF
+    * USD
+* Added optional attributes document_reference_number and purpose_of_remittance to the TransferTo Payout transaction request
+* Deprecated `setIfsCode` and `getIfsCode` methods from the TransferTo Payout transaction request
+* Added optional attributes return_success_url_target and user_id to the Trustly Sale transaction request
+* Deprecated the setter and getter attributes methods for bank_account_number and customer_bank_id available in Sofort transaction request. Introduced new methods:
+    * `setBic`
+    * `getBic`
+    * `setIban`
+    * `getIban`
+* Added Spain (ES) as available billing country for MyBank transaction request
+* Removed Costa Rica (CR) as available billing country for SafetyPay transaction request
+* Added Chile (CL) as available billing country for Santander transaction request
+* Updated the supported billing countries for MyBank and SafetyPay payment types via PPRO transaction request
+
+**Fixes**:
+* Removed remote_ip from the list with required attributes for the Trustly Sale transaction request
+
+1.18.6
+-----
+**Features:**
+
+* Removed requests from the Precessing and Web Payment Form:
+    * Zimpler
+    * Santander Cash
+* Updated Recurring Sale transaction attributes
+    * Currency parameter is no longer required. It is an optional parameter used for an amount transformation to a minor currency format.
+        * if currency is SET the amount will be transformed into a minor currency format (keeps the existing behavior)
+        * if currency is NOT set the amount must be into a minor currency format
+    * Added moto attribute support
+* Added new optional attribute return_pending_url to the Web Payment Form.
+* Updated the PHPSpec library to version 3.4
+* Added new optional attribute crypto to the Apple Pay request
+* Added 3DSv2 attributes support to the following transaction requests:
+    * Authorize 3D
+    * Sale 3D
+    * Init Recurring Sale 3D
+* Added  MethodContinue request used for 3DSv2-Method Frictionless, Challenge and Fallback flows
+* Updated the README with usage examples for the 3DSv2 attributes
+
+**Fixes:**
+
+* Fixed the Warning produced by the XML Builder class when running on PHP version above 7.3
+* Fixed the namespace of the BankAccountTypes causing issues with Composer 2
+
+1.18.5
+-----
+**Features:**
+
+* Added Tokenization support for:
+    * Authorize
+    * Authorize (3D-Secure)
+    * Sale
+    * Sale (3D-Secure)
+    * Init Recurring Sale
+    * Init Recurring Sale (3D-Secure)
+    * Payout
+
+* Added Business Attributes support for:
+    * Authorize
+    * Authorize (3D-Secure)
+    * Capture
+    * Sale
+    * Sale (3D-Secure)
+    * Init Recurring Sale
+    * Init Recurring Sale (3D-Secure)
+    * Recurring Sale
+    * Web Payment Form
+
+1.18.4
+-----
+**Features:**
+
+* Added new transaction type UPI
+* Removed payment type UPI from Financial\OnlineBankingPayments\OnlineBanking\Payin
+
+1.18.3
+-----
+**Features:**
+
+* Added a new crypto attribute to the following transactions:
+    * Authorize
+    * Authorize 3D
+    * Sale
+    * Sale 3D
+* Added Card Expiry Date Update functionality to the Transaction API
+* Added new languages support for the Web Payment Form:
+    * Norwegian
+    * Danish
+    * Swedish
+* Added a new ApplePay transaction type for the Processing API
+* Added the following filter attributes to the Processed Transaction API:
+    * deposit_slip_number
+    * batch_slip_number
+
+1.18.2
+-----
+**Features:**
+
+* Updated the list with supported billing countries for Trustly Sale. Removed countries:
+    * Bulgaria
+    * Hungary
+    * Ireland
+    * Italy
+    * Portugal
+    * Romania
+    * Slovenia
+* Updated the list with supported billing countries for Paysafecard. Added countries:
+    * Australia
+    * Bulgaria
+    * Georgia
+    * Gibraltar
+    * Iceland
+    * Kuwait
+    * Latvia
+    * Liechtenstein
+    * Lithuania
+    * Montenegro
+    * New Zealand
+    * Paraguay
+    * Peru
+    * Saudi Arabia
+    * Uruguay
+* Updated the list with supported billing countries for Sofort. Removed countries:
+    * France
+    * United Kingdom
+* Updated list with the supported transaction types for the Web Payment Form (WPF)
+* Added helper methods for retrieving the transaction name by transaction type
+* Extended the list with the Level 3 Data attributes. Added attributes:
+    * Taxes - fee_amount and fee_type
+    * Airline Itinerary - confirmation_information, date_of_issue
+    * Airline Leg - arrival_date
+* Added new attributes to the Refund transaction request. Added attributes:
+    * bank
+    * bank_branch
+    * bank_account
+    * bank_account_type
+* Updated the list with supported currencies for Bank Payout transaction type. Added currencies:
+    * Argentine peso
+    * Brazilian real
+    * Chilean peso
+    * Colombian peso
+    * Mexican peso
+    * Peruvian sol
+    * Uruguayan peso
+
+**Fixes:**
+
+* Removed usage of internal SSL Certificates for peer verification. The verification of the peer remains required.
+* Fixed the method parsing XML response. No longer the parser fails when the php.ini setting **allow_url_fopen** is Off.
+* Fixed a minor problem with the core validations
+
+1.18.1
+-----
+**Features:**
+
+* Added Finnish language support in Web Payment Form
+* Updated the card-holder validation rules
+* Updated OnlineBanking PayIn Request with the latest currency support and UPI payment type
+* Added support of Processed Transactions API
+
+**Fixes:**
+
+* Fixed the rendering of the notification xml response body
+
+1.18.0
+-----
+**Features:**
+
+* Added support for reminder_language parameter in Web Payment Form request
+* Added additional supported parameters for Chargeback request:
+    - import_date
+    - per_page
+    - externally_processed
+* Added support for SCA Checker API
+* Added FX support for following transaction types:
+    - Authorize
+    - Authorize3D
+    - Payout
+    - InitRecurringSale
+    - InitRecurringSale3D
+    - Sale
+    - Sale3D
+* Added additional supported parameters for Refund request:
+    - beneficiary_bank_code
+    - beneficiary_name
+    - beneficiary_account_number
+* Added additional supported parameter source_of_funds for Credit and Payout transaction types
+* Added support for TransferTo API. Providing ability to retrieve an up-to-date list of TransferTo Payers
+* Added new validation in Web Payment Form Request based on lifetime and reminder value.
+* Added support of new transaction type TransferTo Payout
+* Added support of new transactions type:
+    - Davivienda
+    - eZeeCard payout
+    - TransferTo Payout
+    - Webpay
+* Deprecated Entercash and Banamex transaction types
+* Added additional Dynamic Descriptor attribute - sub_merchant_id
+* Updated Santader transaction type with additional Country support - Mexico
+
+**Fixes:**
+
+* Fixed the customer_phone parameter, it is now REQUIRED for Zimpler transaction type
+* Fixed Response with adding summary node in the response structure. Affected API Calls:
+    - Chargeback by Date Rage
+    - Retrieval by Date Range
+    - Processed Transaction by Date Range
+    - Reconcile by Date Range
+* Fixed Stream Network Interface for proper handling JSON responses
+* Removed the unnecessary terminal token from the endpoint URL of the Blacklist request
+
+1.17.2
+-----
+* Added additional MPI params for the synchronous 3D transaction types (Authorize3D, Sale3D & InitRecurringSale3D)
+    - Protocol Version
+    - Directory Server ID
+* Added new languages support in Web Payment Form request
+    - Indonesian (ID)
+    - Malay (MS)
+    - Thai (TH)
+    - Czech (CS)
+    - Croatian (HR)
+    - Slovenian (SL)
+* Updated Error Messages and codes
+* Fixed i18n constants. All language code constants are in ISO-639-1 and can be used in that way Genesis\API\Constants\i18n::EN
+* Fixed magic setter, removed trim causing problem when unsetting request attributes after initialisation of the genesis object
+
+1.17.1
+-----
+* Improved the error handling capabilities of the SDK
+* Fixed issue with Genesis Fx Services’ automated tests
+
+1.17.0
+-----
+* Added support for Genesis Fx Services
+* Added support for Level 3 Travel Data
+* Improved and refactored automation tests
+* Fixed RapiPago transaction type
+
+1.16.0
+-----
+* Added support for Genesis KYC Services
+
+1.15.2
+-----
+* Added support for Preauthorizations
+
+1.15.1
+-----
+* Added transaction types
+    - Financial\OnlineBankingPayments\TrustPay
+* Improved config examples in README
+
+1.15.0
+-----
+* Added transaction types
+    - Financial\Cards\Bancontact
+    - Financial\OnlineBankingPayments\Eps
+    - Financial\OnlineBankingPayments\GiroPay
+    - Financial\OnlineBankingPayments\Ideal
+    - Financial\OnlineBankingPayments\MyBank
+    - Financial\Wallets\Qiwi
+
+1.14.1
+-----
+* Added Pay Later functionality for Web Payment Form
+
+1.14.0
+-----
+* Added support for Consumers API
+* Added support for Document ID Parameter
+* Updated OnlineBanking payment method
+    - Added payment_type field
+    - Fixed issue when the chosen currency is INR
+
+1.13.0
+-----
+* Added transaction types
+    - Astropay Card
+    - Bancomer
+    - Bradesco
+    - Itau
+    - Neosurf
+    - PSE (Pagos Seguros en Linea)
+    - Rapipago
+    - Safetypay
+    - Santander
+* Moved payment methods to Vouchers section
+    - CashU
+    - Paysafecard
+* Updated Trustly payment method's supported countries
+
+1.12.0
+-----
+* Added tokenization support for Web Payment Form
+* Rebranded Paysec to OnlineBanking
+* Added transaction types
+    - Argencard
+    - Astropay Direct
+    - Aura
+    - Baloto
+    - Banamex
+    - Banco de Occidente
+    - Boleto
+    - Cabal
+    - Carulla
+    - Cencosud
+    - Efecty
+    - Elo
+    - Empresse de Energia
+    - Hipercard
+    - Nativa
+    - Naranja
+    - OXXO
+    - Redpagos
+    - Pago Facil
+    - Surtimax
+    - Santander Cash
+    - Tarjeta Shopping
+
+1.11.0
+-----
+* Added transaction types
+    - BitPay
+    - Entercash
+    - Multibanco
+    - InstantTransfer
+    - PayU
+    - Banco do Brasil
+    - Zimpler
+* Deprecated transaction types
+    - Citadel
+* Extension of transaction parameters' validations
+
+1.10.3
+-----
+* Extended handling of API errors
+
+1.10.2
+-----
+* Refactored Klarna code to improve parameters structure
+* Added restriction to allow only supported countries for Klarna payment method
+* Added Lifetime parameter for Web Payment Form request
+* Improved error handling
+* SDK installation steps in readme have been extended
+
+1.10.1
+-----
+* Implemented additional features for Klarna payment method
+    - New request field
+    - New item types
+
+1.10.0
+-----
+* Rebranding
+
+1.9.3
+-----
+* Small fixes for Klarna Transaction Type
+* Update refundable transactions list
+
+1.9.2
+-----
+* Added Support for Klarna Transaction Type
+* Added Support for Split Payments
+* Deprecate INPay ABNiDEAL Transaction Type
+
+1.9.1
+-----
+* Added Paysafecard supported countries
+    - AR
+    - AE
+    - KW
+* Update TrustPay supported countries
+    - CZ
+    - SK
+* Remove Teleingreso payment type
+
+1.9.0
+-----
+* Added Support for new Gift Cards Transaction Types
+    - TCS
+    - Fashioncheque
+    - Intersolve
+
+1.8.3
+-----
+* Fixed bug with missing iDebit Payin transaction type for Web Payment Form.
+
+1.8.2
+-----
+* Added factory method for financial requests in base Genesis class for easier creation of request objects.
+* Changed request's magic setter methods to return false for missing properties.
+
+1.8.1
+-----
+* Deprecate AVS Transaction Type
+
+1.8.0
+-----
+* Added Support for new Transaction Types
+    - Alipay
+    - Earthport
+    - PaySec
+    - WeChat
+* Added mappings for deprecated API requests
+    - Created an alias Void for Cancel transaction
+* Extended WPF validations and specs
+* Internal Refactoring
+    - SDD Payout is renamed to SCT Payout
+
+1.7.0
+-----
+* Added Support for new Transaction Types
+    - Added API for iDebit
+    - Added API for InstaDebit
+    - Added API for PayPal Express
+    - Added API for Citadel
+* Added Payment Methods to PPRO
+    - Mr.Cash
+    - MyBank
+* Extended Validations to API Requests for:
+    - Credit Card
+    - Required Field Values
+    - Conditionally required fields
+    - Supported Countries & Currencies for:
+        - APMs
+        - Wallets
+        - oBeP
+        - SDD
+* Internal Refactoring
+
+1.6.0
+-----
+* Restructured Financial API Requests
+    - Added Traits for Transaction Attributes in API Requests
+    - Restructured Base API Requests
+* Removed Support for PHP < 5.5
+    - Minimum Requirements (PHP >= 5.5.9)
+* Added Support for PHP 7.1
+    - Void Request Class is now renamed to Cancel
+    - Updated Build Jobs for Travis CI
+* Added Support for new Transaction Types
+    - Added API for SDD Payout
+    - Added API for Trustly (Sale & Withdrawal)
+* Updated Risk Params List
+    - Use Risk Params only for user-triggered payment transactions
+        - Authorize
+        - Authorize3d
+        - Sale
+        - Sale3d
+        - InitRecurringSale
+        - InitRecurringSale3d
+        - AccountVerification
+        - AVS
+    - Added new Risk Params
+* Fix for Response Object Transformation when Error Response received from Gateway
+    - Amount is now always transformed from Exponent
+    - Timestamp is now always transformed from ISO 8601
+* Fix for SDD Sale
+    - Added missing Request Attributes for Consumer's Addresses
+    - Added missing attribute billing_country to the Required API Params
+* Fix Required API Params for Alternative Financial API Requests
+
+1.5.0
+-----
+* Added Support Genesis v6.2
+    - Added API for INPay
+    - Added API for P24
+    - Added API for SDD
+    - Added WPF Dynamic Descriptor Params
+* Added missing fields to transaction types
+    - customer_account_id to WebMoney
+    - notification_url to APMs
+* Added Specs for new transaction types
+* Describe available methods for all Request classes
+
+1.4.3
+-----
+* Added Support for BirthDate API Param in the following Processing APIs
+    - Authorize
+    - Authorize3D
+    - AccountVerification
+    - AVS
+    - InitRecurringSale
+    - InitRecurringSale3D
+    - PayByVouchers Sale
+    - Payout
+    - Sale
+    - Sale3D
+* Update Specs
+    - WPF Create
+    - PBV Sale
+    - PBV Yeepay
+    
+1.4.2
+-----
+* Updated validations for WPF APM custom parameters
+
+1.4.1
+-----
+* Updated APIs for PBV Sale and PBV Yeepay 
+    - New transaction param CardType
+    - New transaction param RedeemType
+* Added validations for WPF transactions and PBV transaction parameters
+
+1.4.0
+-----
+* Add support for Genesis Gateway v4.9
+* Add support for POLi, WebMoney, Vouchers (w/ Cards), Vouchers (via oBeP) payment methods
+* Add support for iDEAL via PPRO
+* Add support for FraudReports
+* Remove payment method BankTransfers\PayByVoucher
+
+1.3.1
+-----
+* Minor changes - README and Travis configuration tweaks
+
+1.3.0
+-----
+
+* Add support for Genesis Gateway v4.0
+* Add support for iDEAL ABN Bank retrieval
+* Add deprecation notice for payment method "SOFORT iDEAL"
+* New transaction types:
+    - iDEAL (via ABN)
+    - Neteller
+
+1.2.0
+-----
+
+* Add support for Genesis Gateway v3.9
+* Add support for 'emerchantpay' endpoint
+* New transaction types:
+    - CashU
+    - eZeeWallet
+    - PayByVoucher
+    - PaySafeCard
+    - PPRO
+    - SOFORT
+    - iDEAL (via SOFORT)
+* Internal refactoring:
+    - API requests namespace changes
+    - API\Response will now throw Exceptions automatically, when transaction failed or there are network / parsing errors
+    - API\Notification now accepts incoming data from the constructor and has the ability to reconcile with Genesis
+    - Rename 'stream_context' interface to 'stream'
+    - Builder interface now accepts only language names, i.e. 'xml', 'json'
+    - Timestamp field in the response object is now an instance of DateTime object, whenever DateTime parsing is possible
+    - Deprecate methods getFormattedAmount() and getFormattedTimestamp() from API\Response as they are applied automatically
+* System Requirements are now being verified at runtime
+* Update the CA Bundle
+
+1.1.0
+-----
+
+* Add new methods to API\Notification:
+    - isAPINotification()
+    - isWPFNotification()
+    - renderResponse()
+* Change API\Response::getResponseObject type from SimpleXMLElement to stdClass
+* Internal refactoring
+* Update comments/headers
+
+1.0.2
+-----
+
+* Add support for i18n localization
+* Add flag "isPartiallyApproved()", to API\Response, for partially-approved transactions
+* Add helper method API\Response::getFormattedAmount()
+* Add helper method API\Response::getFormattedTimestamp()
+* Add Network\Wrapper\Stream configuration based on the PHP version
+* Fix Nominal transaction amount conversion
+* Update PHPDoc comments
+* Update Specs
+
+1.0.1
+-----
+
+* Move the ISO-4217 currency handling to the post-processing
+* Fix API\Response::isSuccessful() returning wrong status on some transaction types
+* Fix Utils\Currency types
+* Update PHPDoc Comments
+* Update README
+* Update Specs
+
+1.0.0
+-----
+
+* Initial version

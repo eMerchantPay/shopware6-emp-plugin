@@ -1,0 +1,11 @@
+{% block sw_order_detail_content_tabs_general %}
+
+    {% parent %}
+
+    <sw-tabs-item v-if="isEmerchantpayPayment"
+                  :route="{ name: 'sw.order.emerchantpay-genesis-transaction-details', params: { id: $route.params.id } }"
+                  :title="$tc('emerchantpay-genesis-transactions.tab-title')">
+        {{ $tc('emerchantpay-genesis-transactions.tab-title') }}
+    </sw-tabs-item>
+
+{% endblock %}

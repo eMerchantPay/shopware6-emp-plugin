@@ -1,0 +1,44 @@
+{
+  "name": "emerchantpay/genesis",
+  "description": "emerchantpay Genesis Plugin, that gives you the ability to process payments through emerchantpay's Payment Gateway - Genesis.",
+  "version": "1.0.0",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "emerchantpay Ltd"
+    }
+  ],
+  "require-dev": {
+    "symplify/easy-coding-standard": "9.*",
+    "squizlabs/php_codesniffer": "3.*",
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "phpmd/phpmd" : "2.*"
+  },
+  "extra": {
+    "shopware-plugin-class": "Emerchantpay\\Genesis\\EmerchantpayGenesis",
+    "label": {
+      "de-DE": "emerchantpay Genesis Plugin",
+      "en-GB": "emerchantpay Genesis Plugin"
+    },
+    "description": {
+      "de-DE": "emerchantpay Payment Plugin provides payments via Genesis Gateway",
+      "en-GB": "emerchantpay Payment Plugin provides payments via Genesis Gateway"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Emerchantpay\\Genesis\\": "src/"
+    }
+  },
+  "require": {
+    "genesisgateway/genesis_php": "1.18.9"
+  },
+  "keywords": [
+    "payment",
+    "genesis",
+    "sale",
+    "authorize",
+    "shopware"
+  ]
+}

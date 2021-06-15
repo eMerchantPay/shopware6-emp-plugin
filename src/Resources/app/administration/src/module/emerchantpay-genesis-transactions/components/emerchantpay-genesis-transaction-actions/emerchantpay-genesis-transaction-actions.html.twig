@@ -1,0 +1,40 @@
+<div>
+    {% block emerchantpay_genesis_transaction_actions_buttons_container %}
+    <sw-card-section secondary slim>
+        <sw-button size="small"
+                   :disabled="!isVoidAvailable"
+                   @click="showModal('void')">
+            {{ $tc('emerchantpay-genesis-transactions.header-actions.void') }}
+        </sw-button>
+        <sw-button size="small"
+                   :disabled="!isCaptureAvailable"
+                   @click="showModal('capture')">
+            {{ $tc('emerchantpay-genesis-transactions.header-actions.capture') }}
+        </sw-button>
+        <sw-button size="small"
+                   :disabled="!isRefundAvailable"
+                   @click="showModal('refund')">
+            {{ $tc('emerchantpay-genesis-transactions.header-actions.refund') }}
+        </sw-button>
+    </sw-card-section>
+
+    <emerchantpay-genesis-transaction-action-refund
+            v-if="modalType === 'refund'"
+            :actionTransaction="actionTransaction"
+            @modal-close="closeModal"
+            @executed-refund-event="referenceAction">
+    </emerchantpay-genesis-transaction-action-refund>
+    <emerchantpay-genesis-transaction-action-capture
+            v-if="modalType === 'capture'"
+            :actionTransaction="actionTransaction"
+            @modal-close="closeModal"
+            @executed-capture-event="referenceAction">
+    </emerchantpay-genesis-transaction-action-capture>
+    <emerchantpay-genesis-transaction-action-void
+            v-if="modalType === 'void'"
+            :actionTransaction="actionTransaction"
+            @modal-close="closeModal"
+            @executed-void-event="referenceAction">
+    </emerchantpay-genesis-transaction-action-void>
+    {% endblock %}
+</div>

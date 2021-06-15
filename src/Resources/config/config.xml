@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>emerchantpay Checkout</title>
+        <title lang="de-DE">emerchantpay Checkout</title>
+
+        <input-field type="bool">
+            <name>checkoutLiveMode</name>
+            <label>Live Mode</label>
+            <defaultValue>true</defaultValue>
+            <placeholder>Enable/Disable Live Mode</placeholder>
+            <helpText>Transactions go through our testing environment (no money is being transferred) or they go through our live (production) servers. Useful when you install the plugin for the first time and try to tweak all the settings.</helpText>
+        </input-field>
+
+        <input-field>
+            <name>checkoutMerchantUsername</name>
+            <copyable>true</copyable>
+            <label>Username</label>
+            <placeholder>Your Username, required for accessing the Genesis Gateway</placeholder>
+            <helpText>Contact your account manager for more information</helpText>
+        </input-field>
+
+        <input-field>
+            <name>checkoutMerchantPassword</name>
+            <copyable>true</copyable>
+            <label>Password</label>
+            <placeholder>Your Password, required for accessing the Genesis Gateway</placeholder>
+            <helpText>Contact your account manager for more information</helpText>
+        </input-field>
+
+        <input-field type="multi-select">
+            <name>checkoutTransactionTypes</name>
+            <options>
+                <option>
+                    <id>authorize</id>
+                    <name>Authorize</name>
+                </option>
+                <option>
+                    <id>authorize3d</id>
+                    <name>Authorize (3D-Secure)</name>
+                </option>
+                <option>
+                    <id>eps</id>
+                    <name>Eps</name>
+                </option>
+                <option>
+                    <id>giropay</id>
+                    <name>GiroPay</name>
+                </option>
+                <option>
+                    <id>ideal</id>
+                    <name>iDeal</name>
+                </option>
+                <option>
+                    <id>ideal_ppro</id>
+                    <name>IDEAL_PPRO</name>
+                </option>
+                <option>
+                    <id>paypal_express</id>
+                    <name>PayPal Express</name>
+                </option>
+                <option>
+                    <id>post_finance</id>
+                    <name>Post Finance</name>
+                </option>
+                <option>
+                    <id>sale</id>
+                    <name>Sale</name>
+                </option>
+                <option>
+                    <id>sale3d</id>
+                    <name>Sale (3D-Secure)</name>
+                </option>
+                <option>
+                    <id>sdd_sale</id>
+                    <name>SDD Sale</name>
+                </option>
+                <option>
+                    <id>sofort</id>
+                    <name>Sofort</name>
+                </option>
+                <option>
+                    <id>trustly_sale</id>
+                    <name>Trustly Sale</name>
+                </option>
+            </options>
+            <label>Transaction Types</label>
+            <helpText>The type of transactions that should be attempted when the customer is redirected to the checkout form</helpText>
+            <placeholder>Choose Transaction Types...</placeholder>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>checkoutLanguage</name>
+            <options>
+                <option>
+                    <id>AR</id>
+                    <name>AR</name>
+                </option>
+                <option>
+                    <id>BG</id>
+                    <name>BG</name>
+                </option>
+                <option>
+                    <id>DE</id>
+                    <name>DE</name>
+                </option>
+                <option>
+                    <id>EN</id>
+                    <name>EN</name>
+                </option>
+                <option>
+                    <id>ES</id>
+                    <name>ES</name>
+                </option>
+                <option>
+                    <id>FR</id>
+                    <name>FR</name>
+                </option>
+                <option>
+                    <id>HI</id>
+                    <name>HI</name>
+                </option>
+                <option>
+                    <id>JA</id>
+                    <name>JA</name>
+                </option>
+                <option>
+                    <id>IS</id>
+                    <name>IS</name>
+                </option>
+                <option>
+                    <id>IT</id>
+                    <name>IT</name>
+                </option>
+                <option>
+                    <id>NL</id>
+                    <name>NL</name>
+                </option>
+                <option>
+                    <id>PT</id>
+                    <name>PT</name>
+                </option>
+                <option>
+                    <id>PL</id>
+                    <name>PL</name>
+                </option>
+                <option>
+                    <id>RU</id>
+                    <name>RU</name>
+                </option>
+                <option>
+                    <id>TR</id>
+                    <name>TR</name>
+                </option>
+                <option>
+                    <id>ZH</id>
+                    <name>ZH</name>
+                </option>
+                <option>
+                    <id>ID</id>
+                    <name>ID</name>
+                </option>
+                <option>
+                    <id>MS</id>
+                    <name>MS</name>
+                </option>
+                <option>
+                    <id>TH</id>
+                    <name>TH</name>
+                </option>
+                <option>
+                    <id>CS</id>
+                    <name>CS</name>
+                </option>
+                <option>
+                    <id>HR</id>
+                    <name>HR</name>
+                </option>
+                <option>
+                    <id>SL</id>
+                    <name>SL</name>
+                </option>
+                <option>
+                    <id>FI</id>
+                    <name>FI</name>
+                </option>
+                <option>
+                    <id>NO</id>
+                    <name>NO</name>
+                </option>
+                <option>
+                    <id>DA</id>
+                    <name>DA</name>
+                </option>
+                <option>
+                    <id>SV</id>
+                    <name>SV</name>
+                </option>
+            </options>
+            <defaultValue>EN</defaultValue>
+            <label>Checkout Language</label>
+            <helpText>Select the language for the customer UI on the Remote Server</helpText>
+            <placeholder>Choose Checkout Language...</placeholder>
+        </input-field>
+    </card>
+</config>

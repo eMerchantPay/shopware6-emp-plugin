@@ -1,0 +1,22 @@
+<sw-modal variant="small"
+          :title="$tc('emerchantpay-genesis-transactions.transaction-actions.void')"
+          @modal-close="closeModal">
+
+    <p>{{ modalMessage }}</p>
+
+    <template #modal-footer>
+
+        <sw-button @click="closeModal">
+            {{ $tc('emerchantpay-genesis-transactions.transaction-actions.cancel') }}
+        </sw-button>
+
+        <sw-button variant="primary"
+                   @click="voidPayment">
+            {{ $tc('emerchantpay-genesis-transactions.transaction-actions.void') }}
+        </sw-button>
+
+    </template>
+
+    <sw-loader v-if="isLoading" size="43px">
+    </sw-loader>
+</sw-modal>
