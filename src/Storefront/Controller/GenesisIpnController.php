@@ -20,6 +20,7 @@
 namespace Emerchantpay\Genesis\Storefront\Controller;
 
 use Emerchantpay\Genesis\Service\Payment\Checkout;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
@@ -34,6 +35,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class GenesisIpnController extends StorefrontController
 {
     /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    /**
      * @var Checkout
      */
     private $checkoutService;
@@ -44,9 +50,11 @@ class GenesisIpnController extends StorefrontController
     private $logger;
 
     public function __construct(
+        ContainerInterface $container,
         Checkout $checkoutService,
         LoggerInterface $logger
     ) {
+        $this->container = $container;
         $this->checkoutService = $checkoutService;
         $this->logger = $logger;
     }
@@ -82,10 +90,13 @@ class GenesisIpnController extends StorefrontController
                 $this->checkoutService->getMethod(),
                 $error->getMessage()
             );
-
             $this->logger->error($message, [0 => $error->getTraceAsString()]);
 
-            return new Response($error->getMessage(), Response::HTTP_BAD_REQUEST, ['Content-Type: text/plain']);
+            return new Response(
+                $error->getMessage() . PHP_EOL . $error->getTraceAsString(),
+                Response::HTTP_BAD_REQUEST,
+                ['Content-Type: text/plain']
+            );
         }
     }
 }

@@ -36,6 +36,7 @@
         </service>
 
         <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisReturnController" public="true">
+            <argument type="service" id="Psr\Container\ContainerInterface"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Flow\ReturnUrl"/>
         </service>
 
@@ -69,19 +70,23 @@
         </service>
 
         <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisIpnController" public="true">
+            <argument type="service" id="Psr\Container\ContainerInterface"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Api\Reference\Administration\EmerchantpayGenesisTransactionController"
                  public="true">
+            <argument type="service" id="Psr\Container\ContainerInterface"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\ReferenceTransactions"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
         </service>
 
-        <service id="Emerchantpay\Genesis\Api\Utils\Administration\EmerchantpayGenesisUtilsController" public="true"/>
+        <service id="Emerchantpay\Genesis\Api\Utils\Administration\EmerchantpayGenesisUtilsController" public="true">
+            <argument type="service" id="Psr\Container\ContainerInterface"/>
+        </service>
 
         <service id="Emerchantpay\Genesis\Utils\TransactionTree"/>
 

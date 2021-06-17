@@ -281,7 +281,8 @@ class Checkout extends Base
                 ->setShippingZipCode($this->paymentData->getShippingZipcode())
                 ->setShippingCity($this->paymentData->getShippingCity())
                 ->setShippingState($this->paymentData->getShippingState())
-                ->setShippingCountry($this->paymentData->getShippingCountry());
+                ->setShippingCountry($this->paymentData->getShippingCountry())
+                ->setLanguage($this->getMethodConfig()[ConfigKey::CHECKOUT_LANGUAGE]);
 
             $this->appendTransactionTypes();
         } catch (GenesisException $e) {

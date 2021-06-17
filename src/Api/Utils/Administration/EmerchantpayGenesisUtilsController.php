@@ -20,6 +20,7 @@
 namespace Emerchantpay\Genesis\Api\Utils\Administration;
 
 use Genesis\Utils\Currency;
+use Psr\Container\ContainerInterface;
 use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -41,6 +42,16 @@ if (file_exists(dirname(dirname(dirname(dirname(__DIR__)))) . '/vendor/autoload.
  */
 class EmerchantpayGenesisUtilsController extends AbstractController
 {
+    /**
+     * @var ContainerInterface
+     */
+    protected $container;
+
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
     /**
      * @OA\Get(
      *     path="/emerchantpay-v1/genesis/utils/convert-amount-exponent/{amount}/{currency}",
@@ -69,6 +80,12 @@ class EmerchantpayGenesisUtilsController extends AbstractController
      * )
      * @Route(
      *     "/api/v{version}/emerchantpay-v1/genesis/utils/convert-amount-exponent/{amount}/{currency}",
+     *     name="api.emerchantpay.genesis.version-endpoint.utils.convert-currency-exponent",
+     *     methods={"GET"}
+     * )
+     *
+     * @Route(
+     *     "/api/emerchantpay-v1/genesis/utils/convert-amount-exponent/{amount}/{currency}",
      *     name="api.emerchantpay.genesis.utils.convert-currency-exponent",
      *     methods={"GET"}
      * )
