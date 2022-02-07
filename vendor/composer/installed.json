@@ -1,17 +1,17 @@
 [
     {
         "name": "genesisgateway/genesis_php",
-        "version": "1.18.9",
-        "version_normalized": "1.18.9.0",
+        "version": "1.19.2",
+        "version_normalized": "1.19.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/GenesisGateway/genesis_php.git",
-            "reference": "bb238b164f05d6800eb196e48bc3a3a21610bac8"
+            "reference": "2955e64db49471ed25b0a2969854fe46fc4247af"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/bb238b164f05d6800eb196e48bc3a3a21610bac8",
-            "reference": "bb238b164f05d6800eb196e48bc3a3a21610bac8",
+            "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/2955e64db49471ed25b0a2969854fe46fc4247af",
+            "reference": "2955e64db49471ed25b0a2969854fe46fc4247af",
             "shasum": ""
         },
         "require": {
@@ -28,7 +28,7 @@
             "fzaninotto/faker": "1.*@stable",
             "phpspec/phpspec": "3.4.*@stable"
         },
-        "time": "2021-03-17T12:18:54+00:00",
+        "time": "2022-01-14T16:07:07+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -47,7 +47,7 @@
             "POLi",
             "Przelewy24",
             "SDD",
-            "apple",
+            "apple_pay",
             "aura",
             "authorize",
             "baloto",
@@ -83,6 +83,7 @@
             "genesis",
             "genesisgateway",
             "giropay",
+            "google_pay",
             "ideal",
             "idebit",
             "idebit_payin",

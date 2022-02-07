@@ -37,6 +37,13 @@ class Config
     public const PPRO_TRANSACTION_SUFFIX = '_ppro';
 
     /**
+     * Google Pay Transaction Prefix and Types
+     */
+    public const GOOGLE_PAY_TRANSACTION_PREFIX     = 'google_pay_';
+    public const GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE = 'authorize';
+    public const GOOGLE_PAY_PAYMENT_TYPE_SALE      = 'sale';
+
+    /**
      * Get All Checkout Method Config Keys
      */
     public static function getAllCheckoutConstants(): array

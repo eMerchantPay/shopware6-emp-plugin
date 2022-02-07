@@ -22,6 +22,8 @@
  */
 namespace Genesis\Utils;
 
+use Genesis\Exceptions\Exception;
+
 /**
  * Various helper functions used across the project
  *
@@ -131,14 +133,19 @@ final class Common
      * remove every key with empty value
      *
      * @param array $haystack - input array
+     * @param array $skipEmptyKeys
      *
      * @return array
      */
-    public static function emptyValueRecursiveRemoval($haystack)
+    public static function emptyValueRecursiveRemoval($haystack, $skipEmptyKeys = array())
     {
         foreach ($haystack as $key => $value) {
             if (is_array($value)) {
-                $haystack[$key] = self::emptyValueRecursiveRemoval($haystack[$key]);
+                $haystack[$key] = self::emptyValueRecursiveRemoval($haystack[$key], $skipEmptyKeys);
+            }
+
+            if (in_array($key, $skipEmptyKeys, true) && !is_null($value)) {
+                continue;
             }
 
             if (empty($haystack[$key])) {
@@ -439,5 +446,27 @@ final class Common
         $filterBoolean = static::filterBoolean($string);
 
         return (is_bool($filterBoolean)) ? $filterBoolean : (bool) $filterBoolean;
+    }
+
+    /**
+     * Remove specific keys from given arrayObject
+     *
+     * @param array $arrayKeys
+     * @param \ArrayObject $arrayObject
+     * @return \ArrayObject
+     */
+    public static function removeMultipleKeys($arrayKeys, $arrayObject)
+    {
+        if (!self::isValidArray($arrayKeys) || !$arrayObject instanceof \ArrayObject) {
+            throw new Exception();
+        }
+
+        foreach ($arrayKeys as $key) {
+            if (array_key_exists($key, $arrayObject)) {
+                unset($arrayObject->{$key});
+            }
+        }
+
+        return $arrayObject;
     }
 }

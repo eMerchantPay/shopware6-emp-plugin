@@ -93,6 +93,7 @@
         <service id="Emerchantpay\Genesis\Utils\ReferenceTransactions">
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\TransactionTree"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Utils\Data\ReferenceData">

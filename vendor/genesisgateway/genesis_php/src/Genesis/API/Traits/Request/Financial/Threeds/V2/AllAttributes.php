@@ -25,7 +25,7 @@ namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
 
 /**
  * Trait AllAttributes
- * Includes All Commont 3DSv2-Method Attributes with Recurring Attributes
+ * Includes All Common 3DSv2-Method Attributes with Recurring Attributes
  *
  * @package Genesis\API\Traits\Request\Financial\Threeds\V2
  */

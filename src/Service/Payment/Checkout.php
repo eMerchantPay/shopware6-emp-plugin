@@ -197,7 +197,7 @@ class Checkout extends Base
         if (
         !(
             GenesisTypes::isCapture($transaction->getTransactionType()) ||
-            GenesisTypes::isAuthorize($transaction->getTransactionType())
+            $this->isAuthorize($transaction->getTransactionType())
         )
         ) {
             return;
@@ -205,7 +205,7 @@ class Checkout extends Base
 
         if (
             $action === ReferenceTransactions::ACTION_VOID &&
-            GenesisTypes::isAuthorize($transaction->getTransactionType())
+            $this->isAuthorize($transaction->getTransactionType())
         ) {
             return;
         }
@@ -244,6 +244,22 @@ class Checkout extends Base
 
                 break;
         }
+    }
+
+    /**
+     * @param $transactionType
+     * @return bool
+     */
+    protected function isAuthorize($transactionType): bool
+    {
+        if ($transactionType === GenesisTypes::GOOGLE_PAY) {
+            return in_array(
+                ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE,
+                $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
+            );
+        }
+
+        return parent::isAuthorize($transactionType);
     }
 
     /**
@@ -461,6 +477,13 @@ class Checkout extends Base
             $aliasMap[$method . $pproSuffix] = GenesisTypes::PPRO;
         }
 
+        $aliasMap = array_merge($aliasMap, [
+            ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE =>
+                GenesisTypes::GOOGLE_PAY,
+            ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_SALE      =>
+                GenesisTypes::GOOGLE_PAY
+        ]);
+
         foreach ($selectedTypes as $selectedType) {
             if (!array_key_exists($selectedType, $aliasMap)) {
                 $processedList[] = $selectedType;
@@ -472,8 +495,10 @@ class Checkout extends Base
 
             $processedList[$transactionType]['name'] = $transactionType;
 
+            $key = GenesisTypes::GOOGLE_PAY === $transactionType ? 'payment_type' : 'payment_method';
+
             $processedList[$transactionType]['parameters'][] = [
-                'payment_method' => str_replace($pproSuffix, '', $selectedType),
+                $key => str_replace([$pproSuffix, ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX], '', $selectedType),
             ];
         }
 

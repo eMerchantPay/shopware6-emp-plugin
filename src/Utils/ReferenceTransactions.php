@@ -19,6 +19,7 @@
 
 namespace Emerchantpay\Genesis\Utils;
 
+use Emerchantpay\Genesis\Constants\Config as ConfigKeys;
 use Emerchantpay\Genesis\Core\Payment\Transaction\TransactionEntity;
 use Emerchantpay\Genesis\Service\Payment\Checkout;
 use Emerchantpay\Genesis\Service\Payment\Transaction;
@@ -91,12 +92,19 @@ final class ReferenceTransactions
      */
     private $actionTransaction = null;
 
+    /**
+     * @var Config
+     */
+    private $config;
+
     public function __construct(
         Transaction $transactionService,
-        TransactionTree $transactionTreeService
+        TransactionTree $transactionTreeService,
+        Config $config
     ) {
-        $this->transactionService = $transactionService;
+        $this->transactionService     = $transactionService;
         $this->transactionTreeService = $transactionTreeService;
+        $this->config                 = $config;
     }
 
     /**
@@ -353,6 +361,10 @@ final class ReferenceTransactions
      */
     private function isValidAction(string $action, string $transactionType): bool
     {
+        if ($this->isTransactionWithCustomAttribute($transactionType)) {
+            return $this->isCustomAttributeBasedTransactionSelected($action, $transactionType);
+        }
+
         switch ($action) {
             case self::ACTION_CAPTURE:
                 return Types::canCapture($transactionType);
@@ -379,5 +391,61 @@ final class ReferenceTransactions
         );
 
         return $transaction;
+    }
+
+    /**
+     * Check if special validation should be applied
+     *
+     * @param $transactionType
+     * @return bool
+     */
+    private function isTransactionWithCustomAttribute($transactionType): bool
+    {
+        $transactionTypes = [
+            Types::GOOGLE_PAY
+        ];
+
+        return in_array($transactionType, $transactionTypes);
+    }
+
+    /**
+     * Check if canCapture, canRefund, canVoid based on the selected custom attribute
+     *
+     * @param $action
+     * @param $transactionType
+     * @return bool
+     */
+    private function isCustomAttributeBasedTransactionSelected($action, $transactionType)
+    {
+        switch ($transactionType) {
+            case Types::GOOGLE_PAY:
+                if (self::ACTION_CAPTURE === $action || self::ACTION_VOID === $action) {
+                    return in_array(
+                        ConfigKeys::GOOGLE_PAY_TRANSACTION_PREFIX .
+                        ConfigKeys::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE,
+                        $this->getCheckoutTransactionTypes()
+                    );
+                }
+
+                if ($action === self::ACTION_REFUND) {
+                    return in_array(
+                        ConfigKeys::GOOGLE_PAY_TRANSACTION_PREFIX .
+                        ConfigKeys::GOOGLE_PAY_PAYMENT_TYPE_SALE,
+                        $this->getCheckoutTransactionTypes()
+                    );
+                }
+                break;
+            default:
+                return false;
+        } // end Switch
+        return false;
+    }
+
+    /**
+     * Get Selected Checkout Transaction Types
+     */
+    private function getCheckoutTransactionTypes(): array
+    {
+        return $this->config->getCheckout()[ConfigKeys::CHECKOUT_TRANSACTION_TYPES];
     }
 }

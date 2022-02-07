@@ -5,9 +5,11 @@ namespace spec\Genesis\API\Request\Financial\Cards;
 use Genesis\API\Request\Financial\Cards\Authorize;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
+use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
 use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
 use spec\SharedExamples\Genesis\API\Request\Financial\UcofAttributesExamples;
 use spec\SharedExamples\Genesis\API\Request\Financial\CredentialOnFileAttributesExamples;
+use spec\SharedExamples\Genesis\API\Request\Financial\CreditCardAttributesExamples;
 use spec\SharedExamples\Genesis\API\Request\Financial\CryptoAttributesExamples;
 use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
 use spec\SharedExamples\Genesis\API\Request\Financial\FxRateAttributesExamples;
@@ -19,7 +21,7 @@ class AuthorizeSpec extends ObjectBehavior
 {
     use RequestExamples, FxRateAttributesExamples, DescriptorAttributesExample, CryptoAttributesExamples,
         TokenizationAttributesExamples, BusinessAttributesExample, CredentialOnFileAttributesExamples,
-        UcofAttributesExamples, ScaAttributesExamples;
+        UcofAttributesExamples, ScaAttributesExamples, AllowedZeroAmount, CreditCardAttributesExamples;
 
     public function it_is_initializable()
     {

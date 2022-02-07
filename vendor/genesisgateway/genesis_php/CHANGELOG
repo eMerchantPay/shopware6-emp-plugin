@@ -1,3 +1,49 @@
+1.19.2
+-----
+**Features**:
+* Added support for Google Pay
+* Added Client-Side Encryption support to the following transaction requests:
+    * Account Verification
+    * Authorize
+    * uthorize 3D
+    * Sale
+    * Sale 3D
+    * Init Recurring Sale
+    * Init Recurring Sale 3D
+    * Payout
+
+1.19.1
+-----
+**Features**:
+* Added support for New Zeland Billing Country to the Neosurf transaction request
+* Added allowed currencies to the Neosurf transaction request:
+    Australian dollar, Bulgarian lev, Brazilian real, Canadian dollar, Swiss franc, Chinese yuan,
+    Czech koruna, Danish krone, Euro, Pound sterling, *Hong Kong dollar, Croatian kuna, Hungarian forint,
+    Indonesian rupiah, Israeli new shekel, Indian rupee, Japanese yen, South Korean won, Mexican peso,
+    Malaysian ringgit, Norwegian krone, New Zealand dollar, Philippine peso, Polish złoty, Romanian leu,
+    Russian ruble, Swedish kronor, Singapore dollar, Thai baht, Turkish lira, United States dollar,
+    CFA franc BCEAO, South African rand
+* Added support for Revolut BIC in iDeal transaction request
+* Removed Spain (ES) from the supported Billing Countries in MyBank transaction request
+
+**Fixes**:
+* Fixed XML Builder
+
+1.19.0
+-----
+**Features**:
+* Added support for 3DSv2 attributes to the Web Payment Form transaction request
+* Added support for Business Payment Type attribute
+* Added support for Sca Preference attributes to the Web Payment Form transaction request
+* Added support for transaction with Zero Amount. Affected transaction requests:
+    * Authorize
+    * Authorize 3D
+    * Sale
+    * Sale 3D
+    * Init Recurring Sale
+    * Init Recurring Sale 3D
+    * Web Payment Form
+
 1.18.9
 -----
 **Features**:

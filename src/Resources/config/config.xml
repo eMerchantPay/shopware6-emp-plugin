@@ -50,6 +50,14 @@
                     <name>GiroPay</name>
                 </option>
                 <option>
+                    <id>google_pay_authorize</id>
+                    <name>GOOGLE_PAY_AUTHORIZE</name>
+                </option>
+                <option>
+                    <id>google_pay_sale</id>
+                    <name>GOOGLE_PAY_SALE</name>
+                </option>
+                <option>
                     <id>ideal</id>
                     <name>iDeal</name>
                 </option>

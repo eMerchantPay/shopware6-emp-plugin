@@ -1,5 +1,11 @@
 Change Log
 ---------------------
+__1.0.2__
+-----
+* Updated Genesis PHP SDK library to version 1.19.2 (#730)
+* Updated Card.js JavaScript plugin used by the Direct Method (#730)
+* Added support for Google Pay transaction type via Checkout Method (Web Payment Form) (#729)
+
 __1.0.1__
 -----
 * Added Shopware 6.4.x support (#583)

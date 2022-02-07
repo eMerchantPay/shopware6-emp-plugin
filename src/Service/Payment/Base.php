@@ -316,7 +316,7 @@ abstract class Base
 
         switch ($paymentStatus) {
             case GenesisStates::APPROVED:
-                if (GenesisTypes::isAuthorize($transactionType)) {
+                if ($this->isAuthorize($transactionType)) {
                     $this->getShopwareStatusPaymentHandler()->process($transactionId, $context);
 
                     break;
@@ -345,6 +345,14 @@ abstract class Base
 
                 break;
         }
+    }
+
+    /**
+     * Checks if the Given Transaction Type is Authorization
+     */
+    protected function isAuthorize($transactionType): bool
+    {
+        return GenesisTypes::isAuthorize($transactionType);
     }
 
     /**
