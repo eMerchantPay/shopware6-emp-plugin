@@ -252,11 +252,17 @@ class Checkout extends Base
      */
     protected function isAuthorize($transactionType): bool
     {
-        if ($transactionType === GenesisTypes::GOOGLE_PAY) {
-            return in_array(
-                ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE,
-                $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
-            );
+        switch ($transactionType) {
+            case GenesisTypes::GOOGLE_PAY:
+                return in_array(
+                    ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE,
+                    $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
+                );
+            case GenesisTypes::PAY_PAL:
+                return in_array(
+                    ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_AUTHORIZE,
+                    $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
+                );
         }
 
         return parent::isAuthorize($transactionType);
@@ -279,6 +285,7 @@ class Checkout extends Base
                 ->setCustomerPhone($this->paymentData->getPhone())
 
                 ->setReturnSuccessUrl($this->paymentData->getSuccessUrl())
+                ->setReturnPendingUrl($this->paymentData->getSuccessUrl())
                 ->setReturnCancelUrl($this->paymentData->getCancelUrl())
                 ->setReturnFailureUrl($this->paymentData->getFailureUrl())
                 ->setNotificationUrl($this->paymentData->getNotificationUrl())
@@ -481,7 +488,13 @@ class Checkout extends Base
             ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE =>
                 GenesisTypes::GOOGLE_PAY,
             ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_SALE      =>
-                GenesisTypes::GOOGLE_PAY
+                GenesisTypes::GOOGLE_PAY,
+            ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_AUTHORIZE         =>
+                GenesisTypes::PAY_PAL,
+            ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_SALE              =>
+                GenesisTypes::PAY_PAL,
+            ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_EXPRESS           =>
+                GenesisTypes::PAY_PAL,
         ]);
 
         foreach ($selectedTypes as $selectedType) {
@@ -495,10 +508,18 @@ class Checkout extends Base
 
             $processedList[$transactionType]['name'] = $transactionType;
 
-            $key = GenesisTypes::GOOGLE_PAY === $transactionType ? 'payment_type' : 'payment_method';
+            $key = $this->getCustomParameterKey($transactionType);
 
             $processedList[$transactionType]['parameters'][] = [
-                $key => str_replace([$pproSuffix, ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX], '', $selectedType),
+                $key => str_replace(
+                    [
+                        $pproSuffix,
+                        ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX,
+                        ConfigKey::PAYPAL_TRANSACTION_PREFIX
+                    ],
+                    '',
+                    $selectedType
+                ),
             ];
         }
 
@@ -574,5 +595,28 @@ class Checkout extends Base
             default:
                 return GenesisStates::NEW_STATUS;
         }
+    }
+
+    /**
+     * @param $transactionType
+     * @return string
+     */
+    private function getCustomParameterKey($transactionType)
+    {
+        switch ($transactionType) {
+            case GenesisTypes::PPRO:
+                $result = 'payment_method';
+                break;
+            case GenesisTypes::PAY_PAL:
+                $result = 'payment_type';
+                break;
+            case GenesisTypes::GOOGLE_PAY:
+                $result = 'payment_subtype';
+                break;
+            default:
+                $result = 'unknown';
+        }
+
+        return $result;
     }
 }

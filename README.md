@@ -7,7 +7,7 @@ Requirements
 ------------
 
 * Shopware 6 (Tested on: __6.3.x__, __6.4.x__)
-* [GenesisPHP v1.19.2](https://github.com/GenesisGateway/genesis_php/releases/tag/1.19.2)
+* [GenesisPHP v1.20.0](https://github.com/GenesisGateway/genesis_php/releases/tag/1.20.0)
 
 GenesisPHP Requirements
 ------------
@@ -81,7 +81,6 @@ Supported Transactions
     * __PPRO__
       * __iDEAL__
     * __SOFORT__
-    * __PayPal Express__
   * __Credit Cards__
     * __Authorize__
     * __Authorize (3D-Secure)__
@@ -96,6 +95,8 @@ Supported Transactions
     * __iDebit Payin__
   * __Mobile__
     * __GooglePay__
+  * __Wallets__
+    * __PayPal__ 
 
 _Note_: If you have trouble with your credentials or terminal configuration, get in touch with our [support] team
 

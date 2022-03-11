@@ -66,7 +66,15 @@
                     <name>IDEAL_PPRO</name>
                 </option>
                 <option>
-                    <id>paypal_express</id>
+                    <id>pay_pal_authorize</id>
+                    <name>PayPal Authorize</name>
+                </option>
+                <option>
+                    <id>pay_pal_sale</id>
+                    <name>PayPal Sale</name>
+                </option>
+                <option>
+                    <id>pay_pal_express</id>
                     <name>PayPal Express</name>
                 </option>
                 <option>

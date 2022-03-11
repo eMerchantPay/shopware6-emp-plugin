@@ -1,17 +1,17 @@
 [
     {
         "name": "genesisgateway/genesis_php",
-        "version": "1.19.2",
-        "version_normalized": "1.19.2.0",
+        "version": "1.20.0",
+        "version_normalized": "1.20.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/GenesisGateway/genesis_php.git",
-            "reference": "2955e64db49471ed25b0a2969854fe46fc4247af"
+            "reference": "aeea0409530b7d6741b46af70b201d264b13688d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/2955e64db49471ed25b0a2969854fe46fc4247af",
-            "reference": "2955e64db49471ed25b0a2969854fe46fc4247af",
+            "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/aeea0409530b7d6741b46af70b201d264b13688d",
+            "reference": "aeea0409530b7d6741b46af70b201d264b13688d",
             "shasum": ""
         },
         "require": {
@@ -28,7 +28,7 @@
             "fzaninotto/faker": "1.*@stable",
             "phpspec/phpspec": "3.4.*@stable"
         },
-        "time": "2022-01-14T16:07:07+00:00",
+        "time": "2022-02-10T08:20:20+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

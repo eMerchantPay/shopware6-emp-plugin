@@ -402,7 +402,8 @@ final class ReferenceTransactions
     private function isTransactionWithCustomAttribute($transactionType): bool
     {
         $transactionTypes = [
-            Types::GOOGLE_PAY
+            Types::GOOGLE_PAY,
+            Types::PAY_PAL,
         ];
 
         return in_array($transactionType, $transactionTypes);
@@ -432,6 +433,30 @@ final class ReferenceTransactions
                         ConfigKeys::GOOGLE_PAY_TRANSACTION_PREFIX .
                         ConfigKeys::GOOGLE_PAY_PAYMENT_TYPE_SALE,
                         $this->getCheckoutTransactionTypes()
+                    );
+                }
+                break;
+            case Types::PAY_PAL:
+                if (self::ACTION_CAPTURE === $action || self::ACTION_VOID === $action) {
+                    return in_array(
+                        ConfigKeys::PAYPAL_TRANSACTION_PREFIX . ConfigKeys::PAYPAL_PAYMENT_TYPE_AUTHORIZE,
+                        $this->getCheckoutTransactionTypes()
+                    );
+                }
+
+                if (self::ACTION_REFUND == $action) {
+                    $refundableTypes = [
+                        ConfigKeys::PAYPAL_TRANSACTION_PREFIX . ConfigKeys::PAYPAL_PAYMENT_TYPE_SALE,
+                        ConfigKeys::PAYPAL_TRANSACTION_PREFIX . ConfigKeys::PAYPAL_PAYMENT_TYPE_EXPRESS,
+                    ];
+
+                    return (
+                        count(
+                            array_intersect(
+                                $refundableTypes,
+                                $this->getCheckoutTransactionTypes()
+                            )
+                        ) > 0
                     );
                 }
                 break;

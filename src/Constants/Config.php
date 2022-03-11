@@ -44,6 +44,14 @@ class Config
     public const GOOGLE_PAY_PAYMENT_TYPE_SALE      = 'sale';
 
     /**
+     * PayPal Transaction Prefix and Types
+     */
+    public const PAYPAL_TRANSACTION_PREFIX     = 'pay_pal_';
+    public const PAYPAL_PAYMENT_TYPE_AUTHORIZE = 'authorize';
+    public const PAYPAL_PAYMENT_TYPE_SALE      = 'sale';
+    public const PAYPAL_PAYMENT_TYPE_EXPRESS   = 'express';
+
+    /**
      * Get All Checkout Method Config Keys
      */
     public static function getAllCheckoutConstants(): array
