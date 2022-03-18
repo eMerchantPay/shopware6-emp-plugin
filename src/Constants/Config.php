@@ -52,6 +52,13 @@ class Config
     public const PAYPAL_PAYMENT_TYPE_EXPRESS   = 'express';
 
     /**
+     * Apple Pay Transaction Prefix and Types
+     */
+    public const APPLE_PAY_TRANSACTION_PREFIX     = 'apple_pay_';
+    public const APPLE_PAY_PAYMENT_TYPE_AUTHORIZE = 'authorize';
+    public const APPLE_PAY_PAYMENT_TYPE_SALE      = 'sale';
+
+    /**
      * Get All Checkout Method Config Keys
      */
     public static function getAllCheckoutConstants(): array

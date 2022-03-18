@@ -34,6 +34,14 @@
             <name>checkoutTransactionTypes</name>
             <options>
                 <option>
+                    <id>apple_pay_authorize</id>
+                    <name>APPLE_PAY_AUTHORIZE</name>
+                </option>
+                <option>
+                    <id>apple_pay_sale</id>
+                    <name>APPLE_PAY_SALE</name>
+                </option>
+                <option>
                     <id>authorize</id>
                     <name>Authorize</name>
                 </option>

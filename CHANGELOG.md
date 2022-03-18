@@ -1,5 +1,12 @@
 Change Log
 ---------------------
+
+__1.0.4__
+* Updated Genesis PHP SDK library to version 1.20.1 (#809)
+* Added new transaction type Apple Pay via Web Payment Form with support of its methods (#810):
+  * Authorize
+  * Sale
+
 __1.0.3__
 -----
 * Updated Genesis PHP SDK library to version 1.20.0 (#760)

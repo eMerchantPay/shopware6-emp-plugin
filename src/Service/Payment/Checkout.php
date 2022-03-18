@@ -263,6 +263,11 @@ class Checkout extends Base
                     ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_AUTHORIZE,
                     $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
                 );
+            case GenesisTypes::APPLE_PAY:
+                return in_array(
+                    ConfigKey::APPLE_PAY_TRANSACTION_PREFIX . ConfigKey::APPLE_PAY_PAYMENT_TYPE_AUTHORIZE,
+                    $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
+                );
         }
 
         return parent::isAuthorize($transactionType);
@@ -495,6 +500,10 @@ class Checkout extends Base
                 GenesisTypes::PAY_PAL,
             ConfigKey::PAYPAL_TRANSACTION_PREFIX . ConfigKey::PAYPAL_PAYMENT_TYPE_EXPRESS           =>
                 GenesisTypes::PAY_PAL,
+            ConfigKey::APPLE_PAY_TRANSACTION_PREFIX . ConfigKey::APPLE_PAY_PAYMENT_TYPE_AUTHORIZE   =>
+                GenesisTypes::APPLE_PAY,
+            ConfigKey::APPLE_PAY_TRANSACTION_PREFIX . ConfigKey::APPLE_PAY_PAYMENT_TYPE_SALE        =>
+                GenesisTypes::APPLE_PAY,
         ]);
 
         foreach ($selectedTypes as $selectedType) {
@@ -515,7 +524,8 @@ class Checkout extends Base
                     [
                         $pproSuffix,
                         ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX,
-                        ConfigKey::PAYPAL_TRANSACTION_PREFIX
+                        ConfigKey::PAYPAL_TRANSACTION_PREFIX,
+                        ConfigKey::APPLE_PAY_TRANSACTION_PREFIX,
                     ],
                     '',
                     $selectedType
@@ -611,6 +621,7 @@ class Checkout extends Base
                 $result = 'payment_type';
                 break;
             case GenesisTypes::GOOGLE_PAY:
+            case GenesisTypes::APPLE_PAY:
                 $result = 'payment_subtype';
                 break;
             default:

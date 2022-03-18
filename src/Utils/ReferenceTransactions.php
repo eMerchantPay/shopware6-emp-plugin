@@ -404,6 +404,7 @@ final class ReferenceTransactions
         $transactionTypes = [
             Types::GOOGLE_PAY,
             Types::PAY_PAL,
+            Types::APPLE_PAY,
         ];
 
         return in_array($transactionType, $transactionTypes);
@@ -457,6 +458,21 @@ final class ReferenceTransactions
                                 $this->getCheckoutTransactionTypes()
                             )
                         ) > 0
+                    );
+                }
+                break;
+            case Types::APPLE_PAY:
+                if (self::ACTION_CAPTURE === $action || self::ACTION_VOID === $action) {
+                    return in_array(
+                        ConfigKeys::APPLE_PAY_TRANSACTION_PREFIX . ConfigKeys::APPLE_PAY_PAYMENT_TYPE_AUTHORIZE,
+                        $this->getCheckoutTransactionTypes()
+                    );
+                }
+
+                if (self::ACTION_REFUND == $action) {
+                    return in_array(
+                        ConfigKeys::APPLE_PAY_TRANSACTION_PREFIX . ConfigKeys::APPLE_PAY_PAYMENT_TYPE_SALE,
+                        $this->getCheckoutTransactionTypes()
                     );
                 }
                 break;
