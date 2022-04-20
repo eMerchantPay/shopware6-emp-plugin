@@ -14,6 +14,15 @@
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
+        <service id="Emerchantpay\Genesis\Core\Payment\Tokenization\TokenizationConsumerDefinition">
+            <tag name="shopware.entity.definition" entity="emerchantpay_tokenization_consumer" />
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\TokenizationService">
+            <argument type="service" id="emerchantpay_tokenization_consumer.repository"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
+        </service>
+
         <service id="Emerchantpay\Genesis\Service\Payment\Checkout">
             <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\Logger"/>
@@ -21,6 +30,7 @@
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Transaction"/>
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\Mappers\ReferenceData"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\TokenizationService"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Service\CheckoutPayment">

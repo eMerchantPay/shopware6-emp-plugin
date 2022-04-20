@@ -228,5 +228,14 @@
             <helpText>Select the language for the customer UI on the Remote Server</helpText>
             <placeholder>Choose Checkout Language...</placeholder>
         </input-field>
+
+        <input-field type="bool">
+            <name>checkoutTokenization</name>
+            <label>Enable WPF Tokenization</label>
+            <defaultValue>false</defaultValue>
+            <placeholder>Enable/Disable WPF Tokenization</placeholder>
+            <helpText>In order to offer saving a payment method for future use, we should turn on WPF Tokenization</helpText>
+        </input-field>
+
     </card>
 </config>

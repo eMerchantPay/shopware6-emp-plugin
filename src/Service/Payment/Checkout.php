@@ -26,7 +26,11 @@ use Emerchantpay\Genesis\Constants\Config as ConfigKey;
 use Emerchantpay\Genesis\Core\Payment\Transaction\TransactionEntity;
 use Emerchantpay\Genesis\Service\Payment\Exceptions\InvalidGenesisRequest;
 use Emerchantpay\Genesis\Service\Payment\Exceptions\InvalidRequestAttributes;
+use Emerchantpay\Genesis\Service\Payment\Transaction as GenesisTransaction;
+use Emerchantpay\Genesis\Service\TokenizationService;
 use Emerchantpay\Genesis\Utils\Config;
+use Emerchantpay\Genesis\Utils\Mappers\PaymentData as PaymentDataMapper;
+use Emerchantpay\Genesis\Utils\Mappers\ReferenceData as ReferenceDataMapper;
 use Emerchantpay\Genesis\Utils\ReferenceTransactions;
 use Genesis\API\Constants\Endpoints;
 use Genesis\API\Constants\Environments;
@@ -39,13 +43,39 @@ use Genesis\Exceptions\ErrorParameter as GenesisErrorParameter;
 use Genesis\Exceptions\Exception as GenesisException;
 use Genesis\Genesis;
 use Genesis\Utils\Currency;
+use Psr\Log\LoggerInterface;
+use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\Uuid\Uuid;
 
 class Checkout extends Base
 {
     public const CHECKOUT_TRANSACTION_TYPE = 'web_payment';
+
+    /**
+     * @var TokenizationService
+     */
+    private $tokenizationService;
+
+    public function __construct(
+        Config $config,
+        LoggerInterface $logger,
+        PaymentDataMapper $paymentDataMapper,
+        GenesisTransaction $transactionService,
+        OrderTransactionStateHandler $orderPaymentStatusHandler,
+        ReferenceDataMapper $referenceDataMapper,
+        TokenizationService $tokenizationService
+    ) {
+        parent::__construct(
+            $config,
+            $logger,
+            $paymentDataMapper,
+            $transactionService,
+            $orderPaymentStatusHandler,
+            $referenceDataMapper
+        );
+        $this->tokenizationService = $tokenizationService;
+    }
 
     public function getMethod()
     {
@@ -104,6 +134,8 @@ class Checkout extends Base
      */
     public function executeTransactionRequest(): \stdClass
     {
+        $tokenizationService = $this->tokenizationService;
+
         try {
             $genesis = $this->getGenesis();
             $genesis->execute();
@@ -124,6 +156,11 @@ class Checkout extends Base
                 );
 
                 throw new InvalidGenesisRequest($message);
+            }
+
+            if (isset($responseObject->consumer_id) && !empty($responseObject->consumer_id)) {
+                $consumerId = $responseObject->consumer_id;
+                $tokenizationService->saveConsumerId($this->paymentData->getEmail(), $consumerId);
             }
 
             return $genesis->response()->getResponseObject();
@@ -278,8 +315,11 @@ class Checkout extends Base
      */
     protected function loadRequestAttributes(): void
     {
+        $tokenizationService = $this->tokenizationService;
+
         try {
-            $this->getGenesis()->request()
+            $request = $this->getGenesis()->request();
+            $request
                 ->setTransactionId($this->paymentData->getTransactionId())
                 ->setAmount($this->paymentData->getAmount())
                 ->setCurrency($this->paymentData->getCurrency())
@@ -311,6 +351,11 @@ class Checkout extends Base
                 ->setShippingState($this->paymentData->getShippingState())
                 ->setShippingCountry($this->paymentData->getShippingCountry())
                 ->setLanguage($this->getMethodConfig()[ConfigKey::CHECKOUT_LANGUAGE]);
+
+            if ($this->getMethodConfig()[ConfigKey::CHECKOUT_TOKENIZATION] === true) {
+                $request->setRememberCard('true');
+                $request->setConsumerId($tokenizationService->getConsumerId($this->paymentData->getEmail()));
+            }
 
             $this->appendTransactionTypes();
         } catch (GenesisException $e) {

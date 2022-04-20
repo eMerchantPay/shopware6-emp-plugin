@@ -20,9 +20,17 @@ WHERE TABLE_SCHEMA='{$connection->getDatabase()}'
   AND TABLE_NAME='emerchantpay_genesis_payment_entity' 
   AND COLUMN_NAME='shopware_payment_id';
 SQL;
-        /** @var ResultStatement $resultObject */
-        $resultObject = $connection->executeQuery($checkColumn);
-        $result = $resultObject->fetchAllAssociative();
+        $method = 'fetchAllAssociative';
+
+        if (!method_exists($connection, $method)) {
+            $method = 'fetchAssoc';
+        }
+
+        if (!method_exists($connection, $method)) {
+            $method = 'fetchAll';
+        }
+
+        $result = $connection->{$method}($checkColumn);
 
         if (!empty($result)) {
             return;
