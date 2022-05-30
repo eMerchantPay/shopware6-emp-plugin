@@ -32,6 +32,7 @@ use Emerchantpay\Genesis\Utils\Config;
 use Emerchantpay\Genesis\Utils\Mappers\PaymentData as PaymentDataMapper;
 use Emerchantpay\Genesis\Utils\Mappers\ReferenceData as ReferenceDataMapper;
 use Emerchantpay\Genesis\Utils\ReferenceTransactions;
+use Genesis\API\Constants\Banks;
 use Genesis\API\Constants\Endpoints;
 use Genesis\API\Constants\Environments;
 use Genesis\API\Constants\Payment\Methods as GenesisPproMethods;
@@ -47,6 +48,7 @@ use Psr\Log\LoggerInterface;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Framework\Context;
+use Genesis\Utils\Common as CommonUtils;
 
 class Checkout extends Base
 {
@@ -513,6 +515,16 @@ class Checkout extends Base
                     'user_id' => $this->paymentData->getShopwareUserId()
                 ];
                 break;
+            case GenesisTypes::ONLINE_BANKING_PAYIN:
+                $selectedBankCodes = $this->getMethodConfig()[ConfigKey::CHECKOUT_BANK_CODES];
+                if (CommonUtils::isValidArray($selectedBankCodes)) {
+                    $parameters['bank_codes'] = array_map(
+                        function ($value) {
+                            return ['bank_code' => $value];
+                        },
+                        $selectedBankCodes
+                    );
+                }
         }
 
         return $parameters;
@@ -674,5 +686,15 @@ class Checkout extends Base
         }
 
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    private static function getAvailableBankCodes()
+    {
+        return [
+            Banks::CPI => 'Interac Combined Pay-in'
+        ];
     }
 }

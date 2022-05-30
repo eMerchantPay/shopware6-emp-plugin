@@ -31,6 +31,7 @@ class Config
     public const CHECKOUT_TRANSACTION_TYPES = self::CHECKOUT_CONFIG_KEY . 'TransactionTypes';
     public const CHECKOUT_LANGUAGE          = self::CHECKOUT_CONFIG_KEY . 'Language';
     public const CHECKOUT_TOKENIZATION      = self::CHECKOUT_CONFIG_KEY . 'Tokenization';
+    public const CHECKOUT_BANK_CODES        = self::CHECKOUT_CONFIG_KEY . 'BankCodes';
 
     /**
      * Nested Transaction Types suffix
@@ -69,6 +70,7 @@ class Config
             self::CHECKOUT_USERNAME,
             self::CHECKOUT_PASSWORD,
             self::CHECKOUT_TRANSACTION_TYPES,
+            self::CHECKOUT_BANK_CODES,
             self::CHECKOUT_LANGUAGE,
             self::CHECKOUT_TOKENIZATION
         ];

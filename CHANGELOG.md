@@ -1,6 +1,11 @@
 Change Log
 ---------------------
 
+__1.1.1__
+-----
+* Added Interac Bank code to Online banking transaction type (#884)
+* Tested up to Shopware v. 6.4.11 (#896)
+
 __1.1.0__
 -----
 * Added config option for enabling Web Payment Form Tokenization service. Please, contact your account manager before enabling tokenization (#839)

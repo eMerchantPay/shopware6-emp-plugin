@@ -74,6 +74,10 @@
                     <name>IDEAL_PPRO</name>
                 </option>
                 <option>
+                    <id>online_banking</id>
+                    <name>Online Banking</name>
+                </option>
+                <option>
                     <id>pay_pal_authorize</id>
                     <name>PayPal Authorize</name>
                 </option>
@@ -113,6 +117,18 @@
             <label>Transaction Types</label>
             <helpText>The type of transactions that should be attempted when the customer is redirected to the checkout form</helpText>
             <placeholder>Choose Transaction Types...</placeholder>
+        </input-field>
+
+        <input-field type="multi-select">
+            <name>checkoutBankCodes</name>
+            <options>
+                <option>
+                    <id>CPI</id>
+                    <name>Interac Combined Pay-in</name>
+                </option>
+            </options>
+            <label>Bank codes for Online banking</label>
+            <helpText>You can select Bank codes for Online banking transaction type.</helpText>
         </input-field>
 
         <input-field type="single-select">
