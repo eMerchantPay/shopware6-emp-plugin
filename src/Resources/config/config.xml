@@ -90,6 +90,10 @@
                     <name>PayPal Express</name>
                 </option>
                 <option>
+                    <id>pix</id>
+                    <name>Pix</name>
+                </option>
+                <option>
                     <id>post_finance</id>
                     <name>Post Finance</name>
                 </option>

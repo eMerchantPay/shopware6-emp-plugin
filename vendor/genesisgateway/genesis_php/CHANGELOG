@@ -1,3 +1,44 @@
+1.21.2
+-----
+**Features**:
+
+* Improved compatibility with PHP 8+
+* Updated GiroPay transaction requests via direct and PPRO integration
+    * bic attribute was marked as optional
+    * iban attribute was marked as optional
+* Updated supported bank list for the Online Banking Payout transaction request
+* Added CAD currency support to the Online Banking Payout transaction request
+* Updated required description attribute for the Web Payment Form create transaction request by marking as optional
+* Added SCA parameters support to the Web Payment Form transaction request
+* Added Web Payment Form Id attribute support to the Web Payment Form transaction request
+* Added Return Pending URL attribute support to the PPRO transaction request
+* Updated iban attribute validation pattern for the GiroPay transaction request
+
+1.21.1
+-----
+**Fixes**:
+
+* Fixed amount parameter parsing part of the managed_recurring parameters for the following transaction requests:
+    * InitRecurringSale
+    * InitRecurringSale3D
+
+1.21.0
+-----
+**Features**:
+
+* Added support for African Mobile Sale and African Mobile Payout transaction requests
+* Added support for the PIX transaction request
+* Added support for Russian Mobile Sale and Russian Mobile Payout transaction requests
+* Added support for Money transfer to the Financial\Cards\Payout
+* Added support for Managed Recurring attributes to Init Recurring Sale and Init Recurring Sale3D transaction requests
+* Added support for Moldova country to Paysafecard transaction request
+* Updated Document ID attribute validations
+* Removed support for Moneyou issuer from the iDeal transaction request
+
+**Fixes**:
+
+* Fixed JSON API response parsing
+
 1.20.1
 -----
 **Features:**
@@ -9,6 +50,7 @@
     * Renamed RECURRING to INIT_RECURRING_SALE
 * Refactored Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePayParameters to Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes
 * Added support of Business Attributes for Apple Pay transaction request
+* Added Apple Pay via Web Payment Form
 
 1.20.0
 -----

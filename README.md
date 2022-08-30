@@ -6,8 +6,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.3.x, 6.4.x (Tested up to __6.4.11__)
-* [GenesisPHP v1.20.1](https://github.com/GenesisGateway/genesis_php/releases/tag/1.20.1)
+* Shopware 6.3.x, 6.4.x (Tested up to __6.4.13__)
+* [GenesisPHP v1.21.2](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.2)
 
 GenesisPHP Requirements
 ------------
@@ -81,6 +81,8 @@ Supported Transactions
     * __PPRO__
       * __iDEAL__
     * __SOFORT__
+  * __Cash Payments__
+    * __Pix__
   * __Credit Cards__
     * __Authorize__
     * __Authorize (3D-Secure)__
