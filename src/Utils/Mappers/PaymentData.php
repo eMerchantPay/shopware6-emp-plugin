@@ -171,6 +171,11 @@ class PaymentData
         try {
             $this->invoke($transaction, $context);
 
+            // Assign the current Shop Context
+            $this->paymentDataModel->setShopwareContext($context);
+            $this->paymentDataModel->setOrder($transaction->getOrder());
+            $this->paymentDataModel->setPaymentMethodId($transaction->getOrderTransaction()->getPaymentMethodId());
+
             // Transaction Attributes
             $this->paymentDataModel->setTransactionId($pluginTransactionId);
             $this->paymentDataModel->setShopwarePaymentId($transaction->getOrderTransaction()->getId());
@@ -424,8 +429,10 @@ class PaymentData
         /** @var OrderLineItemEntity $item */
         foreach ($items->getIterator() as $item) {
             $orderedItems[] = [
-                'quantity' => $item->getQuantity(),
+                'quantity'     => $item->getQuantity(),
                 'article_name' => $item->getLabel(),
+                'is_good'      => $item->getGood(),
+                'product_id'   => $item->getProductId()
             ];
         }
 

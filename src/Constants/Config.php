@@ -24,15 +24,18 @@ class Config
     // ====================
     // Checkout Config Keys
     // ====================
-    public const CHECKOUT_CONFIG_KEY        = 'checkout';
-    public const CHECKOUT_LIVE_MODE         = self::CHECKOUT_CONFIG_KEY . 'LiveMode';
-    public const CHECKOUT_USERNAME          = self::CHECKOUT_CONFIG_KEY . 'MerchantUsername';
-    public const CHECKOUT_PASSWORD          = self::CHECKOUT_CONFIG_KEY . 'MerchantPassword';
-    public const CHECKOUT_TRANSACTION_TYPES = self::CHECKOUT_CONFIG_KEY . 'TransactionTypes';
-    public const CHECKOUT_LANGUAGE          = self::CHECKOUT_CONFIG_KEY . 'Language';
-    public const CHECKOUT_TOKENIZATION      = self::CHECKOUT_CONFIG_KEY . 'Tokenization';
-    public const CHECKOUT_BANK_CODES        = self::CHECKOUT_CONFIG_KEY . 'BankCodes';
-
+    public const CHECKOUT_CONFIG_KEY                  = 'checkout';
+    public const CHECKOUT_LIVE_MODE                   = self::CHECKOUT_CONFIG_KEY . 'LiveMode';
+    public const CHECKOUT_USERNAME                    = self::CHECKOUT_CONFIG_KEY . 'MerchantUsername';
+    public const CHECKOUT_PASSWORD                    = self::CHECKOUT_CONFIG_KEY . 'MerchantPassword';
+    public const CHECKOUT_TRANSACTION_TYPES           = self::CHECKOUT_CONFIG_KEY . 'TransactionTypes';
+    public const CHECKOUT_LANGUAGE                    = self::CHECKOUT_CONFIG_KEY . 'Language';
+    public const CHECKOUT_TOKENIZATION                = self::CHECKOUT_CONFIG_KEY . 'Tokenization';
+    public const CHECKOUT_BANK_CODES                  = self::CHECKOUT_CONFIG_KEY . 'BankCodes';
+    public const CHECKOUT_THREEDS_ALLOWED             = self::CHECKOUT_CONFIG_KEY . 'ThreedsAllowed';
+    public const CHECKOUT_THREEDS_CHALLENGE_INDICATOR = self::CHECKOUT_CONFIG_KEY . 'ThreedsChallengeIndicator';
+    public const CHECKOUT_SCA_EXEMPTION               = self::CHECKOUT_CONFIG_KEY . 'ScaExemption';
+    public const CHECKOUT_SCA_EXEMPTION_AMOUNT        = self::CHECKOUT_CONFIG_KEY . 'ScaExemptionAmount';
     /**
      * Nested Transaction Types suffix
      */
@@ -72,7 +75,11 @@ class Config
             self::CHECKOUT_TRANSACTION_TYPES,
             self::CHECKOUT_BANK_CODES,
             self::CHECKOUT_LANGUAGE,
-            self::CHECKOUT_TOKENIZATION
+            self::CHECKOUT_TOKENIZATION,
+            self::CHECKOUT_THREEDS_ALLOWED,
+            self::CHECKOUT_THREEDS_CHALLENGE_INDICATOR,
+            self::CHECKOUT_SCA_EXEMPTION,
+            self::CHECKOUT_SCA_EXEMPTION_AMOUNT
         ];
     }
 }

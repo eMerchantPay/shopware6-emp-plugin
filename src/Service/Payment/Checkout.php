@@ -26,16 +26,18 @@ use Emerchantpay\Genesis\Constants\Config as ConfigKey;
 use Emerchantpay\Genesis\Core\Payment\Transaction\TransactionEntity;
 use Emerchantpay\Genesis\Service\Payment\Exceptions\InvalidGenesisRequest;
 use Emerchantpay\Genesis\Service\Payment\Exceptions\InvalidRequestAttributes;
+use Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsService;
 use Emerchantpay\Genesis\Service\Payment\Transaction as GenesisTransaction;
 use Emerchantpay\Genesis\Service\TokenizationService;
 use Emerchantpay\Genesis\Utils\Config;
 use Emerchantpay\Genesis\Utils\Mappers\PaymentData as PaymentDataMapper;
 use Emerchantpay\Genesis\Utils\Mappers\ReferenceData as ReferenceDataMapper;
 use Emerchantpay\Genesis\Utils\ReferenceTransactions;
-use Genesis\API\Constants\Banks;
 use Genesis\API\Constants\Endpoints;
 use Genesis\API\Constants\Environments;
 use Genesis\API\Constants\Payment\Methods as GenesisPproMethods;
+use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\DeliveryTimeframes;
+use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
 use Genesis\API\Constants\Transaction\States as GenesisStates;
 use Genesis\API\Constants\Transaction\Types as GenesisTypes;
 use Genesis\API\Request\WPF\Create as GenesisWpfCreate;
@@ -43,12 +45,12 @@ use Genesis\Config as GenesisConfig;
 use Genesis\Exceptions\ErrorParameter as GenesisErrorParameter;
 use Genesis\Exceptions\Exception as GenesisException;
 use Genesis\Genesis;
+use Genesis\Utils\Common as CommonUtils;
 use Genesis\Utils\Currency;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Framework\Context;
-use Genesis\Utils\Common as CommonUtils;
 
 class Checkout extends Base
 {
@@ -59,6 +61,11 @@ class Checkout extends Base
      */
     private $tokenizationService;
 
+    /**
+     * @var ThreedsService $threedsService
+     */
+    private $threedsService;
+
     public function __construct(
         Config $config,
         LoggerInterface $logger,
@@ -66,7 +73,8 @@ class Checkout extends Base
         GenesisTransaction $transactionService,
         OrderTransactionStateHandler $orderPaymentStatusHandler,
         ReferenceDataMapper $referenceDataMapper,
-        TokenizationService $tokenizationService
+        TokenizationService $tokenizationService,
+        ThreedsService $threedsService
     ) {
         parent::__construct(
             $config,
@@ -77,6 +85,7 @@ class Checkout extends Base
             $referenceDataMapper
         );
         $this->tokenizationService = $tokenizationService;
+        $this->threedsService      = $threedsService;
     }
 
     public function getMethod()
@@ -317,9 +326,8 @@ class Checkout extends Base
      */
     protected function loadRequestAttributes(): void
     {
-        $tokenizationService = $this->tokenizationService;
-
         try {
+            /** @var GenesisWpfCreate $request */
             $request = $this->getGenesis()->request();
             $request
                 ->setTransactionId($this->paymentData->getTransactionId())
@@ -356,7 +364,17 @@ class Checkout extends Base
 
             if ($this->getMethodConfig()[ConfigKey::CHECKOUT_TOKENIZATION] === true) {
                 $request->setRememberCard('true');
-                $request->setConsumerId($tokenizationService->getConsumerId($this->paymentData->getEmail()));
+                $request->setConsumerId(
+                    $this->tokenizationService->getConsumerId($this->paymentData->getEmail())
+                );
+            }
+
+            if ($this->getMethodConfig()[ConfigKey::CHECKOUT_THREEDS_ALLOWED] === true) {
+                $this->populateThreedsParameters();
+            }
+
+            if ((float) $this->paymentData->getAmount() <= $this->getScaExemptionAmount()) {
+                $request->setScaExemption($this->getMethodConfig()[ConfigKey::CHECKOUT_SCA_EXEMPTION]);
             }
 
             $this->appendTransactionTypes();
@@ -689,12 +707,95 @@ class Checkout extends Base
     }
 
     /**
-     * @return array
+     * Retrieve the SCA Exemption defined Amount in the method configuration
+     *
+     * @return float
      */
-    private static function getAvailableBankCodes()
+    private function getScaExemptionAmount()
     {
-        return [
-            Banks::CPI => 'Interac Combined Pay-in'
-        ];
+        $scaAmount = (float) $this->getMethodConfig()[ConfigKey::CHECKOUT_SCA_EXEMPTION_AMOUNT];
+
+        if ($scaAmount < 0) {
+            $scaAmount = 0.0;
+        }
+
+        return $scaAmount;
+    }
+
+    /**
+     * Assign the Threeds Parameters to the Genesis Request object
+     *
+     * @return void
+     * @throws \Exception
+     */
+    protected function populateThreedsParameters()
+    {
+        $this->threedsService->initializePayment($this->paymentData);
+
+        /** @var GenesisWpfCreate $request */
+        $request = $this->getGenesis()->request();
+
+        // 3DSv2 Control Attributes
+        $request->setThreedsV2ControlChallengeIndicator(
+            $this->getMethodConfig()[ConfigKey::CHECKOUT_THREEDS_CHALLENGE_INDICATOR]
+        );
+
+        // 3DSv2 Purchase Attributes
+        $request->setThreedsV2PurchaseCategory(
+            $this->paymentData->hasPhysicalItems() ? Categories::GOODS : Categories::SERVICE
+        );
+
+        // 3DSv2 Risk Attributes
+        $request->setThreedsV2MerchantRiskShippingIndicator(
+            $this->threedsService->fetchShippingIndicator()
+        );
+        $request->setThreedsV2MerchantRiskDeliveryTimeframe(
+            $this->paymentData->hasPhysicalItems() ?
+                DeliveryTimeframes::ANOTHER_DAY : DeliveryTimeframes::ELECTRONICS
+        );
+        $request->setThreedsV2MerchantRiskReorderItemsIndicator($this->threedsService->fetchReorderItemsIndicator());
+
+        // Account Holder Attributes
+        if (!$this->threedsService->isGuestCheckout()) {
+            $request->setThreedsV2CardHolderAccountCreationDate($this->threedsService->getCustomerDateCreatedAt());
+
+            $request->setThreedsV2CardHolderAccountUpdateIndicator($this->threedsService->fetchUpdateIndicator());
+            $request->setThreedsV2CardHolderAccountLastChangeDate(
+                $this->threedsService->getCustomerModificationDate()->format(ThreedsService::DATE_TIME)
+            );
+
+            $request->setThreedsV2CardHolderAccountPasswordChangeDate(
+                $this->threedsService->getCustomerDateUpdatedAt()
+            );
+            $request->setThreedsV2CardHolderAccountPasswordChangeIndicator(
+                $this->threedsService->fetchPasswordChangeIndicator()
+            );
+
+            $request->setThreedsV2CardHolderAccountShippingAddressUsageIndicator(
+                $this->threedsService->fetchShippingUsageIndicator()
+            );
+            $request->setThreedsV2CardHolderAccountShippingAddressDateFirstUsed(
+                $this->threedsService->getShippingAddressCreationDate() !== null ?
+                    $this->threedsService->getShippingAddressCreationDate()->format(ThreedsService::DATE_TIME) : null
+            );
+
+            $request->setThreedsV2CardHolderAccountTransactionsActivityLast24Hours(
+                $this->threedsService->getTransactionActivityLast24Hours()
+            );
+            $request->setThreedsV2CardHolderAccountTransactionsActivityPreviousYear(
+                $this->threedsService->getTransctionActivityPreviousYear()
+            );
+            $request->setThreedsV2CardHolderAccountPurchasesCountLast6Months(
+                $this->threedsService->getPaidOrdersLast6Months()
+            );
+
+            $request->setThreedsV2CardHolderAccountRegistrationDate(
+                $this->threedsService->getFirstOrderDate()->format(ThreedsService::DATE_TIME)
+            );
+        }
+
+        $request->setThreedsV2CardHolderAccountRegistrationIndicator(
+            $this->threedsService->fetchRegistrationIndicator()
+        );
     }
 }

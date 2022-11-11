@@ -257,5 +257,64 @@
             <helpText>In order to offer saving a payment method for future use, we should turn on WPF Tokenization</helpText>
         </input-field>
 
+        <input-field type="bool">
+            <name>checkoutThreedsAllowed</name>
+            <label>Enable 3DSv2 parameters</label>
+            <defaultValue>true</defaultValue>
+            <placeholder>Allow processing of the 3DSv2 optional parameters</placeholder>
+            <helpText>Enable the plugin extraction of the 3DSv2 parameters and send them to the Gateway</helpText>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>checkoutThreedsChallengeIndicator</name>
+            <options>
+                <option>
+                    <id>no_preference</id>
+                    <name>No Preference</name>
+                </option>
+                <option>
+                    <id>no_challenge_requested</id>
+                    <name>No Challenge Requested</name>
+                </option>
+                <option>
+                    <id>preference</id>
+                    <name>Preference</name>
+                </option>
+                <option>
+                    <id>mandate</id>
+                    <name>Mandate</name>
+                </option>
+            </options>
+            <defaultValue>no_preference</defaultValue>
+            <label>3DSv2 Challenge Indicator</label>
+            <helpText>The value has weight and might impact the decision whether a challenge will be required for the transaction or not.</helpText>
+            <placeholder>Choose Challenge Indicator...</placeholder>
+        </input-field>
+
+        <input-field type="single-select">
+            <name>checkoutScaExemption</name>
+            <options>
+                <option>
+                    <id>low_risk</id>
+                    <name>Low Risk</name>
+                </option>
+                <option>
+                    <id>low_value</id>
+                    <name>Low Value</name>
+                </option>
+            </options>
+            <defaultValue>low_risk</defaultValue>
+            <label>SCA Exemption</label>
+            <helpText>Exemption for the Strong Customer Authentication</helpText>
+        </input-field>
+
+        <input-field type="float">
+            <name>checkoutScaExemptionAmount</name>
+            <defaultValue>100</defaultValue>
+            <label>SCA Exemption Amount</label>
+            <placeholder>SCA Exemtpion Amount</placeholder>
+            <helpText>Exemption Amount determinate if the SCA Exemption should be included in the request to the Gateway</helpText>
+        </input-field>
+
     </card>
 </config>

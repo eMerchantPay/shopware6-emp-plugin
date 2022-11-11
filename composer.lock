@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c295e3224ada02d43fcb19cdba677269",
+    "content-hash": "30d4a04bcebe6eda27fbecb0fa74e9e8",
     "packages": [
         {
             "name": "genesisgateway/genesis_php",
-            "version": "1.21.2",
+            "version": "1.21.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GenesisGateway/genesis_php.git",
-                "reference": "6fcdca45c7faac4c24c686b1b9e4e9b406dac0ad"
+                "reference": "2727fba9c3d56de5275dae95a1867792e2ccf0c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/6fcdca45c7faac4c24c686b1b9e4e9b406dac0ad",
-                "reference": "6fcdca45c7faac4c24c686b1b9e4e9b406dac0ad",
+                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/2727fba9c3d56de5275dae95a1867792e2ccf0c4",
+                "reference": "2727fba9c3d56de5275dae95a1867792e2ccf0c4",
                 "shasum": ""
             },
             "require": {
@@ -25,6 +25,8 @@
                 "ext-curl": "*",
                 "ext-filter": "*",
                 "ext-hash": "*",
+                "ext-json": "*",
+                "ext-openssl": "*",
                 "ext-simplexml": "*",
                 "ext-xmlreader": "*",
                 "ext-xmlwriter": "*",
@@ -154,7 +156,11 @@
                 "wechat",
                 "wpf"
             ],
-            "time": "2022-08-26T08:43:23+00:00"
+            "support": {
+                "issues": "https://github.com/GenesisGateway/genesis_php/issues",
+                "source": "https://github.com/GenesisGateway/genesis_php/tree/1.21.3"
+            },
+            "time": "2022-09-21T10:28:38+00:00"
         }
     ],
     "packages-dev": [
@@ -4453,5 +4459,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.3.0"
 }

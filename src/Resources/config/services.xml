@@ -31,6 +31,7 @@
             <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
             <argument type="service" id="Emerchantpay\Genesis\Utils\Mappers\ReferenceData"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\TokenizationService"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsService"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Service\CheckoutPayment">
@@ -113,6 +114,14 @@
         <service id="Emerchantpay\Genesis\Utils\Mappers\ReferenceData">
             <argument type="service" id="Emerchantpay\Genesis\Utils\Data\ReferenceData"/>
         </service>
+
+        <service id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsService">
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="customer_address.repository"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsIndicatorService"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsIndicatorService"/>
 
     </services>
 </container>

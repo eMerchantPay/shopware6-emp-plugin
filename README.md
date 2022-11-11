@@ -6,8 +6,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.3.x, 6.4.x (Tested up to __6.4.13__)
-* [GenesisPHP v1.21.2](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.2)
+* Shopware 6.3.x, 6.4.x (Tested up to __6.4.17__)
+* [GenesisPHP v1.21.3](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.3)
 
 GenesisPHP Requirements
 ------------
@@ -20,6 +20,8 @@ GenesisPHP Requirements
     * [Hash](https://php.net/hash)
     * [XMLReader](https://php.net/xmlreader)
     * [XMLWriter](https://php.net/xmlwriter)
+    * [JSON](https://www.php.net/manual/en/book.json)
+    * [OpenSSL](https://www.php.net/manual/en/book.openssl.php)
 
 Installation (manual) via console
 ---------------------
