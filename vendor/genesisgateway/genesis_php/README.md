@@ -37,6 +37,12 @@ Installation
 composer.phar require genesisgateway/genesis_php
 ```
 
+Note: If you want to use the package with PHP version lover than 7.4, you can use 
+
+```sh
+composer.phar require genesisgateway/genesis_php --update-no-dev
+```
+
 #### Manual
 * Clone / [download](https://github.com/GenesisGateway/genesis_php/archive/master.zip) this repo
 
@@ -893,13 +899,16 @@ In certain cases, it is possible to submit a transaction with a zero-value amoun
 ```php
 <?php
 require 'vendor/autoload.php';
+
 // Load the pre-configured ini file...
 \Genesis\Config::loadSettings('/path/to/config.ini');
+
 // ...OR, optionally, you can set the credentials manually
 \Genesis\Config::setEndpoint(\Genesis\API\Constants\Endpoints::EMERCHANTPAY);
 \Genesis\Config::setEnvironment(\Genesis\API\Constants\Environments::STAGING);
 \Genesis\Config::setUsername('<enter_your_username>');
 \Genesis\Config::setPassword('<enter_your_password>');
+
 try {
     // Create a new Genesis instance with desired API request
     $genesis = new \Genesis\Genesis('WPF\Create');
@@ -971,14 +980,26 @@ When using an Asynchronous workflow, you need to parse the incoming extension in
 Example:
 
 ```php
-<?php
-require 'vendor/autoload.php';
+<?php  
+require 'vendor/autoload.php';   
+
+// Load the pre-configured ini file...
+\Genesis\Config::loadSettings('/path/to/config.ini');
+
+// ...OR, optionally, you can set the credentials manually
+\Genesis\Config::setEndpoint(\Genesis\API\Constants\Endpoints::EMERCHANTPAY);
+\Genesis\Config::setEnvironment(\Genesis\API\Constants\Environments::STAGING);
+\Genesis\Config::setUsername('<enter_your_username>');
+\Genesis\Config::setPassword('<enter_your_password>');
+
+// Add your Terminal Token for all Non-WPF (Web Payment Form/Checkout) requests
+\Genesis\Config::setToken('<enter_your_password>');
 
 try {
     $notification = new \Genesis\API\Notification($_POST);
 
     // Reconciliation is generally optional, but
-    // its a recommended practice to ensure
+    // it's a recommended practice to ensure
     // that you have the latest information
     $notification->initReconciliation();
 
@@ -1053,9 +1074,6 @@ Financial\Cards\Payout
 Financial\Cards\Sale
 Financial\Cards\Sale3D
 Financial\Cards\TarjetaShopping
-Financial\Cards\Recurring\InitRecurringSale
-Financial\Cards\Recurring\InitRecurringSale3D
-Financial\Cards\Recurring\RecurringSale
 
 // Cash Payments transactions
 Financial\CashPayments\Baloto
@@ -1208,7 +1226,7 @@ More information about each one of the request types can be found in the Genesis
 Running Specs
 --------------
 
-The following step are optional, however its recommended to run specs at least once, in order to ensure that everything is working as intended on your setup
+The following step are optional, however it's recommended to run specs at least once, in order to ensure that everything is working as intended on your setup
 
 * install [Composer] (if you don't have it already)
 ```sh
@@ -1224,5 +1242,7 @@ php composer.phar install
 ```sh
 php vendor/bin/phpspec run
 ```
+
+Note: The specs are intended to run with PHP v7.4
 
 [Composer]: https://getcomposer.org/

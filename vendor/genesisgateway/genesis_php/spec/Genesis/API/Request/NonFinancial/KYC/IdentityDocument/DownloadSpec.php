@@ -31,6 +31,13 @@ class DownloadSpec extends ObjectBehavior
         $this->shouldThrow()->during('getDocument');
     }
 
+    public function it_should_have_correct_document_download_endpoint()
+    {
+        $this->getApiConfig('url')->shouldContain(
+            'https://staging.kyc.emerchantpay.net:443/api/v1/download_document'
+        );
+    }
+
     protected function setRequestParameters()
     {
         $faker = \Faker\Factory::create();
@@ -38,7 +45,7 @@ class DownloadSpec extends ObjectBehavior
         $this->setIdentityDocumentId($faker->numberBetween(1, PHP_INT_MAX));
     }
 
-    public function getMatchers()
+    public function getMatchers(): array
     {
         return array(
             'beEmpty' => function ($subject) {

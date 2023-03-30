@@ -7,7 +7,7 @@ Requirements
 ------------
 
 * Shopware 6.3.x, 6.4.x (Tested up to __6.4.17__)
-* [GenesisPHP v1.21.3](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.3)
+* [GenesisPHP v1.21.6](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.6)
 
 GenesisPHP Requirements
 ------------
@@ -94,6 +94,7 @@ Supported Transactions
   * __Sepa Direct Debit__
     * __SDD Sale__
   * __Online Banking Payments__
+    * __Bancontact__
     * __GiroPay__
     * __iDEAL__
     * __iDebit Payin__

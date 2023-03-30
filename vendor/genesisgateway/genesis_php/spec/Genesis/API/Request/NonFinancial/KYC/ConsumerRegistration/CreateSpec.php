@@ -118,6 +118,13 @@ class CreateSpec extends ObjectBehavior
             ->getBonusSubmissionDate()->shouldBeString();
     }
 
+    public function it_should_have_correct_consumer_registration_endpoint()
+    {
+        $this->getApiConfig('url')->shouldContain(
+            'https://staging.kyc.emerchantpay.net:443/api/v1/create_consumer'
+        );
+    }
+
     protected function setRequestParameters()
     {
         $faker = \Faker\Factory::create();
@@ -135,7 +142,7 @@ class CreateSpec extends ObjectBehavior
         $this->setLastName($faker->lastName);
     }
 
-    public function getMatchers()
+    public function getMatchers(): array
     {
         return array(
             'beEmpty' => function ($subject) {

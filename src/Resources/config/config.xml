@@ -130,6 +130,10 @@
                     <id>CPI</id>
                     <name>Interac Combined Pay-in</name>
                 </option>
+                <option>
+                    <id>BCT</id>
+                    <name>Bancontact</name>
+                </option>
             </options>
             <label>Bank codes for Online banking</label>
             <helpText>You can select Bank codes for Online banking transaction type.</helpText>

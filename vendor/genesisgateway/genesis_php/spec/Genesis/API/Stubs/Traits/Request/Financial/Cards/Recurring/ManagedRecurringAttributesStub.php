@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -26,6 +26,7 @@ namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring;
 use Genesis\API\Request;
 use Genesis\API\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
 use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\API\Traits\RestrictedSetter;
 
 /**
  * class ManagedRecurringAttributesStub
@@ -36,6 +37,8 @@ use Genesis\API\Traits\Request\Financial\PaymentAttributes;
  */
 class ManagedRecurringAttributesStub extends Request
 {
+    use RestrictedSetter;
+
     use ManagedRecurringAttributes {
         getManagedRecurringAttributesStructure as public;
         requiredManagedRecurringFieldsConditional as public;
