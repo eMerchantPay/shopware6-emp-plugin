@@ -20,22 +20,13 @@
 namespace Emerchantpay\Genesis\Storefront\Controller;
 
 use Emerchantpay\Genesis\Service\Flow\ReturnUrl;
-use Psr\Container\ContainerInterface;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Storefront\Controller\StorefrontController;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @RouteScope(scopes={"storefront"})
- */
 class GenesisReturnController extends StorefrontController
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
     /**
      * @var ReturnUrl
      */
@@ -53,7 +44,7 @@ class GenesisReturnController extends StorefrontController
      *     name="frontend.emerchantpay.return",
      *     options={"seo"="false"},
      *     methods={"GET"},
-     *     defaults={"auth_required"=false, "csrf_protected"=false}
+     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}}
      * )
      */
     public function redirectOrderEndpoint(string $token): RedirectResponse

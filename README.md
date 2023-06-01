@@ -6,7 +6,7 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.3.x, 6.4.x (Tested up to __6.4.17__)
+* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.1__)
 * [GenesisPHP v1.21.6](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.6)
 
 GenesisPHP Requirements
@@ -51,16 +51,14 @@ Configuration
 ### emerchantpay Genesis Plugin
 * Log-in into the Admin
 * Go to
-  * `Extenstions->My Extensions` via Shopware 6.4.x
-  * `Settings->System->Plugins` via Shopware 6.3.x
+  * `Extenstions->My Extensions` via Shopware 6.4.x, 6.5.x
 * `Activate`, `Install`, `Uninstall`, etc.
 * Choose `Config` and fill up the Credentials, choose Transaction Types, etc
 
 ### Checkout Payment Methods
 * Log-in into the Admin
 * Go to
-  * `Extenstions->My Extensions` via Shopware 6.4.x
-  * `Settings->System->Plugins` via Shopware 6.3.x
+  * `Extenstions->My Extensions` via Shopware 6.4.x, 6.5.x
 * Choose `Edit`
 * Set `Active`, `Availability Rule`, etc
 

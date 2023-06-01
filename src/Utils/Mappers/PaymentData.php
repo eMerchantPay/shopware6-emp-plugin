@@ -32,7 +32,7 @@ use Shopware\Core\Checkout\Order\Aggregate\OrderLineItem\OrderLineItemCollection
 use Shopware\Core\Checkout\Order\Aggregate\OrderLineItem\OrderLineItemEntity;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Shopware\Core\System\Country\Aggregate\CountryState\CountryStateEntity;
@@ -67,7 +67,7 @@ class PaymentData
     private $salesContext;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $currencyRepository;
 
@@ -77,7 +77,7 @@ class PaymentData
     private $currencyEntity;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $orderAddressRepository;
 
@@ -87,7 +87,7 @@ class PaymentData
     private $billingAddressEntity = null;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $stateRepository;
 
@@ -97,7 +97,7 @@ class PaymentData
     private $countryStateEntity = null;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $countryRepository;
 
@@ -107,7 +107,7 @@ class PaymentData
     private $countryEntity = null;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $customerAddressRepository;
 
@@ -140,11 +140,11 @@ class PaymentData
         Config $config,
         ReturnUrl $returnUrl,
         PaymentDataModel $paymentDataModel,
-        EntityRepositoryInterface $currencyRepository,
-        EntityRepositoryInterface $orderAddressRepository,
-        EntityRepositoryInterface $stateRepository,
-        EntityRepositoryInterface $countryRepository,
-        EntityRepositoryInterface $customerAddressRepository,
+        EntityRepository $currencyRepository,
+        EntityRepository $orderAddressRepository,
+        EntityRepository $stateRepository,
+        EntityRepository $countryRepository,
+        EntityRepository $customerAddressRepository,
         RouterInterface $router
     ) {
         $this->config = $config;
@@ -377,7 +377,7 @@ class PaymentData
      * @return mixed|null
      */
     private function loadEntity(
-        EntityRepositoryInterface $repository,
+        EntityRepository $repository,
         string $identifier,
         string $entity_name = '',
         bool $data_required = true

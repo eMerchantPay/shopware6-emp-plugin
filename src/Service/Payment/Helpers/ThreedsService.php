@@ -25,7 +25,7 @@ use Shopware\Core\Checkout\Customer\Aggregate\CustomerAddress\CustomerAddressEnt
 use Shopware\Core\Checkout\Customer\CustomerEntity;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStates;
 use Shopware\Core\Checkout\Order\OrderEntity;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\ContainsFilter;
@@ -40,7 +40,7 @@ class ThreedsService
     const DATE_TIME = 'Y-m-d';
 
     /**
-     * @var Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+     * @var Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
      */
     private $orderRepository;
 
@@ -50,7 +50,7 @@ class ThreedsService
     private $paymentData;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $customerAddressRepository;
 
@@ -75,12 +75,12 @@ class ThreedsService
     private $threedsIndicatorService;
 
     /**
-     * @param EntityRepositoryInterface $orderRepository
-     * @param EntityRepositoryInterface $customerAddressRepository
+     * @param EntityRepository $orderRepository
+     * @param EntityRepository $customerAddressRepository
      */
     public function __construct(
-        EntityRepositoryInterface $orderRepository,
-        EntityRepositoryInterface $customerAddressRepository,
+        EntityRepository $orderRepository,
+        EntityRepository $customerAddressRepository,
         ThreedsIndicatorService $threedsIndicatorService
     ) {
         $this->orderRepository           = $orderRepository;

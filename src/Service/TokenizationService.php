@@ -23,7 +23,7 @@ use Genesis\API\Constants\Transaction\States;
 use Genesis\Genesis;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Uuid\Uuid;
@@ -34,7 +34,7 @@ use Shopware\Core\Framework\Uuid\Uuid;
 class TokenizationService
 {
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $tokenizationConsumerRepository;
 
@@ -44,10 +44,10 @@ class TokenizationService
     private $logger;
 
     /**
-     * @param EntityRepositoryInterface $tokenizationConsumerRepository
+     * @param EntityRepository $tokenizationConsumerRepository
      */
     public function __construct(
-        EntityRepositoryInterface $tokenizationConsumerRepository,
+        EntityRepository $tokenizationConsumerRepository,
         LoggerInterface $logger
     ) {
         $this->tokenizationConsumerRepository = $tokenizationConsumerRepository;

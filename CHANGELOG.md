@@ -1,5 +1,9 @@
 Change Log
 ---------------------
+__1.2.2__
+-----
+* Added support for the latest Shopware 6.5.1.1 platform version
+
 __1.2.1__
 -----
 * Added Bancontact Bank code to Online banking transaction type

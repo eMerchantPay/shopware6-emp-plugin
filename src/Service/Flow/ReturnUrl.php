@@ -20,7 +20,7 @@ namespace Emerchantpay\Genesis\Service\Flow;
 
 use Emerchantpay\Genesis\Core\Flow\ReturnUrl\ReturnUrlEntity;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Uuid\Uuid;
@@ -30,7 +30,7 @@ use Symfony\Component\Routing\RouterInterface;
 class ReturnUrl
 {
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
     private $returnUrlRepository;
 
@@ -39,7 +39,7 @@ class ReturnUrl
      */
     private $router;
 
-    public function __construct(EntityRepositoryInterface $returnUrlRepository, RouterInterface $router)
+    public function __construct(EntityRepository $returnUrlRepository, RouterInterface $router)
     {
         $this->returnUrlRepository = $returnUrlRepository;
         $this->router = $router;

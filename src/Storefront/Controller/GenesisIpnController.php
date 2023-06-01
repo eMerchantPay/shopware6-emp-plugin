@@ -20,25 +20,16 @@
 namespace Emerchantpay\Genesis\Storefront\Controller;
 
 use Emerchantpay\Genesis\Service\Payment\Checkout;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @RouteScope(scopes={"storefront"})
- */
 class GenesisIpnController extends StorefrontController
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
     /**
      * @var Checkout
      */
@@ -65,7 +56,7 @@ class GenesisIpnController extends StorefrontController
      *     name="frontend.emerchantpay.ipn.checkout",
      *     options={"seo"="false"},
      *     methods={"POST"},
-     *     defaults={"auth_required"=false, "csrf_protected"=false}
+     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}}
      * )
      */
     public function processCheckoutNotification(Request $request, SalesChannelContext $context): Response

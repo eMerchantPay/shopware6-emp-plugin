@@ -21,28 +21,16 @@ namespace Emerchantpay\Genesis\Api\Reference\Administration;
 
 use Emerchantpay\Genesis\Service\Payment\Checkout;
 use Emerchantpay\Genesis\Utils\ReferenceTransactions;
-use Psr\Container\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Shopware\Core\Framework\Routing\Annotation\Acl;
-use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @RouteScope(scopes={"api"})
- */
 class EmerchantpayGenesisTransactionController extends AbstractController
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
     /**
      * @var LoggerInterface
      */
@@ -74,13 +62,15 @@ class EmerchantpayGenesisTransactionController extends AbstractController
      * @Route(
      *     "/api/v{version}/emerchantpay-v1/genesis/transaction/payment-reference-details",
      *     name="api.emerchantpay.genesis.version-endpoint.transaction.payment-reference-details",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      *
      * @Route(
      *     "/api/emerchantpay-v1/genesis/transaction/payment-reference-details",
      *     name="api.emerchantpay.genesis.transaction.payment-reference-details",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      */
     public function buildReferenceDetails(Request $request, Context $context): JsonResponse
@@ -105,13 +95,15 @@ class EmerchantpayGenesisTransactionController extends AbstractController
      * @Route(
      *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/capture",
      *     name="api.emerchantpay.genesis.version-endpoint.transaction.capture",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      *
      * @Route(
      *     "/api/_action/emerchantpay-v1/genesis/transaction/capture",
      *     name="api.emerchantpay.genesis.transaction.capture",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      */
     public function doCapture(Request $request, Context $context): JsonResponse
@@ -151,13 +143,15 @@ class EmerchantpayGenesisTransactionController extends AbstractController
      * @Route(
      *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/refund",
      *     name="api.emerchantpay.genesis.version-endpoint.transaction.refund",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      *
      * @Route(
      *     "/api/_action/emerchantpay-v1/genesis/transaction/refund",
      *     name="api.emerchantpay.genesis.transaction.refund",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      */
     public function doRefund(Request $request, Context $context): JsonResponse
@@ -197,13 +191,15 @@ class EmerchantpayGenesisTransactionController extends AbstractController
      * @Route(
      *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/void",
      *     name="api.emerchantpay.genesis.version-endpoint.transaction.void",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      *
      * @Route(
      *     "/api/_action/emerchantpay-v1/genesis/transaction/void",
      *     name="api.emerchantpay.genesis.transaction.void",
-     *     methods={"POST"}
+     *     methods={"POST"},
+     *     defaults={"_routeScope"={"api"}}
      * )
      */
     public function doVoid(Request $request, Context $context): JsonResponse
