@@ -556,7 +556,10 @@ class Checkout extends Base
         $processedList = [];
         $aliasMap = [];
 
-        $selectedTypes = $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES];
+        $selectedTypes = $this->orderCardTransactionTypes(
+            $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
+        );
+
         $pproSuffix = ConfigKey::PPRO_TRANSACTION_SUFFIX;
         $methods = GenesisPproMethods::getMethods();
 
@@ -680,6 +683,27 @@ class Checkout extends Base
             default:
                 return GenesisStates::NEW_STATUS;
         }
+    }
+
+    /**
+     * Order transaction types with Card Transaction types in front
+     *
+     * @param array $selectedTypes Selected transaction types
+     *
+     * @return array
+     */
+    protected function orderCardTransactionTypes($selectedTypes)
+    {
+        $creditCardTypes = \Genesis\API\Constants\Transaction\Types::getCardTransactionTypes();
+
+        asort($selectedTypes);
+
+        $sortedArray = array_intersect($creditCardTypes, $selectedTypes);
+
+        return array_merge(
+            $sortedArray,
+            array_diff($selectedTypes, $sortedArray)
+        );
     }
 
     /**

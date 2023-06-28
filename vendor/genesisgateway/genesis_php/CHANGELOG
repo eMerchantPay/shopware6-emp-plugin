@@ -1,3 +1,55 @@
+1.21.10
+-----
+**Features**:
+
+* Updated available transaction statuses
+* Updated error codes list
+* Updated Online banking PLN bank codes
+* Added support for Tokenization API. The following requests were added:
+  * Tokenize
+  * Detokenize
+  * Update token
+  * Validate token
+  * Delete token
+  * Get card
+
+**Fixes**:
+
+* Fixed color_depth 3DSecure request parameter behaviour
+
+1.21.9
+-----
+**Features**:
+
+* Updated Bank Pay-out transaction request by adding support bank_account_verification_digit parameter
+* Deprecated Account Verification transaction request. Replaced by Sale, Sale 3D, Authorize, Authorize 3D with 0 amount.
+
+**Fixes**:
+
+* Fixed PHP 8.1+ compatibility
+
+1.21.8
+-----
+**Features**:
+
+* Added Mandate Reference and Company Name parameters support to the SDD Sale transaction request
+* Updated SDD Sale transaction request by removing the requirement of mandatory BIC parameter
+* Updated OnlineBanking Payout bank list for Brazil
+* Added Subsequent Requiring Type support to Authorize transaction request
+* Added Blik One Click bank support to Online Banking PayIn
+* Added User Category parameter support to the following transaction requests:
+  * Online Banking PayIn
+  * UPI
+
+1.21.7
+-----
+**Features**:
+
+* Added Customer Identification parameters support to the following transaction requests:
+  * Credit
+  * Payout
+* Added helper method for retrieving the Credit Card transaction types
+
 1.21.6
 -----
 **Features**:

@@ -6,8 +6,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.1__)
-* [GenesisPHP v1.21.6](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.6)
+* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.2.1__)
+* [GenesisPHP v1.21.10](https://github.com/GenesisGateway/genesis_php/releases/tag/1.21.10)
 
 GenesisPHP Requirements
 ------------

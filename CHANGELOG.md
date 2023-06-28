@@ -1,5 +1,11 @@
 Change Log
 ---------------------
+__1.2.3__
+-----
+* Updated Genesis PHP SDK to 1.21.10
+* Added Web Payment Form strict list order of the selected Transaction Types that are being sent to the Gateway
+* Tested up to __6.5.2.1__
+
 __1.2.2__
 -----
 * Added support for the latest Shopware 6.5.1.1 platform version

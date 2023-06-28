@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "genesisgateway/genesis_php",
-            "version": "1.21.6",
-            "version_normalized": "1.21.6.0",
+            "version": "1.21.10",
+            "version_normalized": "1.21.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GenesisGateway/genesis_php.git",
-                "reference": "80ad7e732a9aabcfd2c5f1f2b7a2f641b8711716"
+                "reference": "22bc66b484eb2e99a42962c4b8033dea4c050709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/80ad7e732a9aabcfd2c5f1f2b7a2f641b8711716",
-                "reference": "80ad7e732a9aabcfd2c5f1f2b7a2f641b8711716",
+                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/22bc66b484eb2e99a42962c4b8033dea4c050709",
+                "reference": "22bc66b484eb2e99a42962c4b8033dea4c050709",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,7 @@
                 "fakerphp/faker": "^1.20",
                 "phpspec/phpspec": "7.2.*@stable"
             },
-            "time": "2023-02-24T10:57:03+00:00",
+            "time": "2023-06-14T13:39:59+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -155,7 +155,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GenesisGateway/genesis_php/issues",
-                "source": "https://github.com/GenesisGateway/genesis_php/tree/1.21.6"
+                "source": "https://github.com/GenesisGateway/genesis_php/tree/1.21.10"
             },
             "install-path": "../genesisgateway/genesis_php"
         }
