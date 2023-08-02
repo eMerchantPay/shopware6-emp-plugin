@@ -1,5 +1,9 @@
 Change Log
 ---------------------
+__1.2.4__
+-----
+* Updated Genesis PHP SDK to 1.21.11
+
 __1.2.3__
 -----
 * Updated Genesis PHP SDK to 1.21.10
