@@ -543,6 +543,11 @@ class Checkout extends Base
                         $selectedBankCodes
                     );
                 }
+            case GenesisTypes::PAYSAFECARD:
+                $parameters = [
+                    'customer_id' => $this->paymentData->getShopwareUserId()
+                ];
+                break;
         }
 
         return $parameters;

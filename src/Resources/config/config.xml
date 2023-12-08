@@ -90,6 +90,10 @@
                     <name>PayPal Express</name>
                 </option>
                 <option>
+                    <id>paysafecard</id>
+                    <name>Paysafecard</name>
+                </option>
+                <option>
                     <id>pix</id>
                     <name>Pix</name>
                 </option>
@@ -133,6 +137,10 @@
                 <option>
                     <id>BCT</id>
                     <name>Bancontact</name>
+                </option>
+                <option>
+                    <id>BLK</id>
+                    <name>Blik One Click</name>
                 </option>
             </options>
             <label>Bank codes for Online banking</label>

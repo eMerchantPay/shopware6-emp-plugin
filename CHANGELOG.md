@@ -1,5 +1,15 @@
 Change Log
 ---------------------
+__1.2.6__
+-----
+* Updated Genesis PHP library to version 1.24.0
+* Updated support of PaySafeCard transaction type via Web Payment Form
+
+__1.2.5__
+-----
+* Added support for Blik one Click (BLK) payment method for the Online Banking payment type
+* Updated Genesis PHP SDK version to 1.22.0
+
 __1.2.4__
 -----
 * Updated Genesis PHP SDK to 1.21.11

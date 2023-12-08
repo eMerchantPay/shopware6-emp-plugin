@@ -44,4 +44,29 @@ class RestrictedSetterStub
     {
         return $this->parseDate($field, $formats, $value, $errorMessage);
     }
+
+    /**
+     * @param $field
+     * @param $allowed
+     * @param $value
+     * @param $errorMessage
+     *
+     * @return $this
+     * @throws \Genesis\Exceptions\InvalidArgument
+     */
+    public function publicAllowedOptionsSetter($field, $allowed, $value, $errorMessage)
+    {
+        return $this->allowedOptionsSetter($field, $allowed, $value, $errorMessage);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @throws \Genesis\Exceptions\InvalidArgument
+     * @return $this
+     */
+    public function publicParseAmount($field, $value)
+    {
+        return $this->parseAmount($field, $value);
+    }
 }

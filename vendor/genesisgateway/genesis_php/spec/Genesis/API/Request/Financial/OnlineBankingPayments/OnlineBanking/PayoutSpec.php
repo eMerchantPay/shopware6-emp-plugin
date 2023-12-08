@@ -4,7 +4,9 @@ namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking
 
 use Genesis\API\Constants\BankAccountTypes;
 use Genesis\API\Constants\DateTimeFormat;
+use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
 use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
+use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
 use Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking\Payout;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
@@ -149,6 +151,63 @@ class PayoutSpec extends ObjectBehavior
         );
     }
 
+    public function it_should_fail_with_not_proper_payment_type_value()
+    {
+        $faker = $this->getFaker();
+        $this->shouldThrow(InvalidArgument::class)
+            ->during('setPaymentType', [$faker->asciify('**')]);
+    }
+
+    public function it_should_fail_with_brl_currency_and_invalid_bank_name_for_it()
+    {
+        $currency          = 'BRL';
+        $allowedCurrencies = PayoutBankParameters::getAllowedCurrencies();
+        $invalidCurrency   = Faker::getInstance()->randomElement(array_diff($allowedCurrencies, [$currency]));
+        $invalidBankNames  = PayoutBankParameters::getBankNamesPerCurrency($invalidCurrency);
+
+        $this->setRequestParameters();
+        $this->setCurrency($currency);
+        $this->setBankCode(null);
+        $this->setBankName(Faker::getInstance()->randomElement($invalidBankNames));
+
+        $this->shouldThrow(ErrorParameter::class)->during('getDocument');
+    }
+
+    public function it_should_not_fail_with_brl_currency_and_valid_bank_name_for_it()
+    {
+        $currency = 'BRL';
+        $bankName = Faker::getInstance()->randomElement(PayoutBankParameters::getBankNamesPerCurrency($currency));
+        $bankCode = '001';
+
+        $this->setRequestParameters();
+        $this->setCurrency($currency);
+        $this->setBankName($bankName);
+        $this->setBankCode($bankCode);
+
+        $this->shouldNotThrow()->during('getDocument');
+    }
+
+    public function it_should_not_fail_with_brl_currency_and_bank_code()
+    {
+        $currency = 'BRL';
+        $this->setRequestParameters();
+        $this->setCurrency($currency);
+        $this->setBankName(null);
+        $this->setBankCode('001');
+
+        $this->shouldNotThrow()->during('getDocument');
+    }
+
+    public function it_should_fail_with_brl_currency_and_no_bank_code_and_no_bank_name()
+    {
+        $this->setRequestParameters();
+        $this->setCurrency('BRL');
+        $this->setBankName(null);
+        $this->setBankCode(null);
+
+        $this->shouldThrow(ErrorParameter::class)->during('getDocument');
+    }
+
     public function it_should_contain_proper_structure_elements()
     {
         $this->setRequestParameters();
@@ -176,7 +235,13 @@ class PayoutSpec extends ObjectBehavior
             'account_id',
             'user_id',
             'birth_date',
-            'billing_address'
+            'payment_type',
+            'billing_address',
+            'company_type',
+            'company_activity',
+            'incorporation_date',
+            'mothers_name',
+            'pix_key'
         ];
 
         foreach ($attributes as $attribute) {
@@ -211,7 +276,7 @@ class PayoutSpec extends ObjectBehavior
         $this->setBillingState(Faker::getInstance()->state);
         $this->setBillingCountry(Faker::getInstance()->countryCode);
         $this->setBankBranch(Faker::getInstance()->text(20));
-        $this->setBankCode(Faker::getInstance()->text(10));
+        $this->setBankCode('001');
         $this->setCustomerPhone(Faker::getInstance()->phoneNumber);
         $this->setCustomerEmail(Faker::getInstance()->email);
         $this->setBankProvince(Faker::getInstance()->city);
@@ -265,6 +330,24 @@ class PayoutSpec extends ObjectBehavior
                 Faker::getInstance()->randomElement(DateTimeFormat::getAll())
             )
         );
+        $this->setPaymentType(
+            Faker::getInstance()->randomElement(
+                PayoutPaymentTypesParameters::getAll()
+            )
+        );
+
+        $this->setCompanyType(Faker::getInstance()->text(10));
+        $this->setCompanyActivity(Faker::getInstance()->text(10));
+        $this->setIncorporationDate(
+            Faker::getInstance()->date(
+                Faker::getInstance()->randomElement(DateTimeFormat::getAll())
+            )
+        );
+        $this->setCompanyActivity(Faker::getInstance()->text(10));
+        $this->setMothersName(
+            "{Faker::getInstance()->firstNameFemale()} {Faker::getInstance()->lastName()}"
+        );
+        $this->setPixKey(Faker::getInstance()->text(5));
     }
 
     private function testVariableStringSetter($method, $length)

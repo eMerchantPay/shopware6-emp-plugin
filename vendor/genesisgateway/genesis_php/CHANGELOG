@@ -1,3 +1,47 @@
+1.24.1
+-----
+**Features**:
+
+* Synchronize GitHub tag with Packagist
+
+1.24.0
+-----
+**Features**:
+
+* Added the following attributes support to the Google Pay transaction request:
+  * Notification Url
+  * Return Success Url
+  * Return Failure Url
+* Removed Recurring Type attribute support from the Web Payment Form transaction request
+  * Recurring Type is available for a definition like a Custom Attribute via addTransactionType('sale3d', ['recurring_type' => 'initial'])
+* Added new required customer_id parameter to the Paysafecard transaction request.
+* Updated Online Banking Payin transaction request bank codes for THB currency.
+* Added support of new optional Return Success and Failure URL parameters to Sepa Direct Debit (SDD Sale) transaction request.
+* Added Customer Attributes support to the Online Banking Payout transaction request.
+* Added Bank Code parameter support to the Online Banking Payout transaction request.
+* Refactored currency amount validations to throw an Invalid Argument exception when an invalid value is submitted.
+
+1.21.12
+-----
+**Features**:
+
+* Added Funding parameters support to the following transaction requests:
+  * Web Payment Form
+  * Authorize
+  * Authorize 3D
+  * Sale
+  * Sale 3D
+  * Init Recurring Sale
+  * Init Recurring Sale 3D
+* Added support for the following KYC Customer Verification requests:
+  * Register
+  * Status
+  * Verify
+* Added Payment Type attribute support to Bank Payout transaction request.
+* Updated the PIX transaction request by marking billing address attributes as optional.
+* Updated Online Banking transaction request bank codes for THB, VDN, and IDR currencies.
+* Updated the Neosurf transaction by marking Return Success and Return Failure URL attributes as optional.
+
 1.21.11
 -----
 **Features**:

@@ -18,7 +18,7 @@ class RestrictedSetterSpec extends ObjectBehavior
     public function it_should_not_fail_during_allowed_options_setter_with_proper_value()
     {
         $this->shouldNotThrow(InvalidArgument::class)->during(
-            'allowedOptionsSetter',
+            'publicAllowedOptionsSetter',
             [
                 'test_value',
                 ['val', 'val1', 'val2'],
@@ -32,7 +32,7 @@ class RestrictedSetterSpec extends ObjectBehavior
     {
         $this->test_value = null;
 
-        $this->allowedOptionsSetter(
+        $this->publicAllowedOptionsSetter(
             'test_value',
             ['val', 'val1', 'val2'],
             'val',
@@ -45,7 +45,7 @@ class RestrictedSetterSpec extends ObjectBehavior
     public function it_should_fail_during_allowed_options_setter_with_not_proper_value()
     {
         $this->shouldThrow(InvalidArgument::class)->during(
-            'allowedOptionsSetter',
+            'publicAllowedOptionsSetter',
             [
                 'test_value',
                 ['val', 'val1', 'val2'],
@@ -207,6 +207,25 @@ class RestrictedSetterSpec extends ObjectBehavior
                 ['Y-m-d', 'd-m-Y', 'd/m/Y'],
                 $faker->dateTimeThisYear()->format('d-m-Y'),
                 'Error Message'
+            ]
+        );
+    }
+
+    public function it_should_fail_during_parse_amount_with_invalid_value()
+    {
+        $this->shouldThrow(InvalidArgument::class)->during('publicParseAmount', ['test', 'aaa']);
+        $this->shouldThrow(InvalidArgument::class)->during('publicParseAmount', ['test', -23]);
+        $this->shouldThrow(InvalidArgument::class)->during('publicParseAmount', ['test', '23,76']);
+    }
+
+    public function it_should_not_fail_during_parse_amount_with_proper_value()
+    {
+        $faker = Faker::getInstance();
+        $this->shouldNotThrow()->during(
+            'publicParseAmount',
+            [
+                'test',
+                $faker->numberBetween(1, PHP_INT_MAX)
             ]
         );
     }

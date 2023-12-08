@@ -10,6 +10,7 @@ use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
 use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
 use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\API\Request\Financial\FundingAttributesExamples;
 use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
 use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
 use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
@@ -19,8 +20,8 @@ use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2Attrib
 class CreateSpec extends ObjectBehavior
 {
     use BusinessAttributesExample, PendingPaymentAttributesExamples, AsyncAttributesExample,
-        ThreedsV2AttributesExamples, AllowedZeroAmount, RecurringTypeAttributesExample,
-        RecurringCategoryAttributesExample;
+        ThreedsV2AttributesExamples, AllowedZeroAmount,
+        RecurringCategoryAttributesExample, FundingAttributesExamples;
 
     public function it_is_initializable()
     {
