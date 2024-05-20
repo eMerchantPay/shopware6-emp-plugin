@@ -19,10 +19,9 @@
 namespace Emerchantpay\Genesis;
 
 use Emerchantpay\Genesis\Service\CheckoutPayment;
+use Emerchantpay\Genesis\Service\PaymentMethodService;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
-use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
 use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\DeactivateContext;
@@ -102,14 +101,17 @@ class EmerchantpayGenesis extends Plugin
         $paymentRepository->update([$paymentMethod], $context);
     }
 
+    /**
+     * Retrieves the payment method ID from the database
+     *
+     * @return string|null
+     */
     private function getPaymentMethodId(): ?string
     {
         /** @var EntityRepository $paymentRepository */
         $paymentRepository = $this->container->get('payment_method.repository');
+        $paymentMethodService = new PaymentMethodService($paymentRepository);
 
-        // Fetch ID for update
-        $paymentCriteria = (new Criteria())->addFilter(new EqualsFilter('handlerIdentifier', CheckoutPayment::class));
-
-        return $paymentRepository->searchIds($paymentCriteria, Context::createDefaultContext())->firstId();
+        return $paymentMethodService->getPaymentMethodId();
     }
 }

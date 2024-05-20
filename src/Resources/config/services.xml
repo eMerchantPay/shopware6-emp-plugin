@@ -49,11 +49,16 @@
         <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisReturnController" public="true">
             <argument type="service" id="service_container"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Flow\ReturnUrl"/>
+            <argument type="service" id="Symfony\Component\Routing\RouterInterface"/>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
+            </call>
         </service>
 
         <service id="Emerchantpay\Genesis\Service\Flow\ReturnUrl">
             <argument type="service" id="emerchantpay_genesis_return_url_mapping.repository"/>
             <argument type="service" id="Symfony\Component\Routing\RouterInterface"/>
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Core\Payment\Transaction\TransactionDefinition">
@@ -122,6 +127,28 @@
         </service>
 
         <service id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsIndicatorService"/>
+
+        <service id="Emerchantpay\Genesis\Service\Framework\Routing\CustomCoreSubscriber" decorates="Shopware\Core\Framework\Routing\CoreSubscriber">
+            <argument>%shopware.security.csp_templates%</argument>
+            <argument type="service" id="Symfony\Component\HttpFoundation\RequestStack"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\Framework\Routing\CustomCoreSubscriber.inner" />
+        </service>
+
+        <service id="Emerchantpay\Genesis\Twig\TwigHelperExtension" public="true">
+            <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
+            <argument type="service" id="Emerchantpay\Genesis\Service\PaymentMethodService"/>
+            <tag name="twig.extension"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Service\PaymentMethodService">
+            <argument type="service" id="payment_method.repository"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Storefront\Controller\CartValidationController" class="Emerchantpay\Genesis\Storefront\Controller\CartValidationController">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+            <argument type="service" id="service_container"/>
+            <tag name="controller.service_arguments"/>
+        </service>
 
     </services>
 </container>

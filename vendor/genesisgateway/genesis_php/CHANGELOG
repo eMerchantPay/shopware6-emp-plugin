@@ -1,3 +1,82 @@
+1.24.6
+-----
+**Features**:
+
+* Added new attributes support to the PIX transaction request:
+  * Mothers Name
+  * Gender
+  * Marital Status
+  * Sender Occupation
+  * Nationality
+  * Country of Origin
+  * Birth City
+  * Birth State
+  * Company Type
+  * Company Activity
+  * Birth Date
+  * Incorporation Date
+* Added neighborhood attribute support for Billing and Shipping addresses via Processing and Web Payment Form transaction requests
+* Updated Web Payment Form Lifetime attribute with a maximum allowed value of 3 months in minutes (131487)
+* Improved Invalid Method Exception messages
+
+**Fixes**:
+
+* Fixed Web Payment Form custom attributes validations
+
+1.24.5
+-----
+**Features**:
+
+* Added Billing Transactions API support
+* Added TRL bank code for Online Banking payment method
+* Added Purpose of Payment parameters support to the following transaction requests:
+  * `Financial\Cards\Credit`
+  * `Financial\Cards\Payout`
+* Improved PHP 8 compatibility and code styles
+* Added Merchant Website parameter support to eZeeWallet transaction request
+
+1.24.4
+-----
+**Fixes**:
+
+* Fixed Apple Pay token parsing of optional elements
+
+1.24.3
+-----
+**Features**:
+
+* Added non-referenced subsequent recurring transaction requests support
+
+**Fixes**:
+
+* Fixed validations for Sale and Authorize transactions with subsequent recurring type
+
+1.24.2
+-----
+**Features**:
+
+* Updated Paysafecard transaction type via Web Payment Form with customer_id required parameter
+* Improved project README with Web Payment Form transaction request example
+* Added Representment Reversed state handling
+* Added Payment Account (P) support for Bank Account Type via Online Banking Payout
+* Added Return Pending URL support to Sepa Direct Debit Sale (SDD Sale)
+* Added Account Owner parameters support to the following transaction requests:
+  * Authorize
+  * Authorize 3D
+  * Credit (Credit Fund Transfer)
+  * Sale
+  * Sale 3D
+  * Payout
+  * Init Recurring Sale
+  * Init Recurring Sale 3D
+  * Web Payment Form
+* Added applicationData and wrappedKey parameters support to the Apple Pay token
+* Added Smart Router support
+
+**Fixes**:
+
+* Fixed Online Banking Payout validations for BRL currency
+
 1.24.1
 -----
 **Features**:

@@ -19,10 +19,12 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 namespace Genesis\Builders;
+
+use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Class JSON
@@ -64,7 +66,7 @@ final class JSON implements \Genesis\Interfaces\Builder
         try {
             $this->output = json_encode($structure);
         } catch (\Exception $e) {
-            throw new \Genesis\Exceptions\InvalidArgument('Invalid data/tree');
+            throw new InvalidArgument('Invalid data/tree');
         }
     }
 }

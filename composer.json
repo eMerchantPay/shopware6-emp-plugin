@@ -1,7 +1,7 @@
 {
   "name": "emerchantpay/genesis",
   "description": "emerchantpay Genesis Plugin, that gives you the ability to process payments through emerchantpay's Payment Gateway - Genesis.",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "authors": [
@@ -9,12 +9,6 @@
       "name": "emerchantpay Ltd"
     }
   ],
-  "require-dev": {
-    "symplify/easy-coding-standard": "9.*",
-    "squizlabs/php_codesniffer": "3.*",
-    "friendsofphp/php-cs-fixer": "^2.18",
-    "phpmd/phpmd" : "2.*"
-  },
   "extra": {
     "shopware-plugin-class": "Emerchantpay\\Genesis\\EmerchantpayGenesis",
     "label": {
@@ -32,7 +26,7 @@
     }
   },
   "require": {
-    "genesisgateway/genesis_php": "1.24.1"
+    "genesisgateway/genesis_php": "1.24.6"
   },
   "keywords": [
     "payment",
@@ -40,5 +34,28 @@
     "sale",
     "authorize",
     "shopware"
-  ]
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.7",
+    "phpmd/phpmd": "^2.15"
+  },
+  "scripts": {
+    "pack": "bin/pack",
+    "php-cs": [
+      "vendor/bin/phpcs .  --report=full --colors --standard=.phpcs.xml"
+    ],
+    "php-md": [
+      "vendor/bin/phpmd . ansi .phpmd.xml --not-strict"
+    ],
+    "php-cs-jenkins": [
+      "vendor/bin/phpcs . --standard=.phpcs.xml --report=checkstyle --report-file=phpcs_report.xml"
+    ],
+    "php-md-jenkins": [
+      "vendor/bin/phpmd . xml .phpmd.xml --reportfile phpmd_report.xml --not-strict --ignore-violations-on-exit"
+    ],
+    "styles": [
+      "@php-cs",
+      "@php-md"
+    ]
+  }
 }

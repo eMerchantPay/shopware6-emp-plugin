@@ -19,10 +19,13 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 namespace Genesis\Builders;
+
+use \XMLWriter;
+use Genesis\Exceptions\InvalidArgument;
 
 /**
  * XMLWriter Builder Interface
@@ -52,7 +55,7 @@ final class XML implements \Genesis\Interfaces\Builder
      */
     public function __construct()
     {
-        $this->context = new \XMLWriter();
+        $this->context = new XMLWriter();
 
         $this->context->openMemory();
         $this->context->startDocument('1.0', 'UTF-8');
@@ -73,7 +76,7 @@ final class XML implements \Genesis\Interfaces\Builder
     public function populateNodes($data)
     {
         if (!\Genesis\Utils\Common::isValidArray($data)) {
-            throw new \Genesis\Exceptions\InvalidArgument('Invalid data structure');
+            throw new InvalidArgument('Invalid data structure');
         }
 
         // Ensure that the Array position is 0

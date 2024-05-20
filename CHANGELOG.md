@@ -1,5 +1,10 @@
 Change Log
 ---------------------
+__1.2.7__
+-----
+* Updated Genesis PHP SDK to version 1.24.6
+* Implemented Web Payment Form flow with an iFrame
+
 __1.2.6__
 -----
 * Updated Genesis PHP library to version 1.24.0

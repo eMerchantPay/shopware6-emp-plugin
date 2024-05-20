@@ -19,16 +19,18 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
 namespace Genesis\API\Request\Financial\Cards;
 
+use Genesis\API\Constants\Transaction\Parameters\Recurring\Types;
 use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
 use Genesis\API\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
 use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
 use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringTypeAttributes;
+use Genesis\API\Traits\Request\Financial\Cards\Recurring\SubsequentRecurringTypeAttributes;
 use Genesis\API\Traits\Request\Financial\UcofAttributes;
 use Genesis\API\Traits\Request\Financial\CryptoAttributes;
 use Genesis\API\Traits\Request\Financial\FxRateAttributes;
@@ -39,6 +41,7 @@ use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
 use Genesis\API\Traits\Request\MotoAttributes;
 use Genesis\API\Traits\Request\AddressInfoAttributes;
 use Genesis\API\Traits\Request\RiskAttributes;
+use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
 use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
 use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
 use Genesis\API\Traits\Request\Financial\FundingAttributes;
@@ -56,7 +59,8 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
     use GamingAttributes, MotoAttributes, AddressInfoAttributes, RiskAttributes, DescriptorAttributes,
         PreauthorizationAttributes, TravelDataAttributes, FxRateAttributes,
         CryptoAttributes, BusinessAttributes, ScaAttributes, UcofAttributes, RecurringTypeAttributes,
-        ManagedRecurringAttributes, RecurringCategoryAttributes, ReferenceAttributes, FundingAttributes;
+        ManagedRecurringAttributes, RecurringCategoryAttributes, ReferenceAttributes, FundingAttributes,
+        AccountOwnerAttributes, SubsequentRecurringTypeAttributes;
 
     /**
      * Returns the Request transaction type
@@ -96,8 +100,7 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
             $this->requiredTokenizationFieldsConditional(),
             $this->requiredCCFieldsConditional(),
             $this->requiredManagedRecurringFieldsConditional(),
-            $this->requiredRecurringManagedTypeFieldConditional(),
-            $this->requiredRecurringSubsequentTypeFieldConditional()
+            $this->requiredRecurringManagedTypeFieldConditional()
         );
 
         $this->requiredFieldsConditional = CommonUtils::createArrayObject($requiredFieldsConditional);
@@ -113,6 +116,12 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
      */
     protected function checkRequirements()
     {
+        if ($this->recurring_type == Types::SUBSEQUENT) {
+            $this->checkRequirementsSubsequent();
+
+            return;
+        }
+
         $requiredFieldValuesConditional = $this->requiredRecurringAllTypesFieldValuesConditional();
 
         $this->requiredFieldValuesConditional = CommonUtils::createArrayObject(
@@ -148,7 +157,8 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
                 'managed_recurring'         => $this->getManagedRecurringAttributesStructure(),
                 'recurring_category'        => $this->recurring_category,
                 'reference_id'              => $this->reference_id,
-                'funding'                   => $this->getFundingAttributesStructure()
+                'funding'                   => $this->getFundingAttributesStructure(),
+                'account_owner'             => $this->getAccountOwnerAttributesStructure()
             ],
             $this->getScaAttributesStructure(),
             $this->getUcofAttributesStructure()

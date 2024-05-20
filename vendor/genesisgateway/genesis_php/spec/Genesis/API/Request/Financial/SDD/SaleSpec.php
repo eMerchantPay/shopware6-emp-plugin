@@ -5,10 +5,12 @@ namespace spec\Genesis\API\Request\Financial\SDD;
 use Genesis\API\Request\Financial\SDD\Sale;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
 
 class SaleSpec extends ObjectBehavior
 {
-    use RequestExamples;
+    use RequestExamples, PendingPaymentAttributesExamples, NeighborhoodAttributesExamples;
 
     public function it_is_initializable()
     {

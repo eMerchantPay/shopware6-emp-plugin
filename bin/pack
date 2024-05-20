@@ -1,0 +1,23 @@
+#!/bin/bash
+
+folder_name="EmerchantpayGenesis"
+
+# Remove any existing package
+[ -f "${folder_name}.zip" ] && rm "${folder_name}.zip"
+
+# Install Genesis PHP SDK and remove dev packages
+composer install --no-dev
+
+# Add a symlink to simulate folder
+[ ! -L "${folder_name}" ] && ln -s "$(pwd)" "${folder_name}"
+
+# Zip with the folder
+zip -r "${folder_name}" \
+    "${folder_name}/src" \
+    "${folder_name}/vendor/composer" \
+    "${folder_name}/vendor/genesisgateway" \
+    "${folder_name}/vendor/autoload.php" \
+    "${folder_name}/composer.json" \
+    "${folder_name}/composer.lock" \
+    "${folder_name}/README.md"
+[ -L "${folder_name}" ] && rm "${folder_name}"

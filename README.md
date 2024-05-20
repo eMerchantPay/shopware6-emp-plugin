@@ -6,8 +6,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.7.3__)
-* [GenesisPHP v1.24.1](https://github.com/GenesisGateway/genesis_php/releases/tag/1.24.1)
+* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.8.9__)
+* [GenesisPHP v1.24.6](https://github.com/GenesisGateway/genesis_php/releases/tag/1.24.6)
 * [Composer v2.5.5](https://github.com/composer/composer/releases/tag/2.5.5)
 
 GenesisPHP Requirements
@@ -69,6 +69,33 @@ Configuration
 * Navigate to section `Payment and shipping`
 * Add Payment Methods `emerchantpay Checkout`
 
+**Note**: In order to use processing in an iframe, you have to modify the SameSite cookie settings. This ensures that cookies are properly handled during cross-site requests, which is crucial for iframe-based payment solutions.
+
+### Step 1: Add/edit your framework.yml file
+Ensure you have access to your Shopware 6 installation directory. This can be on your local machine or a server where your Shopware instance is hosted.
+
+Navigate to the config/packages directory within your Shopware installation. This directory contains configuration files for various packages used by Shopware.
+
+```shell
+nano /path/to/your/shopware/installation/config/packages/framework.yml
+```
+**Note** instead of `nano` you can use your favorite editor.
+
+Add/update the Cookie SameSite setting:
+
+**framework.yml**:
+```yaml
+framework:
+  session:
+    cookie_samesite: none
+```
+
+Save your changes and clear the cache:
+```sh
+cd /path/to/your/shopware/installation
+./bin/console cache:clear
+```
+
 Uninstall \*CAUTION\*
 ---------------------
 When uninstalling, a message will appear asking if the plug-in data needs to be removed:
@@ -111,5 +138,23 @@ _Note_: If you have trouble with your credentials or terminal configuration, get
 
 You're now ready to process payments through our gateway.
 
-[support]: mailto:tech-support@emerchantpay.com
+Development
+------------
+* Install dev packages
+```shell
+composer install
+```
+* Run PHP Code Sniffer
+```shell
+composer php-cs
+```
+* Run PHP Mess Detector
+```shell
+composer php-md
+```
+* Pack installation archive (Linux or macOS only)
+```shell
+composer pack
+```
 
+[support]: mailto:tech-support@emerchantpay.com

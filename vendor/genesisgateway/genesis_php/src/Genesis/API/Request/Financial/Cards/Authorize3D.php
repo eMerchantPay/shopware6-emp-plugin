@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -39,6 +39,7 @@ use Genesis\API\Traits\Request\Financial\NotificationAttributes;
 use Genesis\API\Traits\Request\Financial\AsyncAttributes;
 use Genesis\API\Traits\Request\AddressInfoAttributes;
 use Genesis\API\Traits\Request\RiskAttributes;
+use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
 use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
 use Genesis\API\Traits\Request\Financial\FundingAttributes;
 use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
@@ -59,7 +60,7 @@ class Authorize3D extends \Genesis\API\Request\Base\Financial\Cards\CreditCard3D
         RiskAttributes, DescriptorAttributes, PreauthorizationAttributes, TravelDataAttributes,
         ScaAttributes, FxRateAttributes, CryptoAttributes, BusinessAttributes,
         RecurringTypeAttributes, ManagedRecurringAttributes, RecurringCategoryAttributes,
-        FundingAttributes;
+        FundingAttributes, AccountOwnerAttributes;
 
     /**
      * Returns the Request transaction type
@@ -166,7 +167,8 @@ class Authorize3D extends \Genesis\API\Request\Base\Financial\Cards\CreditCard3D
                 'recurring_type'            => $this->getRecurringType(),
                 'managed_recurring'         => $this->getManagedRecurringAttributesStructure(),
                 'recurring_category'        => $this->recurring_category,
-                'funding'                   => $this->getFundingAttributesStructure()
+                'funding'                   => $this->getFundingAttributesStructure(),
+                'account_owner'             => $this->getAccountOwnerAttributesStructure()
             ],
             $this->getScaAttributesStructure(),
             $this->get3DSTransactionAttributes()

@@ -19,22 +19,22 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
 namespace Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking;
 
 use Genesis\API\Constants\BankAccountTypes;
+use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
 use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
 use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
 use Genesis\API\Traits\Request\AddressInfoAttributes;
 use Genesis\API\Traits\Request\Financial\AsyncAttributes;
 use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\API\Traits\Request\Financial\CustomerAttributes;
 use Genesis\API\Traits\Request\Financial\NotificationAttributes;
 use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\OnlineBankingPayments\CustomerAttributes;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Exceptions\InvalidClassMethod;
@@ -53,7 +53,9 @@ use Genesis\Utils\Common;
  * @method Payout setBankCode($value) Set Customer’s bank code
  * @method Payout setBankBranch($value) Set Customer’s bank branch
  * @method Payout setBankProvince($value) Set Name of the province that the bank is located
+ * @method Payout setPixKey($value)
  * @method string getPaymentType() Get Payment type
+ * @method string getPixKey()
  *
  * @SuppressWarnings(PHPMD.LongVariable)
  */
@@ -134,6 +136,7 @@ class Payout extends \Genesis\API\Request\Base\Financial
      *     C: for Checking accounts
      *     S: for Savings accounts
      *     M: for Maestra accounts(Only Peru)
+     *     P: for Payment accounts
      *
      * @var string $bank_account_type
      */
@@ -176,6 +179,13 @@ class Payout extends \Genesis\API\Request\Base\Financial
      * @var string protected $payment_type;
      */
     protected $payment_type;
+
+    /**
+     * PIX key of the customer.
+     *
+     * @var string $pix_key
+     */
+    protected $pix_key;
 
     protected function getTransactionType()
     {
@@ -424,7 +434,8 @@ class Payout extends \Genesis\API\Request\Base\Financial
                 'birth_date'                      => $this->getBirthDate(),
                 'payment_type'                    => $this->payment_type,
                 'billing_address'                 => $this->getBillingAddressParamsStructure(),
-                'shipping_address'                => $this->getShippingAddressParamsStructure()
+                'shipping_address'                => $this->getShippingAddressParamsStructure(),
+                'pix_key'                         => $this->pix_key
             ],
             $this->getCustomerParamsStructure()
         );
@@ -456,16 +467,13 @@ class Payout extends \Genesis\API\Request\Base\Financial
         }
 
         $requiredFieldsGroups = [
-            'currency' => ['bank_code', 'bank_name'],
+            'BRL Currency' => ['bank_code', 'bank_name']
         ];
         $this->requiredFieldsGroups = Common::createArrayObject($requiredFieldsGroups);
 
-        // Allow empty bank_name with non-empty bank_code
-        if (!empty($this->bank_code)) {
-            $requiredFieldValuesConditional                      = (array)$this->requiredFieldValuesConditional;
-            $requiredFieldValuesConditional['currency']['BRL'][] = ['bank_code' => $this->bank_code];
-
-            $this->requiredFieldValuesConditional = Common::createArrayObject($requiredFieldValuesConditional);
+        // Allow empty bank_name, only with Group bank_code and bank_name requirement
+        if (empty($this->bank_name)) {
+            unset($this->requiredFieldValuesConditional['currency']['BRL']);
         }
     }
 }

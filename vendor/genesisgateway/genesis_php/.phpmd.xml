@@ -54,9 +54,12 @@
 
     <rule ref="rulesets/naming.xml/LongVariable">
         <properties>
-            <property name="maximum" value="30" />
+            <property name="maximum" value="55" />
         </properties>
     </rule>
 
     <rule ref="rulesets/unusedcode.xml" />
+
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/spec/*</exclude-pattern>
 </ruleset>

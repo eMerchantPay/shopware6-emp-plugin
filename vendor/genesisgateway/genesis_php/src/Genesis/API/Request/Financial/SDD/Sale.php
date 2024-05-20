@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -29,6 +29,7 @@ use Genesis\API\Traits\Request\Financial\PaymentAttributes;
 use Genesis\API\Traits\Request\AddressInfoAttributes;
 use Genesis\API\Traits\Request\Financial\BankAttributes;
 use Genesis\API\Traits\Request\Financial\AsyncAttributes;
+use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class Sale
@@ -39,7 +40,7 @@ use Genesis\API\Traits\Request\Financial\AsyncAttributes;
  */
 class Sale extends \Genesis\API\Request\Base\Financial
 {
-    use PaymentAttributes, AddressInfoAttributes, BankAttributes, AsyncAttributes;
+    use PaymentAttributes, AddressInfoAttributes, BankAttributes, AsyncAttributes, PendingPaymentAttributes;
 
     /**
      * Name of the company
@@ -113,7 +114,8 @@ class Sale extends \Genesis\API\Request\Base\Financial
             'billing_address'    => $this->getBillingAddressParamsStructure(),
             'shipping_address'   => $this->getShippingAddressParamsStructure(),
             'return_success_url' => $this->return_success_url,
-            'return_failure_url' => $this->return_failure_url
+            'return_failure_url' => $this->return_failure_url,
+            'return_pending_url' => $this->getReturnPendingUrl()
         ];
     }
 }

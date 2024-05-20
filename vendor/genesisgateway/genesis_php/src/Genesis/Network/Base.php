@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -127,4 +127,9 @@ abstract class Base
      * @return mixed
      */
     abstract public function execute();
+
+    /**
+     * @return mixed
+     */
+    abstract protected function authorization($requestData);
 }

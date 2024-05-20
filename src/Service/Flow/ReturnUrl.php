@@ -18,7 +18,9 @@
 
 namespace Emerchantpay\Genesis\Service\Flow;
 
+use Emerchantpay\Genesis\Constants\Config as ConfigKeys;
 use Emerchantpay\Genesis\Core\Flow\ReturnUrl\ReturnUrlEntity;
+use Emerchantpay\Genesis\Utils\Config;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -32,17 +34,23 @@ class ReturnUrl
     /**
      * @var EntityRepository
      */
-    private $returnUrlRepository;
+    private EntityRepository $returnUrlRepository;
 
     /**
      * @var RouterInterface
      */
-    private $router;
+    private RouterInterface $router;
 
-    public function __construct(EntityRepository $returnUrlRepository, RouterInterface $router)
+    /**
+     * @var Config
+     */
+    private Config $config;
+
+    public function __construct(EntityRepository $returnUrlRepository, RouterInterface $router, Config $config)
     {
         $this->returnUrlRepository = $returnUrlRepository;
         $this->router = $router;
+        $this->config = $config;
     }
 
     public function generateReturnUrl(string $return_url): string
@@ -58,7 +66,7 @@ class ReturnUrl
         ], Context::createDefaultContext());
 
         return $this->router->generate(
-            'frontend.emerchantpay.return',
+            $this->isIframeEnabled() ? 'frontend.emerchantpay.return_iframe' : 'frontend.emerchantpay.return',
             ['token' => $token],
             UrlGeneratorInterface::ABSOLUTE_URL
         );
@@ -82,5 +90,15 @@ class ReturnUrl
     private function generateToken(string $return_url): string
     {
         return $hash = hash('sha512', $return_url);
+    }
+
+    /**
+     * Check if iframe processing is enabled
+     *
+     * @return bool
+     */
+    private function isIframeEnabled(): bool
+    {
+        return (bool)$this->config->getCheckout()[ConfigKeys::CHECKOUT_IFRAME_PROCESSING];
     }
 }

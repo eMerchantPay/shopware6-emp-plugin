@@ -13,11 +13,13 @@ use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExampl
 use spec\SharedExamples\Genesis\API\Request\RequestExamples;
 use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
 use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
+use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
 
 class ApplePaySpec extends ObjectBehavior
 {
     use RequestExamples, ApplePayAttributes, CryptoAttributesExamples, BirthDateAttributesExample,
-        BusinessAttributesExample, DocumentAttributesExample, DescriptorAttributesExample;
+        BusinessAttributesExample, DocumentAttributesExample, DescriptorAttributesExample,
+        NeighborhoodAttributesExamples;
 
     public function it_is_initializable()
     {
@@ -89,6 +91,18 @@ class ApplePaySpec extends ObjectBehavior
 
         $this->setJsonToken($token);
         $this->getDocument()->shouldContain('transactionIdentifier');
+        $this->getDocument()->shouldContain('applicationData');
+        $this->getDocument()->shouldContain('wrappedKey');
+    }
+
+    public function it_should_not_contain_empty_token_elements()
+    {
+        $this->setRequestParameters();
+        $this->setTokenApplicationData('');
+        $this->setTokenWrappedKey('');
+
+        $this->getDocument()->shouldNotContain('applicationData');
+        $this->getDocument()->shouldNotContain('wrappedKey');
     }
 
     protected function setRequestParameters()
@@ -138,7 +152,9 @@ class ApplePaySpec extends ObjectBehavior
                 'data'      => $faker->sha256,
                 'signature' => $faker->sha256,
                 'header'    => [
+                    'applicationData'    => $faker->sha256,
                     'ephemeralPublicKey' => $faker->sha256,
+                    'wrappedKey'         => $faker->uuid,
                     'publicKeyHash'      => $faker->sha256,
                     'transactionId'      => $faker->uuid
                 ]

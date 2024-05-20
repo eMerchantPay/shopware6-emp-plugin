@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 namespace Genesis\API\Constants\Transaction\Parameters\PayByVouchers;
@@ -52,11 +52,7 @@ class CardTypes
      */
     public static function isValidCardType($cardType)
     {
-        if (@constant('self::' . strtoupper($cardType))) {
-            return true;
-        }
-
-        return false;
+        return defined('self::' . strtoupper($cardType));
     }
 
     /**

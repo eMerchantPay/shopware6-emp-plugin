@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -46,12 +46,18 @@ class BankAccountTypes
      */
     const MAESTRA_ACCOUNTS = 'M';
 
+    /**
+     * P: for Payment accounts
+     */
+    const PAYMENT_ACCOUNT = 'P';
+
     public static function getAll()
     {
         return [
             self::CHECKING_ACCOUNT,
             self::SAVINGS_ACCOUNT,
-            self::MAESTRA_ACCOUNTS
+            self::MAESTRA_ACCOUNTS,
+            self::PAYMENT_ACCOUNT
         ];
     }
 }

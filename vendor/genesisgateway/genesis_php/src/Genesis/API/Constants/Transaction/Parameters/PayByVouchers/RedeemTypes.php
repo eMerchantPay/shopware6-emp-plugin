@@ -19,7 +19,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 namespace Genesis\API\Constants\Transaction\Parameters\PayByVouchers;
@@ -53,11 +53,7 @@ class RedeemTypes
      */
     public static function isValidRedeemType($redeemType)
     {
-        if (@constant('self::' . strtoupper($redeemType))) {
-            return true;
-        }
-
-        return false;
+        return defined('self::' . strtoupper($redeemType));
     }
 
     /**

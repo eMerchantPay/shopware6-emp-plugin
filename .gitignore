@@ -4,3 +4,6 @@ vendor/*
 !vendor/autoload.php
 !vendor/genesisgateway
 .DS_Store
+EmerchantpayGenesis.zip
+phpmd_report.xml
+phpcs_report.xml

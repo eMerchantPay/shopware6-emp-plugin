@@ -22,6 +22,7 @@ namespace Emerchantpay\Genesis\Storefront\Controller;
 use Emerchantpay\Genesis\Service\Flow\ReturnUrl;
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -30,7 +31,7 @@ class GenesisReturnController extends StorefrontController
     /**
      * @var ReturnUrl
      */
-    private $returnUrlService;
+    private ReturnUrl $returnUrlService;
 
     public function __construct(ContainerInterface $container, ReturnUrl $return_url)
     {
@@ -50,5 +51,32 @@ class GenesisReturnController extends StorefrontController
     public function redirectOrderEndpoint(string $token): RedirectResponse
     {
         return $this->redirect($this->returnUrlService->getOrderEndpoint($token));
+    }
+
+    /**
+     * If the payment is processed into an iframe, response with a JS, breaking that iframe jail
+     *
+     * @param string $token
+     *
+     * @return Response
+     *
+     * @Route(
+     *     path="/emerchantpay/return-iframe/{token}",
+     *     name="frontend.emerchantpay.return_iframe",
+     *     options={"seo"="false"},
+     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}},
+     *     methods={"GET"}
+     * )
+     */
+    public function redirectOrderEndpointBreakIframe(string $token): Response
+    {
+        $response = $this->render(
+            'storefront/iframehandler/index.html.twig',
+            ['returnUrl' => $this->returnUrlService->getOrderEndpoint($token)]
+        );
+        // In case we drop the support for 6.5
+        $response->headers->set('x-frame-options', 'ALLOWALL', true);
+
+        return $response;
     }
 }

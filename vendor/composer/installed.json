@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "genesisgateway/genesis_php",
-            "version": "1.24.1",
-            "version_normalized": "1.24.1.0",
+            "version": "1.24.6",
+            "version_normalized": "1.24.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GenesisGateway/genesis_php.git",
-                "reference": "02e28ee44f0f3f92e569ec96f6100c91a65f0936"
+                "reference": "85fbf3e14e5c3087ec47a03ad4223cdcb1823e47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/02e28ee44f0f3f92e569ec96f6100c91a65f0936",
-                "reference": "02e28ee44f0f3f92e569ec96f6100c91a65f0936",
+                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/85fbf3e14e5c3087ec47a03ad4223cdcb1823e47",
+                "reference": "85fbf3e14e5c3087ec47a03ad4223cdcb1823e47",
                 "shasum": ""
             },
             "require": {
@@ -31,7 +31,7 @@
                 "fakerphp/faker": "^1.20",
                 "phpspec/phpspec": "7.2.*@stable"
             },
-            "time": "2023-12-05T07:57:02+00:00",
+            "time": "2024-04-01T14:47:17+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -153,6 +153,10 @@
                 "wechat",
                 "wpf"
             ],
+            "support": {
+                "issues": "https://github.com/GenesisGateway/genesis_php/issues",
+                "source": "https://github.com/GenesisGateway/genesis_php/tree/1.24.1"
+            },
             "install-path": "../genesisgateway/genesis_php"
         }
     ],

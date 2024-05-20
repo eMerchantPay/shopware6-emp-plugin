@@ -19,14 +19,16 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2023 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
 namespace Genesis\API\Request\Financial\Cards;
 
+use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
 use Genesis\API\Traits\Request\Financial\CustomerIdentificationData;
 use Genesis\API\Traits\Request\Financial\SourceOfFundsAttributes;
+use Genesis\API\Traits\Request\Financial\PurposeOfPaymentAttributes;
 
 /**
  * Class Credit
@@ -37,7 +39,41 @@ use Genesis\API\Traits\Request\Financial\SourceOfFundsAttributes;
  */
 class Credit extends \Genesis\API\Request\Base\Financial\Reference
 {
-    use SourceOfFundsAttributes, CustomerIdentificationData;
+    use SourceOfFundsAttributes, CustomerIdentificationData, AccountOwnerAttributes, PurposeOfPaymentAttributes;
+
+    /**
+     * Set the required fields
+     *
+     * @return void
+     */
+    protected function setRequiredFields()
+    {
+        $requiredFields = [
+            'transaction_id',
+            'reference_id',
+            'amount'
+        ];
+
+        $this->requiredFields = \Genesis\Utils\Common::createArrayObject($requiredFields);
+    }
+
+    /**
+     * Apply transformation: Convert to Minor currency unit
+     * When there is no currency the amount will not be modified
+     *
+     * @param string $amount
+     * @param string $currency
+     *
+     * @return string
+     */
+    protected function transformAmount($amount = '', $currency = '')
+    {
+        if (empty($currency)) {
+            return $amount;
+        }
+
+        return parent::transformAmount($amount, $currency);
+    }
 
     /**
      * Returns the Request transaction type
@@ -56,10 +92,13 @@ class Credit extends \Genesis\API\Request\Base\Financial\Reference
     protected function getPaymentTransactionStructure()
     {
         return array_merge(
-            parent::getPaymentTransactionStructure(),
             $this->getSourceOfFundsStructure(),
             [
-                'customer_identification' => $this->getCustomerIdentificationDataStructure()
+                'reference_id'            => $this->reference_id,
+                'amount'                  => $this->transformAmount($this->amount, $this->currency),
+                'customer_identification' => $this->getCustomerIdentificationDataStructure(),
+                'account_owner'           => $this->getAccountOwnerAttributesStructure(),
+                'purpose_of_payment'      => $this->purpose_of_payment
             ]
         );
     }
