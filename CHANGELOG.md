@@ -1,5 +1,9 @@
 Change Log
 ---------------------
+__1.3.1__
+-----
+Fixed Genesis PHP SDK directory structure
+
 __1.3.0__
 -----
 * Added Shopware 6.6.x support

@@ -1,7 +1,7 @@
 {
   "name": "emerchantpay/genesis",
   "description": "emerchantpay Genesis Plugin, that gives you the ability to process payments through emerchantpay's Payment Gateway - Genesis.",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "shopware-platform-plugin",
   "license": "MIT",
   "authors": [

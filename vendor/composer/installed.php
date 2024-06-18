@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'emerchantpay/genesis',
-        'pretty_version' => '1.3.0',
-        'version' => '1.3.0.0',
+        'pretty_version' => '1.3.1',
+        'version' => '1.3.1.0',
         'reference' => NULL,
         'type' => 'shopware-platform-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -11,8 +11,8 @@
     ),
     'versions' => array(
         'emerchantpay/genesis' => array(
-            'pretty_version' => '1.3.0',
-            'version' => '1.3.0.0',
+            'pretty_version' => '1.3.1',
+            'version' => '1.3.1.0',
             'reference' => NULL,
             'type' => 'shopware-platform-plugin',
             'install_path' => __DIR__ . '/../../',
