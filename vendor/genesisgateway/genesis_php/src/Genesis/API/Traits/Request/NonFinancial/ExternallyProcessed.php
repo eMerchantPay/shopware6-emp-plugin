@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial;
+namespace Genesis\Api\Traits\Request\NonFinancial;
 
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait ExternallyProcessed
- * @package Genesis\API\Traits\Request\NonFinancial
+ * @package Genesis\Api\Traits\Request\NonFinancial
  */
 trait ExternallyProcessed
 {
-
     /**
      * Filters transactions by being extenrally processed or
      * being native to Genesis
@@ -59,7 +59,7 @@ trait ExternallyProcessed
 
         return $this->allowedOptionsSetter(
             'externally_processed',
-            \Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed::getAll(),
+            \Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed::getAll(),
             $value,
             'Invalid value for externally_processed attribute.'
         );

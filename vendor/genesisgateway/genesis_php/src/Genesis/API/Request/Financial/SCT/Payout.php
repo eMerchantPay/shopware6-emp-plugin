@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,8 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial\SCT;
+
+namespace Genesis\Api\Request\Financial\Sct;
 
 use Genesis\Utils\Common as CommonUtils;
 
@@ -31,9 +33,9 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * SDD Payout Transactions
  *
- * @package Genesis\API\Request\Financial\SCT
+ * @package Genesis\Api\Request\Financial\Sct
  */
-class Payout extends \Genesis\API\Request\Financial\SDD\Sale
+class Payout extends \Genesis\Api\Request\Financial\Sdd\Sale
 {
     /**
      * Set the required fields
@@ -57,6 +59,6 @@ class Payout extends \Genesis\API\Request\Financial\SDD\Sale
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SCT_PAYOUT;
+        return \Genesis\Api\Constants\Transaction\Types::SCT_PAYOUT;
     }
 }

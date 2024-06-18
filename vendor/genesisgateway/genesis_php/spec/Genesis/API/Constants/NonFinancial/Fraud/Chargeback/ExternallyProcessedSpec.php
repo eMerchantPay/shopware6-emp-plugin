@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\Fraud\Chargeback;
+namespace spec\Genesis\Api\Constants\NonFinancial\Fraud\Chargeback;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class ExternallyProcessedSpec
- * @package spec\Genesis\API\Constants\NonFinancial\Fraud\Chargeback
+ * @package spec\Genesis\Api\Constants\NonFinancial\Fraud\Chargeback
  */
 class ExternallyProcessedSpec extends ObjectBehavior
 {

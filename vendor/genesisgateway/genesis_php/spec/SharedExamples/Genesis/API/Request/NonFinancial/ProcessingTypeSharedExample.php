@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
 
 trait ProcessingTypeSharedExample
 {

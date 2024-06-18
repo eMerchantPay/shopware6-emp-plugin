@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
 use Genesis\Exceptions\ErrorParameter;
 use spec\SharedExamples\Faker;

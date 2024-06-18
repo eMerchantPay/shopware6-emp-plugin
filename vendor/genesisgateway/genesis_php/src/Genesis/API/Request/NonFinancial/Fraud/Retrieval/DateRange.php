@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,10 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\NonFinancial\Fraud\Retrieval;
 
-use Genesis\API\Constants\DateTimeFormat;
+namespace Genesis\Api\Request\NonFinancial\Fraud\Retrieval;
+
+use Genesis\Api\Constants\DateTimeFormat;
 
 /**
  * Retrieval request by Date Range
@@ -33,7 +35,7 @@ use Genesis\API\Constants\DateTimeFormat;
  * @subpackage Request
  */
 
-class DateRange extends \Genesis\API\Request
+class DateRange extends \Genesis\Api\Request
 {
     /**
      * start of the requested date range

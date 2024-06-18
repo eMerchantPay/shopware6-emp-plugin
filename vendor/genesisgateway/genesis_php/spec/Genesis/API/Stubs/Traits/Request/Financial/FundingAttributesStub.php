@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\FundingAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\Request\Financial\FundingAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class FundingAttributesStub
  *
  * Used to spec FundingAttributes Trait
  *
- * @package spec\Genesis\API\Traits\Request\Financial
+ * @package spec\Genesis\Api\Traits\Request\Financial
  */
 class FundingAttributesStub
 {
-    use FundingAttributes, RestrictedSetter;
+    use FundingAttributes;
+    use RestrictedSetter;
 }

@@ -1,25 +1,30 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Mobile;
+namespace spec\Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes;
-use Genesis\API\Request\Financial\Mobile\GooglePay;
+use Genesis\Api\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes;
+use Genesis\Api\Request\Financial\Mobile\GooglePay;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\NotificationAttributesExamples;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NotificationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class GooglePaySpec extends ObjectBehavior
 {
-    use RequestExamples, DocumentAttributesExample, DescriptorAttributesExample, ThreedsV2AttributesExamples,
-        AsyncAttributesExample, NotificationAttributesExamples, NeighborhoodAttributesExamples;
+    use AsyncAttributesExample;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use NotificationAttributesExamples;
+    use RequestExamples;
+    use ThreedsV2AttributesExamples;
 
     public function is_it_initializable()
     {

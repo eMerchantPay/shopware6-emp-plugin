@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,20 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
 /**
  * Trait AllAttributes
  * Includes All Common 3DSv2-Method Attributes with Recurring Attributes
  *
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 trait AllAttributes
 {
-    use Recurring, CommonAttributes {
+    use CommonAttributes {
         getThreedsV2ParamsStructure as getCommonStructure;
     }
+    use Recurring;
 
     /**
      * Get the 3DSv2 Attributes Structure

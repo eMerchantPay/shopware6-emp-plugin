@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
 /**
  * Trait PaymentAttributes
  *
  * Trait for all AmountBased Financial Requests
  *
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method $this setCurrency($value) Set the currency code in ISO-4217
  */

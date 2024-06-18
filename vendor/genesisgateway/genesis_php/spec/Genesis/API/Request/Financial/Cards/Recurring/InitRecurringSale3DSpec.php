@@ -1,33 +1,44 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Request\Financial\Cards\Recurring\InitRecurringSale3D;
+use Genesis\Api\Request\Financial\Cards\Recurring\InitRecurringSale3D;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\CredentialOnFileAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\FxRateAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\MpiAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\ScaAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\TokenizationAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\FundingAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FundingAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FxRateAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\MpiAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\ScaAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\TokenizationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class InitRecurringSale3DSpec extends ObjectBehavior
 {
-    use RequestExamples, MpiAttributesExamples, ScaAttributesExamples, FxRateAttributesExamples,
-        DescriptorAttributesExample, TokenizationAttributesExamples, BusinessAttributesExample,
-        ThreedsV2AttributesExamples, CredentialOnFileAttributesExamples, AllowedZeroAmount,
-        DocumentAttributesExample, ManagedRecurringAttributesExample, RecurringCategoryAttributesExample,
-        FundingAttributesExamples, AccountOwnerAttributesExamples, NeighborhoodAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use AllowedZeroAmount;
+    use BusinessAttributesExample;
+    use CredentialOnFileAttributesExamples;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use FundingAttributesExamples;
+    use FxRateAttributesExamples;
+    use ManagedRecurringAttributesExample;
+    use MpiAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RecurringCategoryAttributesExample;
+    use RequestExamples;
+    use ScaAttributesExamples;
+    use ThreedsV2AttributesExamples;
+    use TokenizationAttributesExamples;
 
     public function it_is_initializable()
     {

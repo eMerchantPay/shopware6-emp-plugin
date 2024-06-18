@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\Transaction;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\Transaction;
 
-use Genesis\API\Constants\NonFinancial\KYC\TransactionStatuses;
-use Genesis\API\Request\NonFinancial\KYC\Transaction\Update;
+use Genesis\Api\Constants\NonFinancial\Kyc\TransactionStatuses;
+use Genesis\Api\Request\NonFinancial\Kyc\Transaction\Update;
 use PhpSpec\ObjectBehavior;
 
 class UpdateSpec extends ObjectBehavior

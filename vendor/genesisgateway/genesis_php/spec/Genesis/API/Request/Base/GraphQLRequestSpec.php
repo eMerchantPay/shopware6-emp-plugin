@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base;
+namespace spec\Genesis\Api\Request\Base;
 
-use Genesis\API\Constants\Endpoints;
+use Genesis\Api\Constants\Endpoints;
 use Genesis\Config;
-use spec\Genesis\API\Stubs\Base\Request\GraphQLRequestStub;
+use spec\Genesis\Api\Stubs\Base\Request\GraphqlRequestStub;
 
-class GraphQLRequestSpec extends \PhpSpec\ObjectBehavior
+class GraphqlRequestSpec extends \PhpSpec\ObjectBehavior
 {
     public function let()
     {
-        $this->beAnInstanceOf(GraphQLRequestStub::class);
+        $this->beAnInstanceOf(GraphqlRequestStub::class);
     }
 
     public function it_should_set_version_correctly()

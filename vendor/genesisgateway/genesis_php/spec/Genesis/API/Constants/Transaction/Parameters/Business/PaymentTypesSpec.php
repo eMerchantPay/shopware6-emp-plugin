@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Business;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Business;
 
-use Genesis\API\Constants\Transaction\Parameters\Business\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Business\PaymentTypes;
 use PhpSpec\ObjectBehavior;
 
 class PaymentTypesSpec extends ObjectBehavior

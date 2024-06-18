@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\BeneficiaryAttributes;
+use Genesis\Api\Traits\Request\Financial\BeneficiaryAttributes;
 
 /**
  * Class BeneficiaryAttributesStub
  *
  * Use for BeneficiaryAttributes trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial
  */
 class BeneficiaryAttributesStub
 {

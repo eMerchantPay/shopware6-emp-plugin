@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
 use spec\SharedExamples\Faker;
 

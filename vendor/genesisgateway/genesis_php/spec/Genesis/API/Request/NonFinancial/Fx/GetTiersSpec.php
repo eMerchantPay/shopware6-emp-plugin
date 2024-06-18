@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Fx;
+namespace spec\Genesis\Api\Request\NonFinancial\Fx;
 
-use Genesis\API\Request;
-use Genesis\API\Request\NonFinancial\Fx\GetTiers;
+use Genesis\Api\Request;
+use Genesis\Api\Request\NonFinancial\Fx\GetTiers;
 use Genesis\Builder;
 use PhpSpec\ObjectBehavior;
 
@@ -17,7 +17,7 @@ class GetTiersSpec extends ObjectBehavior
     public function it_should_build_correct_url()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         $this->getApiConfig('url')->shouldBe('https://staging.gate.emerchantpay.net:443/v1/fx/tiers');

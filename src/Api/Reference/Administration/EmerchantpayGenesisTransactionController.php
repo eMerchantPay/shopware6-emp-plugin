@@ -27,7 +27,7 @@ use Shopware\Core\Framework\Context;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class EmerchantpayGenesisTransactionController extends AbstractController
 {
@@ -59,20 +59,20 @@ class EmerchantpayGenesisTransactionController extends AbstractController
     }
 
     /**
-     * @Route(
-     *     "/api/v{version}/emerchantpay-v1/genesis/transaction/payment-reference-details",
-     *     name="api.emerchantpay.genesis.version-endpoint.transaction.payment-reference-details",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
-     *
-     * @Route(
-     *     "/api/emerchantpay-v1/genesis/transaction/payment-reference-details",
-     *     name="api.emerchantpay.genesis.transaction.payment-reference-details",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
+     * Reference Details Controller action
      */
+    #[Route(
+        path:     '/api/v{version}/emerchantpay-v1/genesis/transaction/payment-reference-details',
+        name:     'api.emerchantpay.genesis.version-endpoint.transaction.payment-reference-details',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
+    #[Route(
+        path:     '/api/emerchantpay-v1/genesis/transaction/payment-reference-details',
+        name:     'api.emerchantpay.genesis.transaction.payment-reference-details',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
     public function buildReferenceDetails(Request $request, Context $context): JsonResponse
     {
         try {
@@ -92,20 +92,20 @@ class EmerchantpayGenesisTransactionController extends AbstractController
     }
 
     /**
-     * @Route(
-     *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/capture",
-     *     name="api.emerchantpay.genesis.version-endpoint.transaction.capture",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
-     *
-     * @Route(
-     *     "/api/_action/emerchantpay-v1/genesis/transaction/capture",
-     *     name="api.emerchantpay.genesis.transaction.capture",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
+     * doCapture Controller Action
      */
+    #[Route(
+        path:     '/api/v{version}/_action/emerchantpay-v1/genesis/transaction/capture',
+        name:     'api.emerchantpay.genesis.version-endpoint.transaction.capture',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
+    #[Route(
+        path:     '/api/_action/emerchantpay-v1/genesis/transaction/capture',
+        name:     'api.emerchantpay.genesis.transaction.capture',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
     public function doCapture(Request $request, Context $context): JsonResponse
     {
         try {
@@ -127,7 +127,7 @@ class EmerchantpayGenesisTransactionController extends AbstractController
 
             return new JsonResponse([
                 'status' => 'success',
-                'response' => $response
+                'response' => $response->getResponseObject()
             ]);
         } catch (\Exception $error) {
             return new JsonResponse(
@@ -140,20 +140,20 @@ class EmerchantpayGenesisTransactionController extends AbstractController
     }
 
     /**
-     * @Route(
-     *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/refund",
-     *     name="api.emerchantpay.genesis.version-endpoint.transaction.refund",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
-     *
-     * @Route(
-     *     "/api/_action/emerchantpay-v1/genesis/transaction/refund",
-     *     name="api.emerchantpay.genesis.transaction.refund",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
+     * doRefund Controller Action
      */
+    #[Route(
+        path:     '/api/v{version}/_action/emerchantpay-v1/genesis/transaction/refund',
+        name:     'api.emerchantpay.genesis.version-endpoint.transaction.refund',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
+    #[Route(
+        path:     '/api/_action/emerchantpay-v1/genesis/transaction/refund',
+        name:     'api.emerchantpay.genesis.transaction.refund',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
     public function doRefund(Request $request, Context $context): JsonResponse
     {
         try {
@@ -175,7 +175,7 @@ class EmerchantpayGenesisTransactionController extends AbstractController
 
             return new JsonResponse([
                 'status' => 'success',
-                'response' => $response
+                'response' => $response->getResponseObject()
             ]);
         } catch (\Exception $error) {
             return new JsonResponse(
@@ -188,20 +188,20 @@ class EmerchantpayGenesisTransactionController extends AbstractController
     }
 
     /**
-     * @Route(
-     *     "/api/v{version}/_action/emerchantpay-v1/genesis/transaction/void",
-     *     name="api.emerchantpay.genesis.version-endpoint.transaction.void",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
-     *
-     * @Route(
-     *     "/api/_action/emerchantpay-v1/genesis/transaction/void",
-     *     name="api.emerchantpay.genesis.transaction.void",
-     *     methods={"POST"},
-     *     defaults={"_routeScope"={"api"}}
-     * )
+     * doVoid Controller Action
      */
+    #[Route(
+        path:     '/api/v{version}/_action/emerchantpay-v1/genesis/transaction/void',
+        name:     'api.emerchantpay.genesis.version-endpoint.transaction.void',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
+    #[Route(
+        path:     '/api/_action/emerchantpay-v1/genesis/transaction/void',
+        name:     'api.emerchantpay.genesis.transaction.void',
+        defaults: ['_routeScope' => ['api']],
+        methods:  ['POST']
+    )]
     public function doVoid(Request $request, Context $context): JsonResponse
     {
         try {
@@ -223,7 +223,7 @@ class EmerchantpayGenesisTransactionController extends AbstractController
 
             return new JsonResponse([
                 'status' => 'success',
-                'response' => $response
+                'response' => $response->getResponseObject()
             ]);
         } catch (\Exception $error) {
             return new JsonResponse(

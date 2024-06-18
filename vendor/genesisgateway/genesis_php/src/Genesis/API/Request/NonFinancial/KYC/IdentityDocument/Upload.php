@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\IdentityDocument;
+namespace Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument;
 
-use Genesis\API\Constants\NonFinancial\KYC\IdentityDocumentMethods;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\IdentityDocuments;
+use Genesis\Api\Constants\NonFinancial\Kyc\IdentityDocumentMethods;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
+use Genesis\Api\Traits\Request\NonFinancial\IdentityDocuments;
 
 /**
  * Class Upload
  *
  * Used to verify documents provided by the customer.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\IdentityDocument
+ * @package Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument
  */
 class Upload extends BaseRequest
 {

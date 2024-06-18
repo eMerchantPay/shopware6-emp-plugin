@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\CashPayments;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\CashPayments;
 
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
 use PhpSpec\ObjectBehavior;
 
 class CompanyTypesSpec extends ObjectBehavior

@@ -1,19 +1,19 @@
 <?php
 
-namespace spec\fixtures\API\Stubs\Parser;
+namespace spec\Fixtures\Api\Stubs\Parser;
 
-use Genesis\API\Response;
+use Genesis\Api\Response;
 use Genesis\Builder;
-use Genesis\Parsers\XML;
-use Genesis\Parsers\JSON;
+use Genesis\Parsers\Json;
+use Genesis\Parsers\Xml;
 
 /**
  * Class BaseStub
- * @package spec\fixtures\API\Stubs
+ * @package spec\Fixtures\Api\Stubs
  */
 class ParserStub
 {
-    const ROOT                 = 'spec/fixtures/API';
+    const ROOT                 = 'spec/Fixtures/Api';
     const MESSAGE_TYPE_PATTERN = '$|message_type|';
 
     /**
@@ -76,10 +76,10 @@ class ParserStub
         if (strtolower($type) === 'response') {
             switch (strtolower($builder)) {
                 case Builder::XML:
-                    $this->parser = new XML();
+                    $this->parser = new Xml();
                     break;
                 case Builder::JSON:
-                    $this->parser = new JSON();
+                    $this->parser = new Json();
                     break;
             }
 

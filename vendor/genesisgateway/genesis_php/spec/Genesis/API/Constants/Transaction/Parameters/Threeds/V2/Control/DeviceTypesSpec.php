@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
 use PhpSpec\ObjectBehavior;
 
 class DeviceTypesSpec extends ObjectBehavior

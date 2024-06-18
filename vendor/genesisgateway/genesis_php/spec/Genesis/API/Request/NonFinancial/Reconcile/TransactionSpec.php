@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Reconcile;
+namespace spec\Genesis\Api\Request\NonFinancial\Reconcile;
 
-use Genesis\API\Request\NonFinancial\Reconcile\Transaction;
+use Genesis\Api\Request\NonFinancial\Reconcile\Transaction;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class TransactionSpec extends ObjectBehavior
 {

@@ -22,7 +22,7 @@ namespace Emerchantpay\Genesis\Service\Payment;
 use Emerchantpay\Genesis\Core\Payment\Transaction\TransactionEntity;
 use Emerchantpay\Genesis\Utils\Data\PaymentData;
 use Emerchantpay\Genesis\Utils\Data\ReferenceData;
-use Genesis\API\Notification;
+use Genesis\Api\Notification;
 use Genesis\Genesis;
 use Genesis\Utils\Currency as GenesisCurrency;
 use Shopware\Core\Framework\Context;

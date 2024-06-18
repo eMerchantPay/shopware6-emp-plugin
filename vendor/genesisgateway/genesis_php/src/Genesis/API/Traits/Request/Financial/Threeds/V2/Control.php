@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
 
 /**
  * Trait Control
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @method string getThreedsV2ControlDeviceType()                Identifies the device channel of the consumer
  * @method $this  setThreedsV2ControlDeviceType($value)          Identifies the device channel of the consumer

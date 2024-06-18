@@ -1,13 +1,13 @@
 <?php
 
-namespace Genesis\API\Request\Financial\Preauthorization;
+namespace Genesis\Api\Request\Financial\Preauthorization;
 
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
 
 /**
  * Class IncrementalAuthorize
- * @package Genesis\API\Request\Financial\Preauthorization
+ * @package Genesis\Api\Request\Financial\Preauthorization
  */
 class PartialReversal extends Financial\Reference
 {

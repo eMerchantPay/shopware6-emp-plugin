@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial\KYC;
+namespace Genesis\Api\Traits\Request\NonFinancial\Kyc;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationAddressesTypes;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationLanguages;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationSupportedModes;
+use DateTime;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationAddressesTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationLanguages;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationSupportedModes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Country;
 
@@ -37,7 +39,7 @@ use Genesis\Utils\Country;
  *
  * Setters and getters for KYC Verifications. Build structure, ensure correct types are used where needed
  *
- * @package Genesis\API\Traits\Request\NonFinancial
+ * @package Genesis\Api\Traits\Request\NonFinancial\Kyc
  *
  * @method string getCountry()
  * @method string getVerificationMode()
@@ -47,6 +49,44 @@ use Genesis\Utils\Country;
  */
 trait KycVerifications
 {
+    /**
+     * Country code in ISO 3166
+     *
+     * @var string
+     */
+    protected $country;
+
+    /**
+     * This key specifies the types of proof that can be used for verification
+     *
+     * @var string
+     */
+    protected $verification_mode;
+
+    /**
+     * Supported Language Code
+     *
+     * @var string
+     * @see VerificationLanguages
+     */
+    protected $language;
+
+    /**
+     * Supported types of address that can be verified
+     *
+     * @var string
+     * @see VerificationAddressesTypes
+     */
+    protected $address_supported_types;
+
+    /**
+     * Document's expiry date at yyyy-mm-dd format, for example - 2025-12-31, can be a blank string.
+     * A blank string means that the user will need to enter the expiry date from the UI
+     *
+     * @var DateTime
+     */
+    protected $expiry_date;
+
     /**
      * Check and set the correct value for Verifications Country
      *
@@ -167,28 +207,5 @@ trait KycVerifications
         return empty($this->expiry_date)
             ? ''
             : $this->expiry_date->format(DateTimeFormat::YYYY_MM_DD_ISO_8601);
-    }
-
-    /**
-     * Verify Reference ID value
-     *
-     * @param $value
-     * @return $this
-     * @throws InvalidArgument
-     */
-    public function setReferenceId($value)
-    {
-        if (empty($value)) {
-            $this->reference_id = null;
-
-            return $this;
-        }
-
-        return $this->setLimitedString(
-            'reference_id',
-            $value,
-            self::REFERENCE_ID_MIN_LENGTH,
-            self::REFERENCE_ID_MAX_LENGTH
-        );
     }
 }

@@ -1,17 +1,18 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\Method;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\Method;
 
 /**
  * Class MethodStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2
  */
 class MethodStub
 {
-    use MagicAccessors, Method;
+    use MagicAccessors;
+    use Method;
 
     public function getStructure()
     {

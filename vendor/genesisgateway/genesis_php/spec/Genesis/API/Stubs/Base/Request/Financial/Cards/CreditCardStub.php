@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request\Financial\Cards;
+namespace spec\Genesis\Api\Stubs\Base\Request\Financial\Cards;
 
-use Genesis\API\Request\Base\Financial\Cards\CreditCard;
+use Genesis\Api\Request\Base\Financial\Cards\CreditCard;
 
 /**
  * Class CreditCardStub
  *
  * Used to spec CreditCard abstract class
  *
- * @package spec\Genesis\API\Base\Request\Financial\Cards
+ * @package spec\Genesis\Api\Base\Request\Financial\Cards
  */
 class CreditCardStub extends CreditCard
 {

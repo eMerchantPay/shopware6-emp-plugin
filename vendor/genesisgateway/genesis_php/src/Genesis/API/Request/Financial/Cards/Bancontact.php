@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +24,24 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class Bancontact
  *
  * Bancontact is a local Belgian debit card scheme. All Belgian debit cards are co-branded Bancontact and Maestro.
  *
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
-class Bancontact extends \Genesis\API\Request\Base\Financial
+class Bancontact extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     /**
      * Returns the Request transaction type
@@ -46,7 +49,7 @@ class Bancontact extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::BANCONTACT;
+        return \Genesis\Api\Constants\Transaction\Types::BANCONTACT;
     }
 
     /**

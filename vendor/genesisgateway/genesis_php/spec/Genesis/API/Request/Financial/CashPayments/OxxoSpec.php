@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\CashPayments;
+namespace spec\Genesis\Api\Request\Financial\CashPayments;
 
-use Genesis\API\Request\Financial\CashPayments\Oxxo;
+use Genesis\Api\Request\Financial\CashPayments\Oxxo;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class OxxoSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

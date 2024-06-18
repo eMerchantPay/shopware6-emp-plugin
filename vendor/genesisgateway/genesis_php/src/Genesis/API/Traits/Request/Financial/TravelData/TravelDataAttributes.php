@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,19 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\TravelData;
+namespace Genesis\Api\Traits\Request\Financial\TravelData;
 
 /**
  * Trait TravelDataAttributes
- * @package Genesis\API\Traits\Request\Financial\TravelData
+ * @package Genesis\Api\Traits\Request\Financial\TravelData
  *
  */
 trait TravelDataAttributes
 {
-    use AirlineItineraryAttributes, CarRentalAttributes,
-        HotelRentalAttributes, ReferenceTicketAttributes;
+    use AirlineItineraryAttributes;
+    use CarRentalAttributes;
+    use HotelRentalAttributes;
+    use ReferenceTicketAttributes;
 
     /**
      * Get Level 3 data structure

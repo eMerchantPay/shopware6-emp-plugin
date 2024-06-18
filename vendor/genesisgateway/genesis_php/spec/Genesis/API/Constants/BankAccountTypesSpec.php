@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants;
+namespace spec\Genesis\Api\Constants;
 
-use Genesis\API\Constants\BankAccountTypes;
+use Genesis\Api\Constants\BankAccountTypes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class BankAccountTypesSpec
- * @package spec\Genesis\API\Constants
+ * @package spec\Genesis\Api\Constants
  */
 class BankAccountTypesSpec extends ObjectBehavior
 {

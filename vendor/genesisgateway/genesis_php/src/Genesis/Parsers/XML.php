@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,12 +23,13 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
+
 namespace Genesis\Parsers;
 
-use \ArrayObject;
-use \stdClass;
-use \XMLReader;
+use ArrayObject;
 use Genesis\Parser;
+use stdClass;
+use XMLReader;
 
 /**
  * Class XML
@@ -36,7 +38,7 @@ use Genesis\Parser;
  *
  * @package Genesis\Parsers
  */
-final class XML implements \Genesis\Interfaces\Parser
+final class Xml implements \Genesis\Interfaces\Parser
 {
     /**
      * Converted XML
@@ -89,6 +91,12 @@ final class XML implements \Genesis\Interfaces\Parser
      */
     public function parseDocument($xmlDocument)
     {
+        if (empty($xmlDocument)) {
+            $this->stdClassObj = new stdClass();
+
+            return;
+        }
+
         $hasAttributes = false;
 
         $reader = new XMLReader();

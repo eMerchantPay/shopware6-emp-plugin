@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\NonFinancial\Fraud\Chargeback;
+namespace Genesis\Api\Constants\NonFinancial\Fraud\Chargeback;
 
 /**
  * Class ExternallyProcessed
- * @package Genesis\API\Constants\NonFinancial\Fraud\Chargeback
+ * @package Genesis\Api\Constants\NonFinancial\Fraud\Chargeback
  */
 class ExternallyProcessed
 {

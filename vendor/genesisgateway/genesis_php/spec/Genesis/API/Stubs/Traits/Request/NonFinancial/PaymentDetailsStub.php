@@ -1,15 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
+
+use Genesis\Api\Traits\Request\NonFinancial\PaymentDetails;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class PaymentDetailsStub
  *
  * Used to spec PaymentDetails trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class PaymentDetailsStub
 {
-    use \Genesis\API\Traits\RestrictedSetter, \Genesis\API\Traits\Request\NonFinancial\PaymentDetails;
+    use PaymentDetails;
+    use RestrictedSetter;
 }

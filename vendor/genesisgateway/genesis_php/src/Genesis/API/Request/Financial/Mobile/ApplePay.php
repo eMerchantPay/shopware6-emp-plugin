@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Mobile;
+namespace Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes as ApplePaySubtypes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\CryptoAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Mobile\ApplePayAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes as ApplePaySubtypes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\CryptoAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Mobile\ApplePayAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 
@@ -42,12 +43,18 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Apple pay Request
  *
- * @package Genesis\API\Request\Financial\Mobile\ApplePay
+ * @package Genesis\Api\Request\Financial\Mobile\ApplePay
  */
-class ApplePay extends \Genesis\API\Request\Base\Financial
+class ApplePay extends \Genesis\Api\Request\Base\Financial
 {
-    use AddressInfoAttributes, DocumentAttributes, PaymentAttributes, ApplePayAttributes,
-        CryptoAttributes, BirthDateAttributes, BusinessAttributes, DescriptorAttributes;
+    use AddressInfoAttributes;
+    use ApplePayAttributes;
+    use BirthDateAttributes;
+    use BusinessAttributes;
+    use CryptoAttributes;
+    use DescriptorAttributes;
+    use DocumentAttributes;
+    use PaymentAttributes;
 
     /**
      * Sets ApplePay token
@@ -75,7 +82,7 @@ class ApplePay extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::APPLE_PAY;
+        return \Genesis\Api\Constants\Transaction\Types::APPLE_PAY;
     }
 
     /**

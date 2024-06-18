@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +24,22 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
-use Genesis\API\Traits\Request\Financial\FxRateAttributes;
-use Genesis\API\Traits\Request\Financial\ScaAttributes;
-use Genesis\API\Traits\Request\MotoAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\RiskAttributes;
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\FundingAttributes;
-use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\FundingAttributes;
+use Genesis\Api\Traits\Request\Financial\FxRateAttributes;
+use Genesis\Api\Traits\Request\Financial\NotificationAttributes;
+use Genesis\Api\Traits\Request\Financial\ScaAttributes;
+use Genesis\Api\Traits\Request\Financial\TravelData\TravelDataAttributes;
+use Genesis\Api\Traits\Request\MotoAttributes;
+use Genesis\Api\Traits\Request\RiskAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -46,16 +47,24 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * InitRecurringSale 3D Request
  *
- * @package Genesis\API\Request\Financial\Cards\Recurring
- *
- * @SuppressWarnings(PHPMD.LongVariable)
+ * @package Genesis\Api\Request\Financial\Cards\Recurring
  */
-class InitRecurringSale3D extends \Genesis\API\Request\Base\Financial\Cards\CreditCard3D
+class InitRecurringSale3D extends \Genesis\Api\Request\Base\Financial\Cards\CreditCard3D
 {
-    use MotoAttributes, NotificationAttributes, AsyncAttributes, AddressInfoAttributes,
-        RiskAttributes, DescriptorAttributes, TravelDataAttributes, ScaAttributes,
-        FxRateAttributes, BusinessAttributes,
-        ManagedRecurringAttributes, RecurringCategoryAttributes, FundingAttributes, AccountOwnerAttributes;
+    use AccountOwnerAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BusinessAttributes;
+    use DescriptorAttributes;
+    use FundingAttributes;
+    use FxRateAttributes;
+    use ManagedRecurringAttributes;
+    use MotoAttributes;
+    use NotificationAttributes;
+    use RecurringCategoryAttributes;
+    use RiskAttributes;
+    use ScaAttributes;
+    use TravelDataAttributes;
 
     /**
      * Returns the Request transaction type
@@ -63,7 +72,7 @@ class InitRecurringSale3D extends \Genesis\API\Request\Base\Financial\Cards\Cred
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::INIT_RECURRING_SALE_3D;
+        return \Genesis\Api\Constants\Transaction\Types::INIT_RECURRING_SALE_3D;
     }
 
     /**

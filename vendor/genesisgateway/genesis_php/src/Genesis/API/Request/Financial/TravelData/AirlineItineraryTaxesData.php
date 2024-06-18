@@ -1,9 +1,9 @@
 <?php
 
-namespace Genesis\API\Request\Financial\TravelData;
+namespace Genesis\Api\Request\Financial\TravelData;
 
+use Genesis\Api\Request\Financial\TravelData\Base\AidAttributes;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Request\Financial\TravelData\Base\AidAttributes;
 
 class AirlineItineraryTaxesData extends AidAttributes
 {

@@ -1,22 +1,23 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives\TransferTo;
+namespace spec\Genesis\Api\Request\Financial\Alternatives\TransferTo;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\AccountTypes;
-use Genesis\API\Constants\Transaction\Parameters\IdentificationTypes;
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
-use Genesis\API\Request\Financial\Alternatives\TransferTo\Payout;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\AccountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
+use Genesis\Api\Constants\Transaction\Parameters\IdentificationTypes;
+use Genesis\Api\Request\Financial\Alternatives\TransferTo\Payout;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PayoutSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

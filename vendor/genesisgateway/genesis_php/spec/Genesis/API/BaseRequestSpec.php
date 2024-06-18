@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API;
+namespace spec\Genesis\Api;
 
-use Genesis\API\Request\Base\Financial\Cards\CreditCard;
+use Genesis\Api\Request\Base\Financial\Cards\CreditCard;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\RequestStub;
+use spec\Genesis\Api\Stubs\Base\RequestStub;
 
 class BaseRequestSpec extends ObjectBehavior
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request\NonFinancial\Consumers;
+namespace spec\Genesis\Api\Stubs\Base\Request\NonFinancial\Consumers;
 
-use Genesis\API\Request\Base\NonFinancial\Consumers\BaseRequest as ConsumerBaseRequest;
+use Genesis\Api\Request\Base\NonFinancial\Consumers\BaseRequest as ConsumerBaseRequest;
 
 /**
  * Class BaseRequestStub
- * @package spec\Genesis\API\Stubs\Base\Request\NonFinancial\Consumers
+ * @package spec\Genesis\Api\Stubs\Base\Request\NonFinancial\Consumers
  */
 class BaseRequestStub extends ConsumerBaseRequest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 
@@ -10,7 +10,7 @@ class ScaAttributesSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beAnInstanceOf('spec\Genesis\API\Stubs\Traits\Request\Financial\ScaAttributesStub');
+        $this->beAnInstanceOf('spec\Genesis\Api\Stubs\Traits\Request\Financial\ScaAttributesStub');
     }
 
     public function it_should_not_fail_when_valid_exemption()

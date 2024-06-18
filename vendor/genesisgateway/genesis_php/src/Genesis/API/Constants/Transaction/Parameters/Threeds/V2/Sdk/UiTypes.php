@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk;
 
 use Genesis\Utils\Common;
 
@@ -31,7 +32,7 @@ use Genesis\Utils\Common;
  * UI type that the device of the consumer supports for displaying specific challenge interface.
  *
  * Class UiTypes
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk
  */
 class UiTypes
 {

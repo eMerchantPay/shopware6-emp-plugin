@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
 /**
  * Trait FxRateAttributesExamples
- * @package spec\SharedExamples\Genesis\API\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial
  */
 trait FxRateAttributesExamples
 {

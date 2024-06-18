@@ -1,17 +1,18 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Refund;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Refund;
 
-use Genesis\API\Traits\Request\Financial\Refund\BankAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\Request\Financial\Refund\BankAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class BankAttributesStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Refund
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Refund
  */
 class BankAttributesStub
 {
-    use RestrictedSetter, BankAttributes;
+    use BankAttributes;
+    use RestrictedSetter;
 
     public function getStructure()
     {

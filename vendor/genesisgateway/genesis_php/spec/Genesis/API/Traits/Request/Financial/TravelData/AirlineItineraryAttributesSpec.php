@@ -1,13 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\TravelData;
+namespace spec\Genesis\Api\Traits\Request\Financial\TravelData;
 
-use Genesis\API\Request\Financial\TravelData\AirlineItineraryLegData;
-use Genesis\API\Traits\Request\Financial\TravelData\AirlineItineraryAttributes;
-use Genesis\API\Request\Financial\TravelData\AirlineItineraryTaxesData;
+use Genesis\Api\Request\Financial\TravelData\AirlineItineraryLegData;
+use Genesis\Api\Request\Financial\TravelData\AirlineItineraryTaxesData;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\TravelData\TravelDataAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\TravelData\TravelDataAttributesStub;
 use spec\SharedExamples\Faker;
 
 class AirlineItineraryAttributesSpec extends ObjectBehavior

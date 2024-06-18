@@ -19,7 +19,7 @@
 
 namespace Emerchantpay\Genesis\Service;
 
-use Genesis\API\Constants\Transaction\States;
+use Genesis\Api\Constants\Transaction\States;
 use Genesis\Genesis;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\Context;

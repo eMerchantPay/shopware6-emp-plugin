@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,17 +23,18 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial\SDD\Recurring;
+
+namespace Genesis\Api\Request\Financial\Sdd\Recurring;
 
 /**
  * Class InitRecurringSale
  *
  * SDD Initial Recurring Sale Payment Transactions
  *
- * @package Genesis\API\Request\Financial\SDD\Recurring
+ * @package Genesis\Api\Request\Financial\Sdd\Recurring
  *
  */
-class InitRecurringSale extends \Genesis\API\Request\Financial\SDD\Sale
+class InitRecurringSale extends \Genesis\Api\Request\Financial\Sdd\Sale
 {
     /**
      * Returns the Request transaction type
@@ -40,6 +42,6 @@ class InitRecurringSale extends \Genesis\API\Request\Financial\SDD\Sale
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SDD_INIT_RECURRING_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::SDD_INIT_RECURRING_SALE;
     }
 }

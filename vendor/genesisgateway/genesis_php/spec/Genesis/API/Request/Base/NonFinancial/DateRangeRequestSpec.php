@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\NonFinancial;
+namespace spec\Genesis\Api\Request\Base\NonFinancial;
 
-use Genesis\API\Request\Base\NonFinancial\DateRangeRequest;
+use Genesis\Api\Request\Base\NonFinancial\DateRangeRequest;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\NonFinancial\DateRangeRequestStub;
+use spec\Genesis\Api\Stubs\Base\Request\NonFinancial\DateRangeRequestStub;
 use spec\SharedExamples\Faker;
 
 class DateRangeRequestSpec extends ObjectBehavior

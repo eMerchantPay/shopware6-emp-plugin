@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\CredentialOnFile;
+use Genesis\Api\Constants\Transaction\Parameters\CredentialOnFile;
 
 trait UcofAttributesExamples
 {

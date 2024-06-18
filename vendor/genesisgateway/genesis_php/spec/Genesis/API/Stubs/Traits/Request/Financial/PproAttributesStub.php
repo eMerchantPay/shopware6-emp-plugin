@@ -1,15 +1,17 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
+
+use Genesis\Api\Traits\Request\Financial\PproAttributes;
 
 /**
  * Class PproAttributesStub
  *
  * Used to spec PproAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request\Financial
+ * @package spec\Genesis\Api\Traits\Request\Financial
  */
 class PproAttributesStub
 {
-    use \Genesis\API\Traits\Request\Financial\PproAttributes;
+    use PproAttributes;
 }

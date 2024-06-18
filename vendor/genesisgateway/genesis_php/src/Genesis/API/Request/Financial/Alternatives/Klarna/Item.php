@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace Genesis\Api\Request\Financial\Alternatives\Klarna;
 
-use Genesis\API\Traits\MagicAccessors;
+use Genesis\Api\Traits\MagicAccessors;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Common as CommonUtils;
 use Genesis\Utils\Currency as CurrencyUtils;
@@ -35,7 +36,7 @@ use Genesis\Utils\Currency as CurrencyUtils;
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Klarna
+ * @package Genesis\Api\Request\Financial\Alternatives\Klarna
  *
  * @method $this setReference($value) Set reference
  * @method $this setImageUrl($value) Set image url
@@ -278,7 +279,7 @@ class Item
             $this->verifyNegativeField('unit_price', $value);
             return;
         }
-        
+
         $this->verifyNonNegativeField('unit_price', $value);
     }
 

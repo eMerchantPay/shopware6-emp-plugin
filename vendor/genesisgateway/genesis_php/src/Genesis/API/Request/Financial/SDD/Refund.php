@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\SDD;
+namespace Genesis\Api\Request\Financial\Sdd;
 
 /**
  * Class Refund
  *
  * SDD Refund Transaction
  *
- * @package Genesis\API\Request\Financial\SDD
+ * @package Genesis\Api\Request\Financial\Sdd
  *
  */
-class Refund extends \Genesis\API\Request\Base\Financial\Reference
+class Refund extends \Genesis\Api\Request\Base\Financial\Reference
 {
     /**
      * Returns the Request transaction type
@@ -41,7 +42,7 @@ class Refund extends \Genesis\API\Request\Base\Financial\Reference
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SDD_REFUND;
+        return \Genesis\Api\Constants\Transaction\Types::SDD_REFUND;
     }
 
     /**
@@ -52,7 +53,7 @@ class Refund extends \Genesis\API\Request\Base\Financial\Reference
     protected function setRequiredFields()
     {
         parent::setRequiredFields();
-        
+
         $requiredFields = [
             'transaction_id',
             'reference_id',

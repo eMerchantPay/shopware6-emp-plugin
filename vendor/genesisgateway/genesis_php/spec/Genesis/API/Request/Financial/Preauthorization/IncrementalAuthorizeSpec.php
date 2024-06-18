@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Preauthorization;
+namespace spec\Genesis\Api\Request\Financial\Preauthorization;
 
-use Genesis\API\Request\Financial\Preauthorization\IncrementalAuthorize;
+use Genesis\Api\Request\Financial\Preauthorization\IncrementalAuthorize;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class IncrementalAuthorizeSpec extends ObjectBehavior
 {

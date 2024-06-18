@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\BrowserStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\BrowserStub;
 use spec\SharedExamples\Faker;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
 
 /**
  * Class BrowserAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class BrowserAttributesSpec extends ObjectBehavior
 {

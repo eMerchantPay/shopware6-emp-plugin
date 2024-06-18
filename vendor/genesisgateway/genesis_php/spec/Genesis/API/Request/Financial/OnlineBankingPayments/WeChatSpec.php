@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\WeChat;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\WeChat;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class WeChatSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

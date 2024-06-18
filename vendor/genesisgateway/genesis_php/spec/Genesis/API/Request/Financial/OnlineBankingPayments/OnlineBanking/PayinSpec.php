@@ -1,23 +1,26 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking;
 
-use Genesis\API\Constants\Banks;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PaymentTypes;
-use Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking\Payin;
+use Genesis\Api\Constants\Banks;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PaymentTypes;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking\Payin;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\OnlineBankingPayments\UserCategoryAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\OnlineBankingPayments\UserCategoryAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class PayinSpec extends ObjectBehavior
 {
-    use RequestExamples, DocumentAttributesExample, UserCategoryAttributesExamples, NeighborhoodAttributesExamples;
+    use DocumentAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
+    use UserCategoryAttributesExamples;
 
     public function it_is_initializable()
     {
@@ -72,12 +75,8 @@ class PayinSpec extends ObjectBehavior
     {
         $this->setRequestParameters();
 
-        $allowedCurrencies = BankCodeParameters::getAllowedCurrencies();
-        $currency          = $allowedCurrencies[array_rand($allowedCurrencies)];
-
-        $allowedBanks      = BankCodeParameters::getBankCodesPerCurrency($currency);
-        $invalidBankCodes  = array_diff(Banks::getAll(), $allowedBanks);
-        $invalidBankCode   = $invalidBankCodes[array_rand($invalidBankCodes)];
+        $currency        = 'PHP';
+        $invalidBankCode = Banks::AI;
 
         $this->setCurrency($currency);
         $this->setBankCode($invalidBankCode);

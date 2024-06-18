@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Business;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Business;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait BusinessAttributesExample
- * @package spec\SharedExamples\Genesis\API\Request\Financial\Business
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial\Business
  */
 trait BusinessAttributesExample
 {

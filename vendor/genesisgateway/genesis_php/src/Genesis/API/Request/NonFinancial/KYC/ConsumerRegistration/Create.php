@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration;
+namespace Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\KYC\DeviceFingerprintTypes;
-use Genesis\API\Constants\NonFinancial\KYC\IndustryTypes;
-use Genesis\API\Constants\NonFinancial\KYC\ProfileActionTypes;
-use Genesis\API\Constants\NonFinancial\KYC\ProfileCurrentStatuses;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\CustomerInformation;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Kyc\DeviceFingerprintTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\IndustryTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileActionTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileCurrentStatuses;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
+use Genesis\Api\Traits\Request\NonFinancial\CustomerInformation;
 
 /**
  * Class Create
@@ -39,8 +40,7 @@ use Genesis\API\Traits\Request\NonFinancial\CustomerInformation;
  * Review all aspects of the customer’s information, as it is received in the registration process,
  * against local and external databases to increase accuracy and produce a risk score for that customer.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration
- * @SuppressWarnings(PHPMD.LongVariable)
+ * @package Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration
  */
 class Create extends BaseRequest
 {

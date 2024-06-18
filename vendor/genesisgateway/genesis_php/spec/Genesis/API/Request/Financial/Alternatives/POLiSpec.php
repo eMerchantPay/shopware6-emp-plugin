@@ -1,19 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives;
+namespace spec\Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Request\Financial\Alternatives\POLi;
+use Genesis\Api\Request\Financial\Alternatives\Poli;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
-class POLiSpec extends ObjectBehavior
+class PoliSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(POLi::class);
+        $this->shouldHaveType(Poli::class);
     }
 
     public function it_should_fail_when_missing_billing_country_parameter()

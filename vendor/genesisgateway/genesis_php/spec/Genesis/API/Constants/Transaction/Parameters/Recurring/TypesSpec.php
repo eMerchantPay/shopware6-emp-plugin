@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Recurring;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Types;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Types;
 use PhpSpec\ObjectBehavior;
 
 class TypesSpec extends ObjectBehavior

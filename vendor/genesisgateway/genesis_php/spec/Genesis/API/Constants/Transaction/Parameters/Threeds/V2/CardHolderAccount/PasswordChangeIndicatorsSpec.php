@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\PasswordChangeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\PasswordChangeIndicators;
 use PhpSpec\ObjectBehavior;
 
 class PasswordChangeIndicatorsSpec extends ObjectBehavior

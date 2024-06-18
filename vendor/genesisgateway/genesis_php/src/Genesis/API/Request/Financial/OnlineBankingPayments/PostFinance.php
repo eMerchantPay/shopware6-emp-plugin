@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Utils\Common;
 
 /**
  * PostFinance is an online banking provider in Switzerland
  *
  * Class PostFinance
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  */
 class PostFinance extends Financial
 {
-    use AsyncAttributes, AddressInfoAttributes, PaymentAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Post Finance transaction type

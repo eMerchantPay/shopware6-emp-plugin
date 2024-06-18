@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments\InstaDebit;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments\InstaDebit;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\InstaDebit\Payout;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\InstaDebit\Payout;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PayoutSpec extends ObjectBehavior
 {

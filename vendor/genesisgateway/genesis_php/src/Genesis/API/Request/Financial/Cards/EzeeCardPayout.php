@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial\Reference;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial\Reference;
 
 /**
  * Class EzeeCardPayout
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
 class EzeeCardPayout extends Reference
 {
-
     /**
      * Returns the Request transaction type
      * @return string

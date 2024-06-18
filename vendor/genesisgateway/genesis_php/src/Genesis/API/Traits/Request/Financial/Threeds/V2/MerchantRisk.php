@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,19 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\DeliveryTimeframes;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\PreOrderPurchaseIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\ReorderItemIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\ShippingIndicators;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\DeliveryTimeframes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\PreOrderPurchaseIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\ReorderItemIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\ShippingIndicators;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
 /**
  * Trait MerchantRisk
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @codingStandardsIgnoreStart
  * @method string getThreedsV2MerchantRiskShippingIndicator()               Indicator code that most accurately describes the shipping method
@@ -159,7 +160,8 @@ trait MerchantRisk
     {
         $this->threeds_v2_merchant_risk_gift_card_count = (int) $value;
 
-        if ($this->threeds_v2_merchant_risk_gift_card_count < 0 ||
+        if (
+            $this->threeds_v2_merchant_risk_gift_card_count < 0 ||
             $this->threeds_v2_merchant_risk_gift_card_count > 99
         ) {
             throw new InvalidArgument(

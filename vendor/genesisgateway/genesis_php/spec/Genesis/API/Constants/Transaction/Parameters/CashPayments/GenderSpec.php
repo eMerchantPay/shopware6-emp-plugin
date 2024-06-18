@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\CashPayments;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\CashPayments;
 
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\Gender;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\Gender;
 use PhpSpec\ObjectBehavior;
 
 class GenderSpec extends ObjectBehavior

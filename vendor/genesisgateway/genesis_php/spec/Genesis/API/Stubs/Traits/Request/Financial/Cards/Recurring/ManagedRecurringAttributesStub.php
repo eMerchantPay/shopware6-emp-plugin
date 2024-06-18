@@ -21,29 +21,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Request;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Request;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * class ManagedRecurringAttributesStub
  *
  * Used to spec ManagedRecurringAttributes trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring
  */
 class ManagedRecurringAttributesStub extends Request
 {
-    use RestrictedSetter;
-
     use ManagedRecurringAttributes {
         getManagedRecurringAttributesStructure as public;
         requiredManagedRecurringFieldsConditional as public;
     }
     use PaymentAttributes;
+    use RestrictedSetter;
 
     protected function populateStructure()
     {

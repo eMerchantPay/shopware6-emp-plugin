@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,10 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\Transaction;
+namespace Genesis\Api\Request\NonFinancial\Kyc\Transaction;
 
-use Genesis\API\Constants\NonFinancial\KYC\IndustryTypes;
-use Genesis\API\Constants\NonFinancial\KYC\TransactionStatuses;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
+use Genesis\Api\Constants\NonFinancial\Kyc\TransactionStatuses;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
 
 /**
  * Class Update
@@ -35,7 +35,7 @@ use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
  * Utilize this method to update a particular transaction status so we can continue improving the data models
  * and provide the best scores and recommendations.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\Transaction
+ * @package Genesis\Api\Request\NonFinancial\Kyc\Transaction
  */
 class Update extends BaseRequest
 {

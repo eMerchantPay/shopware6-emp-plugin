@@ -1,15 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
+
+use Genesis\Api\Traits\Request\NonFinancial\KycBillingInformation;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class KycBillingInformationStub
  *
  * Used to spec KycBillingInformation trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class KycBillingInformationStub
 {
-    use \Genesis\API\Traits\RestrictedSetter, \Genesis\API\Traits\Request\NonFinancial\KycBillingInformation;
+    use KycBillingInformation;
+    use RestrictedSetter;
 }

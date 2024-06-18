@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives;
+namespace spec\Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\P24\BankCodes;
-use Genesis\API\Request\Financial\Alternatives\P24;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\P24\BankCodes;
+use Genesis\Api\Request\Financial\Alternatives\P24;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class P24Spec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     private $invalidBankCode = 123456789;
 

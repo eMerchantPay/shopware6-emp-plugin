@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Vouchers;
+namespace Genesis\Api\Request\Financial\Vouchers;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class Paysafecard
@@ -37,14 +38,16 @@ use Genesis\API\Traits\Request\Financial\PaymentAttributes;
  * he enters additional information to finish the payment. When the payment reached a final state Genesis gateway
  * sends notification to merchant on the configured url into its account.
  *
- * @package Genesis\API\Request\Financial\Vouchers
+ * @package Genesis\Api\Request\Financial\Vouchers
  *
  * @method $this  setCustomerId($value)
  * @method string getCustomerId()
  */
-class Paysafecard extends \Genesis\API\Request\Base\Financial
+class Paysafecard extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     /**
      * Customer ID
@@ -59,7 +62,7 @@ class Paysafecard extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::PAYSAFECARD;
+        return \Genesis\Api\Constants\Transaction\Types::PAYSAFECARD;
     }
 
     /**

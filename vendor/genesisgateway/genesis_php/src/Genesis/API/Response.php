@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +23,53 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API;
 
-use \DateTime;
+namespace Genesis\Api;
+
+use DateTime;
+use Genesis\Exceptions\InvalidMethod;
+use Genesis\Exceptions\InvalidResponse;
 use Genesis\Network;
 use Genesis\Parser;
-use Genesis\API\Request\NonFinancial\Reconcile\DateRange;
-use Genesis\API\Request\NonFinancial\Reconcile\Transaction;
-use Genesis\API\Request\WPF\Reconcile;
-use Genesis\Exceptions\ErrorAPI;
-use Genesis\Exceptions\InvalidArgument;
-use Genesis\Exceptions\InvalidResponse;
 
 /**
  * Response - process/format an incoming Genesis response
  *
  * @package    Genesis
- * @subpackage API
+ * @subpackage Api
+ *
+ * @method bool isApproved()
+ * @method bool isDeclined()
+ * @method bool isPending()
+ * @method bool isPendingAsync()
+ * @method bool isError()
+ * @method bool isRefunded()
+ * @method bool isVoided()
+ * @method bool isEnabled()
+ * @method bool isDisabled()
+ * @method bool isSuccess()
+ * @method bool isSubmitted()
+ * @method bool isPendingHold()
+ * @method bool isSecondChargebacked()
+ * @method bool isRepresented()
+ * @method bool isInProgress()
+ * @method bool isUnsuccessful()
+ * @method bool isNew()
+ * @method bool isUser()
+ * @method bool isTimeout()
+ * @method bool isChargebacked()
+ * @method bool isChargebackReversed()
+ * @method bool isRepresentmentReversed()
+ * @method bool isPreArbitrated()
+ * @method bool isActive()
+ * @method bool isInvalidated()
+ * @method bool isChargebackReversal()
+ * @method bool isPendingReview()
+ * @method bool isCancelled()
+ * @method bool isAccepted()
+ * @method bool isChanged()
+ * @method bool isDeleted()
+ * @method bool isReceived()
  *
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
@@ -61,9 +92,16 @@ class Response
     public $responseRaw;
 
     /**
+     * Store the HTTP response status
+     *
+     * @var int
+     */
+    public $responseCode;
+
+    /**
      * Genesis Request Context
      *
-     * @var \Genesis\API\Request
+     * @var \Genesis\Api\Request
      */
     protected $requestCtx;
 
@@ -87,13 +125,13 @@ class Response
      *
      * @param Network $network
      *
-     * @throws \Genesis\Exceptions\ErrorAPI
      * @throws \Genesis\Exceptions\InvalidArgument
      * @throws \Genesis\Exceptions\InvalidResponse
      */
     public function parseResponse(Network $network)
     {
-        $this->responseRaw = $network->getResponseBody();
+        $this->responseRaw  = $network->getResponseBody();
+        $this->responseCode = $network->getStatus();
 
         try {
             $parser = $this->getParser($network);
@@ -108,24 +146,6 @@ class Response
 
         // Apply per-field transformations
         $this->transform([$this->responseObj]);
-
-        if (isset($this->responseObj->status)) {
-            $state = new Constants\Transaction\States($this->responseObj->status);
-
-            if (!$state->isValid()) {
-                throw new InvalidArgument(
-                    'Unknown transaction status',
-                    isset($this->responseObj->code) ? $this->responseObj->code : 0
-                );
-            }
-
-            if ($state->isError() && !$this->suppressReconciliationException()) {
-                throw new ErrorAPI(
-                    $this->responseObj->message,
-                    isset($this->responseObj->code) ? $this->responseObj->code : 0
-                );
-            }
-        }
     }
 
     protected function getParser(Network $network)
@@ -192,31 +212,6 @@ class Response
     }
 
     /**
-     * Suppress Reconciliation responses as their statuses
-     * reflect their transactions
-     *
-     * @return bool
-     */
-    public function suppressReconciliationException()
-    {
-        $instances = [
-            new DateRange(),
-            new Transaction(),
-            new Reconcile()
-        ];
-
-        if (isset($this->requestCtx) && isset($this->responseObj->unique_id)) {
-            foreach ($instances as $instance) {
-                if ($this->requestCtx instanceof $instance) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Try to fetch a description of the received Error Code
      *
      * @return string | null (if inapplicable)
@@ -242,6 +237,16 @@ class Response
     public function getResponseRaw()
     {
         return $this->responseRaw;
+    }
+
+    /**
+     * Get the HTTP response status
+     *
+     * @return int
+     */
+    public function getResponseCode()
+    {
+        return $this->responseCode;
     }
 
     /**
@@ -370,5 +375,27 @@ class Response
         }
 
         return $transaction;
+    }
+
+    /**
+     * Handle "magic" calls for status check
+     *
+     * @param $method
+     * @param $args
+     *
+     * @throws InvalidMethod
+     * @return bool
+     */
+    public function __call($method, $args)
+    {
+        $status = new Constants\Transaction\States(
+            isset($this->responseObj->status) ? $this->responseObj->status : ''
+        );
+
+        if ($status->isValid()) {
+            return $status->$method();
+        }
+
+        return false;
     }
 }

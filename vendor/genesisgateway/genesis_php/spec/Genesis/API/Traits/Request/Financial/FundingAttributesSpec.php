@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\Funding\IdentifierTypes;
-use Genesis\API\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\IdentifierTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
@@ -12,7 +12,7 @@ class FundingAttributesSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beAnInstanceOf('spec\Genesis\API\Stubs\Traits\Request\Financial\FundingAttributesStub');
+        $this->beAnInstanceOf('spec\Genesis\Api\Stubs\Traits\Request\Financial\FundingAttributesStub');
     }
 
     public function it_should_not_fail_when_valid_funding_identifier_type()

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class Itau
  *
  * Itau is a real-time online bank transfer method and a virtual card.
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  */
-class Itau extends \Genesis\API\Request\Base\Financial\SouthAmericanPayment
+class Itau extends \Genesis\Api\Request\Base\Financial\SouthAmericanPayment
 {
     use PendingPaymentAttributes;
 
@@ -44,7 +45,7 @@ class Itau extends \Genesis\API\Request\Base\Financial\SouthAmericanPayment
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::ITAU;
+        return \Genesis\Api\Constants\Transaction\Types::ITAU;
     }
 
     /**

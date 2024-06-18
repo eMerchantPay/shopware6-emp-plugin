@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\KYC\DocumentTypes;
-use Genesis\API\Constants\NonFinancial\KYC\Genders;
+use Genesis\Api\Constants\NonFinancial\Kyc\DocumentTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\Genders;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\CustomerInformationStub;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\CustomerInformationStub;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class CustomerInformationSpec extends ObjectBehavior
 {

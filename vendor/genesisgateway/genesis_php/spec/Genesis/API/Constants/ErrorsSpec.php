@@ -1,15 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Constants;
+namespace spec\Genesis\Api\Constants;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ErrorsSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\Errors');
+        $this->shouldHaveType('Genesis\Api\Constants\Errors');
     }
 
     public function it_can_resolve_error_codes()

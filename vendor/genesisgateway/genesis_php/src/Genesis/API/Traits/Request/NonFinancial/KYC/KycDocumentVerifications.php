@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial\KYC;
+namespace Genesis\Api\Traits\Request\NonFinancial\Kyc;
 
 use DateTime;
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationDocumentTypes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationDocumentTypes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
@@ -37,7 +38,7 @@ use Genesis\Utils\Common;
  * Document represents the data used by the document verification service to check
  * the authenticity of identity documents submitted by customers
  *
- * @package Genesis\API\Traits\Request\NonFinancial\KYC
+ * @package Genesis\Api\Traits\Request\NonFinancial\Kyc
  *
  * @method $this  setDocumentFirstName($value)
  * @method $this  setDocumentLastName($value)

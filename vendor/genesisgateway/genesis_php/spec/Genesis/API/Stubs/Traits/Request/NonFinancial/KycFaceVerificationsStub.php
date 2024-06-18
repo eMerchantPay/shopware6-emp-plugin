@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use \Genesis\API\Traits\MagicAccessors;
-use \Genesis\API\Traits\RestrictedSetter;
-use \Genesis\API\Traits\Request\NonFinancial\KYC\KycFaceVerifications;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\NonFinancial\Kyc\KycFaceVerifications;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class KycFaceVerificationsStub
  *
  * Used to spec KycFaceVerifications trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class KycFaceVerificationsStub
 {
-    use KycFaceVerifications, MagicAccessors, RestrictedSetter;
+    use KycFaceVerifications;
+    use MagicAccessors;
+    use RestrictedSetter;
 }

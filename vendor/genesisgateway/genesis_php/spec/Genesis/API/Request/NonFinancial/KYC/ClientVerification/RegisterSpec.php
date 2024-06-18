@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\ClientVerification;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\ClientVerification;
 
-use Genesis\API\Request\NonFinancial\KYC\ClientVerification\Register;
+use Genesis\Api\Request\NonFinancial\Kyc\ClientVerification\Register;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 

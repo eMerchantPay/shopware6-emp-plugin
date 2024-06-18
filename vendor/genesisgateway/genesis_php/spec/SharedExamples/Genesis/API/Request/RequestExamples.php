@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request;
+namespace spec\SharedExamples\Genesis\Api\Request;
 
 use Genesis\Utils\Common;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait RequestExamples
- * @package spec\SharedExamples\Genesis\API\Request
+ * @package spec\SharedExamples\Genesis\Api\Request
  */
 trait RequestExamples
 {

@@ -273,6 +273,26 @@ class PaymentData extends DataAdapter
     }
 
     /**
+     * Returns all serializable properties
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        $data = $this->getData();
+
+        if ($this->getShopwareContext()) {
+            unset($data['shopware_context']);
+        }
+
+        if ($this->getOrder()) {
+            unset($data['order']);
+        }
+
+        return $data;
+    }
+
+    /**
      * @param string $value
      *
      * @return string

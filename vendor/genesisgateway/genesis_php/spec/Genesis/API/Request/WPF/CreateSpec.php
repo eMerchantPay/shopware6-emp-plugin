@@ -1,34 +1,39 @@
 <?php
 
-namespace spec\Genesis\API\Request\WPF;
+namespace spec\Genesis\Api\Request\Wpf;
 
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\WPF\Create;
+use Genesis\Api\Constants\Payment\Methods;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Wpf\Create;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\FundingAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
-use Genesis\API\Constants\Payment\Methods;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FundingAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
 
 class CreateSpec extends ObjectBehavior
 {
-    use BusinessAttributesExample, PendingPaymentAttributesExamples, AsyncAttributesExample,
-        ThreedsV2AttributesExamples, AllowedZeroAmount, NeighborhoodAttributesExamples,
-        RecurringCategoryAttributesExample, FundingAttributesExamples, AccountOwnerAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use AllowedZeroAmount;
+    use AsyncAttributesExample;
+    use BusinessAttributesExample;
+    use FundingAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use PendingPaymentAttributesExamples;
+    use RecurringCategoryAttributesExample;
+    use ThreedsV2AttributesExamples;
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Request\WPF\Create');
+        $this->shouldHaveType('Genesis\Api\Request\Wpf\Create');
     }
 
     public function it_can_build_structure()
@@ -43,7 +48,7 @@ class CreateSpec extends ObjectBehavior
         $this
             ->shouldThrow('\Genesis\Exceptions\ErrorParameter')
             ->during('addTransactionType' , array(
-                Types::EARTHPORT
+                Types::EZEECARD_PAYOUT
             ));
     }
 
@@ -55,7 +60,7 @@ class CreateSpec extends ObjectBehavior
     public function it_should_set_language_parameter_ecp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::ECOMPROCESSING
+            \Genesis\Api\Constants\Endpoints::ECOMPROCESSING
         );
 
         $this->setLanguage('en');
@@ -68,7 +73,7 @@ class CreateSpec extends ObjectBehavior
     public function it_should_set_language_parameter_emp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         $this->setLanguage('en');
@@ -81,7 +86,7 @@ class CreateSpec extends ObjectBehavior
     public function it_should_parse_only_two_letters_ecp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::ECOMPROCESSING
+            \Genesis\Api\Constants\Endpoints::ECOMPROCESSING
         );
 
         $this->setLanguage('en_US');
@@ -94,7 +99,7 @@ class CreateSpec extends ObjectBehavior
     public function it_should_parse_only_two_letters_emp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         $this->setLanguage('en_US');

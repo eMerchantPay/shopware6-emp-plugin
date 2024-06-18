@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\ManagedRecurring;
+namespace Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring;
 
 /**
  * class AmountTypes
@@ -31,7 +32,7 @@ namespace Genesis\API\Constants\Transaction\Parameters\ManagedRecurring;
  * Managed Recurring available Amount Types.
  * Used for Indian Cards
  *
- * @package Genesis\API\Constants\Transaction\Parameters\ManagedRecurring
+ * @package Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring
  */
 class AmountTypes
 {

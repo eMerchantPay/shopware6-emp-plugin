@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\PaymentMethods;
+use Genesis\Api\Constants\NonFinancial\Kyc\PaymentMethods;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class PaymentMethods
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class PaymentMethodsSpec extends ObjectBehavior
 {

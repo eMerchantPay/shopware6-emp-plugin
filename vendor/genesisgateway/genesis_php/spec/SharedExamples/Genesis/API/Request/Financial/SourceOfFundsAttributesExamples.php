@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\SourceOfFunds;
+use Genesis\Api\Constants\Transaction\Parameters\SourceOfFunds;
 
 /**
  * Trait SourceOfFundsAttributesExamples
- * @package spec\SharedExamples\Genesis\API\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial
  */
 trait SourceOfFundsAttributesExamples
 {

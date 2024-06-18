@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Validations\Request;
+namespace spec\Genesis\Api\Stubs\Traits\Validations\Request;
 
-use Genesis\API\Request\Base\Financial\Cards\CreditCard;
-use Genesis\API\Traits\Validations\Request\Validations;
+use Genesis\Api\Request\Base\Financial\Cards\CreditCard;
+use Genesis\Api\Traits\Validations\Request\Validations;
 
 class ValidationsZeroAmountStub
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\NonFinancial\Consumers;
+namespace spec\Genesis\Api\Request\Base\NonFinancial\Consumers;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\NonFinancial\Consumers\BaseRequestStub;
+use spec\Genesis\Api\Stubs\Base\Request\NonFinancial\Consumers\BaseRequestStub;
 
 class ConsumerSpec extends ObjectBehavior
 {

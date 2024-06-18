@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards\Threeds\V2;
+namespace spec\Genesis\Api\Request\Financial\Cards\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Endpoints;
-use Genesis\API\Constants\Environments;
-use Genesis\API\Request;
-use Genesis\API\Request\Financial\Cards\Threeds\V2\MethodContinue;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Endpoints;
+use Genesis\Api\Constants\Environments;
+use Genesis\Api\Request;
+use Genesis\Api\Request\Financial\Cards\Threeds\V2\MethodContinue;
 use Genesis\Builder;
 use Genesis\Config;
 use Genesis\Exceptions\ErrorParameter;
@@ -14,9 +14,9 @@ use Genesis\Exceptions\InvalidArgument;
 use Genesis\Genesis;
 use Genesis\Utils\Threeds\V2 as ThreedsV2Utils;
 use PhpSpec\ObjectBehavior;
-use spec\fixtures\API\Stubs\Parser\ParserStub;
+use spec\Fixtures\Api\Stubs\Parser\ParserStub;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class MethodContinueSpec extends ObjectBehavior
 {
@@ -238,7 +238,7 @@ class MethodContinueSpec extends ObjectBehavior
     {
         $parser = new ParserStub('Financial\Threeds\V2');
 
-        $response->beADoubleOf('Genesis\API\Response');
+        $response->beADoubleOf('Genesis\Api\Response');
         $response->getResponseObject()->willReturn(
             $parser->Transaction('xml', 'response')->getParsedDocument()
         );

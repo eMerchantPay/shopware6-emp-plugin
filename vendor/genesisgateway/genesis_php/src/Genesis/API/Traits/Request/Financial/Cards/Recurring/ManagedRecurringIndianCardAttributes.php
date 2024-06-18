@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
@@ -37,7 +38,7 @@ use Genesis\Utils\Common;
  * Recurring transactions with cards issued in India are subject to special rules. Prior to requesting the recurring
  * transaction, the merchant should register the recurring agreement as per the Reserve bank of India (RBI) regulations.
  *
- * @package Genesis\API\Traits\Request\Financial\Cards\Recurring
+ * @package Genesis\Api\Traits\Request\Financial\Cards\Recurring
  *
  * @method string|null getManagedRecurringPaymentType()
  * @method string|null getManagedRecurringAmountType()

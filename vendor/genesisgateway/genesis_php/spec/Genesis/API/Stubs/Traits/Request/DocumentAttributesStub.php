@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request;
+namespace spec\Genesis\Api\Stubs\Traits\Request;
 
-use Genesis\API\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
 
 /**
  * Class DocumentAttributesStub
  *
  * Used to spec DocumentAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request
+ * @package spec\Genesis\Api\Traits\Request
  */
 class DocumentAttributesStub
 {

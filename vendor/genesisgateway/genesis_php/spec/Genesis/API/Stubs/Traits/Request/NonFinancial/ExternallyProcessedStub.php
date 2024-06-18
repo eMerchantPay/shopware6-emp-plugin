@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use Genesis\API\Traits\Request\NonFinancial\ExternallyProcessed;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\Request\NonFinancial\ExternallyProcessed;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class ExternallyProcessedStub
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class ExternallyProcessedStub
 {
-    use RestrictedSetter, ExternallyProcessed;
+    use ExternallyProcessed;
+    use RestrictedSetter;
 }

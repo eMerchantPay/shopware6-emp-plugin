@@ -4,16 +4,16 @@ namespace spec\Genesis\Parsers;
 
 use PhpSpec\ObjectBehavior;
 
-class JSONSpec extends ObjectBehavior
+class JsonSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Parsers\JSON');
+        $this->shouldHaveType('Genesis\Parsers\Json');
     }
 
     public function it_should_parse_response()
     {
-        $json = file_get_contents('spec/fixtures/JSON/kyc_success_response.json');
+        $json = file_get_contents('spec/Fixtures/Json/KycSuccessResponse.json');
 
         $this->parseDocument($json);
 
@@ -25,7 +25,7 @@ class JSONSpec extends ObjectBehavior
 
     public function it_should_parse_graphql_response()
     {
-        $json = file_get_contents('spec/fixtures/JSON/billing_api_success_response.json');
+        $json = file_get_contents('spec/Fixtures/Json/BillingApiSuccessResponse.json');
 
         $this->parseDocument($json);
 

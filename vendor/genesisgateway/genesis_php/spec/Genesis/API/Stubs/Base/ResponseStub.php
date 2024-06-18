@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base;
+namespace spec\Genesis\Api\Stubs\Base;
 
-use Genesis\API\Response;
+use Genesis\Api\Response;
 
 class ResponseStub extends Response
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,30 +23,30 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\BeneficiaryAttributes;
-use Genesis\API\Traits\Request\Financial\Refund\BankAttributes;
-use Genesis\Utils\Common;
-use Genesis\Utils\Currency;
+namespace Genesis\Api\Request\Financial;
+
+use Genesis\Api\Traits\Request\Financial\BeneficiaryAttributes;
+use Genesis\Api\Traits\Request\Financial\Refund\BankAttributes;
 
 /**
  * Class Refund
  *
  * Refund Request
  *
- * @package Genesis\API\Request\Financial
+ * @package Genesis\Api\Request\Financial
  */
-class Refund extends \Genesis\API\Request\Base\Financial\Reference
+class Refund extends \Genesis\Api\Request\Base\Financial\Reference
 {
+    use BankAttributes;
+    use BeneficiaryAttributes;
+
     const CREDIT_REASON_INDICATOR_TRANSPORT_CANCELLATION   = 'A';
     const CREDIT_REASON_INDICATOR_TRAVEL_TRANSPORT         = 'B';
     const CREDIT_REASON_INDICATOR_PARTIAL_REFUND_OR_TICKET = 'P';
     const CREDIT_REASON_INDICATOR_OTHER                    = 'O';
     const TICKET_CHANGE_INDICATOR_TO_EXISTING              = 'C';
     const TICKET_CHANGE_INDICATOR_TO_NEW                   = 'N';
-
-    use BeneficiaryAttributes, BankAttributes;
 
     /**
      * This field indicates the reason for a credit to the cardholder.
@@ -77,7 +78,7 @@ class Refund extends \Genesis\API\Request\Base\Financial\Reference
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::REFUND;
+        return \Genesis\Api\Constants\Transaction\Types::REFUND;
     }
 
     /**

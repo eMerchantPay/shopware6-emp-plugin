@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use \Genesis\API\Traits\MagicAccessors;
-use \Genesis\API\Traits\Request\NonFinancial\TokenizationApiCardAttributes;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiCardAttributes;
 
 /**
  * Class TokenizationApiCardAttributesStub
  *
  * Used to spec TokenizationApiCardAttributes trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class TokenizationApiCardAttributesStub
 {
-    use MagicAccessors, TokenizationApiCardAttributes;
+    use MagicAccessors;
+    use TokenizationApiCardAttributes;
 }

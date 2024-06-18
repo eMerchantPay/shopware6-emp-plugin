@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Payout;
+namespace Genesis\Api\Constants\Transaction\Parameters\Payout;
 
 use Genesis\Utils\Common as CommonUtils;
 
@@ -31,7 +32,7 @@ use Genesis\Utils\Common as CommonUtils;
  * Money transfer payout is a standard payout with additional parameters.
  * The section and parameters below are optional and to be considered only when present.
  *
- * @package Genesis\API\Constants\Transaction\Parameters\Payout
+ * @package Genesis\Api\Constants\Transaction\Parameters\Payout
  */
 class MoneyTransferTypes
 {

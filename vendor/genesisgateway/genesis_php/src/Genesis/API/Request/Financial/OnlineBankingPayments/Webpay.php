@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial\SouthAmericanPayment;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial\SouthAmericanPayment;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 class Webpay extends SouthAmericanPayment
 {

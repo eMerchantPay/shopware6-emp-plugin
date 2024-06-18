@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +24,10 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\ClientVerification;
+namespace Genesis\Api\Request\NonFinancial\Kyc\ClientVerification;
 
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest as KYCBaseRequest;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest as KYCBaseRequest;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
 use Genesis\Utils\Common;
 
 /**
@@ -36,7 +37,7 @@ use Genesis\Utils\Common;
  * A reference id registration allows you to store the reference id in Genesis
  * and receive notifications in Genesis for it.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\ClientVerification
+ * @package Genesis\Api\Request\NonFinancial\Kyc\ClientVerification
  *
  * @method $this setReferenceId($value)
  * @method string getReferenceId()

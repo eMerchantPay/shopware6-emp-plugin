@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\Transaction;
+namespace Genesis\Api\Request\NonFinancial\Kyc\Transaction;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\KYC\DeviceFingerprintTypes;
-use Genesis\API\Constants\NonFinancial\KYC\IndustryTypes;
-use Genesis\API\Constants\NonFinancial\KYC\PaymentMethods;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\CustomerInformation;
-use Genesis\API\Traits\Request\NonFinancial\DepositLimits;
-use Genesis\API\Traits\Request\NonFinancial\KycBillingInformation;
-use Genesis\API\Traits\Request\NonFinancial\KycShippingInformation;
-use Genesis\API\Traits\Request\NonFinancial\PaymentDetails;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Kyc\DeviceFingerprintTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\IndustryTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\PaymentMethods;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
+use Genesis\Api\Traits\Request\NonFinancial\CustomerInformation;
+use Genesis\Api\Traits\Request\NonFinancial\DepositLimits;
+use Genesis\Api\Traits\Request\NonFinancial\KycBillingInformation;
+use Genesis\Api\Traits\Request\NonFinancial\KycShippingInformation;
+use Genesis\Api\Traits\Request\NonFinancial\PaymentDetails;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
@@ -44,13 +45,15 @@ use Genesis\Exceptions\InvalidArgument;
  * run various verification checks available, returning the recommendation, score, and third-party
  * verification scrubbing results.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\Transaction
- * @SuppressWarnings(PHPMD.LongVariable)
+ * @package Genesis\Api\Request\NonFinancial\Kyc\Transaction
  */
 class Create extends BaseRequest
 {
-    use CustomerInformation, DepositLimits, KycBillingInformation,
-        KycShippingInformation, PaymentDetails;
+    use CustomerInformation;
+    use DepositLimits;
+    use KycBillingInformation;
+    use KycShippingInformation;
+    use PaymentDetails;
 
     /**
      * If this value is not provided the user email account should be complete and valid

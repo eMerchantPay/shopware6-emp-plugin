@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits;
+namespace spec\Genesis\Api\Stubs\Traits;
 
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class RestrictedSetterStub
- * @package spec\Genesis\API\Stubs\Traits
+ * @package spec\Genesis\Api\Stubs\Traits
  */
 class RestrictedSetterStub
 {

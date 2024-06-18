@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\KYC\CVVPresents;
+use Genesis\Api\Constants\NonFinancial\Kyc\CvvPresents;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\PaymentDetailsStub;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\PaymentDetailsStub;
 
 class PaymentDetailsSpec extends ObjectBehavior
 {
@@ -67,7 +67,7 @@ class PaymentDetailsSpec extends ObjectBehavior
 
     public function it_should_set_cvv_present_correctly()
     {
-        $allowed = CVVPresents::getAll();
+        $allowed = CvvPresents::getAll();
 
         foreach ($allowed AS $cvvPresent) {
             $this->shouldNotThrow()->during(

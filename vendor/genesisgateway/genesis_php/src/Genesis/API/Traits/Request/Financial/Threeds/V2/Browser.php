@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Faker\Provider\ar_EG\Payment;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
 /**
  * Trait Browser
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @codingStandardsIgnoreStart
  * @method string getThreedsV2BrowserAcceptHeader()     Exact content of the HTTP accept headers as sent to the 3DS Requester from the Cardholder browser

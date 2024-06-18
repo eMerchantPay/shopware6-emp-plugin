@@ -1,18 +1,17 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
-use Genesis\Exceptions\ErrorParameter;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\SdkStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\SdkStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class SdkAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class SdkAttributesSpec extends ObjectBehavior
 {

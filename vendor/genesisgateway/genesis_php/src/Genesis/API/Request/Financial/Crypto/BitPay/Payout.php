@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,23 +23,25 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial\Crypto\BitPay;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+namespace Genesis\Api\Request\Financial\Crypto\BitPay;
+
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\ErrorParameter;
 
 /**
  * BitPay Payout is a crypto currency payout method where merchants are requesting
  * payouts in FIAT currency and the funds are transfered in Bitcoin equivalent to a crypto wallet address.
  *
- * @package Genesis\API\Request\Financial\Crypto\BitPay
+ * @package Genesis\Api\Request\Financial\Crypto\BitPay
  */
-class Payout extends \Genesis\API\Request\Base\Financial
+class Payout extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     const WALLET_PROVIDER_BITGO    = 'bitgo';
     const WALLET_PROVIDER_UPHOLD   = 'uphold';
@@ -115,7 +118,7 @@ class Payout extends \Genesis\API\Request\Base\Financial
         $hexchars = '0123456789ABCDEF';
         $return   = '';
         while (bccomp($dec, 0) == 1) {
-            $rem    = (integer)bcmod($dec, '16');
+            $rem    = (int)bcmod($dec, '16');
             $dec    = (string)bcdiv($dec, '16', 0);
             $return = $return . $hexchars[$rem];
         }
@@ -159,7 +162,7 @@ class Payout extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::BITPAY_PAYOUT;
+        return \Genesis\Api\Constants\Transaction\Types::BITPAY_PAYOUT;
     }
 
     /**

@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2;
 
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\AllAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\AllAttributesStub;
 
 trait ThreedsV2AllCommonAttributesExamples
 {

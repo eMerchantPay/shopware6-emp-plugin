@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base;
+namespace spec\Genesis\Api\Stubs\Base;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Utils\Common;
 
 class RequestStub extends Request

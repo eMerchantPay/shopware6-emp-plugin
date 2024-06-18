@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial\BillingApi;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial\BillingApi;
 
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait OrderByDirectionSharedExample
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial\BillingApi
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial\BillingApi
  */
 trait OrderByDirectionSharedExample
 {

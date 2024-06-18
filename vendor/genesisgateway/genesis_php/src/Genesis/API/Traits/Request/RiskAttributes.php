@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request;
+namespace Genesis\Api\Traits\Request;
 
 /**
  * Trait RiskAttributes
- * @package Genesis\API\Traits\Request
+ * @package Genesis\Api\Traits\Request
  *
  * @method $this setRiskSsn($value) Set the Social Security number or equivalent value for non US customers.
  * @method $this setRiskMacAddress($value) Set the Customer's MAC address

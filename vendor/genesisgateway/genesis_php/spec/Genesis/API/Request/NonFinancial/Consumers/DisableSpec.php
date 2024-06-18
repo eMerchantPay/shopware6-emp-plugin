@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Consumers;
+namespace spec\Genesis\Api\Request\NonFinancial\Consumers;
 
-use Genesis\API\Request\NonFinancial\Consumers\Disable;
+use Genesis\Api\Request\NonFinancial\Consumers\Disable;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class DisableSpec extends ObjectBehavior
 {

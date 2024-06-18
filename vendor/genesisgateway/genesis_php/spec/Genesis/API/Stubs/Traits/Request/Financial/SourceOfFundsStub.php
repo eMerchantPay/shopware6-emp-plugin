@@ -1,17 +1,18 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\SourceOfFundsAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\Request\Financial\SourceOfFundsAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class SourceOfFundsStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial
  */
 class SourceOfFundsStub
 {
-    use RestrictedSetter, SourceOfFundsAttributes;
+    use RestrictedSetter;
+    use SourceOfFundsAttributes;
 
     public function returnSourceOfFundsStructure()
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\GiftCards;
+namespace spec\Genesis\Api\Request\Financial\GiftCards;
 
-use Genesis\API\Request\Financial\GiftCards\Tcs;
+use Genesis\Api\Request\Financial\GiftCards\Tcs;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class TcsSpec extends ObjectBehavior
 {

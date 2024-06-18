@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +24,27 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Wallets;
+namespace Genesis\Api\Request\Financial\Wallets;
 
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class Neteller
  *
  * Electronic Wallet
  *
- * @package Genesis\API\Request\Financial\Wallets
+ * @package Genesis\Api\Request\Financial\Wallets
  *
  * @method Neteller setCustomerAccount($value) Set Neteller Account Id
  * @method Neteller setAccountPassword($value) Set Neteller Account Password
  */
-class Neteller extends \Genesis\API\Request\Base\Financial
+class Neteller extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AsyncAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     /**
      * Neteller Account Id
@@ -63,7 +66,7 @@ class Neteller extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::NETELLER;
+        return \Genesis\Api\Constants\Transaction\Types::NETELLER;
     }
 
     /**

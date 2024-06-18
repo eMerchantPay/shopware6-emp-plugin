@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +23,11 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial\Crypto\BitPay;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+namespace Genesis\Api\Request\Financial\Crypto\BitPay;
+
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class BitPaySale
@@ -33,11 +35,12 @@ use Genesis\API\Traits\Request\Financial\PaymentAttributes;
  * BitPay is a cryptocurrency payments provider supporting blockchain payments
  * with Bitcoin (BTC) and BitcoinCash (BCH).
  *
- * @package Genesis\API\Request\Financial\Crypto\BitPay
+ * @package Genesis\Api\Request\Financial\Crypto\BitPay
  */
-class Sale extends \Genesis\API\Request\Base\Financial
+class Sale extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use PaymentAttributes;
 
     /**
      * URL where customer is sent to after payment
@@ -52,7 +55,7 @@ class Sale extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::BITPAY_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::BITPAY_SALE;
     }
 
     /**

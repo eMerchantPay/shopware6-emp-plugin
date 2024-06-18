@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Consumers;
+namespace spec\Genesis\Api\Request\NonFinancial\Consumers;
 
-use Genesis\API\Request\NonFinancial\Consumers\Create;
+use Genesis\Api\Request\NonFinancial\Consumers\Create;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class CreateSpec extends ObjectBehavior
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Mobile;
+namespace Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\RussianMobileOperators;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\RussianMobileOperators;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 
@@ -40,14 +41,17 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Russian Mobile Sale Request
  *
- * @package Genesis\API\Request\Financial\Mobile\RussianMobileSale
+ * @package Genesis\Api\Request\Financial\Mobile\RussianMobileSale
  *
  * @method string getTarget()
  * @method string getOperator()
  */
 class RussianMobileSale extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     const USAGE_MIN_LENGTH = 1;
     const USAGE_MAX_LENGTH = 5;

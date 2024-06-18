@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +24,25 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Business;
+namespace Genesis\Api\Traits\Request\Financial\Business;
 
-use Genesis\API\Constants\Transaction\Parameters\Business\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Business\PaymentTypes;
 
 /**
  * Trait BusinessAttributes
- * @package Genesis\API\Traits\Request\Financial\Business
+ * @package Genesis\Api\Traits\Request\Financial\Business
  *
  * @method string getBusinessPaymentType() The type of payment - can be either deposit or balance
  */
 trait BusinessAttributes
 {
-    use AirlinesAirCarriersAttributes, EventManagementAttributes, FurnitureAttributes,
-        HotelsAndRealEstateRentalsAttributes, CarPlaneAndBoatRentalsAttributes,
-        CruiseLinesAttributes, TravelAgenciesAttributes;
+    use AirlinesAirCarriersAttributes;
+    use CarPlaneAndBoatRentalsAttributes;
+    use CruiseLinesAttributes;
+    use EventManagementAttributes;
+    use FurnitureAttributes;
+    use HotelsAndRealEstateRentalsAttributes;
+    use TravelAgenciesAttributes;
 
     /**
      * The type of payment - can be either deposit or balance

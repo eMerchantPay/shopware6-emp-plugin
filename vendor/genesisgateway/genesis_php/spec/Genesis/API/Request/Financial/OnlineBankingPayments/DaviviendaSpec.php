@@ -1,17 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\Davivienda;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\Davivienda;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class DaviviendaSpec extends ObjectBehavior
 {
-    use RequestExamples, AsyncAttributesExample, PendingPaymentAttributesExamples, NeighborhoodAttributesExamples;
+    use AsyncAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use PendingPaymentAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

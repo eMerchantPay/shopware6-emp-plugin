@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,21 +23,23 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
+namespace Genesis\Api\Request\Financial;
+
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\TravelData\TravelDataAttributes;
 
 /**
  * Class Capture
  *
  * Capture Request
  *
- * @package Genesis\API\Request\Financial
+ * @package Genesis\Api\Request\Financial
  */
-class Capture extends \Genesis\API\Request\Base\Financial\Reference
+class Capture extends \Genesis\Api\Request\Base\Financial\Reference
 {
-    use TravelDataAttributes, BusinessAttributes;
+    use BusinessAttributes;
+    use TravelDataAttributes;
 
     /**
      * Returns the Request transaction type
@@ -44,7 +47,7 @@ class Capture extends \Genesis\API\Request\Base\Financial\Reference
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::CAPTURE;
+        return \Genesis\Api\Constants\Transaction\Types::CAPTURE;
     }
 
     /**

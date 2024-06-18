@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\OnlineBankingPayments\VirtualPaymentAddressAttributes;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\OnlineBankingPayments\VirtualPaymentAddressAttributes;
 
 /**
  * Class VirtualPaymentAttributesStub
  *
  * Used to spec VirtualPaymentAttributes Trait
  *
- * @package spec\Genesis\API\Request\Financial
+ * @package spec\Genesis\Api\Request\Financial
  */
 class VirtualPaymentAttributesStub
 {
-    use MagicAccessors, VirtualPaymentAddressAttributes;
+    use MagicAccessors;
+    use VirtualPaymentAddressAttributes;
 }

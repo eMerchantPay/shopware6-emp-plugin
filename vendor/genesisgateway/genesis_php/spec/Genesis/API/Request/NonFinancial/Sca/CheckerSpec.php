@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Sca;
+namespace spec\Genesis\Api\Request\NonFinancial\Sca;
 
 use Faker\Generator;
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
-use Genesis\API\Request\NonFinancial\Sca\Checker;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Request\NonFinancial\Sca\Checker;
 use Genesis\Builder;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Currency;
@@ -13,7 +13,7 @@ use spec\SharedExamples\Faker;
 
 /**
  * Class CheckerSpec
- * @package spec\Genesis\API\Request\NonFinancial\Sca
+ * @package spec\Genesis\Api\Request\NonFinancial\Sca
  */
 class CheckerSpec extends ObjectBehavior
 {

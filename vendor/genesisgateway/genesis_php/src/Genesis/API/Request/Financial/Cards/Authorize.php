@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Types;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringTypeAttributes;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\SubsequentRecurringTypeAttributes;
-use Genesis\API\Traits\Request\Financial\UcofAttributes;
-use Genesis\API\Traits\Request\Financial\CryptoAttributes;
-use Genesis\API\Traits\Request\Financial\FxRateAttributes;
-use Genesis\API\Traits\Request\Financial\GamingAttributes;
-use Genesis\API\Traits\Request\Financial\PreauthorizationAttributes;
-use Genesis\API\Traits\Request\Financial\ScaAttributes;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
-use Genesis\API\Traits\Request\MotoAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\RiskAttributes;
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
-use Genesis\API\Traits\Request\Financial\FundingAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Types;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\RecurringTypeAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\SubsequentRecurringTypeAttributes;
+use Genesis\Api\Traits\Request\Financial\CryptoAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\FundingAttributes;
+use Genesis\Api\Traits\Request\Financial\FxRateAttributes;
+use Genesis\Api\Traits\Request\Financial\GamingAttributes;
+use Genesis\Api\Traits\Request\Financial\PreauthorizationAttributes;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Traits\Request\Financial\ScaAttributes;
+use Genesis\Api\Traits\Request\Financial\TravelData\TravelDataAttributes;
+use Genesis\Api\Traits\Request\Financial\UcofAttributes;
+use Genesis\Api\Traits\Request\MotoAttributes;
+use Genesis\Api\Traits\Request\RiskAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -52,15 +53,29 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Authorize Request
  *
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
-class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
+class Authorize extends \Genesis\Api\Request\Base\Financial\Cards\CreditCard
 {
-    use GamingAttributes, MotoAttributes, AddressInfoAttributes, RiskAttributes, DescriptorAttributes,
-        PreauthorizationAttributes, TravelDataAttributes, FxRateAttributes,
-        CryptoAttributes, BusinessAttributes, ScaAttributes, UcofAttributes, RecurringTypeAttributes,
-        ManagedRecurringAttributes, RecurringCategoryAttributes, ReferenceAttributes, FundingAttributes,
-        AccountOwnerAttributes, SubsequentRecurringTypeAttributes;
+    use AccountOwnerAttributes;
+    use AddressInfoAttributes;
+    use BusinessAttributes;
+    use CryptoAttributes;
+    use DescriptorAttributes;
+    use FundingAttributes;
+    use FxRateAttributes;
+    use GamingAttributes;
+    use ManagedRecurringAttributes;
+    use MotoAttributes;
+    use PreauthorizationAttributes;
+    use RecurringCategoryAttributes;
+    use RecurringTypeAttributes;
+    use ReferenceAttributes;
+    use RiskAttributes;
+    use ScaAttributes;
+    use SubsequentRecurringTypeAttributes;
+    use TravelDataAttributes;
+    use UcofAttributes;
 
     /**
      * Returns the Request transaction type
@@ -68,7 +83,7 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::AUTHORIZE;
+        return \Genesis\Api\Constants\Transaction\Types::AUTHORIZE;
     }
 
     /**

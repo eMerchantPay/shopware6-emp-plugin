@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments\InstaDebit;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments\InstaDebit;
 
 /**
  * Class Payout
  *
  * InstaDebit Payout - Online Banking ePayments (oBeP)
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments\InstaDebit
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments\InstaDebit
  */
-class Payout extends \Genesis\API\Request\Financial\OnlineBankingPayments\iDebit\Payout
+class Payout extends \Genesis\Api\Request\Financial\OnlineBankingPayments\Idebit\Payout
 {
     /**
      * Returns the Request transaction type
@@ -40,7 +41,7 @@ class Payout extends \Genesis\API\Request\Financial\OnlineBankingPayments\iDebit
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::INSTA_DEBIT_PAYOUT;
+        return \Genesis\Api\Constants\Transaction\Types::INSTA_DEBIT_PAYOUT;
     }
 
     /**

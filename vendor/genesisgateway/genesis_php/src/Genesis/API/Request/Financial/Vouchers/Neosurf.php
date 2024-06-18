@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +24,12 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Vouchers;
+namespace Genesis\Api\Request\Financial\Vouchers;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Validators\Request\RegexValidator;
 
 /**
  * Class Neosurf
@@ -37,14 +38,16 @@ use Genesis\API\Validators\Request\RegexValidator;
  * worldwide, where customers can buy the prepaid vouchers, denominated up to EUR 250.00 or its equivalent
  * in other currencies.
  *
- * @package Genesis\API\Request\Financial\Vouchers
+ * @package Genesis\Api\Request\Financial\Vouchers
  *
  * @method string getVoucherNumber()
  * @method Neosurf setVoucherNumber(string $voucherNumber)
  */
-class Neosurf extends \Genesis\API\Request\Base\Financial
+class Neosurf extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     protected $voucher_number;
 
@@ -54,7 +57,7 @@ class Neosurf extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::NEOSURF;
+        return \Genesis\Api\Constants\Transaction\Types::NEOSURF;
     }
 
     /**

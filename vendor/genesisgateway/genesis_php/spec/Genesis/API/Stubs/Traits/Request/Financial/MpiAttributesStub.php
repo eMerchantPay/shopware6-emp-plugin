@@ -1,21 +1,23 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\MpiAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\MpiAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class MpiAttributesStub
  *
  * Used to spec MpiAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request\Financial
+ * @package spec\Genesis\Api\Traits\Request\Financial
  */
 class MpiAttributesStub
 {
-    use MagicAccessors, MpiAttributes, RestrictedSetter;
+    use MagicAccessors;
+    use MpiAttributes;
+    use RestrictedSetter;
 
     public function getIs3DSv2()
     {

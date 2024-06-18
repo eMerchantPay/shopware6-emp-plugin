@@ -2,20 +2,18 @@
 
 namespace spec\Genesis\Parsers;
 
-use Genesis\Parser;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class XMLSpec extends ObjectBehavior
+class XmlSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Parsers\XML');
+        $this->shouldHaveType('Genesis\Parsers\Xml');
     }
 
     public function it_should_parse_response()
     {
-        $xml = file_get_contents('spec/fixtures/XML/gate_authorize_request.xml');
+        $xml = file_get_contents('spec/Fixtures/Xml/GateAuthorizeRequest.xml');
         $this->skipRootNode();
 
         $this->parseDocument($xml);
@@ -28,7 +26,7 @@ class XMLSpec extends ObjectBehavior
 
     public function it_should_parse_urls()
     {
-        $xml = file_get_contents('spec/fixtures/XML/gate_apm_request.xml');
+        $xml = file_get_contents('spec/Fixtures/Xml/GateApmRequest.xml');
 
         $this->skipRootNode();
 
@@ -43,7 +41,7 @@ class XMLSpec extends ObjectBehavior
 
     public function it_should_parse_multinodes()
     {
-        $xml = file_get_contents('spec/fixtures/XML/wpf_request.xml');
+        $xml = file_get_contents('spec/Fixtures/Xml/WpfRequest.xml');
 
         $this->skipRootNode();
 

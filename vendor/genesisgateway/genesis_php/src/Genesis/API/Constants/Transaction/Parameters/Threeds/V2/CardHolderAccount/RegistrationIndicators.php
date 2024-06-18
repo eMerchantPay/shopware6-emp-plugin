@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount;
 
 use Genesis\Utils\Common;
 
@@ -32,7 +33,7 @@ use Genesis\Utils\Common;
  * with the 3DS Requester.
  *
  * Class RegistrationIndicators
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount
  */
 class RegistrationIndicators
 {

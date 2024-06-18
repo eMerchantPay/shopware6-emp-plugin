@@ -1,9 +1,8 @@
 <?php
 
+namespace Genesis\Api\Request\Financial\TravelData\Base;
 
-namespace Genesis\API\Request\Financial\TravelData\Base;
-
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\RestrictedSetter;
 
 abstract class AidAttributes
 {

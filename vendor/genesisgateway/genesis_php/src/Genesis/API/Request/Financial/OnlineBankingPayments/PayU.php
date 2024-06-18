@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,24 +24,27 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class PayU
  *
  * PayU - oBeP-style alternative payment method
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  *
  */
-class PayU extends \Genesis\API\Request\Base\Financial
+class PayU extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Returns the Request transaction type
@@ -48,7 +52,7 @@ class PayU extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::PAYU;
+        return \Genesis\Api\Constants\Transaction\Types::PAYU;
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
 
 /**
  * Trait Purchase
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @method string getThreedsV2PurchaseCategory()       Identifies the type of transaction being authenticated
  * @method $this  setThreedsV2PurchaseCategory($value) Identifies the type of transaction being authenticated

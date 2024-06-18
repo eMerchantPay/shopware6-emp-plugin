@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request;
+namespace Genesis\Api\Traits\Request;
 
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Validators\Request\RegexValidator;
-use Genesis\Exceptions\InvalidArgument;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Validators\Request\RegexValidator;
 use Genesis\Utils\Common;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Trait CreditCardAttributes
- * @package Genesis\API\Traits\Request
+ * @package Genesis\Api\Traits\Request
  *
  * @method $this setCardHolder($value) Set Full name of customer as printed on credit card
  * @method $this setCardNumber($value) Set Complete CC number of customer

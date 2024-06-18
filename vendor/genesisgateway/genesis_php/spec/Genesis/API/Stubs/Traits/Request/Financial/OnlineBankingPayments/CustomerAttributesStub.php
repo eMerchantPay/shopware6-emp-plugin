@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\CustomerAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\CustomerAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class CustomerAttributesStub
  *
  * Used to spec CustomerAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request\Financial\OnlineBankingPayments
+ * @package spec\Genesis\Api\Traits\Request\Financial\OnlineBankingPayments
  */
 class CustomerAttributesStub
 {
-    use MagicAccessors, CustomerAttributes, RestrictedSetter;
+    use CustomerAttributes;
+    use MagicAccessors;
+    use RestrictedSetter;
 }

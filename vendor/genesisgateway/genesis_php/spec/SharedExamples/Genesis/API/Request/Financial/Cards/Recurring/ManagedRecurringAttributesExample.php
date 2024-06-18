@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Modes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Modes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
 use Genesis\Exceptions\ErrorParameter;
 
 trait ManagedRecurringAttributesExample

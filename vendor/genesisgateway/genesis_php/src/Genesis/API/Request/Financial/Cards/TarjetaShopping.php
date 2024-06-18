@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
 /**
  * Class TarjetaShopping
  *
  * Tarjeta Shopping is a cash payment in Argentina.
  *
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
-class TarjetaShopping extends \Genesis\API\Request\Base\Financial\SouthAmericanPayment
+class TarjetaShopping extends \Genesis\Api\Request\Base\Financial\SouthAmericanPayment
 {
     /**
      * Returns the Request transaction type
@@ -40,7 +41,7 @@ class TarjetaShopping extends \Genesis\API\Request\Base\Financial\SouthAmericanP
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::TARJETA_SHOPPING;
+        return \Genesis\Api\Constants\Transaction\Types::TARJETA_SHOPPING;
     }
 
     public function getAllowedBillingCountries()

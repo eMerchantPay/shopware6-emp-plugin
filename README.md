@@ -1,14 +1,16 @@
 emerchantpay Gateway Module for Shopware 6
 =============================
 
+[![Software License](https://img.shields.io/badge/license-GPL-green.svg?style=flat)](LICENSE)
+
 This is a Payment Plugin for Shopware 6, that gives you the ability to process payments through emerchantpay's Payment Gateway - Genesis.
 
 Requirements
 ------------
 
-* Shopware 6.4.20, 6.5.x (Tested up to __6.4.20__, __6.5.8.9__)
-* [GenesisPHP v1.24.6](https://github.com/GenesisGateway/genesis_php/releases/tag/1.24.6)
-* [Composer v2.5.5](https://github.com/composer/composer/releases/tag/2.5.5)
+* Shopware 6.6.x (Tested up to __6.6.3.0__)
+* [GenesisPHP v2.0.0](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.0)
+* [Composer v2.6.0](https://github.com/composer/composer/releases/tag/2.6.0)
 
 GenesisPHP Requirements
 ------------
@@ -140,9 +142,13 @@ You're now ready to process payments through our gateway.
 
 Development
 ------------
-* Install dev packages
+* Install with development packages
 ```shell
 composer install
+```
+* Install without development packages
+```shell
+composer build
 ```
 * Run PHP Code Sniffer
 ```shell

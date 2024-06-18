@@ -1,13 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\MpiProtocolVersions;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolSubVersions;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolVersions;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\MpiAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\MpiAttributesStub;
 use spec\SharedExamples\Faker;
 
 class MpiAttributesSpec extends ObjectBehavior
@@ -103,5 +104,23 @@ class MpiAttributesSpec extends ObjectBehavior
                 Faker::getInstance()->uuid()
             ]
         );
+    }
+
+    public function it_should_not_fail_with_valid_protocol_subversion()
+    {
+        $this->shouldNotThrow()->duringSetMpiProtocolSubVersion(
+            Faker::getInstance()->randomElement(MpiProtocolSubVersions::getAll())
+        );
+    }
+
+    public function it_should_not_fail_when_protocol_subversion_integer()
+    {
+        $this->shouldNotThrow()->duringSetMpiProtocolSubVersion(2);
+    }
+
+    public function it_should_fail_with_invalid_protocol_subversion()
+    {
+        $this->shouldThrow(InvalidArgument::class)
+            ->duringSetMpiProtocolSubVersion('error');
     }
 }

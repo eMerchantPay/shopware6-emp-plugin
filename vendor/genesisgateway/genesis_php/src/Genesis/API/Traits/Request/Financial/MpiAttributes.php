@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,23 +24,23 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolSubVersions;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolVersions;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
 use Genesis\Exceptions\ErrorParameter;
-use Genesis\API\Constants\Transaction\Parameters\MpiProtocolVersions;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait MpiAttributes
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method $this setMpiCavv($value) Set the Verification Id of the authentication.
  * @method $this setMpiEci($value) Set Electric Commerce Indicator as returned from the MPI.
  * @method $this setMpiXid($value) Set Transaction ID that uniquely identifies a 3D Secure check request
  * @method $this setMpiDirectoryServerId($value) Set the directory server ID used during 3DS authentication
  * @method $this setMpiAscTransactionId($value) Set the ASC Transaction ID
- * @SuppressWarnings(PHPMD.LongVariable)
  */
 trait MpiAttributes
 {
@@ -73,6 +74,13 @@ trait MpiAttributes
      * @var string
      */
     protected $mpi_protocol_version;
+
+    /**
+     * The used 3DS protocol sub-version
+     *
+     * @var string
+     */
+    protected $mpi_protocol_sub_version;
 
     /**
      * The directory server ID used during 3DS authentication.
@@ -119,6 +127,23 @@ trait MpiAttributes
         $this->mpi_protocol_version = (string)$value;
 
         return $this;
+    }
+
+    /**
+     * Validate Protocol Sub-version
+     *
+     * @param $value
+     * @return MpiAttributes
+     * @throws InvalidArgument
+     */
+    public function setMpiProtocolSubVersion($value)
+    {
+        return $this->allowedOptionsSetter(
+            'mpi_protocol_sub_version',
+            MpiProtocolSubVersions::getAll(),
+            $value,
+            "Invalid Protocol sub-version value."
+        );
     }
 
     /**
@@ -189,6 +214,7 @@ trait MpiAttributes
             'cavv'                        => $this->mpi_cavv,
             'eci'                         => $this->mpi_eci,
             'protocol_version'            => $this->mpi_protocol_version,
+            'protocol_sub_version'        => $this->mpi_protocol_sub_version,
             'directory_server_id'         => $this->mpi_directory_server_id,
             'asc_transaction_id'          => $this->mpi_asc_transaction_id,
             'threeds_challenge_indicator' => $this->mpi_threeds_challenge_indicator

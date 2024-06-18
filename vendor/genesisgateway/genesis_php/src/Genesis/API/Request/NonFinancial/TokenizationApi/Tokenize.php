@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\TokenizationApi;
+namespace Genesis\Api\Request\NonFinancial\TokenizationApi;
 
-use Genesis\API\Request\Base\NonFinancial\TokenizationApi\BaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\TokenizationApiAttributes;
-use Genesis\API\Traits\Request\NonFinancial\TokenizationApiCardAttributes;
+use Genesis\Api\Request\Base\NonFinancial\TokenizationApi\BaseRequest;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiAttributes;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiCardAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -38,11 +39,12 @@ use Genesis\Utils\Common as CommonUtils;
  * Attempting to tokenize the same cardholder data will issue a new token.
  * The token can be used in the Processing API instead of the cardholder data.
  *
- * @package Genesis\API\Request\NonFinancial\TokenizationApi
+ * @package Genesis\Api\Request\NonFinancial\TokenizationApi
  */
 class Tokenize extends BaseRequest
 {
-    use TokenizationApiAttributes, TokenizationApiCardAttributes;
+    use TokenizationApiAttributes;
+    use TokenizationApiCardAttributes;
 
     /**
      * Tokenize constructor

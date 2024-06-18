@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction;
+namespace Genesis\Api\Constants\Transaction;
 
-use Genesis\API\Request\Financial\Alternatives\Klarna\Authorize;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Authorize;
 
 /**
  * Class CustomRequiredParameters
- * @package Genesis\API\Constants\Transaction
+ * @package Genesis\Api\Constants\Transaction
  */
 class CustomRequiredParameters
 {
@@ -39,45 +40,7 @@ class CustomRequiredParameters
     public static function forPpro()
     {
         return [
-            'payment_method' => \Genesis\API\Constants\Payment\Methods::getMethods()
-        ];
-    }
-
-    /**
-     * @return array
-     */
-    public static function forPayByVoucherSale()
-    {
-        return [
-            'card_type'   =>
-                \Genesis\API\Constants\Transaction\Parameters\PayByVouchers\CardTypes::getCardTypes(),
-            'redeem_type' =>
-                \Genesis\API\Constants\Transaction\Parameters\PayByVouchers\RedeemTypes::getRedeemTypes()
-        ];
-    }
-
-    /**
-     * @return array
-     * @deprecated PayByVoucherYeepay payment method is deprecated and will be removed
-     */
-    public static function forPayByVoucherYeepay()
-    {
-        return array_merge(
-            static::forPayByVoucherSale(),
-            [
-                'product_name'     => null,
-                'product_category' => null
-            ]
-        );
-    }
-
-    /**
-     * @return array
-     */
-    public static function forCitadelPayIn()
-    {
-        return [
-            'merchant_customer_id' => null
+            'payment_method' => \Genesis\Api\Constants\Payment\Methods::getMethods()
         ];
     }
 

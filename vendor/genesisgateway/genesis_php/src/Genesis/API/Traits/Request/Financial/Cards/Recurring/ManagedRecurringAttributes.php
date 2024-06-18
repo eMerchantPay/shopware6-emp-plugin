@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Modes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Modes;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
@@ -36,7 +37,7 @@ use Genesis\Exceptions\InvalidArgument;
  * Managed Recurring provides the option to automatically schedule recurring transactions for
  * a specific day and time. Managed Recurring is available after additional configuration.
  *
- * @package Genesis\API\Traits\Request\Financial\Cards\Recurring
+ * @package Genesis\Api\Traits\Request\Financial\Cards\Recurring
  *
  * @method string  getManagedRecurringMode()
  * @method string  getManagedRecurringInterval()

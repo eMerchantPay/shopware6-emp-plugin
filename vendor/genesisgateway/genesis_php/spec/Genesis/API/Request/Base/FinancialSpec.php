@@ -1,11 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base;
+namespace spec\Genesis\Api\Request\Base;
 
-use Genesis\API\Constants\Endpoints;
-use Genesis\API\Constants\Environments;
+use Genesis\Api\Constants\Endpoints;
 use Genesis\Config;
-use spec\Genesis\API\Stubs\Base\Request\FinancialStub;
+use spec\Genesis\Api\Stubs\Base\Request\FinancialStub;
 use spec\SharedExamples\Faker;
 
 class FinancialSpec extends \PhpSpec\ObjectBehavior

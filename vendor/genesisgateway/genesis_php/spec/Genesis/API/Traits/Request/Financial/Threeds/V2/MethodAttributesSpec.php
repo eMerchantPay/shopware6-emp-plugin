@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\MethodStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\MethodStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class MethodAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class MethodAttributesSpec extends ObjectBehavior
 {

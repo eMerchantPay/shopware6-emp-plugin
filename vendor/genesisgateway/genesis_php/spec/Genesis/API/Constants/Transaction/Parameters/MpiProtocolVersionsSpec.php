@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters;
 
-use Genesis\API\Constants\Transaction\Parameters\MpiProtocolVersions;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolVersions;
 use PhpSpec\ObjectBehavior;
 
 class MpiProtocolVersionsSpec extends ObjectBehavior

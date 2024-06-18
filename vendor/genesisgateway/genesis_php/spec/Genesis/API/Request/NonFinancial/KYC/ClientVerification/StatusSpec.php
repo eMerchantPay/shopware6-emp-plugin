@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\ClientVerification;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\ClientVerification;
 
-use Genesis\API\Request\NonFinancial\KYC\ClientVerification\Status;
+use Genesis\Api\Request\NonFinancial\Kyc\ClientVerification\Status;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class StatusSpec extends ObjectBehavior
 {

@@ -21,20 +21,22 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * class RecurringCategoryStub
  *
  * Used to spec RecurringCategoryAttributes trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring
  */
 class RecurringCategoryStub
 {
-    use RecurringCategoryAttributes, MagicAccessors, RestrictedSetter;
+    use MagicAccessors;
+    use RecurringCategoryAttributes;
+    use RestrictedSetter;
 }

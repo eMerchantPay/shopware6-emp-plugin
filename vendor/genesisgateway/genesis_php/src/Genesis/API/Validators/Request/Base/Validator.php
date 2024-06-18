@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Validators\Request\Base;
+namespace Genesis\Api\Validators\Request\Base;
 
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
@@ -31,14 +32,14 @@ use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class Validator
- * @package Genesis\API\Validators\Request\Base
+ * @package Genesis\Api\Validators\Request\Base
  */
 abstract class Validator
 {
     /**
      * API Request Instance
      *
-     * @var \Genesis\API\Request
+     * @var \Genesis\Api\Request
      */
     protected $request;
 
@@ -67,7 +68,7 @@ abstract class Validator
     }
 
     /**
-     * @param \Genesis\API\Request $request
+     * @param \Genesis\Api\Request $request
      * @param string $field
      * @return void
      * @throws \Genesis\Exceptions\InvalidArgument

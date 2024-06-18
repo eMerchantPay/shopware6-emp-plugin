@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\ClientVerification;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\ClientVerification;
 
-use Genesis\API\Constants\NonFinancial\KYC\VerificationAddressesTypes;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationDocumentTypes;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationLanguages;
-use Genesis\API\Request\NonFinancial\KYC\ClientVerification\Verify;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationAddressesTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationDocumentTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationLanguages;
+use Genesis\Api\Request\NonFinancial\Kyc\ClientVerification\Verify;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class VerifySpec extends ObjectBehavior
 {

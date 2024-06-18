@@ -19,13 +19,14 @@
 
 namespace Emerchantpay\Genesis\Service;
 
+use Emerchantpay\Genesis\Constants\ReturnUrl;
 use Emerchantpay\Genesis\Service\Payment\Checkout;
 use Emerchantpay\Genesis\Utils\Config;
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler;
 use Shopware\Core\Checkout\Payment\Cart\AsyncPaymentTransactionStruct;
 use Shopware\Core\Checkout\Payment\Cart\PaymentHandler\AsynchronousPaymentHandlerInterface;
-use Shopware\Core\Checkout\Payment\Exception\AsyncPaymentProcessException;
+use Shopware\Core\Checkout\Payment\PaymentException;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
@@ -70,7 +71,9 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
     }
 
     /**
-     * @throws AsyncPaymentProcessException
+     * Web Payment Form creation
+     *
+     * @throws PaymentException
      */
     public function pay(
         AsyncPaymentTransactionStruct $transaction,
@@ -81,7 +84,7 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
         try {
             $redirectUrl = $this->sendReturnUrlToExternalGateway($transaction, $salesChannelContext->getContext());
         } catch (\Exception $e) {
-            throw new AsyncPaymentProcessException(
+            throw PaymentException::asyncProcessInterrupted(
                 $transaction->getOrderTransaction()->getId(),
                 $e->getMessage()
             );
@@ -91,20 +94,45 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
         return new RedirectResponse($redirectUrl);
     }
 
+    /**
+     * Payment finalization
+     * Doesn't update Order or Payment statuses, the statuses are handled upon Gateway notification
+     *
+     * @param AsyncPaymentTransactionStruct $transaction
+     * @param Request $request
+     * @param SalesChannelContext $salesChannelContext
+     *
+     * @throws PaymentException
+     * @return void
+     */
     public function finalize(
         AsyncPaymentTransactionStruct $transaction,
         Request $request,
         SalesChannelContext $salesChannelContext
     ): void {
+        $status        = $request->query->getString('status');
+        $transactionId = $transaction->getOrderTransaction()->getId();
+
         // Order Payment Status will be updated upon received Notification
         $this->logger->debug(
             sprintf(
                 'Customer returned with status %s. Transaction Id: %s. Order Id: %s',
-                ucfirst($request->query->get('status')),
-                $transaction->getOrderTransaction()->getId(),
+                ucfirst($status),
+                $transactionId,
                 $transaction->getOrderTransaction()->getOrderId()
             )
         );
+
+        switch ($status) {
+            case ReturnUrl::FAILURE:
+                $message = 'An error appeared during your payment.';
+
+                throw PaymentException::asyncFinalizeInterrupted($transactionId, $message);
+            case ReturnUrl::CANCEL:
+                $message = 'Customer canceled the payment on the Emerchantpay page.';
+
+                throw PaymentException::customerCanceled($transactionId, $message);
+        }
     }
 
     /**

@@ -1,14 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\CashPayments;
+namespace spec\Genesis\Api\Request\Financial\CashPayments;
 
-use Genesis\API\Request\Financial\CashPayments\Pix;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\Gender;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
+use Genesis\Api\Request\Financial\CashPayments\Pix;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\Gender;
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PixSpec extends ObjectBehavior
 {

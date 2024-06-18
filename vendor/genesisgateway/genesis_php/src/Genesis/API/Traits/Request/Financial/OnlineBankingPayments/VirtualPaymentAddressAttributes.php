@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Traits\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Validators\Request\RegexValidator;
 
 /**
  * Trait VirtualPaymentAddressAttributes
- * @package Genesis\API\Traits\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Traits\Request\Financial\OnlineBankingPayments
  *
  * @method $this getVirtualPaymentAddress() Get value
  */

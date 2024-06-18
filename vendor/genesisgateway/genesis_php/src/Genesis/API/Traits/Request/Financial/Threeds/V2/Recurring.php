@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait Recurring
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @method int getThreedsV2RecurringFrequency() Indicates the minimum number of days between subsequent transactions
  */

@@ -1,14 +1,14 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Traits\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait BirthDateAttributesExample
- * @package spec\SharedExamples\Genesis\API\Traits\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Traits\Request\Financial
  */
 trait BirthDateAttributesExample
 {

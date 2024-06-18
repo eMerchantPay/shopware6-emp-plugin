@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards;
+namespace spec\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Request\Financial\Cards\Argencard;
+use Genesis\Api\Request\Financial\Cards\Argencard;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class ArgencardSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

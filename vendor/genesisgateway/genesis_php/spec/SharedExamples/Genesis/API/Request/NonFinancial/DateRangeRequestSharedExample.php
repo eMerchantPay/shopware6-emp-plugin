@@ -1,15 +1,14 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Request\NonFinancial\Fraud\Chargeback\DateRange;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\ErrorParameter;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait DateRangeRequestSharedExample
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial
  */
 trait DateRangeRequestSharedExample
 {

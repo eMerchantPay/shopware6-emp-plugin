@@ -1,19 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\ProcessedTransactions;
+namespace spec\Genesis\Api\Request\NonFinancial\ProcessedTransactions;
 
-use Genesis\API\Request\NonFinancial\ProcessedTransactions\PostDateRange;
-use Genesis\Config;
+use Genesis\Api\Request\NonFinancial\ProcessedTransactions\PostDateRange;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\DateRangeRequestSharedExample;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\ExternallyProcessedSharedExample;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\ProcessingTypeSharedExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\DateRangeRequestSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\ExternallyProcessedSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\ProcessingTypeSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PostDateRangeSpec extends ObjectBehavior
 {
-    use RequestExamples, DateRangeRequestSharedExample, ExternallyProcessedSharedExample,
-    ProcessingTypeSharedExample;
+    use DateRangeRequestSharedExample;
+    use ExternallyProcessedSharedExample;
+    use ProcessingTypeSharedExample;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

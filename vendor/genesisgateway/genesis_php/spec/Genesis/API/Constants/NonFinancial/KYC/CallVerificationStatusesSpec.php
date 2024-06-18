@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\CallVerificationStatuses;
+use Genesis\Api\Constants\NonFinancial\Kyc\CallVerificationStatuses;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class CallVerificationStatusesSpec
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class CallVerificationStatusesSpec extends ObjectBehavior
 {

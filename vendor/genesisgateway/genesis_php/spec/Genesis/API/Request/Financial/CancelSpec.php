@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial;
+namespace spec\Genesis\Api\Request\Financial;
 
-use Genesis\API\Request\Financial\Cancel;
+use Genesis\Api\Request\Financial\Cancel;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 final class CancelSpec extends ObjectBehavior
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +24,10 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\Financial\Alternative;
+namespace Genesis\Api\Request\Base\Financial\Alternative;
 
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Request\Financial\Alternatives\Klarna\Items;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Items;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\ErrorParameter;
 
 /**
@@ -34,11 +35,11 @@ use Genesis\Exceptions\ErrorParameter;
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Klarna
+ * @package Genesis\Api\Request\Financial\Alternatives\Klarna
  *
  * @method $this setCustomerGender($value) Set gender of the customer
  */
-abstract class Klarna extends \Genesis\API\Request\Base\Financial
+abstract class Klarna extends \Genesis\Api\Request\Base\Financial
 {
     use PaymentAttributes;
 

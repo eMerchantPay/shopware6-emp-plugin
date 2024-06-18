@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial;
+namespace spec\Genesis\Api\Request\NonFinancial;
 
-use Genesis\API as API;
+use Genesis\Api as API;
 use Genesis\Config;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class BlacklistSpec extends ObjectBehavior
 {

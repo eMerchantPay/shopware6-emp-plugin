@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\Call;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\Call;
 
-use Genesis\API\Constants\NonFinancial\KYC\CallVerificationStatuses;
-use Genesis\API\Request\NonFinancial\KYC\Call\Update;
+use Genesis\Api\Constants\NonFinancial\Kyc\CallVerificationStatuses;
+use Genesis\Api\Request\NonFinancial\Kyc\Call\Update;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 

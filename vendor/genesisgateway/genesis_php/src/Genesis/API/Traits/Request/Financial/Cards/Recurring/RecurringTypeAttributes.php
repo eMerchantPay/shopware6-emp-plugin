@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Types;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Types;
 
 /**
  * trait RecurringTypeAttributes
  *
  * Specifies the recurring type of transaction. Act like obsolete Init Recurring Sale/3D transactions.
  *
- * @package Genesis\API\Traits\Request\Financial\Cards\Recurring
+ * @package Genesis\Api\Traits\Request\Financial\Cards\Recurring
  *
  * @method string getRecurringType()       Specifies the recurring type of transaction
  * @method $this  setRecurringType($value) Specifies the recurring type of transaction

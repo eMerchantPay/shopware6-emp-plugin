@@ -1,20 +1,23 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards;
+namespace spec\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Request\Financial\Cards\Credit;
+use Genesis\Api\Request\Financial\Cards\Credit;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\CustomerIdentificationExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\SourceOfFundsAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\PurposeOfPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\CustomerIdentificationExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PurposeOfPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\SourceOfFundsAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class CreditSpec extends ObjectBehavior
 {
-    use RequestExamples, SourceOfFundsAttributesExamples,
-        CustomerIdentificationExamples, AccountOwnerAttributesExamples, PurposeOfPaymentAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use CustomerIdentificationExamples;
+    use PurposeOfPaymentAttributesExamples;
+    use RequestExamples;
+    use SourceOfFundsAttributesExamples;
 
     public function it_is_initializable()
     {

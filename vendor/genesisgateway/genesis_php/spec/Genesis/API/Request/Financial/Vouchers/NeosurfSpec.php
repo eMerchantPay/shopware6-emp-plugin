@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Vouchers;
+namespace spec\Genesis\Api\Request\Financial\Vouchers;
 
-use Genesis\API\Request\Financial\Vouchers\Neosurf;
+use Genesis\Api\Request\Financial\Vouchers\Neosurf;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class NeosurfSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     private $allowedCountries = [
         'AT', 'AU', 'BE', 'BF', 'BI', 'BJ', 'CA', 'CD', 'CF', 'CG', 'CH', 'CI', 'CM', 'CO',

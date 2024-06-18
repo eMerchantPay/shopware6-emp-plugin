@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,10 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Base\NonFinancial\Consumers;
 
-use Genesis\API\Request\Base\BaseVersionedRequest;
+namespace Genesis\Api\Request\Base\NonFinancial\Consumers;
+
+use Genesis\Api\Request\Base\BaseVersionedRequest;
 use Genesis\Builder;
 
 /**
@@ -36,7 +38,7 @@ use Genesis\Builder;
  * It is explicitly created via our Consumer API or implicitly by providing customer_email
  * in either Transactions or WPF APIs.
  *
- * @package Genesis\API\Request\Base\NonFinancial\Consumers
+ * @package Genesis\Api\Request\Base\NonFinancial\Consumers
  */
 abstract class BaseRequest extends BaseVersionedRequest
 {

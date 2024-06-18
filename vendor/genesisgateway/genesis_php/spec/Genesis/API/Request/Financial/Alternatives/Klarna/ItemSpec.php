@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace spec\Genesis\Api\Request\Financial\Alternatives\Klarna;
 
 use PhpSpec\ObjectBehavior;
 
@@ -14,7 +14,7 @@ class ItemSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(\Genesis\API\Request\Financial\Alternatives\Klarna\Item::class);
+        $this->shouldHaveType(\Genesis\Api\Request\Financial\Alternatives\Klarna\Item::class);
     }
 
     public function it_can_build_structure()

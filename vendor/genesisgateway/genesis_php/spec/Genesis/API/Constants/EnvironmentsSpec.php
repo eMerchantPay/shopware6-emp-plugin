@@ -1,14 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants;
+namespace spec\Genesis\Api\Constants;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class EnvironmentsSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\Environments');
+        $this->shouldHaveType('Genesis\Api\Constants\Environments');
     }
 }

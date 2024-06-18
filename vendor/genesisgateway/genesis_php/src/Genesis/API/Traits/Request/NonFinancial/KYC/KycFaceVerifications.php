@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial\KYC;
+namespace Genesis\Api\Traits\Request\NonFinancial\Kyc;
 
 use Genesis\Utils\Common;
 
@@ -32,7 +33,7 @@ use Genesis\Utils\Common;
  *
  * Represents the options to be supplied to the service in order to provide face verification functionality
  *
- * @package Genesis\API\Traits\Request\NonFinancial\KYC
+ * @package Genesis\Api\Traits\Request\NonFinancial\Kyc
  *
  * @method bool getFaceAllowOffline()
  * @method bool getFaceAllowOnline()
@@ -58,7 +59,6 @@ trait KycFaceVerifications
      * Whether to enable the duplicate account detection service
      *
      * @var bool
-     * @suppressWarnings(PHPMD.LongVariable)
      */
     protected $face_check_duplicate_request;
 

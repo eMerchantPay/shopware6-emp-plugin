@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,18 +23,19 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
+
 namespace Genesis\Builders;
 
 use Genesis\Exceptions\InvalidArgument;
 
 /**
- * Class JSON
+ * Class Json
  *
  * Convert Array to a JSON object
  *
  * @package Genesis\Builders\Wrapper
  */
-final class JSON implements \Genesis\Interfaces\Builder
+final class Json implements \Genesis\Interfaces\Builder
 {
     /**
      * JSON storage

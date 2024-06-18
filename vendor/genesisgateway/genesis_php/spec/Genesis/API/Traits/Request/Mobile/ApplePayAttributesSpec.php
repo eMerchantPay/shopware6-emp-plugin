@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Mobile;
+namespace spec\Genesis\Api\Traits\Request\Mobile;
 
 use Genesis\Utils\Common as CommonUtils;
-use spec\Genesis\API\Stubs\Traits\Request\Mobile\ApplePayAttributesStub;
 use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\Mobile\ApplePayAttributesStub;
 use spec\SharedExamples\Faker;
 
 class ApplePayAttributesSpec extends ObjectBehavior

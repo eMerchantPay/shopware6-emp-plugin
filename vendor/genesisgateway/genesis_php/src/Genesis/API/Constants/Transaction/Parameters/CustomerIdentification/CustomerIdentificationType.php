@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\CustomerIdentification;
+namespace Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification;
 
 use Genesis\Utils\Common;
 
@@ -31,7 +32,7 @@ use Genesis\Utils\Common;
  * Specifies the type of the document ID.
  *
  * class CustomerIdentificationType
- * @package Genesis\API\Constants\Transaction\Parameters\CustomerIdentification
+ * @package Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification
  */
 class CustomerIdentificationType
 {

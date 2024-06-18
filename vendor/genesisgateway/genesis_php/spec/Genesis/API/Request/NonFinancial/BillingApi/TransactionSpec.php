@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\BillingApi;
+namespace spec\Genesis\Api\Request\NonFinancial\BillingApi;
 
+use Genesis\Api\Request\NonFinancial\BillingApi\Transaction;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Request\NonFinancial\BillingApi\Transaction;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\BillingApi\OrderByDirectionSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\BillingApi\OrderByDirectionSharedExample;
 
 class TransactionSpec extends ObjectBehavior
 {

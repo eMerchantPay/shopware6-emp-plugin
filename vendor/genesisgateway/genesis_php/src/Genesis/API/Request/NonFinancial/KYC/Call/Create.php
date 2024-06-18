@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\Call;
+namespace Genesis\Api\Request\NonFinancial\Kyc\Call;
 
-use Genesis\API\Constants\NonFinancial\KYC\CallServiceTypes;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Constants\NonFinancial\Kyc\CallServiceTypes;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
+use Genesis\Api\Validators\Request\RegexValidator;
 
 /**
  * Class Download
@@ -36,7 +37,7 @@ use Genesis\API\Validators\Request\RegexValidator;
  * complement the verification process. The system will make a call and dictates the verification code to
  * be typed in the website.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\Call
+ * @package Genesis\Api\Request\NonFinancial\Kyc\Call
  */
 class Create extends BaseRequest
 {

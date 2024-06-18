@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\OnlineBanking;
+namespace Genesis\Api\Constants\Transaction\Parameters\OnlineBanking;
 
-use Genesis\API\Constants\Banks;
+use Genesis\Api\Constants\Banks;
 use Genesis\Utils\Common;
 
 /**
  * Class BankCodesConditionalValues
- * @package Genesis\API\Constants\Transaction\Parameters\OnlineBanking
+ * @package Genesis\Api\Constants\Transaction\Parameters\OnlineBanking
  */
 class BankCodeParameters
 {

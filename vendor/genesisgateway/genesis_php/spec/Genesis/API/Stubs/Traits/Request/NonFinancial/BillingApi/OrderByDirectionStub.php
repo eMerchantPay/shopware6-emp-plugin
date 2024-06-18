@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial\BillingApi;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\BillingApi;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\RestrictedSetter;
-use Genesis\API\Traits\Request\NonFinancial\BillingApi\OrderByDirection;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\NonFinancial\BillingApi\OrderByDirection;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class OrderByDirectionStub
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial\BillingApi
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\BillingApi
  */
 class OrderByDirectionStub
 {
-    use OrderByDirection, RestrictedSetter, MagicAccessors;
+    use MagicAccessors;
+    use OrderByDirection;
+    use RestrictedSetter;
 
     public function getAllowedValues()
     {

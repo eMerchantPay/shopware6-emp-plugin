@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,27 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\Financial\Cards;
+namespace Genesis\Api\Request\Base\Financial\Cards;
 
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\CreditCardAttributes;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\CredentialOnFileAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\TokenizationAttributes;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\CreditCardAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\CredentialOnFileAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\TokenizationAttributes;
 use Genesis\Utils\Common as CommonUtils;
 use Genesis\Utils\Currency;
 
 /**
  * Class CreditCard
- * @package Genesis\API\Request\Base\Financial\Cards
- *
- * @suppressWarnings(PHPMD.LongVariable)
+ * @package Genesis\Api\Request\Base\Financial\Cards
  */
 abstract class CreditCard extends Financial
 {
-    use CreditCardAttributes, TokenizationAttributes, PaymentAttributes, CredentialOnFileAttributes,
-        DocumentAttributes;
+    use CredentialOnFileAttributes;
+    use CreditCardAttributes;
+    use DocumentAttributes;
+    use PaymentAttributes;
+    use TokenizationAttributes;
 
     const REQUEST_KEY_AMOUNT = 'amount';
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Mobile;
+namespace spec\Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\RussianMobileOperators;
-use Genesis\API\Request\Financial\Mobile\RussianMobileSale;
+use Genesis\Api\Constants\Transaction\Parameters\RussianMobileOperators;
+use Genesis\Api\Request\Financial\Mobile\RussianMobileSale;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RussianMobileSaleSpec extends ObjectBehavior
 {

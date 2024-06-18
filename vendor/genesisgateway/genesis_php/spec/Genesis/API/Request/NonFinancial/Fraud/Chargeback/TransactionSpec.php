@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Fraud\Chargeback;
+namespace spec\Genesis\Api\Request\NonFinancial\Fraud\Chargeback;
 
-use Genesis\API\Request\NonFinancial\Fraud\Chargeback\Transaction;
-use Genesis\Exceptions\ErrorParameter;
+use Genesis\Api\Request\NonFinancial\Fraud\Chargeback\Transaction;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\Fraud\TransactionExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\Fraud\TransactionExample;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class TransactionSpec extends ObjectBehavior
 {
-    use RequestExamples, TransactionExample;
+    use RequestExamples;
+    use TransactionExample;
 
     public function it_is_initializable()
     {

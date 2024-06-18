@@ -1,12 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial;
+namespace spec\Genesis\Api\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
-use Genesis\API\Request\Financial\Refund;
-use Genesis\Exceptions\InvalidArgument;
+use Genesis\Api\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
+use Genesis\Api\Request\Financial\Refund;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RefundSpec extends ObjectBehavior
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\IdentityDocument;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument;
 
-use Genesis\API\Constants\NonFinancial\KYC\IdentityDocumentMethods;
-use Genesis\API\Request\NonFinancial\KYC\IdentityDocument\Upload;
+use Genesis\Api\Constants\NonFinancial\Kyc\IdentityDocumentMethods;
+use Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument\Upload;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 

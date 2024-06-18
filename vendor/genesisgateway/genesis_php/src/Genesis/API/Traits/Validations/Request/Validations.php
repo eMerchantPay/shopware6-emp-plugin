@@ -1,13 +1,12 @@
 <?php
 
-namespace Genesis\API\Traits\Validations\Request;
+namespace Genesis\Api\Traits\Validations\Request;
 
-use \RecursiveIteratorIterator;
-use Genesis\API\Request\Base\Financial\Cards\CreditCard;
-use Genesis\API\Validators\Request\Base\Validator as RequestValidator;
+use Genesis\Api\Validators\Request\Base\Validator as RequestValidator;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidClassMethod;
 use Genesis\Utils\Common as CommonUtils;
+use RecursiveIteratorIterator;
 
 trait Validations
 {

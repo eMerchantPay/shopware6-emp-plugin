@@ -1,15 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards;
+namespace spec\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Request\Financial\Cards\EzeeCardPayout;
-use Genesis\Utils\Currency;
+use Genesis\Api\Request\Financial\Cards\EzeeCardPayout;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 /**
  * Class EzeeCardPayoutSpec
- * @package spec\Genesis\API\Request\Financial\Cards
+ * @package spec\Genesis\Api\Request\Financial\Cards
  */
 class EzeeCardPayoutSpec extends ObjectBehavior
 {

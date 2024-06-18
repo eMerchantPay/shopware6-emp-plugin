@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits;
+namespace Genesis\Api\Traits;
 
-use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\Utils\Common;
 
 /**
  * Trait RestrictedSetter
- * @package Genesis\API\Traits
+ * @package Genesis\Api\Traits
  */
 trait RestrictedSetter
 {
@@ -66,7 +65,7 @@ trait RestrictedSetter
      */
     protected function setLimitedString($field, $value, $min = null, $max = null)
     {
-        $len = strlen($value);
+        $len = strlen((string)$value);
 
         if ($min !== null && $len < $min) {
             throw new InvalidArgument("$field value must be at least $min chars long.");

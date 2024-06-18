@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Alternatives;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Alternatives;
 
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
 use PhpSpec\ObjectBehavior;
 
 class PurposeOfRemittancesSpec extends ObjectBehavior

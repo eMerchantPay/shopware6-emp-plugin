@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\CashPayments;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\CashPayments;
 
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
 use PhpSpec\ObjectBehavior;
 
 class MaritalStatusesSpec extends ObjectBehavior

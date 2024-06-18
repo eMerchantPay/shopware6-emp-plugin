@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters;
 
-use Genesis\API\Constants\Transaction\Parameters\SourceOfFunds;
+use Genesis\Api\Constants\Transaction\Parameters\SourceOfFunds;
 use PhpSpec\ObjectBehavior;
 
 class SourceOfFundsSpec extends ObjectBehavior

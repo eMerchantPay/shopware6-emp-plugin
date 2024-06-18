@@ -1,25 +1,30 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Mobile;
+namespace spec\Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Request\Financial\Mobile\ApplePay;
-use Genesis\API\Traits\Request\Mobile\ApplePayAttributes;
+use Genesis\Api\Request\Financial\Mobile\ApplePay;
+use Genesis\Api\Traits\Request\Mobile\ApplePayAttributes;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\CryptoAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CryptoAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class ApplePaySpec extends ObjectBehavior
 {
-    use RequestExamples, ApplePayAttributes, CryptoAttributesExamples, BirthDateAttributesExample,
-        BusinessAttributesExample, DocumentAttributesExample, DescriptorAttributesExample,
-        NeighborhoodAttributesExamples;
+    use ApplePayAttributes;
+    use BirthDateAttributesExample;
+    use BusinessAttributesExample;
+    use CryptoAttributesExamples;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {
@@ -111,7 +116,7 @@ class ApplePaySpec extends ObjectBehavior
 
         $this->setTransactionId($faker->uuid);
         $this->setPaymentSubtype($faker->randomElement(
-            \Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes::getAllowedPaymentTypes()
+            \Genesis\Api\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes::getAllowedPaymentTypes()
         ));
         $this->setTokenVersion($faker->word);
         $this->setTokenData($faker->text);

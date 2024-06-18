@@ -2,14 +2,14 @@
 
 namespace spec\Genesis\Network\Stubs;
 
-use Genesis\Network\cURL;
+use Genesis\Network\Curl;
 use spec\Genesis\Network\Stubs\Traits\NetworkAdapter;
 
-class cURLStub extends cURL
+class CurlStub extends Curl
 {
     use NetworkAdapter;
 
-    protected $fixtures_path = 'spec/fixtures/API/Response/Network/2/';
+    protected $fixtures_path = 'spec/Fixtures/Api/Response/Network/2/';
 
     /**
      * Mock the status

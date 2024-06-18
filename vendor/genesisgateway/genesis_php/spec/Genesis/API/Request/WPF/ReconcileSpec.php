@@ -1,15 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Request\WPF;
+namespace spec\Genesis\Api\Request\Wpf;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class ReconcileSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Request\WPF\Reconcile');
+        $this->shouldHaveType('Genesis\Api\Request\Wpf\Reconcile');
     }
 
     public function it_can_build_structure()

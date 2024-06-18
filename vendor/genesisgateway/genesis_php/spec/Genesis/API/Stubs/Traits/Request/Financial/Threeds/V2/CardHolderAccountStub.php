@@ -1,18 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\CardHolderAccount;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\CardHolderAccount;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class CardHolderAccountStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2
  */
 class CardHolderAccountStub
 {
-    use MagicAccessors, RestrictedSetter, CardHolderAccount;
+    use CardHolderAccount;
+    use MagicAccessors;
+    use RestrictedSetter;
 
     public function getStructure()
     {

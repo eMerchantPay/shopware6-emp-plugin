@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,10 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Constants\Transaction;
 
-use Genesis\API\Constants\NonFinancial\Services;
+namespace Genesis\Api\Constants\Transaction;
+
+use Genesis\Api\Constants\NonFinancial\Services;
 use Genesis\Utils\Common;
 
 /**
@@ -32,17 +34,10 @@ use Genesis\Utils\Common;
  *
  * Transaction types of a Genesis Transaction
  *
- * @package Genesis\API\Constants\Transaction
+ * @package Genesis\Api\Constants\Transaction
  */
 class Types
 {
-    /**
-     * Account Verification
-     *
-     * @deprecated Since 1.21.9 Payment method is deprecated and will be removed
-     */
-    const ACCOUNT_VERIFICATION = 'account_verification';
-
     /**
      * A standard Authorization
      */
@@ -107,13 +102,6 @@ class Types
     const RECURRING_SALE = 'recurring_sale';
 
     /**
-     * Bank transfer, popular in Netherlands (via ABN)
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ABNIDEAL = 'abn_ideal';
-
-    /**
      * Voucher-based payment
      */
     const CASHU = 'cashu';
@@ -139,19 +127,6 @@ class Types
     const WEBMONEY = 'webmoney';
 
     /**
-     * PayByVouchers via oBeP
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const PAYBYVOUCHER_YEEPAY = 'paybyvoucher_yeepay';
-
-    /**
-     * PayByVouchers via Credit/Debit Cards
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const PAYBYVOUCHER_SALE = 'paybyvoucher_sale';
-
-    /**
      * Voucher-based payment
      */
     const PAYSAFECARD = 'paysafecard';
@@ -162,12 +137,6 @@ class Types
     const PPRO = 'ppro';
 
     /**
-     * TrustPay is a real-time bank transfer payment service, which is widely used in the Czech Republic and Slovakia.
-     * @deprecated since 1.21.5 - the TrustPay API was deprecated by Genesis
-     */
-    const TRUSTPAY = 'trustpay';
-
-    /**
      * My Bank is an overlay banking system
      */
     const MY_BANK = 'my_bank';
@@ -176,13 +145,6 @@ class Types
      * Bancontact is a local Belgian debit card scheme. All Belgian debit cards are co-branded Bancontact and Maestro.
      */
     const BANCONTACT = 'bcmc';
-
-    /**
-     * QIWI Wallet is a very popular Eastern European e-wallet.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const QIWI = 'qiwi';
 
     /**
      * iDEAL
@@ -211,13 +173,6 @@ class Types
     const SOFORT = 'sofort';
 
     /**
-     * Global payment system, that makes instant cross-border payments more secure, regulated by Danish and Swiss FSA
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const INPAY = 'inpay';
-
-    /**
      * P24 is an online banking payment, popular in Poland
      */
     const P24 = 'p24';
@@ -227,23 +182,6 @@ class Types
      * allows you to deposit money directly from your online bank account.
      */
     const TRUSTLY_SALE = 'trustly_sale';
-
-    /**
-     * Trustly is an oBeP-style alternative payment method that allows you to
-     * withdraw money directly from your online bank account using your bank credentials.
-     *
-     * @deprecated Since 1.18.9 Payment method is deprecated and will be removed
-     */
-    const TRUSTLY_WITHDRAWAL = 'trustly_withdrawal';
-
-    /**
-     * PayPal Express Checkout is a fast, easy way for buyers to pay with PayPal.
-     * Express Checkout eliminates one of the major causes of checkout abandonment by giving buyers
-     * all the transaction details at once, including order details, shipping options, insurance choices, and tax totals
-     *
-     * @deprecated 1.19.2 Payment method is deprecated and will be removed
-     */
-    const PAYPAL_EXPRESS = 'paypal_express';
 
     /**
      * Sepa Direct Debit Payment, popular in Germany.
@@ -313,48 +251,6 @@ class Types
     const INSTA_DEBIT_PAYOUT = 'insta_debit_payout';
 
     /**
-     * Citadel is an oBeP-style alternative payment method.
-     * It offers merchants the ability to send/receive consumer payments via the use of bank transfer functionality
-     * available from the consumer’s online banking website.
-     *
-     * Payins are only asynchronous. After initiating a transaction the transaction status is set to pending async and
-     * the consumer is redirected to Citadel’s Instant Banking website.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const CITADEL_PAYIN = 'citadel_payin';
-
-    /**
-     * Citadel is an oBeP-style alternative payment method.
-     * It offers merchants the ability to send/receive consumer payments via the use of bank transfer functionality
-     * available from the consumer’s online banking website.
-     *
-     * The workflow for Payouts is synchronous, there is no redirect to the Citadel’s Instant Banking website.
-     * There are different required fields per country, e.g. IBAN and SWIFT Code or Account Number and Branch Code
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const CITADEL_PAYOUT = 'citadel_payout';
-
-    /**
-     * Earthport’s service supports payouts from e-commerce companies. The workflow is synchronous, there
-     * is no redirect to the Earthport’s website. There are different required fields per country, e.g. IBAN
-     * or Account Number.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const EARTHPORT = 'earthport';
-
-    /**
-     * Alipay is an oBeP-style alternative payment method that allows you to pay directly with your ebank account.
-     * After initiating a transaction Alipay will redirect you to their page. There you will see a picture of a QR code,
-     * which you will have to scan with your Alipay mobile application.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ALIPAY = 'alipay';
-
-    /**
      * WeChat Pay solution offers merchants access to the over 300 million WeChat users that have linked payment
      * to their WeChat account. The solution works on desktop and mobile via a QR code generation platform.
      */
@@ -421,30 +317,9 @@ class Types
     const KLARNA_REFUND = 'klarna_refund';
 
     /**
-     * Zimpler is a Swedish payment method.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ZIMPLER = 'zimpler';
-
-    /**
      * Banco do Brasil offers online bank transfer payment service.
      */
     const BANCO_DO_BRASIL = 'banco_do_brasil';
-
-    /**
-     * Entercash is a payment method provider across Europe
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ENTERCASH = 'entercash';
-
-    /**
-     * InstantTransfer is a payment method in Germany
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const INSTANT_TRANSFER = 'instant_transfer';
 
     /**
      * PayU is a payment method for Czech Republic and Poland
@@ -487,40 +362,9 @@ class Types
     const BALOTO = 'baloto';
 
     /**
-     * Banamex is local card payment in Mexico
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const BANAMEX = 'banamex';
-
-    /**
      * Boleto is a payment service in Brazil
      */
     const BOLETO = 'boleto';
-
-    /**
-     * Astropay Direct is Online Banking ePayment which allows the customers to pay with their bank accounts
-     * in their local currency. Customers go straight from the merchant checkout page to a payment interface,
-     * which connects the customer with their bank of preference.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ASTROPAY_DIRECT = 'astropay_direct';
-
-    /**
-     * Emprese De Energia is a cash payment in Colombia
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const EMPRESE_DE_ENERGIA = 'emprese_de_energia';
-
-    /**
-     * Carulla is a payment service in Columbia that allows its users to send money,
-     * top up their cell phone and payments.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const CARULLA = 'carulla';
 
     /**
      * OXXO is the preferred payment method in Mexico. It is a cash payment via a barcode document
@@ -538,20 +382,6 @@ class Types
      * Redpagos is a cash payment in Uruguay
      */
     const REDPAGOS = 'redpagos';
-
-    /**
-     * Santander Cash is local card payment in Mexico
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const SANTANDER_CASH = 'santander_cash';
-
-    /**
-     * Surtimax is a cash payment method in Columbia
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const SURTIMAX = 'surtimax';
 
     /**
      * Efecty is an offline cash payment voucher option in Colombia.
@@ -578,13 +408,6 @@ class Types
      * Elo is a local Brazilian payment card.
      */
     const ELO = 'elo';
-
-    /**
-     * Hipercard is a local credit card in Brazil
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const HIPERCARD = 'hipercard';
 
     /**
      * Cabal is a local debit/credit card brand in Argentina which can be used for online purchases.
@@ -639,15 +462,6 @@ class Types
      * Bradesco is a payment service in Brazil
      */
     const BRADESCO = 'bradesco';
-
-    /**
-     * Astropay Card is the most popular virtual pre-paid card for making deposits and withdrawals. It is accepted
-     * at hundreds of online sites all around the globe. It is the preferred option by users because of its
-     * instantaneity, flexibility, confidentiality and safety.
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const ASTROPAY_CARD = 'astropay_card';
 
     /**
      * RapiPago from Argentina is an offline payment method used for online purchases.
@@ -785,20 +599,15 @@ class Types
             self::VOID                    => 'Cancel',
             self::CAPTURE                 => 'Capture',
             self::REFUND                  => 'Refund',
-            self::ABNIDEAL                => 'Alternatives\ABNiDEAL',
-            self::EARTHPORT               => 'Alternatives\Earthport',
-            self::INPAY                   => 'Alternatives\INPay',
             self::KLARNA_AUTHORIZE        => 'Alternatives\Klarna\Authorize',
             self::KLARNA_CAPTURE          => 'Alternatives\Klarna\Capture',
             self::KLARNA_REFUND           => 'Alternatives\Klarna\Refund',
             self::P24                     => 'Alternatives\P24',
-            self::PAYPAL_EXPRESS          => 'Alternatives\PaypalExpress',
-            self::POLI                    => 'Alternatives\POLi',
-            self::PPRO                    => 'Alternatives\PPRO',
+            self::POLI                    => 'Alternatives\Poli',
+            self::PPRO                    => 'Alternatives\Ppro',
             self::SOFORT                  => 'Alternatives\Sofort',
             self::TRANSFER_TO_PAYOUT      => 'Alternatives\TransferTo\Payout',
             self::TRUSTLY_SALE            => 'Alternatives\Trustly\Sale',
-            self::TRUSTLY_WITHDRAWAL      => 'Alternatives\Trustly\Withdrawal',
             self::INIT_RECURRING_SALE     => 'Cards\Recurring\InitRecurringSale',
             self::INIT_RECURRING_SALE_3D  => 'Cards\Recurring\InitRecurringSale3D',
             self::RECURRING_SALE          => 'Cards\Recurring\RecurringSale',
@@ -812,7 +621,6 @@ class Types
             self::CREDIT                  => 'Cards\Credit',
             self::ELO                     => 'Cards\Elo',
             self::EZEECARD_PAYOUT         => 'Cards\EzeeCardPayout',
-            self::HIPERCARD               => 'Cards\Hipercard',
             self::NARANJA                 => 'Cards\Naranja',
             self::NATIVA                  => 'Cards\Nativa',
             self::PAYOUT                  => 'Cards\Payout',
@@ -820,18 +628,13 @@ class Types
             self::SALE_3D                 => 'Cards\Sale3D',
             self::TARJETA_SHOPPING        => 'Cards\TarjetaShopping',
             self::BALOTO                  => 'CashPayments\Baloto',
-            self::BANAMEX                 => 'CashPayments\Banamex',
             self::BANCO_DE_OCCIDENTE      => 'CashPayments\BancoDeOccidente',
             self::BOLETO                  => 'CashPayments\Boleto',
-            self::CARULLA                 => 'CashPayments\Carulla',
             self::EFECTY                  => 'CashPayments\Efecty',
-            self::EMPRESE_DE_ENERGIA      => 'CashPayments\EmpreseDeEnergia',
             self::OXXO                    => 'CashPayments\Oxxo',
             self::PAGO_FACIL              => 'CashPayments\PagoFacil',
             self::PIX                     => 'CashPayments\Pix',
             self::REDPAGOS                => 'CashPayments\Redpagos',
-            self::SANTANDER_CASH          => 'CashPayments\SantanderCash',
-            self::SURTIMAX                => 'CashPayments\Surtimax',
             self::BITPAY_PAYOUT           => 'Crypto\BitPay\Payout',
             self::BITPAY_REFUND           => 'Crypto\BitPay\Refund',
             self::BITPAY_SALE             => 'Crypto\BitPay\Sale',
@@ -842,23 +645,17 @@ class Types
             self::GOOGLE_PAY              => 'Mobile\GooglePay',
             self::RUSSIAN_MOBILE_SALE     => 'Mobile\RussianMobileSale',
             self::AFRICAN_MOBILE_SALE     => 'Mobile\AfricanMobileSale.php',
-            self::ALIPAY                  => 'OnlineBankingPayments\Alipay',
-            self::ASTROPAY_DIRECT         => 'OnlineBankingPayments\AstropayDirect',
             self::BANCO_DO_BRASIL         => 'OnlineBankingPayments\BancoDoBrasil',
             self::BANCOMER                => 'OnlineBankingPayments\Bancomer',
             self::BRADESCO                => 'OnlineBankingPayments\Bradesco',
-            self::CITADEL_PAYIN           => 'OnlineBankingPayments\Citadel\Payin',
-            self::CITADEL_PAYOUT          => 'OnlineBankingPayments\Citadel\Payout',
             self::DAVIVIENDA              => 'OnlineBankingPayments\Davivienda',
-            self::ENTERCASH               => 'OnlineBankingPayments\Entercash',
             self::EPS                     => 'OnlineBankingPayments\Eps',
             self::GIROPAY                 => 'OnlineBankingPayments\Giropay',
             self::IDEAL                   => 'OnlineBankingPayments\Ideal',
-            self::IDEBIT_PAYIN            => 'OnlineBankingPayments\iDebit\Payin',
-            self::IDEBIT_PAYOUT           => 'OnlineBankingPayments\iDebit\Payout',
+            self::IDEBIT_PAYIN            => 'OnlineBankingPayments\Idebit\Payin',
+            self::IDEBIT_PAYOUT           => 'OnlineBankingPayments\Idebit\Payout',
             self::INSTA_DEBIT_PAYIN       => 'OnlineBankingPayments\InstaDebit\PayIn',
             self::INSTA_DEBIT_PAYOUT      => 'OnlineBankingPayments\InstaDebit\Payout',
-            self::INSTANT_TRANSFER        => 'OnlineBankingPayments\InstantTransfer',
             self::ITAU                    => 'OnlineBankingPayments\Itau',
             self::MULTIBANCO              => 'OnlineBankingPayments\Multibanco',
             self::MY_BANK                 => 'OnlineBankingPayments\MyBank',
@@ -870,31 +667,25 @@ class Types
             self::RAPI_PAGO               => 'OnlineBankingPayments\RapiPago',
             self::SAFETYPAY               => 'OnlineBankingPayments\SafetyPay',
             self::SANTANDER               => 'OnlineBankingPayments\Santander',
-            self::TRUSTPAY                => 'OnlineBankingPayments\TrustPay',
             self::UPI                     => 'OnlineBankingPayments\Upi',
             self::WEBPAY                  => 'OnlineBankingPayments\Webpay',
             self::WECHAT                  => 'OnlineBankingPayments\WeChat',
-            self::PAYBYVOUCHER_YEEPAY     => 'PayByVouchers\oBeP',
-            self::PAYBYVOUCHER_SALE       => 'PayByVouchers\Sale',
             self::AFRICAN_MOBILE_PAYOUT   => 'Payout\AfricanMobilePayout',
             self::RUSSIAN_MOBILE_PAYOUT   => 'Payout\RussianMobilePayout',
             self::INCREMENTAL_AUTHORIZE   => 'Preauthorization\IncrementalAuthorize',
             self::PARTIAL_REVERSAL        => 'Preauthorization\PartialReversal',
-            self::SCT_PAYOUT              => 'SCT\Payout',
-            self::SDD_INIT_RECURRING_SALE => 'SDD\Recurring\InitRecurringSale',
-            self::SDD_RECURRING_SALE      => 'SDD\Recurring\RecurringSale',
-            self::SDD_REFUND              => 'SDD\Refund',
-            self::SDD_SALE                => 'SDD\Sale',
-            self::ASTROPAY_CARD           => 'Vouchers\AstropayCard',
+            self::SCT_PAYOUT              => 'Sct\Payout',
+            self::SDD_INIT_RECURRING_SALE => 'Sdd\Recurring\InitRecurringSale',
+            self::SDD_RECURRING_SALE      => 'Sdd\Recurring\RecurringSale',
+            self::SDD_REFUND              => 'Sdd\Refund',
+            self::SDD_SALE                => 'Sdd\Sale',
             self::CASHU                   => 'Vouchers\CashU',
             self::NEOSURF                 => 'Vouchers\Neosurf',
             self::PAYSAFECARD             => 'Vouchers\Paysafecard',
-            self::EZEEWALLET              => 'Wallets\eZeeWallet',
+            self::EZEEWALLET              => 'Wallets\EzeeWallet',
             self::NETELLER                => 'Wallets\Neteller',
-            self::QIWI                    => 'Wallets\Qiwi',
             self::PAY_PAL                 => 'Wallets\PayPal',
-            self::WEBMONEY                => 'Wallets\WebMoney',
-            self::ZIMPLER                 => 'Wallets\Zimpler',
+            self::WEBMONEY                => 'Wallets\WebMoney'
         ];
 
         return isset($map[$type]) ? 'Financial\\' . $map[$type] : false;
@@ -1034,23 +825,6 @@ class Types
     }
 
     /**
-     * Check whether this is a valid (known) transaction type
-     *
-     * @param string $type
-     *
-     * @return bool
-     */
-    public static function isPayByVoucher($type)
-    {
-        $transactionTypesList = [
-            self::PAYBYVOUCHER_YEEPAY,
-            self::PAYBYVOUCHER_SALE
-        ];
-
-        return in_array(strtolower($type), $transactionTypesList);
-    }
-
-    /**
      * @param string $type
      *
      * @return bool
@@ -1130,7 +904,6 @@ class Types
             self::UPI,
             self::WEBPAY,
             self::WECHAT,
-            self::ZIMPLER,
             self::GOOGLE_PAY,
         ];
 
@@ -1289,31 +1062,7 @@ class Types
     {
         $data = array();
 
-        $transactions = [
-            self::ABNIDEAL,
-            self::ALIPAY,
-            self::ASTROPAY_CARD,
-            self::ASTROPAY_DIRECT,
-            self::BANAMEX,
-            self::CARULLA,
-            self::CITADEL_PAYIN,
-            self::CITADEL_PAYOUT,
-            self::EARTHPORT,
-            self::EMPRESE_DE_ENERGIA,
-            self::ENTERCASH,
-            self::HIPERCARD,
-            self::INSTANT_TRANSFER,
-            self::INPAY,
-            self::PAYBYVOUCHER_SALE,
-            self::PAYBYVOUCHER_YEEPAY,
-            self::PAYPAL_EXPRESS,
-            self::QIWI,
-            self::SANTANDER_CASH,
-            self::SURTIMAX,
-            self::TRUSTLY_WITHDRAWAL,
-            self::TRUSTPAY,
-            self::ZIMPLER
-        ];
+        $transactions = [];
 
         foreach ($transactions as $transaction) {
             $data[$transaction] = self::getFinancialRequestClassForTrxType($transaction);

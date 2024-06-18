@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,32 +24,19 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\NonFinancial;
+namespace Genesis\Api\Constants\NonFinancial;
 
-use Genesis\API\Constants\Transaction\Types;
+use Genesis\Api\Constants\Transaction\Types;
 
 /**
  * Class Services
  *
  * Contains API Calls
  *
- * @package Genesis\API\Constants\NonFinancial
+ * @package Genesis\Api\Constants\NonFinancial
  */
 class Services
 {
-
-    /**
-     * Address Verification
-     *
-     * @deprecated Payment method is deprecated and will be removed
-     */
-    const AVS             = 'avs';
-
-    /**
-     * ABNiDeal API Call Request
-     */
-    const ABNI_DEAL_BANKS = 'abni_deal_bank';
-
     /**
      * Get Service API Deprecated Calls
      *
@@ -56,10 +44,6 @@ class Services
      */
     public static function getServiceDeprecatedRequests()
     {
-        return [
-            self::AVS                   => 'NonFinancial\AVS',
-            self::ABNI_DEAL_BANKS       => 'NonFinancial\Retrieve\AbniDealBanks',
-            Types::ACCOUNT_VERIFICATION => 'NonFinancial\AccountVerification'
-        ];
+        return [];
     }
 }

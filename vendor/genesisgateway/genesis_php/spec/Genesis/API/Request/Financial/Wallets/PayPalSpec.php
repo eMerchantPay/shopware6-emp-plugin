@@ -1,21 +1,23 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Wallets;
+namespace spec\Genesis\Api\Request\Financial\Wallets;
 
-use Genesis\API\Constants\Transaction\Parameters\Wallets\PayPal\PaymentTypes;
-use Genesis\API\Request\Financial\Wallets\PayPal;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Wallets\PayPal\PaymentTypes;
+use Genesis\Api\Request\Financial\Wallets\PayPal;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class PayPalSpec extends ObjectBehavior
 {
-    use RequestExamples, BusinessAttributesExample, DocumentAttributesExample, NeighborhoodAttributesExamples;
+    use BusinessAttributesExample;
+    use DocumentAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

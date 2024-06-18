@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Categories;
 use spec\SharedExamples\Faker;
 
 trait RecurringCategoryAttributesExample

@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace spec\Genesis\Api\Request\Financial\Alternatives\Klarna;
 
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Item as KlarnaItem;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Items as KlarnaItems;
 use PhpSpec\ObjectBehavior;
-use \Genesis\API\Request\Financial\Alternatives\Klarna\Items as KlarnaItems;
-use \Genesis\API\Request\Financial\Alternatives\Klarna\Item as KlarnaItem;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RefundSpec extends ObjectBehavior
 {
@@ -13,7 +13,7 @@ class RefundSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(\Genesis\API\Request\Financial\Alternatives\Klarna\Refund::class);
+        $this->shouldHaveType(\Genesis\Api\Request\Financial\Alternatives\Klarna\Refund::class);
     }
 
     public function it_should_fail_when_missing_required_params()

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\Funding\IdentifierTypes;
-use Genesis\API\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\IdentifierTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Country;
 
 /**
  * Trait FundingAttributes
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method string getFundingIdentifierType()
  * @method $this  setFundingReceiverFirstName($value)

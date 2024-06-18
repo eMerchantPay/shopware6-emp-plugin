@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\TransactionApi;
+namespace spec\Genesis\Api\Request\NonFinancial\TransactionApi;
 
 use DateTime;
-use Genesis\API\Request\NonFinancial\TransactionApi\CardExpiryDateUpdate;
+use Genesis\Api\Request\NonFinancial\TransactionApi\CardExpiryDateUpdate;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;

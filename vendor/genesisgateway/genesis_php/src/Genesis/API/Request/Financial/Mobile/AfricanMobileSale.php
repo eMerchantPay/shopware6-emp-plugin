@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Mobile;
+namespace Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\AfricanMobileOperators;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\AfricanMobileOperators;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 
@@ -39,14 +40,16 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * African Mobile Sale Request
  *
- * @package Genesis\API\Request\Financial\Mobile\AfricanMobileSale
+ * @package Genesis\Api\Request\Financial\Mobile\AfricanMobileSale
  *
  * @method string getOperator()
  * @method string getTarget()
  */
 class AfricanMobileSale extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     const OPERATOR_MIN_LENGTH = 1;
     const OPERATOR_MAX_LENGTH = 20;

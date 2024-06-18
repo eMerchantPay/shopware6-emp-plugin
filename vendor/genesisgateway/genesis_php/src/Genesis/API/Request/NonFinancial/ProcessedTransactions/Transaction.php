@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\ProcessedTransactions;
+namespace Genesis\Api\Request\NonFinancial\ProcessedTransactions;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Utils\Common;
 
 /**
  * Class Transaction
- * @package Genesis\API\Request\NonFinancial\ProcessedTransactions
+ * @package Genesis\Api\Request\NonFinancial\ProcessedTransactions
  */
 class Transaction extends Request
 {
-
     /**
      * Unique ID of the processed transaction
      *

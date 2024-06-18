@@ -21,12 +21,12 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace spec\Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Categories;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring\RecurringCategoryStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring\RecurringCategoryStub;
 use spec\SharedExamples\Faker;
 
 class RecurringCategoryAttributesSpec extends ObjectBehavior

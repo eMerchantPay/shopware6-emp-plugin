@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Validations\Request;
+namespace spec\Genesis\Api\Traits\Validations\Request;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Validations\Request\ValidationsZeroAmountStub;
+use spec\Genesis\Api\Stubs\Traits\Validations\Request\ValidationsZeroAmountStub;
 
 class ValidationsZeroAmountSpec extends ObjectBehavior
 {

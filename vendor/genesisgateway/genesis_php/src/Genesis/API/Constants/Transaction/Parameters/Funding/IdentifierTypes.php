@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,8 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Constants\Transaction\Parameters\Funding;
+
+namespace Genesis\Api\Constants\Transaction\Parameters\Funding;
 
 use Genesis\Utils\Common as CommonUtils;
 
@@ -31,7 +33,7 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Funding identifier types
  *
- * @package Genesis\API\Constants\Transaction\Parameters\Funding
+ * @package Genesis\Api\Constants\Transaction\Parameters\Funding
  */
 class IdentifierTypes
 {

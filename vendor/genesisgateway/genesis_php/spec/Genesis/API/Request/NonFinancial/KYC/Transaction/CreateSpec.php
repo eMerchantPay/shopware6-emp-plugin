@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\Transaction;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\Transaction;
 
 use Faker\Factory;
-use Genesis\API\Constants\NonFinancial\KYC\PaymentMethods;
-use Genesis\API\Request\NonFinancial\KYC\Transaction\Create;
+use Genesis\Api\Constants\NonFinancial\Kyc\PaymentMethods;
+use Genesis\Api\Request\NonFinancial\Kyc\Transaction\Create;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\Trustly;
+namespace Genesis\Api\Request\Financial\Alternatives\Trustly;
 
-use Genesis\API\Constants\Transaction\Parameters\IFrameTargets;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\IFrameTargets;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
@@ -38,16 +39,19 @@ use Genesis\Exceptions\InvalidArgument;
  *
  * Trustly Sale Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Trustly
+ * @package Genesis\Api\Request\Financial\Alternatives\Trustly
  *
  * @method string getReturnSuccessUrlTarget() URL target for successful payment in Trustly iFrame
  * @method string getUserId()                 Unique user identifier defined by merchant
  * @method $this  setUserId($value)           Unique user identifier defined by merchant
  */
-class Sale extends \Genesis\API\Request\Base\Financial
+class Sale extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, BirthDateAttributes,
-        BusinessAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BirthDateAttributes;
+    use BusinessAttributes;
+    use PaymentAttributes;
 
     /**
      * URL target for successful payment in Trustly iFrame.
@@ -93,7 +97,7 @@ class Sale extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::TRUSTLY_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::TRUSTLY_SALE;
     }
 
     /**

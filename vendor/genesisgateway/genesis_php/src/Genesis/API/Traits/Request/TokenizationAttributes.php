@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request;
-
-use Genesis\Exceptions\InvalidArgument;
+namespace Genesis\Api\Traits\Request;
 
 /**
  * Trait TokenizationAttributes
- * @package Genesis\API\Traits\Request
+ * @package Genesis\Api\Traits\Request
  *
  * @method string setConsumerId($value)
  * @method bool getRememberCard()
@@ -37,7 +36,6 @@ use Genesis\Exceptions\InvalidArgument;
  */
 trait TokenizationAttributes
 {
-
     /**
      * Consumer unique reference
      *

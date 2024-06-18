@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\SDD;
+namespace spec\Genesis\Api\Request\Financial\Sdd;
 
-use Genesis\API\Request\Financial\SDD\Refund;
+use Genesis\Api\Request\Financial\Sdd\Refund;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RefundSpec extends ObjectBehavior
 {

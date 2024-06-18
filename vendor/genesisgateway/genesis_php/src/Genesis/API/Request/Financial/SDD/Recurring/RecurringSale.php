@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\SDD\Recurring;
+namespace Genesis\Api\Request\Financial\Sdd\Recurring;
 
 /**
  * Class RecurringSale
  *
  * SDD Recurring Sale Transaction Request
  *
- * @package Genesis\API\Request\Financial\SDD\Recurring
+ * @package Genesis\Api\Request\Financial\Sdd\Recurring
  */
-class RecurringSale extends \Genesis\API\Request\Base\Financial\Reference
+class RecurringSale extends \Genesis\Api\Request\Base\Financial\Reference
 {
     /**
      * Returns the Request transaction type
@@ -40,7 +41,7 @@ class RecurringSale extends \Genesis\API\Request\Base\Financial\Reference
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SDD_RECURRING_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::SDD_RECURRING_SALE;
     }
 
     /**

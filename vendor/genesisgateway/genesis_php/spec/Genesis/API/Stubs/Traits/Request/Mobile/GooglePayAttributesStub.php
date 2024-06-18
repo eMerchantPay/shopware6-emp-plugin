@@ -1,11 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Mobile;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Mobile;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Mobile\GooglePayAttributes;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Mobile\GooglePayAttributes;
 
 class GooglePayAttributesStub
 {
-    use MagicAccessors, GooglePayAttributes;
+    use GooglePayAttributes;
+    use MagicAccessors;
 }

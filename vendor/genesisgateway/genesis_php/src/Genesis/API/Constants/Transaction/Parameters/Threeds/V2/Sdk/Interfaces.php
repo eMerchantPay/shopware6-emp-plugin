@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk;
 
 /**
  * SDK Interface types that the device of the consumer supports for displaying specific challenge interfaces
  * within the SDK.
  *
  * Class Interfaces
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk
  */
 class Interfaces
 {

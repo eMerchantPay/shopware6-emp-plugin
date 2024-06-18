@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\NonFinancial;
+namespace Genesis\Api\Request\Base\NonFinancial;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Request;
-use Genesis\API\Traits\Request\NonFinancial\PagingAttributes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Request;
+use Genesis\Api\Traits\Request\NonFinancial\PagingAttributes;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Common;
 
 /**
  * Class DateRangeRequest
- * @package Genesis\API\Request\Base\NonFinancial\ProcessedTransactions
+ * @package Genesis\Api\Request\Base\NonFinancial\ProcessedTransactions
  */
 abstract class DateRangeRequest extends Request
 {

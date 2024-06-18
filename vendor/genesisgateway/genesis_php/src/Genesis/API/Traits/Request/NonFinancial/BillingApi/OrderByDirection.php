@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial\BillingApi;
+namespace Genesis\Api\Traits\Request\NonFinancial\BillingApi;
 
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait OrderByDirection
- * @package Genesis\API\Traits\Request\NonFinancial\BillingApi
+ * @package Genesis\Api\Traits\Request\NonFinancial\BillingApi
  *
  * @method string getOrderByDirection()
  */

@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\TokenizationApiTokenAttributesStub;
-use spec\SharedExamples\Faker;
 use Genesis\Exceptions\InvalidArgument;
+use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\TokenizationApiTokenAttributesStub;
+use spec\SharedExamples\Faker;
 
 class TokenizationApiTokenAttributesSpec extends ObjectBehavior
 {

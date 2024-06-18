@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\Financial\Cards;
+namespace spec\Genesis\Api\Request\Base\Financial\Cards;
 
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\Financial\Cards\CreditCardStub;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\Genesis\Api\Stubs\Base\Request\Financial\Cards\CreditCardStub;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class CreditCardSpec extends ObjectBehavior
 {

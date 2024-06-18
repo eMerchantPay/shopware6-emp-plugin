@@ -1,9 +1,9 @@
 <?php
 
 
-namespace spec\Genesis\API\Request\Financial\TravelData;
+namespace spec\Genesis\Api\Request\Financial\TravelData;
 
-use Genesis\API\Request\Financial\TravelData\Base\AidAttributes;
+use Genesis\Api\Request\Financial\TravelData\Base\AidAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration;
 
-use Genesis\API\Constants\NonFinancial\KYC\ProfileCurrentStatuses;
-use Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration\Update;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileCurrentStatuses;
+use Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration\Update;
 use PhpSpec\ObjectBehavior;
 
 class UpdateSpec extends ObjectBehavior

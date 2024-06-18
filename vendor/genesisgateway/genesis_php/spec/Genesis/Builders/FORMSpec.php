@@ -4,11 +4,11 @@ namespace spec\Genesis\Builders;
 
 use PhpSpec\ObjectBehavior;
 
-class FORMSpec extends ObjectBehavior
+class FormSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Builders\FORM');
+        $this->shouldHaveType('Genesis\Builders\Form');
     }
 
     public function it_can_generate_content()

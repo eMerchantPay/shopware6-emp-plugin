@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\CustomerIdentificationData;
+use Genesis\Api\Traits\Request\Financial\CustomerIdentificationData;
 
 /**
  * Class RestrictedSetterStub
- * @package spec\Genesis\API\Stubs\Traits
+ * @package spec\Genesis\Api\Stubs\Traits
  */
 class CustomerIdentificationDataStub
 {

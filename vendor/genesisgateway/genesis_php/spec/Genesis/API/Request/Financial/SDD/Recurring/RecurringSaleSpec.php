@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\SDD\Recurring;
+namespace spec\Genesis\Api\Request\Financial\Sdd\Recurring;
 
-use Genesis\API\Request\Financial\SDD\Recurring\RecurringSale;
+use Genesis\Api\Request\Financial\Sdd\Recurring\RecurringSale;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RecurringSaleSpec extends ObjectBehavior
 {

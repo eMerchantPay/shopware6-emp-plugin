@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,18 +23,24 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API;
 
-use \LogicException;
+namespace Genesis\Api;
+
 use Genesis\Builder;
-use Genesis\Genesis;
+use Genesis\Exceptions\DeprecatedMethod;
+use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
+use Genesis\Exceptions\InvalidClassMethod;
+use Genesis\Exceptions\InvalidMethod;
+use Genesis\Exceptions\InvalidResponse;
+use Genesis\Genesis;
+use LogicException;
 
 /**
  * Notification - process/validate incoming Async notifications
  *
  * @package    Genesis
- * @subpackage API
+ * @subpackage Api
  */
 class Notification
 {
@@ -116,7 +123,12 @@ class Notification
      * Reconcile with the Payment Gateway to get the latest
      * status on the transaction
      *
-     * @throws \Genesis\Exceptions\InvalidResponse
+     * @throws ErrorParameter
+     * @throws InvalidClassMethod
+     * @throws InvalidResponse
+     * @throws InvalidArgument
+     * @throws InvalidMethod
+     * @throws DeprecatedMethod
      */
     public function initReconciliation()
     {
@@ -125,18 +137,14 @@ class Notification
         if ($this->isAPINotification()) {
             $type = 'NonFinancial\Reconcile\Transaction';
         } elseif ($this->isWPFNotification()) {
-            $type = 'WPF\Reconcile';
+            $type = 'Wpf\Reconcile';
         }
 
         $request = new Genesis($type);
 
-        try {
-            $request->request()->setUniqueId($this->unique_id);
+        $request->request()->setUniqueId($this->unique_id);
 
-            $request->execute();
-        } catch (\Genesis\Exceptions\ErrorAPI $api) {
-            // This is reconciliation, don't throw on ErrorAPI
-        }
+        $request->execute();
 
         return $this->reconciliationObj = $request->response()->getResponseObject();
     }
@@ -145,7 +153,7 @@ class Notification
      * Verify the signature on the parsed Notification
      *
      * @return bool
-     * @throws \Genesis\Exceptions\InvalidArgument
+     * @throws InvalidArgument
      */
     public function isAuthentic()
     {

@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Alternatives\TransferTo;
+namespace spec\Genesis\Api\Request\NonFinancial\Alternatives\TransferTo;
 
-use Genesis\API\Request;
-use Genesis\API\Request\NonFinancial\Alternatives\TransferTo\Payers;
+use Genesis\Api\Request;
+use Genesis\Api\Request\NonFinancial\Alternatives\TransferTo\Payers;
 use Genesis\Builder;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class PayersSpec
- * @package spec\Genesis\API\Request\NonFinancial\Alternatives\TransferTo
+ * @package spec\Genesis\Api\Request\NonFinancial\Alternatives\TransferTo
  */
 class PayersSpec extends ObjectBehavior
 {

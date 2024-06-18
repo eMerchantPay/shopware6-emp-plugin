@@ -1,17 +1,18 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
 
 /**
  * Class DescriptorAttributesStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial
  */
 class DescriptorAttributesStub
 {
-    use MagicAccessors, DescriptorAttributes;
+    use DescriptorAttributes;
+    use MagicAccessors;
 
     public function getStructure()
     {

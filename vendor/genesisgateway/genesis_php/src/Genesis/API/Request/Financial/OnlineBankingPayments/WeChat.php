@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class WeChat
  *
  * WeChat - oBeP-style alternative payment method
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  *
  * @method WeChat setProductCode($value) Set product code
  * @method WeChat setProductNum($value) Set product number
  * @method WeChat setProductDesc($value) Set product description
  */
-class WeChat extends \Genesis\API\Request\Base\Financial
+class WeChat extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     protected $product_code;
     protected $product_num;
@@ -54,7 +57,7 @@ class WeChat extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::WECHAT;
+        return \Genesis\Api\Constants\Transaction\Types::WECHAT;
     }
 
     /**

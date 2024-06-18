@@ -1,38 +1,50 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards;
+namespace spec\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Request\Financial\Cards\Authorize3D;
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Request\Financial\Cards\Authorize3D;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\CredentialOnFileAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\CreditCardAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\CryptoAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\FxRateAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\MpiAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\ScaAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\FundingAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\TokenizationAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CreditCardAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CryptoAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FundingAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FxRateAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\MpiAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\ScaAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\TokenizationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class Authorize3DSpec extends ObjectBehavior
 {
-    use RequestExamples, MpiAttributesExamples, ScaAttributesExamples, FxRateAttributesExamples,
-        DescriptorAttributesExample, CryptoAttributesExamples, TokenizationAttributesExamples,
-        BusinessAttributesExample, ThreedsV2AttributesExamples, CredentialOnFileAttributesExamples,
-        AllowedZeroAmount, CreditCardAttributesExamples, DocumentAttributesExample, ManagedRecurringAttributesExample,
-        RecurringTypeAttributesExample, RecurringCategoryAttributesExample, FundingAttributesExamples,
-        AccountOwnerAttributesExamples, NeighborhoodAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use AllowedZeroAmount;
+    use BusinessAttributesExample;
+    use CredentialOnFileAttributesExamples;
+    use CreditCardAttributesExamples;
+    use CryptoAttributesExamples;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use FundingAttributesExamples;
+    use FxRateAttributesExamples;
+    use ManagedRecurringAttributesExample;
+    use MpiAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RecurringCategoryAttributesExample;
+    use RecurringTypeAttributesExample;
+    use RequestExamples;
+    use ScaAttributesExamples;
+    use ThreedsV2AttributesExamples;
+    use TokenizationAttributesExamples;
 
     public function it_is_initializable()
     {

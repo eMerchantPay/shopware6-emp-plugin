@@ -1,10 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\UcofAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\UcofAttributesStub;
 use spec\SharedExamples\Faker;
 
 class UcofAttributesSpec extends ObjectBehavior

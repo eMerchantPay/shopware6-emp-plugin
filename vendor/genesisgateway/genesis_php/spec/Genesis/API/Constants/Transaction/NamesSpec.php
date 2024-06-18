@@ -21,10 +21,10 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace spec\Genesis\API\Constants\Transaction;
+namespace spec\Genesis\Api\Constants\Transaction;
 
-use Genesis\API\Constants\Transaction\Names;
-use Genesis\API\Constants\Transaction\Types;
+use Genesis\Api\Constants\Transaction\Names;
+use Genesis\Api\Constants\Transaction\Types;
 use PhpSpec\ObjectBehavior;
 
 class NamesSpec extends ObjectBehavior

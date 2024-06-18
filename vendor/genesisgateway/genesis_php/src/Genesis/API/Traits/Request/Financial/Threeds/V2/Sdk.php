@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait Sdk
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @codingStandardsIgnoreStart
  * @method string getThreedsV2SdkInterface()              SDK Interface types that the device of the consumer supports for displaying specific challenge interfaces within the SDK
@@ -44,7 +45,6 @@ use Genesis\Exceptions\InvalidArgument;
  * @method string getThreedsV2SdkReferenceNumber()        Identifies the vendor and version of the 3DS SDK that is integrated in a 3DS Requester App, assigned by EMVCo when the 3DS SDK is approved
  * @codingStandardsIgnoreEnd
  *
- * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.CamelCasePropertyName)
  */
 trait Sdk

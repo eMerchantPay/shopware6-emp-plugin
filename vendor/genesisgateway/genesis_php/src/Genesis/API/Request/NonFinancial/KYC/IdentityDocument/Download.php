@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\IdentityDocument;
+namespace Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument;
 
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
 
 /**
  * Class Download
@@ -34,7 +35,7 @@ use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
  * with the identity document id of the given document and a response with the filename and the base64 encoded
  * content of that file would be returned.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\IdentityDocument
+ * @package Genesis\Api\Request\NonFinancial\Kyc\IdentityDocument
  */
 class Download extends BaseRequest
 {

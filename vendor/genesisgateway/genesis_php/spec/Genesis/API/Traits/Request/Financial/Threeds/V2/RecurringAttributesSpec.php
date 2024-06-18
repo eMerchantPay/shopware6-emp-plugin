@@ -1,16 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\RecurringStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\RecurringStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class RecurringAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class RecurringAttributesSpec extends ObjectBehavior
 {

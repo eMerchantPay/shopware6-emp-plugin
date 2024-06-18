@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking;
 
-use Genesis\API\Constants\BankAccountTypes;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\Financial\CustomerAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\BankAccountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\CustomerAttributes;
+use Genesis\Api\Traits\Request\Financial\NotificationAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Exceptions\InvalidClassMethod;
@@ -45,7 +45,7 @@ use Genesis\Utils\Common;
  *
  * OnlineBanking Payout - oBeP-style alternative payment method
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking
  *
  * @method Payout setBankAccountName($value) Set Customer’s bank account name
  * @method Payout setBankAccountNumber($value) Set Customer’s bank account number
@@ -56,13 +56,15 @@ use Genesis\Utils\Common;
  * @method Payout setPixKey($value)
  * @method string getPaymentType() Get Payment type
  * @method string getPixKey()
- *
- * @SuppressWarnings(PHPMD.LongVariable)
  */
-class Payout extends \Genesis\API\Request\Base\Financial
+class Payout extends \Genesis\Api\Request\Base\Financial
 {
-    use AddressInfoAttributes, AsyncAttributes, PaymentAttributes,
-        NotificationAttributes, BirthDateAttributes, CustomerAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BirthDateAttributes;
+    use CustomerAttributes;
+    use NotificationAttributes;
+    use PaymentAttributes;
 
     const ID_CARD_NUMBER_MAX_LENGTH          = 30;
     const PAYER_BANK_PHONE_NUMBER_MAX_LENGTH = 11;
@@ -189,7 +191,7 @@ class Payout extends \Genesis\API\Request\Base\Financial
 
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::ONLINE_BANKING_PAYOUT;
+        return \Genesis\Api\Constants\Transaction\Types::ONLINE_BANKING_PAYOUT;
     }
 
     /**

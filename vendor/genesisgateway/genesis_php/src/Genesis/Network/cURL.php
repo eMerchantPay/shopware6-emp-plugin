@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,10 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
+
 namespace Genesis\Network;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Exceptions\ErrorNetwork;
 
 /**
@@ -35,7 +37,7 @@ use Genesis\Exceptions\ErrorNetwork;
  * @subpackage Network
  */
 // @codingStandardsIgnoreStart
-class cURL extends Base
+class Curl extends Base
 // @codingStandardsIgnoreEnd
 {
     /**
@@ -85,7 +87,6 @@ class cURL extends Base
                 'Expect:'
             ],
             CURLOPT_HEADER         => true,
-            CURLOPT_FAILONERROR    => true,
             CURLOPT_FRESH_CONNECT  => true,
             CURLOPT_RETURNTRANSFER => true,
             // SSL/TLS Configuration

@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Crypto\BitPay;
+namespace spec\Genesis\Api\Request\Financial\Crypto\BitPay;
 
-use Genesis\API\Request\Financial\Crypto\BitPay\Sale;
+use Genesis\Api\Request\Financial\Crypto\BitPay\Sale;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class SaleSpec extends ObjectBehavior
 {

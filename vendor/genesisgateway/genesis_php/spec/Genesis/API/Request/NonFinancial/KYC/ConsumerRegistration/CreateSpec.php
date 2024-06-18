@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration;
 
-use Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration\Create;
+use Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration\Create;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class CreateSpec extends ObjectBehavior
 {

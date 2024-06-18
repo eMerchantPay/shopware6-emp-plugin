@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards\Threeds\V2;
+namespace Genesis\Api\Request\Financial\Cards\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Request;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Request;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Builder;
 use Genesis\Config;
 use Genesis\Exceptions\DeprecatedMethod;
@@ -41,14 +42,13 @@ use Genesis\Utils\Threeds\V2 as ThreedsV2Utils;
 
 /**
  * Class MethodContinue
- * @package Genesis\API\Request\Financial\Cards\Threeds\V2
+ * @package Genesis\Api\Request\Financial\Cards\Threeds\V2
  *
  * @codingStandardsIgnoreStart
  * @method $this  setSignature($value) SHA512 of а concatenated string (unique_id, amount, timestamp, merchant_api_password)
  * @method $this  setTransactionUniqueId($value)  Equivalent to the value of the unique_id, received from the response of the initial transaction request
  * @codingStandardsIgnoreEnd
  *
- * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.CamelCasePropertyName)
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -294,7 +294,7 @@ class MethodContinue extends Request
      */
     private function extractUniqueIdFromUrl($url)
     {
-        $urlPath = parse_url($url, PHP_URL_PATH);
+        $urlPath = parse_url((string)$url, PHP_URL_PATH);
 
         if ($urlPath === false) {
             return null;
@@ -312,7 +312,7 @@ class MethodContinue extends Request
      */
     private function generateEndpointUrl()
     {
-        return str_replace(':unique_id', $this->getTransactionUniqueId(), $this->getApiConfig('url'));
+        return str_replace(':unique_id', (string)$this->getTransactionUniqueId(), $this->getApiConfig('url'));
     }
 
     /**
@@ -343,7 +343,8 @@ class MethodContinue extends Request
      */
     public static function buildFromResponseObject(\stdClass $responseObject)
     {
-        if (!isset($responseObject->threeds_method_continue_url)
+        if (
+            !isset($responseObject->threeds_method_continue_url)
             || !isset($responseObject->unique_id)
             || !isset($responseObject->amount) || !isset($responseObject->currency)
             || !isset($responseObject->timestamp) || !($responseObject->timestamp instanceof \DateTime)

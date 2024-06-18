@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\ProcessingTypeStub;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\ProcessingTypeStub;
 
 class ProcessingTypeSpec extends ObjectBehavior
 {

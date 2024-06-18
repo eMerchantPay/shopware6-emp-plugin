@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\ProfileCurrentStatuses;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileCurrentStatuses;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class ProfileCurrentStatuses
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class ProfileCurrentStatusesSpec extends ObjectBehavior
 {

@@ -1,18 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Request\Financial\Cards\Recurring\RecurringSale;
+use Genesis\Api\Request\Financial\Cards\Recurring\RecurringSale;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class RecurringSaleSpec extends ObjectBehavior
 {
-    use RequestExamples, BusinessAttributesExample;
+    use BusinessAttributesExample;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

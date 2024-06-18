@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,14 +23,15 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Constants;
+
+namespace Genesis\Api\Constants;
 
 /**
  * Class Environments
  *
  * List of server environments
  *
- * @package Genesis\API\Constants
+ * @package Genesis\Api\Constants
  */
 class Environments
 {

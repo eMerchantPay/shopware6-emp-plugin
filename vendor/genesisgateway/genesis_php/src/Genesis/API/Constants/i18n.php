@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,8 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Constants;
+
+namespace Genesis\Api\Constants;
 
 use Genesis\Utils\Common;
 
@@ -31,7 +33,7 @@ use Genesis\Utils\Common;
  *
  * Get internationalisation (i18n) codes in ISO-639-1
  *
- * @package Genesis\API\Constants
+ * @package Genesis\Api\Constants
  */
 // @codingStandardsIgnoreStart
 class i18n
@@ -175,7 +177,7 @@ class i18n
      */
     public static function isValidLanguageCode($languageCode)
     {
-        $languageConstant = 'self::' . strtoupper($languageCode);
+        $languageConstant = 'self::' . strtoupper((string)$languageCode);
 
         if (defined($languageConstant) && constant($languageConstant)) {
             return true;

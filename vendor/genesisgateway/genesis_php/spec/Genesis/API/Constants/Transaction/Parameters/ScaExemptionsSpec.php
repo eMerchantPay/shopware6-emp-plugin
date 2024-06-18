@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters;
 
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
 use PhpSpec\ObjectBehavior;
 
 class ScaExemptionsSpec extends ObjectBehavior

@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\CustomerAddress;
+namespace spec\Genesis\Api\Traits\Request\CustomerAddress;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\CustomerAddress\CustomerInfoAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\CustomerAddress\CustomerInfoAttributesStub;
 use spec\SharedExamples\Faker;
 
 class CustomerInfoAttributesSpec extends ObjectBehavior

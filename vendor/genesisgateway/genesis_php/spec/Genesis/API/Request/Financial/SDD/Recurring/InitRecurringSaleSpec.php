@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\SDD\Recurring;
+namespace spec\Genesis\Api\Request\Financial\Sdd\Recurring;
 
-use Genesis\API\Request\Financial\SDD\Recurring\InitRecurringSale;
+use Genesis\Api\Request\Financial\Sdd\Recurring\InitRecurringSale;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class InitRecurringSaleSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

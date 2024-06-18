@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
 use PhpSpec\ObjectBehavior;
 
@@ -8,7 +8,7 @@ class PproAttributesSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beAnInstanceOf('spec\Genesis\API\Stubs\Traits\Request\Financial\PproAttributesStub');
+        $this->beAnInstanceOf('spec\Genesis\Api\Stubs\Traits\Request\Financial\PproAttributesStub');
     }
 
     public function it_should_set_consumer_reference_correctly()

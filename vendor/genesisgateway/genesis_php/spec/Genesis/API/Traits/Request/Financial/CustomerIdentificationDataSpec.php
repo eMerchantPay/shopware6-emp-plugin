@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use spec\Genesis\API\Stubs\Traits\Request\Financial\CustomerIdentificationDataStub;
 use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\CustomerIdentificationDataStub;
 
 class CustomerIdentificationDataSpec extends ObjectBehavior
 {

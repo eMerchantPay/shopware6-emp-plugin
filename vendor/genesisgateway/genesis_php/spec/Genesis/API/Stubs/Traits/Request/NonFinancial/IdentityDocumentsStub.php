@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\NonFinancial\IdentityDocuments;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\NonFinancial\IdentityDocuments;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class IdentityDocumentsStub
  *
  * Used to spec IdentityDocuments trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class IdentityDocumentsStub
 {
-    use RestrictedSetter, IdentityDocuments, MagicAccessors;
+    use IdentityDocuments;
+    use MagicAccessors;
+    use RestrictedSetter;
 }

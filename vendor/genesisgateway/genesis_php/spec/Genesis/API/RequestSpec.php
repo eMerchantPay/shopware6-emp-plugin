@@ -1,20 +1,19 @@
 <?php
 
-namespace spec\Genesis\API;
+namespace spec\Genesis\Api;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class RequestSpec extends ObjectBehavior
 {
     public function let()
     {
-        $this->beAnInstanceOf('\Genesis\API\Request\NonFinancial\Blacklist');
+        $this->beAnInstanceOf('\Genesis\Api\Request\NonFinancial\Blacklist');
     }
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('\Genesis\API\Request\NonFinancial\Blacklist');
+        $this->shouldHaveType('\Genesis\Api\Request\NonFinancial\Blacklist');
     }
 
     public function it_can_set_variables()
@@ -54,7 +53,7 @@ class RequestSpec extends ObjectBehavior
     public function it_should_have_default_environment_url_for_ecp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::ECOMPROCESSING
+            \Genesis\Api\Constants\Endpoints::ECOMPROCESSING
         );
 
         $this->getApiConfig('url')->shouldBe('https://staging.gate.e-comprocessing.net:443/blacklists');
@@ -63,7 +62,7 @@ class RequestSpec extends ObjectBehavior
     public function it_should_have_default_environment_url_for_emp_endpoint()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         $this->getApiConfig('url')->shouldBe('https://staging.gate.emerchantpay.net:443/blacklists');

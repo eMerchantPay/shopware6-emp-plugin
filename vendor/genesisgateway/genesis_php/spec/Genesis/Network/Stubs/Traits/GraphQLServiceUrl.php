@@ -4,7 +4,7 @@ namespace spec\Genesis\Network\Stubs\Traits;
 
 use Genesis\Config;
 
-trait GraphQLServiceUrl
+trait GraphqlServiceUrl
 {
     protected function getGraphqlServiceUrl(
         $service_name,
@@ -12,7 +12,7 @@ trait GraphQLServiceUrl
         $subdomain = 'api_service'
     )
     {
-        Config::setEndpoint(\Genesis\API\Constants\Endpoints::EMERCHANTPAY);
+        Config::setEndpoint(\Genesis\Api\Constants\Endpoints::EMERCHANTPAY);
 
         return sprintf(
             'https://%s%s/%s/%s/graphql',

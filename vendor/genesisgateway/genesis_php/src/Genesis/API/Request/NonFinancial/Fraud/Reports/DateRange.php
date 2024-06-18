@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\Fraud\Reports;
+namespace Genesis\Api\Request\NonFinancial\Fraud\Reports;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 
 /**
  * Fraud (SAFE/TC40) reports by Date Range
@@ -33,7 +34,7 @@ use Genesis\API\Constants\DateTimeFormat;
  * @package    Genesis
  * @subpackage Request
  */
-class DateRange extends \Genesis\API\Request
+class DateRange extends \Genesis\Api\Request
 {
     /**
      * start of the requested date range

@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "genesisgateway/genesis_php",
-            "version": "1.24.6",
-            "version_normalized": "1.24.6.0",
+            "version": "2.0.0",
+            "version_normalized": "2.0.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GenesisGateway/genesis_php.git",
-                "reference": "85fbf3e14e5c3087ec47a03ad4223cdcb1823e47"
+                "reference": "75b39b4b165453072cf95188feb0b42c44c8dbb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/85fbf3e14e5c3087ec47a03ad4223cdcb1823e47",
-                "reference": "85fbf3e14e5c3087ec47a03ad4223cdcb1823e47",
+                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/75b39b4b165453072cf95188feb0b42c44c8dbb5",
+                "reference": "75b39b4b165453072cf95188feb0b42c44c8dbb5",
                 "shasum": ""
             },
             "require": {
@@ -28,15 +28,17 @@
                 "php": ">=5.5.9"
             },
             "require-dev": {
-                "fakerphp/faker": "^1.20",
-                "phpspec/phpspec": "7.2.*@stable"
+                "fakerphp/faker": ">=1.0",
+                "phpmd/phpmd": "^2.15.0",
+                "phpspec/phpspec": ">=4.3",
+                "squizlabs/php_codesniffer": "^3.7.2"
             },
-            "time": "2024-04-01T14:47:17+00:00",
+            "time": "2024-05-23T11:24:30+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
-                "psr-0": {
-                    "Genesis": "src/"
+                "psr-4": {
+                    "Genesis\\": "src/Genesis/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -95,7 +97,6 @@
                 "idebit",
                 "idebit_payin",
                 "idebit_payout",
-                "inpay",
                 "insta_debit",
                 "insta_debit_payin",
                 "insta_debit_payout",
@@ -115,7 +116,6 @@
                 "payment_processing",
                 "payments",
                 "paypal",
-                "paypal_express",
                 "paysafecard",
                 "paysec",
                 "payu",
@@ -144,7 +144,6 @@
                 "transfer_to",
                 "trustly",
                 "trustly_sale",
-                "trustpay",
                 "upi",
                 "visa",
                 "void",
@@ -155,7 +154,7 @@
             ],
             "support": {
                 "issues": "https://github.com/GenesisGateway/genesis_php/issues",
-                "source": "https://github.com/GenesisGateway/genesis_php/tree/1.24.1"
+                "source": "https://github.com/GenesisGateway/genesis_php/tree/2.0.0"
             },
             "install-path": "../genesisgateway/genesis_php"
         }

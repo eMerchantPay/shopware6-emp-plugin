@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,17 +24,17 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\GiftCards;
+namespace Genesis\Api\Request\Financial\GiftCards;
 
-use Genesis\API\Request\Base\Financial\GiftCard;
-use Genesis\API\Constants\Transaction\Types;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial\GiftCard;
 
 /**
  * Class Intersolve
  *
  * Intersolve gift card Request
  *
- * @package Genesis\API\Request\Financial\GiftCards
+ * @package Genesis\Api\Request\Financial\GiftCards
  */
 class Intersolve extends GiftCard
 {

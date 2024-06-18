@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\TokenizationApi;
+namespace spec\Genesis\Api\Request\NonFinancial\TokenizationApi;
 
-use Genesis\API\Request\NonFinancial\TokenizationApi\Tokenize;
+use Genesis\Api\Request\NonFinancial\TokenizationApi\Tokenize;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\TokenizationApi\CreditCardSharedExamples;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\TokenizationApi\CreditCardSharedExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class TokenizeSpec extends ObjectBehavior
 {
-    use RequestExamples, CreditCardSharedExamples;
+    use CreditCardSharedExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

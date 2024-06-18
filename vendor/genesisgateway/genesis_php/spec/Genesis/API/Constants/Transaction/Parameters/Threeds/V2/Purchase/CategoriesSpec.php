@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Purchase;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Purchase;
 
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
 use PhpSpec\ObjectBehavior;
 
 class CategoriesSpec extends ObjectBehavior

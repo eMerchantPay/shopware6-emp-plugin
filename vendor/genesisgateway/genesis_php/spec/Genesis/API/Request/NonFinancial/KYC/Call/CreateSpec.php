@@ -1,19 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\KYC\Call;
+namespace spec\Genesis\Api\Request\NonFinancial\Kyc\Call;
 
-use Genesis\API\Constants\Environments;
-use Genesis\API\Constants\NonFinancial\KYC\CallServiceTypes;
-use Genesis\API\Request\NonFinancial\KYC\Call\Create;
-use Genesis\Config;
+use Genesis\Api\Constants\NonFinancial\Kyc\CallServiceTypes;
+use Genesis\Api\Request\NonFinancial\Kyc\Call\Create;
 use Genesis\Exceptions\ErrorParameter;
-use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\KYC\KYCRequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\Kyc\KycRequestExamples;
 
 class CreateSpec extends ObjectBehavior
 {
-    use KYCRequestExamples;
+    use KycRequestExamples;
 
     public function it_is_initializable()
     {

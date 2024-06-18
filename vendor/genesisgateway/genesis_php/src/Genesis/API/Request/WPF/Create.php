@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,24 +23,25 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\WPF;
 
-use Genesis\API\Constants\i18n;
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial\Cards\CreditCard;
-use Genesis\API\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\WpfAttributes as WpfThreedsV2Attributes;
-use Genesis\API\Traits\Request\RiskAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\FundingAttributes;
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
+namespace Genesis\Api\Request\Wpf;
+
+use Genesis\Api\Constants\i18n;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Request\Base\Financial\Cards\CreditCard;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\Cards\Recurring\RecurringCategoryAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\FundingAttributes;
+use Genesis\Api\Traits\Request\Financial\NotificationAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\WpfAttributes as WpfThreedsV2Attributes;
+use Genesis\Api\Traits\Request\RiskAttributes;
+use Genesis\Api\Traits\Request\Wpf\Validations;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
@@ -70,16 +72,22 @@ use Genesis\Utils\Common as CommonUtils;
  * @method string getScaExemption()           Exemption for the Strong Customer Authentication. The allowed options are low_value, low_risk
  * @method mixed  getWebPaymentFormId()       The unique ID of the web payment form configuration to be displayed for the current payment.
  * @codingStandardsIgnoreEnd
- *
- * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Create extends \Genesis\API\Request
+class Create extends \Genesis\Api\Request
 {
-    use PaymentAttributes, AddressInfoAttributes, AsyncAttributes,
-        NotificationAttributes, RiskAttributes, DescriptorAttributes,
-        BusinessAttributes, WpfThreedsV2Attributes,
-        PendingPaymentAttributes, RecurringCategoryAttributes,
-        FundingAttributes, AccountOwnerAttributes;
+    use AccountOwnerAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BusinessAttributes;
+    use DescriptorAttributes;
+    use FundingAttributes;
+    use NotificationAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
+    use RecurringCategoryAttributes;
+    use RiskAttributes;
+    use Validations;
+    use WpfThreedsV2Attributes;
 
     const REMINDERS_CHANNEL_EMAIL      = 'email';
     const REMINDERS_CHANNEL_SMS        = 'sms';
@@ -390,149 +398,6 @@ class Create extends \Genesis\API\Request
     }
 
     /**
-     * Verify that transaction type parameters are populated correctly
-     *
-     * @param string $transactionType
-     * @param array $parameters
-     * @throws \Genesis\Exceptions\ErrorParameter
-     */
-    protected function verifyTransactionType($transactionType, $parameters = [])
-    {
-        if (!Types::isValidWPFTransactionType($transactionType)) {
-            throw new ErrorParameter(
-                sprintf(
-                    'Transaction type (%s) is not valid. Valid WPF transactions are: %s.',
-                    $transactionType,
-                    implode(', ', Types::getWPFTransactionTypes())
-                )
-            );
-        }
-
-        $txnCustomRequiredParams = Types::getCustomRequiredParameters(
-            $transactionType
-        );
-
-        if (!CommonUtils::isValidArray($txnCustomRequiredParams)) {
-            return;
-        }
-
-        if (CommonUtils::isValidArray($txnCustomRequiredParams) && !CommonUtils::isValidArray($parameters)) {
-            throw new ErrorParameter(
-                sprintf(
-                    'Custom transaction parameters (%s) are required and none are set.',
-                    implode(', ', array_keys($txnCustomRequiredParams))
-                )
-            );
-        }
-
-        foreach ($txnCustomRequiredParams as $customRequiredParam => $customRequiredParamValues) {
-            $this->validateRequiredParameter(
-                $transactionType,
-                $customRequiredParam,
-                $customRequiredParamValues,
-                $parameters
-            );
-        }
-    }
-
-    protected function validateRequiredParameter(
-        $transactionType,
-        $customRequiredParam,
-        $customRequiredParamValues,
-        $parameters
-    ) {
-        $this->checkEmptyRequiredParamsFor(
-            $transactionType,
-            $customRequiredParam,
-            $parameters
-        );
-
-        if (!CommonUtils::isValidArray($customRequiredParamValues)) {
-            return;
-        }
-
-        if (!CommonUtils::arrayContainsArrayItems($parameters)) {
-            $this->checkIsParamSet(
-                $transactionType,
-                $parameters[$customRequiredParam],
-                $customRequiredParamValues,
-                $customRequiredParam
-            );
-
-            return;
-        }
-
-        foreach ($parameters as $parameter) {
-            $this->checkIsParamSet(
-                $transactionType,
-                $parameter,
-                $customRequiredParamValues,
-                $customRequiredParam
-            );
-        }
-    }
-
-    /**
-     * @param string $transactionType
-     * @param array $parameters
-     * @param mixed $paramValues
-     * @param string $paramName
-     *
-     * @throws \Genesis\Exceptions\ErrorParameter
-     */
-    private function checkIsParamSet($transactionType, $parameters, $paramValues, $paramName)
-    {
-        if (!in_array($parameters, $paramValues)) {
-            throw new ErrorParameter(
-                sprintf(
-                    'Invalid value (%s) for required parameter: %s. Allowed values: %s. (Transaction type: %s)',
-                    is_array($parameters) ? implode(', ', $parameters) : $parameters,
-                    $paramName,
-                    is_array($paramValues) ? implode(', ', $paramValues) : $paramValues,
-                    $transactionType
-                )
-            );
-        }
-    }
-
-    /**
-     * Performs a check there is an empty required param for the passed transaction type
-     *
-     * @param string $transactionType
-     * @param string $customRequiredParam
-     * @param array $txnParameters
-     *
-     * @throws \Genesis\Exceptions\ErrorParameter
-     */
-    protected function checkEmptyRequiredParamsFor(
-        $transactionType,
-        $customRequiredParam,
-        $txnParameters = []
-    ) {
-        if (CommonUtils::isArrayKeyExists($customRequiredParam, $txnParameters) &&
-            !empty($txnParameters[$customRequiredParam])
-        ) {
-            return;
-        }
-
-        foreach ($txnParameters as $parameter) {
-            if (CommonUtils::isArrayKeyExists($customRequiredParam, $parameter) &&
-                !empty($parameter[$customRequiredParam])
-            ) {
-                return;
-            }
-        }
-
-        throw new ErrorParameter(
-            sprintf(
-                'Empty (null) required parameter: %s for transaction type %s',
-                $customRequiredParam,
-                $transactionType
-            )
-        );
-    }
-
-    /**
      * Add ISO 639-1 language code to the URL
      *
      * @param string $language iso code of the language
@@ -541,7 +406,7 @@ class Create extends \Genesis\API\Request
      *
      * @throws \Genesis\Exceptions\InvalidArgument
      */
-    public function setLanguage($language = \Genesis\API\Constants\i18n::EN)
+    public function setLanguage($language = \Genesis\Api\Constants\i18n::EN)
     {
         $language = CommonUtils::filterLanguageCode($language);
 

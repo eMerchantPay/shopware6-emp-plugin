@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\CredentialOnFile;
+use Genesis\Api\Constants\Transaction\Parameters\CredentialOnFile;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\CredentialOnFileAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\CredentialOnFileAttributesStub;
 use spec\SharedExamples\Faker;
 
 class CredentialOnFileAttributesSpec extends ObjectBehavior

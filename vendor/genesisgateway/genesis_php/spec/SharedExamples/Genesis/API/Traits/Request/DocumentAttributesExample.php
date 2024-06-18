@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Traits\Request;
+namespace spec\SharedExamples\Genesis\Api\Traits\Request;
 
 /**
  * Trait DocumentAttributesExample
  *
  * Used as shared example to spec document_ikd attribute
  *
- * @package spec\SharedExamples\Genesis\API\Traits\Request
+ * @package spec\SharedExamples\Genesis\Api\Traits\Request
  */
 trait DocumentAttributesExample
 {

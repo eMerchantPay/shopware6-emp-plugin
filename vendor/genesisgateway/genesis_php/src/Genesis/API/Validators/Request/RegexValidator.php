@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Validators\Request;
+namespace Genesis\Api\Validators\Request;
 
 use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class RegexValidator
- * @package Genesis\API\Validators\Request
+ * @package Genesis\Api\Validators\Request
  */
-class RegexValidator extends \Genesis\API\Validators\Request\Base\Validator
+class RegexValidator extends \Genesis\Api\Validators\Request\Base\Validator
 {
     /**
      * CC Regex Validation Patterns
@@ -46,12 +47,6 @@ class RegexValidator extends \Genesis\API\Validators\Request\Base\Validator
      * GiftCards Regex Validation Patterns
      */
     const PATTERN_GIFT_CARD_NUMBER      = '/^\d+$/';
-
-    /**
-     * Must be a 10 digits Russian valid mobile number(either with or without international prefix +7),
-     * or International mobile phone number, starting with + followed by at least 9 digits.
-     */
-    const PATTERN_QIWI_PHONE_NUMBER = '/^(\d{10}|\+7\d{10}|\+\d{9,30})$/';
 
     /**
      * Vouchers Regex Validation Patterns

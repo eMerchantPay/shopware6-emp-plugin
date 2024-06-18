@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
-use Genesis\API\Traits\Request\Financial\TravelData\TravelDataAttributes;
-use Genesis\API\Traits\Request\MotoAttributes;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Traits\Request\Financial\TravelData\TravelDataAttributes;
+use Genesis\Api\Traits\Request\MotoAttributes;
 use Genesis\Utils\Common;
 use Genesis\Utils\Currency;
 
@@ -39,12 +40,15 @@ use Genesis\Utils\Currency;
  *
  * Recurring Sale Request
  *
- * @package Genesis\API\Request\Financial\Cards\Recurring
+ * @package Genesis\Api\Request\Financial\Cards\Recurring
  */
 class RecurringSale extends Financial
 {
-    use TravelDataAttributes, BusinessAttributes, ReferenceAttributes,
-        PaymentAttributes, MotoAttributes;
+    use BusinessAttributes;
+    use MotoAttributes;
+    use PaymentAttributes;
+    use ReferenceAttributes;
+    use TravelDataAttributes;
 
     /**
      * Returns the Request transaction type
@@ -52,7 +56,7 @@ class RecurringSale extends Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::RECURRING_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::RECURRING_SALE;
     }
 
     /**

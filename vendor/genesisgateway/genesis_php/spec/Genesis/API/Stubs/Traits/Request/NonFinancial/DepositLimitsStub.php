@@ -1,15 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
+
+use Genesis\Api\Traits\Request\NonFinancial\DepositLimits;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class DepositLimitsStub
  *
  * Used to spec DepositLimits trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class DepositLimitsStub
 {
-    use \Genesis\API\Traits\RestrictedSetter, \Genesis\API\Traits\Request\NonFinancial\DepositLimits;
+    use DepositLimits;
+    use RestrictedSetter;
 }

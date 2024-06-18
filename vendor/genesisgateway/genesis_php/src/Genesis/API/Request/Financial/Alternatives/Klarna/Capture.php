@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace Genesis\Api\Request\Financial\Alternatives\Klarna;
 
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
 
 /**
  * Class Capture
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Klarna
+ * @package Genesis\Api\Request\Financial\Alternatives\Klarna
  */
-class Capture extends \Genesis\API\Request\Base\Financial\Alternative\Klarna
+class Capture extends \Genesis\Api\Request\Base\Financial\Alternative\Klarna
 {
     use ReferenceAttributes;
 
@@ -44,7 +45,7 @@ class Capture extends \Genesis\API\Request\Base\Financial\Alternative\Klarna
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::KLARNA_CAPTURE;
+        return \Genesis\Api\Constants\Transaction\Types::KLARNA_CAPTURE;
     }
 
     /**

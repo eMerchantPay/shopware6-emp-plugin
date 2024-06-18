@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Alternatives\P24;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Alternatives\P24;
 
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\P24\BankCodes;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\P24\BankCodes;
 use PhpSpec\ObjectBehavior;
 
 class BankCodesSpec extends ObjectBehavior

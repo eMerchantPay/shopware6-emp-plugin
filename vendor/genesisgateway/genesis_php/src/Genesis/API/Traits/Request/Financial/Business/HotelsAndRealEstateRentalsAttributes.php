@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Business;
+namespace Genesis\Api\Traits\Request\Financial\Business;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 
 /**
  * Trait HotelsAndRealEstateRentalsAttributes
- * @package Genesis\API\Traits\Request\Financial\Business
+ * @package Genesis\Api\Traits\Request\Financial\Business
  *
  * @method $this setBusinessTravelAgencyName($value) Set travel agency name
  */

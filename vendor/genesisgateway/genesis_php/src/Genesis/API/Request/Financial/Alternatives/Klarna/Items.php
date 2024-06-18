@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace Genesis\Api\Request\Financial\Alternatives\Klarna;
 
 use Genesis\Utils\Currency as CurrencyUtils;
 
@@ -32,7 +33,7 @@ use Genesis\Utils\Currency as CurrencyUtils;
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Klarna
+ * @package Genesis\Api\Request\Financial\Alternatives\Klarna
  *
  */
 class Items

@@ -390,7 +390,7 @@ class ThreedsService
                     $this->paymentData->getPaymentMethodId()
                 )
             )
-            ->addAssociations(['lineItems', 'transactions'])
+            ->addAssociations(['lineItems', 'transactions', 'transactions.stateMachineState'])
             ->addSorting(new FieldSorting('createdAt'));
 
         return $this->orderRepository->search($criteria, $this->paymentData->getShopwareContext());

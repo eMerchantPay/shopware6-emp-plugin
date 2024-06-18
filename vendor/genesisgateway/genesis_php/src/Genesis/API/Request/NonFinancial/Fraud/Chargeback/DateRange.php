@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +24,12 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\Fraud\Chargeback;
+namespace Genesis\Api\Request\NonFinancial\Fraud\Chargeback;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
-use Genesis\API\Traits\Request\NonFinancial\PagingAttributes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
+use Genesis\Api\Traits\Request\NonFinancial\PagingAttributes;
 use Genesis\Exceptions\ErrorParameter;
 
 /**
@@ -40,7 +41,7 @@ use Genesis\Exceptions\ErrorParameter;
  * @method getExternallyProcessed() Filters chargebacks by being externally processed or being native to Genesis
  * @method getProcessingType() Filters chargebacks by being card present or card not present
  */
-class DateRange extends \Genesis\API\Request
+class DateRange extends \Genesis\Api\Request
 {
     use PagingAttributes;
 

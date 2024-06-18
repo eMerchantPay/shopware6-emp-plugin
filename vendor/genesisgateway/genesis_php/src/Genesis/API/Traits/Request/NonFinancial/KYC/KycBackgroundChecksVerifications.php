@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial\KYC;
+namespace Genesis\Api\Traits\Request\NonFinancial\Kyc;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
@@ -36,7 +37,7 @@ use Genesis\Utils\Common;
  * Please note that the name and the date of birth keys will be extracted from the document service
  * if they are missing.
  *
- * @package Genesis\API\Traits\Request\NonFinancial\KYC
+ * @package Genesis\Api\Traits\Request\NonFinancial\Kyc
  *
  * @method $this  setBackgroundChecksFirstName($value);
  * @method $this  setBackgroundChecksMiddleName($value);

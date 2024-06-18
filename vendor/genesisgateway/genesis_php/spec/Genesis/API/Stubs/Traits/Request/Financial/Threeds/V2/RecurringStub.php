@@ -1,18 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\Recurring;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\Recurring;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class RecurringStub
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2
  */
 class RecurringStub
 {
-    use MagicAccessors, RestrictedSetter, Recurring;
+    use MagicAccessors;
+    use Recurring;
+    use RestrictedSetter;
 
     public function getStructure()
     {

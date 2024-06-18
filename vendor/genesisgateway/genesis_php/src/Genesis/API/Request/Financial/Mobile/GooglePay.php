@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +24,21 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Mobile;
+namespace Genesis\Api\Request\Financial\Mobile;
 
-use Genesis\API\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes as GooglePaySubtypes;
-use Genesis\API\Constants\Transaction\Types as TransactionType;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\AllAttributes as AllThreedsV2Attributes;
-use Genesis\API\Traits\Request\Mobile\GooglePayAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes as GooglePaySubtypes;
+use Genesis\Api\Constants\Transaction\Types as TransactionType;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\NotificationAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\AllAttributes as AllThreedsV2Attributes;
+use Genesis\Api\Traits\Request\Mobile\GooglePayAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 use Genesis\Utils\Currency;
@@ -47,13 +48,20 @@ use Genesis\Utils\Currency;
  *
  * Google pay Request
  *
- * @package Genesis\API\Request\Financial\Mobile\GooglePay
+ * @package Genesis\Api\Request\Financial\Mobile\GooglePay
  */
 class GooglePay extends Financial
 {
-    use AddressInfoAttributes, PaymentAttributes, GooglePayAttributes,
-        BirthDateAttributes, BusinessAttributes, DocumentAttributes,
-        DescriptorAttributes, AllThreedsV2Attributes, NotificationAttributes, AsyncAttributes;
+    use AddressInfoAttributes;
+    use AllThreedsV2Attributes;
+    use AsyncAttributes;
+    use BirthDateAttributes;
+    use BusinessAttributes;
+    use DescriptorAttributes;
+    use DocumentAttributes;
+    use GooglePayAttributes;
+    use NotificationAttributes;
+    use PaymentAttributes;
 
     /**
      * Used in Google token for signatures array

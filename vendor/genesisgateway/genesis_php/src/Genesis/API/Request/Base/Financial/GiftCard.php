@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\Financial;
+namespace Genesis\Api\Request\Base\Financial;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Validators\Request\RegexValidator;
 use Genesis\Utils\Common;
 
 /**
  * Class GiftCard
- * @package Genesis\API\Request\Base\Financial
+ * @package Genesis\Api\Request\Base\Financial
  *
  * @method $this setCardNumber($value)
  * @method $this setCvv($value)
  */
-abstract class GiftCard extends \Genesis\API\Request\Base\Financial
+abstract class GiftCard extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AddressInfoAttributes, DescriptorAttributes, ReferenceAttributes;
+    use AddressInfoAttributes;
+    use DescriptorAttributes;
+    use PaymentAttributes;
+    use ReferenceAttributes;
 
     /**
      * Gift card number

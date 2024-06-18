@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,24 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\SDD;
+namespace Genesis\Api\Request\Financial\Sdd;
 
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\BankAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BankAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class Sale
  *
  * SDD Payment Transactions
  *
- * @package Genesis\API\Request\Financial\SDD
+ * @package Genesis\Api\Request\Financial\Sdd
  */
-class Sale extends \Genesis\API\Request\Base\Financial
+class Sale extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AddressInfoAttributes, BankAttributes, AsyncAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BankAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Name of the company
@@ -62,7 +67,7 @@ class Sale extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SDD_SALE;
+        return \Genesis\Api\Constants\Transaction\Types::SDD_SALE;
     }
 
     /**

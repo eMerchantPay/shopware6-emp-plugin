@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Validators\Request\RegexValidator;
 use Genesis\Exceptions\ErrorParameter;
 
 /**
  * Trait BankAttributes
  *
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method string getBic() Valid BIC string. Must be 8 or 11 characters long
  * @method string getIban() String must start with "DE" followed by 20 digits

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base;
+namespace Genesis\Api\Request\Base;
 
-use Genesis\API\Traits\Request\BaseAttributes;
+use Genesis\Api\Traits\Request\BaseAttributes;
 use Genesis\Config;
 use Genesis\Exceptions\EnvironmentNotSet;
 use Genesis\Utils\Common as CommonUtils;
@@ -35,11 +36,11 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Base Abstract Class for all Financial Requests
  *
- * @package Genesis\API\Request\Base
+ * @package Genesis\Api\Request\Base
  *
  * @method getUseSmartRouter() Get Smart Router usage. Whether Financial transaction endpoint is a Smart Router or not.
  */
-abstract class Financial extends \Genesis\API\Request
+abstract class Financial extends \Genesis\Api\Request
 {
     use BaseAttributes;
 

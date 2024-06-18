@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\Genders;
+use Genesis\Api\Constants\NonFinancial\Kyc\Genders;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class Genders
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class GendersSpec extends ObjectBehavior
 {

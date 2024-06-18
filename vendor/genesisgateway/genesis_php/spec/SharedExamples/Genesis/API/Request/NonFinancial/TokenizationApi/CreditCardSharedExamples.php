@@ -1,12 +1,12 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial\TokenizationApi;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial\TokenizationApi;
 
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait CreditCardSharedExamples
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial\TokenizationApi
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial\TokenizationApi
  */
 trait CreditCardSharedExamples
 {

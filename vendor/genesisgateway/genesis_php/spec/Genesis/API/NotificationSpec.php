@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Genesis\API;
+namespace spec\Genesis\Api;
 
 use Genesis\Config;
 use PhpSpec\ObjectBehavior;
@@ -50,7 +50,7 @@ class NotificationSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Notification');
+        $this->shouldHaveType('Genesis\Api\Notification');
     }
 
     public function it_can_verify_api_notification()

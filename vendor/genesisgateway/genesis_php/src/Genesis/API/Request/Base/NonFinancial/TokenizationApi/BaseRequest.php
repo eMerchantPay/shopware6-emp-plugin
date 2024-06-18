@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\NonFinancial\TokenizationApi;
+namespace Genesis\Api\Request\Base\NonFinancial\TokenizationApi;
 
-use Genesis\API\Request\Base\BaseVersionedRequest;
+use Genesis\Api\Request\Base\BaseVersionedRequest;
 use Genesis\Builder;
 use Genesis\Utils\Common as CommonUtils;
 
@@ -43,7 +44,7 @@ use Genesis\Utils\Common as CommonUtils;
  * data when creating credit card transactions via our Processing API. PCI DSS compliant merchants have also the
  * possibility to exchange the token for the original cardholder data via our Tokenization API ("detokenization").
  *
- * @package Genesis\API\Request\Base\NonFinancial\Tokenization
+ * @package Genesis\Api\Request\Base\NonFinancial\Tokenization
  */
 abstract class BaseRequest extends BaseVersionedRequest
 {

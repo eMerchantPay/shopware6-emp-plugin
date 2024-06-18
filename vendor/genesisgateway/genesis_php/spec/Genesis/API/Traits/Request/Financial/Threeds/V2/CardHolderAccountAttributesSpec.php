@@ -1,20 +1,20 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\RegistrationIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\ShippingAddressUsageIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\SuspiciousActivityIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\UpdateIndicators;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\RegistrationIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\ShippingAddressUsageIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\SuspiciousActivityIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\CardHolderAccount\UpdateIndicators;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\CardHolderAccountStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\CardHolderAccountStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class CardHolderAccountAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class CardHolderAccountAttributesSpec extends ObjectBehavior
 {

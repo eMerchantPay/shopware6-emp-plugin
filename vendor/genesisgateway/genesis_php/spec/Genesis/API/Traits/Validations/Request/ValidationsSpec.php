@@ -1,14 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Validations\Request;
+namespace spec\Genesis\Api\Traits\Validations\Request;
 
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Validators\Request\RegexValidator;
 use Genesis\Exceptions\ErrorParameter;
-use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Validations\Request\ValidationsStub;
+use spec\Genesis\Api\Stubs\Traits\Validations\Request\ValidationsStub;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
 
 
 class ValidationsSpec extends ObjectBehavior

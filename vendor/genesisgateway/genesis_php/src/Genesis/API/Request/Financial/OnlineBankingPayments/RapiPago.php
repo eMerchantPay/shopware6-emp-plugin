@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class RapiPago
@@ -33,9 +34,9 @@ use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
  * RapiPago from Argentina is an offline payment method used for online purchases.
  * Shoppers buy their goods and services online and pay offline at one of the 6,000+ RapiPago payment locations.
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  */
-class RapiPago extends \Genesis\API\Request\Base\Financial\SouthAmericanPayment
+class RapiPago extends \Genesis\Api\Request\Base\Financial\SouthAmericanPayment
 {
     use PendingPaymentAttributes;
 
@@ -45,7 +46,7 @@ class RapiPago extends \Genesis\API\Request\Base\Financial\SouthAmericanPayment
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::RAPI_PAGO;
+        return \Genesis\Api\Constants\Transaction\Types::RAPI_PAGO;
     }
 
     /**

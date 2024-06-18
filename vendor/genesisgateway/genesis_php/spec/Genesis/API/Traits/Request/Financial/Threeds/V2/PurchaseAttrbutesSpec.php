@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\PurchaseStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\PurchaseStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class PurchaseAttrbutesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class PurchaseAttrbutesSpec extends ObjectBehavior
 {

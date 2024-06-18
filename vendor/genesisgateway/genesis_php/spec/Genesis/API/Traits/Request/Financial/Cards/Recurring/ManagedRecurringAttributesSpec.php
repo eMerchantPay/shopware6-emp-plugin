@@ -21,16 +21,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace spec\Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Modes;
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\AmountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Frequencies;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Intervals;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Modes;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\PaymentTypes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Cards\Recurring\ManagedRecurringAttributesStub;
 use spec\SharedExamples\Faker;
 
 class ManagedRecurringAttributesSpec extends ObjectBehavior

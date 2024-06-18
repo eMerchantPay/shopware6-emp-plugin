@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\TransferTo;
+namespace Genesis\Api\Request\Financial\Alternatives\TransferTo;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\AccountTypes;
-use Genesis\API\Constants\Transaction\Parameters\IdentificationTypes;
-use Genesis\API\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\CustomerAddress\BillingInfoAttributes;
-use Genesis\API\Traits\Request\CustomerAddress\ShippingInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\AccountTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Alternatives\PurposeOfRemittances;
+use Genesis\Api\Constants\Transaction\Parameters\IdentificationTypes;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\CustomerAddress\BillingInfoAttributes;
+use Genesis\Api\Traits\Request\CustomerAddress\ShippingInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
 
@@ -47,7 +48,7 @@ use Genesis\Utils\Common;
  *  CashPickup
  *
  * Class Payout
- * @package Genesis\API\Request\Financial\Alternatives\TransferTo
+ * @package Genesis\Api\Request\Financial\Alternatives\TransferTo
  *
  * @codingStandardsIgnoreStart
  * @method string getCustomerEmail()                            Must contain valid e-mail of customer
@@ -104,12 +105,14 @@ use Genesis\Utils\Common;
  * @method $this  setSenderCountryOfBirthIsoCode($value)        Three-letter country code corresponding to the country of birth of the sender
  * @codingStandardsIgnoreEnd
  *
- * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.CamelCasePropertyName)
  */
 class Payout extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, BillingInfoAttributes, ShippingInfoAttributes;
+    use AsyncAttributes;
+    use BillingInfoAttributes;
+    use PaymentAttributes;
+    use ShippingInfoAttributes;
 
     /**
      * Sender MSISDN Min & Max string Length

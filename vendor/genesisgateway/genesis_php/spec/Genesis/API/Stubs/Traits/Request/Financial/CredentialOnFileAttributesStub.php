@@ -1,21 +1,23 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\CredentialOnFileAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\CredentialOnFileAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class CredentialOnFileAttributesStub
  *
  * Use for CredentialOnFailAttributes Trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\Financial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\Financial
  */
 class CredentialOnFileAttributesStub
 {
-    use MagicAccessors, RestrictedSetter, CredentialOnFileAttributes;
+    use CredentialOnFileAttributes;
+    use MagicAccessors;
+    use RestrictedSetter;
 
     public function returnCredentialOnFileAttributesStructure()
     {

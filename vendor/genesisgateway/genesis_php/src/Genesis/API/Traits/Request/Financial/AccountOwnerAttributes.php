@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
 /**
  * Trait AccountOwnerAttributes
  *
  * Account owner parameters related to account owner inquiry requests
  *
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method $this  setAccountFirstName($value) Set Account owner's first name
  * @method $this  setAccountMiddleName($value) Set Account owner's middle name

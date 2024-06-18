@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Base\Request\Financial;
 
-use Genesis\API\Request\Base\Financial\SouthAmericanPayment;
+use Genesis\Api\Request\Base\Financial\SouthAmericanPayment;
 
 /**
  * Class SouthAmericanPaymentStub
  *
  * Used to spec SouthAmericanPayment abstract class
  *
- * @package spec\Genesis\API\Base\Request\Financial
+ * @package spec\Genesis\Api\Base\Request\Financial
  */
 class SouthAmericanPaymentStub extends SouthAmericanPayment
 {

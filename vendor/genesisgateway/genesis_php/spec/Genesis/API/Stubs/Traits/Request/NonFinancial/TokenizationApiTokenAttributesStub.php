@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use Genesis\API\Traits\MagicAccessors;
-use \Genesis\API\Traits\Request\NonFinancial\TokenizationApiTokenAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiTokenAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class TokenizationApiTokenAttributesStub
  *
  * Used to spec TokenizationApiTokenAttributes trait
  *
- * @package spec\Genesis\API\Stubs\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Stubs\Traits\Request\NonFinancial
  */
 class TokenizationApiTokenAttributesStub
 {
-    use TokenizationApiTokenAttributes, MagicAccessors, RestrictedSetter;
+    use MagicAccessors;
+    use RestrictedSetter;
+    use TokenizationApiTokenAttributes;
 }

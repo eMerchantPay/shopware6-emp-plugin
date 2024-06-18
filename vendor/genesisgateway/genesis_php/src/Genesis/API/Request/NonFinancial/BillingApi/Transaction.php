@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,12 +24,12 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\BillingApi;
+namespace Genesis\Api\Request\NonFinancial\BillingApi;
 
-use Genesis\API\Request\Base\GraphQLRequest;
-use Genesis\API\Traits\Request\NonFinancial\BillingApi\OrderByDirection;
-use Genesis\API\Traits\Request\NonFinancial\DateAttributes;
-use Genesis\API\Traits\Request\NonFinancial\PagingAttributes;
+use Genesis\Api\Request\Base\GraphqlRequest;
+use Genesis\Api\Traits\Request\NonFinancial\BillingApi\OrderByDirection;
+use Genesis\Api\Traits\Request\NonFinancial\DateAttributes;
+use Genesis\Api\Traits\Request\NonFinancial\PagingAttributes;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
@@ -37,15 +38,17 @@ use Genesis\Utils\Common as CommonUtils;
  * Class Transaction
  *
  * Billing Transactions API request
- * @package Genesis\API\Request\NonFinancial\BillingApi
+ * @package Genesis\Api\Request\NonFinancial\BillingApi
  *
  * @method $this  setUniqueId($value)
  * @method string getUniqueId()
  * @method string getOrderByField()
  */
-class Transaction extends GraphQLRequest
+class Transaction extends GraphqlRequest
 {
-    use DateAttributes, PagingAttributes, OrderByDirection;
+    use DateAttributes;
+    use OrderByDirection;
+    use PagingAttributes;
 
     const MAX_COUNT_BILLING_STATEMENTS_FILTER = 10;
 
@@ -235,7 +238,8 @@ class Transaction extends GraphQLRequest
      */
     protected function validateConditionallyRequiredDates()
     {
-        if ((!empty($this->start_date) && empty($this->end_date))
+        if (
+            (!empty($this->start_date) && empty($this->end_date))
             || (!empty($this->end_date) && empty($this->start_date))
         ) {
             throw new ErrorParameter(
@@ -252,7 +256,8 @@ class Transaction extends GraphQLRequest
      */
     protected function validateStatementsMaxCount()
     {
-        if (!empty($this->billing_statement_id)
+        if (
+            !empty($this->billing_statement_id)
             && count($this->billing_statement_id) > self::MAX_COUNT_BILLING_STATEMENTS_FILTER
         ) {
             throw new ErrorParameter(

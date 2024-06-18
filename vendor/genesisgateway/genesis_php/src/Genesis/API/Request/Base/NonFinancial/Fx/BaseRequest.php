@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,9 +23,10 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Base\NonFinancial\Fx;
 
-use Genesis\API\Request\Base\BaseVersionedRequest;
+namespace Genesis\Api\Request\Base\NonFinancial\Fx;
+
+use Genesis\Api\Request\Base\BaseVersionedRequest;
 use Genesis\Builder;
 
 /**
@@ -37,7 +39,7 @@ use Genesis\Builder;
  * To interact with the Fx API, you need to provide login credentials using standard HTTP Basic Authentication.
  * (credentials can be found in your Admin interface.)
  *
- * @package Genesis\API\Request\Base\NonFinancial\Fx
+ * @package Genesis\Api\Request\Base\NonFinancial\Fx
  */
 abstract class BaseRequest extends BaseVersionedRequest
 {

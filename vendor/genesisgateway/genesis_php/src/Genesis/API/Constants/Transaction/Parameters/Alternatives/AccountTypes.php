@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Alternatives;
+namespace Genesis\Api\Constants\Transaction\Parameters\Alternatives;
 
 use Genesis\Utils\Common;
 
@@ -32,7 +33,7 @@ use Genesis\Utils\Common;
  * Use in TransferTo Payout
  *
  * Class AccountTypes
- * @package Genesis\API\Constants\Transaction\Parameters\Alternatives
+ * @package Genesis\Api\Constants\Transaction\Parameters\Alternatives
  */
 class AccountTypes
 {

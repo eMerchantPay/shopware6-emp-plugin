@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationOwner;
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationSubType;
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationType;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationOwner;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationSubType;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationType;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Country;
 
 /**
  * trait CustomerIdentificationData
  *
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method $this setCustomerIdentificationDocumentId($id) Document ID
  */

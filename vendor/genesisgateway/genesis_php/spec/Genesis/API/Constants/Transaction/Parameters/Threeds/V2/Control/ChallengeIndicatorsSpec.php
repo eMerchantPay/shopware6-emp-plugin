@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
 use PhpSpec\ObjectBehavior;
 
 class ChallengeIndicatorsSpec extends ObjectBehavior

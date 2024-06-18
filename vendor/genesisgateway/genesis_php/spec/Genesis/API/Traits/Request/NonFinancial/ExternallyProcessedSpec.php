@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\ExternallyProcessedStub;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\ExternallyProcessedStub;
 
 class ExternallyProcessedSpec extends ObjectBehavior
 {

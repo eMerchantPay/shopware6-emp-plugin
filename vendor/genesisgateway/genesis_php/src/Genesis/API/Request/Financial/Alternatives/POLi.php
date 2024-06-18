@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives;
+namespace Genesis\Api\Request\Financial\Alternatives;
 
 /**
- * Class POLi
+ * Class Poli
  *
  * Electronic Wallet
  *
- * @package Genesis\API\Request\Financial\Wallets
+ * @package Genesis\Api\Request\Financial\Wallets
  */
-class POLi extends \Genesis\API\Request\Base\Financial\Alternative
+class Poli extends \Genesis\Api\Request\Base\Financial\Alternative
 {
     /**
      * Returns the Request transaction type
@@ -40,7 +41,7 @@ class POLi extends \Genesis\API\Request\Base\Financial\Alternative
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::POLI;
+        return \Genesis\Api\Constants\Transaction\Types::POLI;
     }
 
     /**

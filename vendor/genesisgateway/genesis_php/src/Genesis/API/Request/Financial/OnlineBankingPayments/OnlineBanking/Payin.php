@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking;
 
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PaymentTypes;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\OnlineBankingPayments\UserCategoryAttributes;
-use Genesis\API\Traits\Request\Financial\OnlineBankingPayments\VirtualPaymentAddressAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PaymentTypes;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\OnlineBankingPayments\UserCategoryAttributes;
+use Genesis\Api\Traits\Request\Financial\OnlineBankingPayments\VirtualPaymentAddressAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -42,20 +43,23 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * OnlineBanking Payin - oBeP-style alternative payment method
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking
  *
  * @method string getPaymentType()
  * @method $this  setBankCode($value) Customer’s bank code
  * @method string getConsumerReference()
  * @method $this  setConsumerReference($value)
  *
- * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.CamelCasePropertyName)
  */
 class Payin extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes,
-        DocumentAttributes, VirtualPaymentAddressAttributes, UserCategoryAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use DocumentAttributes;
+    use PaymentAttributes;
+    use UserCategoryAttributes;
+    use VirtualPaymentAddressAttributes;
 
     /**
      * Customer’s bank code
@@ -112,7 +116,7 @@ class Payin extends Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::ONLINE_BANKING_PAYIN;
+        return \Genesis\Api\Constants\Transaction\Types::ONLINE_BANKING_PAYIN;
     }
 
     /**

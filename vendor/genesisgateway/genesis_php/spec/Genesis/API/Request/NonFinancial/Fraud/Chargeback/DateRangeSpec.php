@@ -1,26 +1,25 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Fraud\Chargeback;
+namespace spec\Genesis\Api\Request\NonFinancial\Fraud\Chargeback;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ExternallyProcessed;
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
-use Genesis\API\Request\NonFinancial\Fraud\Chargeback\DateRange;
+use Genesis\Api\Request\NonFinancial\Fraud\Chargeback\DateRange;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Response as Response;
 use Genesis\Parser;
 use PhpSpec\ObjectBehavior;
-use spec\fixtures\API\Stubs\Parser\ParserStub;
+use spec\Fixtures\Api\Stubs\Parser\ParserStub;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\DateRangeRequestSharedExample;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\ExternallyProcessedSharedExample;
-use spec\SharedExamples\Genesis\API\Request\NonFinancial\ProcessingTypeSharedExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\DateRangeRequestSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\ExternallyProcessedSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\NonFinancial\ProcessingTypeSharedExample;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class DateRangeSpec extends ObjectBehavior
 {
-    use RequestExamples, DateRangeRequestSharedExample, ExternallyProcessedSharedExample,
-        ProcessingTypeSharedExample;
+    use DateRangeRequestSharedExample;
+    use ExternallyProcessedSharedExample;
+    use ProcessingTypeSharedExample;
+    use RequestExamples;
 
     public function it_is_initializable()
     {
@@ -150,7 +149,7 @@ class DateRangeSpec extends ObjectBehavior
     {
         $parser = new ParserStub('NonFinancial\Fraud\Chargeback');
 
-        $response->beADoubleOf('Genesis\API\Response');
+        $response->beADoubleOf('Genesis\Api\Response');
         $response->getResponseObject()->willReturn(
             $parser->DateRange('xml', 'response')->getParsedDocument()
         );

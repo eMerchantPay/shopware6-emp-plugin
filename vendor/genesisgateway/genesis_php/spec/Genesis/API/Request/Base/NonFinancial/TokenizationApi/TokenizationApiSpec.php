@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\NonFinancial\TokenizationApi;
+namespace spec\Genesis\Api\Request\Base\NonFinancial\TokenizationApi;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\NonFinancial\TokenizationApi\BaseRequestStub;
+use spec\Genesis\Api\Stubs\Base\Request\NonFinancial\TokenizationApi\BaseRequestStub;
 
 class TokenizationApiSpec extends ObjectBehavior
 {

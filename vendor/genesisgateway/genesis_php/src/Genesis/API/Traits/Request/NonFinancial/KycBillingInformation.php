@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,15 +24,15 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial;
+namespace Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\NonFinancial\KYC\Genders;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\NonFinancial\Kyc\Genders;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait KycBillingInformation
- * @package Genesis\API\Traits\Request\NonFinancial
+ * @package Genesis\Api\Traits\Request\NonFinancial
  */
 trait KycBillingInformation
 {

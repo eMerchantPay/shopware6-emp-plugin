@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\Fraud\Chargeback;
+namespace spec\Genesis\Api\Constants\NonFinancial\Fraud\Chargeback;
 
-use Genesis\API\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
+use Genesis\Api\Constants\NonFinancial\Fraud\Chargeback\ProcessingTypes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class ProcessingTypesSpec
- * @package spec\Genesis\API\Constants\NonFinancial\Fraud\Chargeback
+ * @package spec\Genesis\Api\Constants\NonFinancial\Fraud\Chargeback
  */
 class ProcessingTypesSpec extends ObjectBehavior
 {

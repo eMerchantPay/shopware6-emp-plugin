@@ -1,5 +1,15 @@
 Change Log
 ---------------------
+__1.3.0__
+-----
+* Added Shopware 6.6.x support
+* Dropped support for Shopware 6.5 due to Shopware 6.6.x platform architecture changes
+* Update Genesis PHP SDK to version 2.0.0
+* Added Order finalization handling in the payment method
+* Fixed IPN handling during Web Payment Form cancellation
+* Fixed LoggerFactory implementation to suit Shopware 6.6 platform requirements
+* Fixed 3DSv2 parameters handling
+
 __1.2.7__
 -----
 * Updated Genesis PHP SDK to version 1.24.6

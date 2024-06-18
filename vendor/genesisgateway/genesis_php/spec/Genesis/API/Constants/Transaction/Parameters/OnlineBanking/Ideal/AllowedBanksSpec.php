@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\OnlineBanking\Ideal;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\Ideal;
 
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\Ideal\AllowedBanks;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\Ideal\AllowedBanks;
 use PhpSpec\ObjectBehavior;
 
 class AllowedBanksSpec extends ObjectBehavior

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,20 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base\Financial\Cards;
+namespace Genesis\Api\Request\Base\Financial\Cards;
 
-use Genesis\API\Traits\Request\Financial\MpiAttributes;
-use Genesis\API\Traits\Request\Financial\Threeds\V2\AllAttributes as AllThreedsV2Attributes;
+use Genesis\Api\Traits\Request\Financial\MpiAttributes;
+use Genesis\Api\Traits\Request\Financial\Threeds\V2\AllAttributes as AllThreedsV2Attributes;
 
 /**
  * Class CreditCard3D
- * @package Genesis\API\Request\Base\Financial\Cards
+ * @package Genesis\Api\Request\Base\Financial\Cards
  *
  */
 abstract class CreditCard3D extends CreditCard
 {
-    use AllThreedsV2Attributes, MpiAttributes;
+    use AllThreedsV2Attributes;
+    use MpiAttributes;
 
     /**
      * Return required conditional 3DS fields

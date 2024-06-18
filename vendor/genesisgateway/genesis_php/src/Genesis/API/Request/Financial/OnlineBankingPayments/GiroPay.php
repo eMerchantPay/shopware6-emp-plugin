@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,26 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BankAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BankAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class GiroPay
- * @package Genesis\API\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments
  */
 class GiroPay extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, BankAttributes,
-        PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BankAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Returns the Request transaction type
@@ -50,7 +53,7 @@ class GiroPay extends Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::GIROPAY;
+        return \Genesis\Api\Constants\Transaction\Types::GIROPAY;
     }
 
     /**

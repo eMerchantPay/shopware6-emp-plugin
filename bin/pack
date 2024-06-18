@@ -6,13 +6,13 @@ folder_name="EmerchantpayGenesis"
 [ -f "${folder_name}.zip" ] && rm "${folder_name}.zip"
 
 # Install Genesis PHP SDK and remove dev packages
-composer install --no-dev
+composer install -q --no-dev
 
 # Add a symlink to simulate folder
 [ ! -L "${folder_name}" ] && ln -s "$(pwd)" "${folder_name}"
 
 # Zip with the folder
-zip -r "${folder_name}" \
+zip -rq "${folder_name}" \
     "${folder_name}/src" \
     "${folder_name}/vendor/composer" \
     "${folder_name}/vendor/genesisgateway" \
@@ -21,3 +21,5 @@ zip -r "${folder_name}" \
     "${folder_name}/composer.lock" \
     "${folder_name}/README.md"
 [ -L "${folder_name}" ] && rm "${folder_name}"
+
+[ -f "${folder_name}.zip" ] && echo "The installation package (${folder_name}.zip) was packed!"

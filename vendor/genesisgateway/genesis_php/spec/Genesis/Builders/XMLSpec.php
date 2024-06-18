@@ -2,15 +2,13 @@
 
 namespace spec\Genesis\Builders;
 
-use Genesis\Builders\XML;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class XMLSpec extends ObjectBehavior
+class XmlSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Builders\XML');
+        $this->shouldHaveType('Genesis\Builders\Xml');
     }
 
     public function it_can_generate_content()
@@ -60,6 +58,15 @@ class XMLSpec extends ObjectBehavior
 
     public function it_should_flush_memory_after_xml_document_generations(\XMLWriter $xmlWriter)
     {
+        $xmlWriter->beADoubleOf('\XMLWriter');
+        $xmlWriter->startElement('root')->willReturn(true);
+        $xmlWriter->writeElement('node', 'value')->willReturn(true);
+        $xmlWriter->endElement()->willReturn(true);
+        $xmlWriter->endDocument()->willReturn(true);
+        $xmlWriter->outputMemory(true)->willReturn(
+            '<?xml version="1.0" encoding="UTF-8"?><root><node>value</node></root>'
+        );
+
         $this->context = $xmlWriter;
 
         $this->populateNodes(array('root' => array('node' => 'value')));

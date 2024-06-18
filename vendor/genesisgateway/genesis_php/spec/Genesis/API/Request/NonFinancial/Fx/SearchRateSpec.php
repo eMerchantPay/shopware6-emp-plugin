@@ -1,12 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Fx;
+namespace spec\Genesis\Api\Request\NonFinancial\Fx;
 
-use Genesis\API\Request\NonFinancial\Fx\SearchRate;
+use Genesis\Api\Request\NonFinancial\Fx\SearchRate;
 use Genesis\Builder;
+use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class SearchRateSpec extends ObjectBehavior
 {
@@ -20,7 +21,7 @@ class SearchRateSpec extends ObjectBehavior
     public function it_should_build_correct_url()
     {
         \Genesis\Config::setEndpoint(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
         $this->setTierId(88);
 
@@ -38,12 +39,18 @@ class SearchRateSpec extends ObjectBehavior
         $this->getConfig()->shouldHaveKeyWithValue('format', Builder::JSON);
     }
 
-    public function it_should_fail_when_missing_required_params()
+    public function it_should_fail_with_missing_required_source_currency()
     {
-        $this->testMissingRequiredParameters([
-            'source_currency',
-            'target_currency'
-        ]);
+        $this->setRequestParameters();
+        $this->setSourceCurrency(null);
+        $this->shouldThrow(ErrorParameter::class)->during('getDocument');
+    }
+
+    public function it_should_fail_with_missing_required_target_currency()
+    {
+        $this->setRequestParameters();
+        $this->setTargetCurrency(null);
+        $this->shouldThrow(ErrorParameter::class)->during('getDocument');
     }
 
     public function it_should_fail_when_target_and_source_currency_are_equal()

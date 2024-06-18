@@ -1,17 +1,17 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\ControlStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\ControlStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class ControlAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 class ControlAttributesSpec extends ObjectBehavior
 {

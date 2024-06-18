@@ -1,13 +1,12 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\ManagedRecurring\Modes;
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Types;
-use Genesis\API\Request\Financial\Cards\Authorize;
-use Genesis\API\Request\Financial\Cards\Authorize3D;
-use Genesis\API\Request\Financial\Cards\Sale3D;
-use Genesis\API\Request\WPF\Create as WpfCreate;
+use Genesis\Api\Constants\Transaction\Parameters\ManagedRecurring\Modes;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Types;
+use Genesis\Api\Request\Financial\Cards\Authorize3D;
+use Genesis\Api\Request\Financial\Cards\Sale3D;
+use Genesis\Api\Request\Wpf\Create as WpfCreate;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\Exception\Example\SkippingException;
 use spec\SharedExamples\Faker;

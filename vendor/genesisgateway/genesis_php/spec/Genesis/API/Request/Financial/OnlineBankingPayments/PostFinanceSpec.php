@@ -1,19 +1,22 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\PostFinance;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\PostFinance;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PostFinanceSpec extends ObjectBehavior
 {
-    use RequestExamples, AsyncAttributesExample, PendingPaymentAttributesExamples, NeighborhoodAttributesExamples;
+    use AsyncAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use PendingPaymentAttributesExamples;
+    use RequestExamples;
 
     /**
      * Allowed currencies

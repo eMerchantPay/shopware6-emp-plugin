@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,18 +23,19 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
+namespace Genesis\Api\Request\Financial;
+
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
 
 /**
  * Class Cancel
  *
  * Cancel / Void Request
  *
- * @package Genesis\API\Request\Financial
+ * @package Genesis\Api\Request\Financial
  */
-class Cancel extends \Genesis\API\Request\Base\Financial
+class Cancel extends \Genesis\Api\Request\Base\Financial
 {
     use ReferenceAttributes;
 
@@ -43,7 +45,7 @@ class Cancel extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::VOID;
+        return \Genesis\Api\Constants\Transaction\Types::VOID;
     }
 
     /**

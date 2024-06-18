@@ -1,25 +1,27 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking;
 
-use Genesis\API\Constants\BankAccountTypes;
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
-use Genesis\API\Request\Financial\OnlineBankingPayments\OnlineBanking\Payout;
+use Genesis\Api\Constants\BankAccountTypes;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking\Payout;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class PayoutSpec extends ObjectBehavior
 {
-    use RequestExamples, BirthDateAttributesExample, NeighborhoodAttributesExamples;
+    use BirthDateAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {
@@ -56,14 +58,12 @@ class PayoutSpec extends ObjectBehavior
 
     public function it_should_fail_with_proper_currency_and_invalid_bank_name_for_it()
     {
-        $allowedCurrencies = PayoutBankParameters::getAllowedCurrencies();
-        $currency          = Faker::getInstance()->randomElement($allowedCurrencies);
-        $invalidCurrency   = Faker::getInstance()->randomElement(array_diff($allowedCurrencies, [$currency]));
-        $invalidBankNames  = PayoutBankParameters::getBankNamesPerCurrency($invalidCurrency);
+        $currency        = 'PEN';
+        $invalidBankName = 'BROU - Banco de la República Oriental del Uruguay';
 
         $this->setRequestParameters();
         $this->setCurrency($currency);
-        $this->setBankName(Faker::getInstance()->randomElement($invalidBankNames));
+        $this->setBankName($invalidBankName);
 
         $this->shouldThrow(ErrorParameter::class)->during('getDocument');
     }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +23,8 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\NonFinancial\Fraud\Reports;
+
+namespace Genesis\Api\Request\NonFinancial\Fraud\Reports;
 
 /**
  * Fraud (SAFE/TC40) Report by arn/original_transaction_unique_id
@@ -30,7 +32,7 @@ namespace Genesis\API\Request\NonFinancial\Fraud\Reports;
  * @package    Genesis
  * @subpackage Request
  */
-class Transaction extends \Genesis\API\Request
+class Transaction extends \Genesis\Api\Request
 {
     /**
      * Acquirer's Reference Number

@@ -1,16 +1,18 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\PayU;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\PayU;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PayUSpec extends ObjectBehavior
 {
-    use RequestExamples, AsyncAttributesExample, PendingPaymentAttributesExamples;
+    use AsyncAttributesExample;
+    use PendingPaymentAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

@@ -3,13 +3,12 @@
 namespace spec\Genesis\Builders;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
-class JSONSpec extends ObjectBehavior
+class JsonSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Builders\JSON');
+        $this->shouldHaveType('Genesis\Builders\Json');
     }
 
     public function it_can_generate_content()

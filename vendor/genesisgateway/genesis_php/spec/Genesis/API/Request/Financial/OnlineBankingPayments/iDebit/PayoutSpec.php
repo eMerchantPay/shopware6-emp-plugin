@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments\iDebit;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments\Idebit;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\iDebit\Payout;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\Idebit\Payout;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class PayoutSpec extends ObjectBehavior
 {

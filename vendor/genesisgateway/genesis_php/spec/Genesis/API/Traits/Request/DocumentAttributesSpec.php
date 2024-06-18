@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request;
+namespace spec\Genesis\Api\Traits\Request;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\DocumentAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\DocumentAttributesStub;
 
 class DocumentAttributesSpec extends ObjectBehavior
 {

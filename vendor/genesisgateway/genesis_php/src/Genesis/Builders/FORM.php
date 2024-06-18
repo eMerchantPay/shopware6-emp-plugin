@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,13 +30,13 @@ use Genesis\Exceptions\InvalidArgument;
 use Genesis\Interfaces\Builder;
 
 /**
- * Class FORM
+ * Class Form
  *
  * Converts array to HTTP query string
  *
  * @package Genesis\Builders
  */
-class FORM implements Builder
+class Form implements Builder
 {
     /**
      * The query string content

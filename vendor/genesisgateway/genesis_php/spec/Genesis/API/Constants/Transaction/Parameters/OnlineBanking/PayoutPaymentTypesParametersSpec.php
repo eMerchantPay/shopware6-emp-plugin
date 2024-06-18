@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\OnlineBanking;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\OnlineBanking;
 
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class PayoutPaymentTypesParametersSpec
- * @package spec\Genesis\API\Constants\Transaction\Parameters\OnlineBanking
+ * @package spec\Genesis\Api\Constants\Transaction\Parameters\OnlineBanking
  */
 class PayoutPaymentTypesParametersSpec extends ObjectBehavior
 {

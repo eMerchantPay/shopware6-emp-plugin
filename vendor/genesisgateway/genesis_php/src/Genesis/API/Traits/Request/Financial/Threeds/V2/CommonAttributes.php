@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
-use Genesis\API\Response;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\DeviceTypes;
+use Genesis\Api\Response;
 use Genesis\Config;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Utils\Currency;
@@ -35,11 +36,17 @@ use Genesis\Utils\Threeds\V2 as ThreedsV2Utils;
 
 /**
  * Trait CommonAttributes
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  */
 trait CommonAttributes
 {
-    use Sdk, Browser, CardHolderAccount, MerchantRisk, Purchase, Control, Method;
+    use Browser;
+    use CardHolderAccount;
+    use Control;
+    use MerchantRisk;
+    use Method;
+    use Purchase;
+    use Sdk;
 
     /**
      * Get the 3DSv2 Attributes Structure

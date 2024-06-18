@@ -24,8 +24,7 @@ use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * Class CartValidationController
@@ -58,14 +57,14 @@ class CartValidationController extends StorefrontController
      *
      * @return JsonResponse
      *
-     * @Route(
-     *     path="/cart/validate",
-     *     name="emerchantpay.frontend.cart.validate",
-     *     options={"seo"="false"},
-     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}},
-     *     methods={"POST"}
-     * )
      */
+    #[Route(
+        path:     '/cart/validate',
+        name:     'emerchantpay.frontend.cart.validate',
+        options:  ['seo'=> 'false'],
+        defaults: ['auth_required' => false, 'csrf_protected' => false, '_routeScope' => ['storefront']],
+        methods:  ["POST"]
+    )]
     public function validateCart(SalesChannelContext $context): JsonResponse
     {
         $cart = $this->cartService->getCart($context->getToken(), $context);

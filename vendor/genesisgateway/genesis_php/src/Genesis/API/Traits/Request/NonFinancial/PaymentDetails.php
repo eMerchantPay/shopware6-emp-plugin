@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\NonFinancial;
+namespace Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\KYC\CVVPresents;
+use Genesis\Api\Constants\NonFinancial\Kyc\CvvPresents;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait PaymentDetails
- * @package Genesis\API\Traits\Request\NonFinancial
+ * @package Genesis\Api\Traits\Request\NonFinancial
  */
 trait PaymentDetails
 {
@@ -150,7 +151,7 @@ trait PaymentDetails
     {
         return $this->allowedOptionsSetter(
             'cvv_present',
-            CVVPresents::getAll(),
+            CvvPresents::getAll(),
             $cvvPresent,
             'Invalid cvv present indicator.'
         );

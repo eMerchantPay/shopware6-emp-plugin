@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,27 +24,28 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace Genesis\Api\Request\Financial\Alternatives\Klarna;
 
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
 
 /**
  * Class Authorize
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives\Klarna
+ * @package Genesis\Api\Request\Financial\Alternatives\Klarna
  *
  * @method $this setPaymentMethodCategory($value) Set payment method category
  */
-class Authorize extends \Genesis\API\Request\Base\Financial\Alternative\Klarna
+class Authorize extends \Genesis\Api\Request\Base\Financial\Alternative\Klarna
 {
-    use AsyncAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
 
     const PAYMENT_METHOD_CATEGORY_PAY_LATER      = 'pay_later';
     const PAYMENT_METHOD_CATEGORY_PAY_OVER_TIME  = 'pay_over_time';
-    
+
     /**
      * Payment Method Category
      *
@@ -72,7 +74,7 @@ class Authorize extends \Genesis\API\Request\Base\Financial\Alternative\Klarna
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::KLARNA_AUTHORIZE;
+        return \Genesis\Api\Constants\Transaction\Types::KLARNA_AUTHORIZE;
     }
 
     /**

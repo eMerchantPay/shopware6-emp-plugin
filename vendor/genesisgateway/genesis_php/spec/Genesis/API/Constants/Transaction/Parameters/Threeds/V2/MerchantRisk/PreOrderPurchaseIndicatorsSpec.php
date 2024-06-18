@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\PreOrderPurchaseIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\PreOrderPurchaseIndicators;
 use PhpSpec\ObjectBehavior;
 
 class PreOrderPurchaseIndicatorsSpec extends ObjectBehavior

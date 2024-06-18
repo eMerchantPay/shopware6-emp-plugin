@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\SourceOfFunds;
+use Genesis\Api\Constants\Transaction\Parameters\SourceOfFunds;
 use Genesis\Exceptions\InvalidArgument;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\SourceOfFundsStub;
 use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\SourceOfFundsStub;
 
 class SourceOfFundsAttributesSpec extends ObjectBehavior
 {

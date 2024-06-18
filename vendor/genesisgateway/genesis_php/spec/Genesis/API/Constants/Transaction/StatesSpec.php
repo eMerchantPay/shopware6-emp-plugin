@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction;
+namespace spec\Genesis\Api\Constants\Transaction;
 
-use Genesis\API\Constants\Transaction\States;
+use Genesis\Api\Constants\Transaction\States;
 use Genesis\Utils\Common;
 use PhpSpec\ObjectBehavior;
 
@@ -10,7 +10,7 @@ class StatesSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\Transaction\States');
+        $this->shouldHaveType('Genesis\Api\Constants\Transaction\States');
     }
 
     public function it_should_have_magic_is_approved()

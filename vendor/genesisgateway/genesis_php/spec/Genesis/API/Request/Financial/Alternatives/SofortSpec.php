@@ -1,19 +1,22 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives;
+namespace spec\Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Request\Financial\Alternatives\Sofort;
+use Genesis\Api\Request\Financial\Alternatives\Sofort;
 use Genesis\Utils\Country;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\AsyncAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AsyncAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class SofortSpec extends ObjectBehavior
 {
-    use RequestExamples, AsyncAttributesExample, PendingPaymentAttributesExamples, NeighborhoodAttributesExamples;
+    use AsyncAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use PendingPaymentAttributesExamples;
+    use RequestExamples;
 
     public $allowed_country = [
         'AT', 'BE', 'DE', 'ES', 'IT', 'NL', 'CH', 'PL'

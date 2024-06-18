@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\TransactionApi;
+namespace Genesis\Api\Request\NonFinancial\TransactionApi;
 
 use DateTime;
-use Genesis\API\Request;
-use Genesis\API\Request\Base\BaseVersionedRequest;
+use Genesis\Api\Request;
+use Genesis\Api\Request\Base\BaseVersionedRequest;
 use Genesis\Builder;
 use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
@@ -35,9 +36,8 @@ use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class CardExpiryDateUpdate
- * @package Genesis\API\Request\NonFinancial\TransactionApi
+ * @package Genesis\Api\Request\NonFinancial\TransactionApi
  *
- * @SuppressWarnings(PHPMD.LongVariable)
  * @SuppressWarnings(PHPMD.CamelCasePropertyName)
  */
 class CardExpiryDateUpdate extends BaseVersionedRequest

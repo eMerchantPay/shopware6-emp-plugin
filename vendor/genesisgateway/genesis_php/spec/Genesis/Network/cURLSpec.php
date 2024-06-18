@@ -2,28 +2,31 @@
 
 namespace spec\Genesis\Network;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Builder;
-use PhpSpec\ObjectBehavior;
 use Genesis\Config;
-use spec\Genesis\Network\Stubs\cURLStub;
-use spec\Genesis\Network\Stubs\Traits\GraphQLServiceUrl;
-use spec\SharedExamples\Genesis\Network\GraphQLConnectionExample;
+use PhpSpec\ObjectBehavior;
+use spec\Genesis\Network\Stubs\CurlStub;
+use spec\Genesis\Network\Stubs\Traits\GraphqlServiceUrl;
+use spec\SharedExamples\Genesis\Network\GraphqlConnectionExample;
+use spec\SharedExamples\Genesis\Network\HttpStatusExample;
 
 // @codingStandardsIgnoreStart
-class cURLSpec extends ObjectBehavior
+class CurlSpec extends ObjectBehavior
 // @codingStandardsIgnoreEnd
 {
-    use GraphQLServiceUrl, GraphQLConnectionExample;
+    use GraphqlConnectionExample;
+    use GraphqlServiceUrl;
+    use HttpStatusExample;
 
     public function let()
     {
-        $this->beAnInstanceOf(cURLStub::class);
+        $this->beAnInstanceOf(CurlStub::class);
     }
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\Network\cURL');
+        $this->shouldHaveType('Genesis\Network\Curl');
     }
 
     public function it_can_connect_to_staging_gateway()
@@ -32,11 +35,11 @@ class cURLSpec extends ObjectBehavior
         $this->getWrappedObject()->is_prod = false;
 
         $endpoints = array(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         Config::setEnvironment(
-            \Genesis\API\Constants\Environments::STAGING
+            \Genesis\Api\Constants\Environments::STAGING
         );
 
         foreach ($endpoints as $endpoint) {
@@ -54,11 +57,11 @@ class cURLSpec extends ObjectBehavior
         $this->getWrappedObject()->is_prod = false;
 
         $endpoints = array(
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         Config::setEnvironment(
-            \Genesis\API\Constants\Environments::STAGING
+            \Genesis\Api\Constants\Environments::STAGING
         );
 
         foreach ($endpoints as $endpoint) {
@@ -76,12 +79,12 @@ class cURLSpec extends ObjectBehavior
         $this->getWrappedObject()->is_prod = true;
 
         $endpoints = array(
-            \Genesis\API\Constants\Endpoints::ECOMPROCESSING,
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::ECOMPROCESSING,
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         Config::setEnvironment(
-            \Genesis\API\Constants\Environments::PRODUCTION
+            \Genesis\Api\Constants\Environments::PRODUCTION
         );
 
         foreach ($endpoints as $endpoint) {
@@ -99,12 +102,12 @@ class cURLSpec extends ObjectBehavior
         $this->getWrappedObject()->is_prod = true;
 
         $endpoints = array(
-            \Genesis\API\Constants\Endpoints::ECOMPROCESSING,
-            \Genesis\API\Constants\Endpoints::EMERCHANTPAY
+            \Genesis\Api\Constants\Endpoints::ECOMPROCESSING,
+            \Genesis\Api\Constants\Endpoints::EMERCHANTPAY
         );
 
         Config::setEnvironment(
-            \Genesis\API\Constants\Environments::PRODUCTION
+            \Genesis\Api\Constants\Environments::PRODUCTION
         );
 
         foreach ($endpoints as $endpoint) {
@@ -134,7 +137,7 @@ class cURLSpec extends ObjectBehavior
         );
     }
 
-    protected function sendRemoteConnection($remote_url, $authorization = Request::AUTH_TYPE_BASIC, $token = null)
+    protected function sendRemoteConnection($remote_url, $authorization = Request::AUTH_TYPE_BASIC, $token = null, $status = 200)
     {
         $faker = \Faker\Factory::create();
 
@@ -180,7 +183,7 @@ class cURLSpec extends ObjectBehavior
             $this->getResponseBody()->shouldNotBeOlder();
         }
 
-        $this->getStatus()->shouldBe(200);
+        $this->getStatus()->shouldBe($status);
     }
 
     public function getMatchers(): array

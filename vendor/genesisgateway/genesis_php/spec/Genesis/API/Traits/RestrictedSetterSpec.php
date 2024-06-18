@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits;
+namespace spec\Genesis\Api\Traits;
 
 use DateTime;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\RestrictedSetterStub;
+use spec\Genesis\Api\Stubs\Traits\RestrictedSetterStub;
 use spec\SharedExamples\Faker;
 
 class RestrictedSetterSpec extends ObjectBehavior
@@ -224,7 +224,7 @@ class RestrictedSetterSpec extends ObjectBehavior
         $this->shouldNotThrow()->during(
             'publicParseAmount',
             [
-                'test',
+                'test_value',
                 $faker->numberBetween(1, PHP_INT_MAX)
             ]
         );

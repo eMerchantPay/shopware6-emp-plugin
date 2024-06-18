@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\NonFinancial;
 
-use Genesis\API\Traits\Request\NonFinancial\ProcessingType;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\Request\NonFinancial\ProcessingType;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class ProcessingTypeStub
- * @package spec\Genesis\API\Traits\Request\NonFinancial
+ * @package spec\Genesis\Api\Traits\Request\NonFinancial
  */
 class ProcessingTypeStub
 {
-    use RestrictedSetter, ProcessingType;
+    use ProcessingType;
+    use RestrictedSetter;
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
 use Genesis\Exceptions\ErrorParameter;
 
@@ -32,7 +33,7 @@ use Genesis\Exceptions\ErrorParameter;
  *
  * Trait with common fields for PPRO payment types
  *
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method string getConsumerReference()
  * @method string getNationalId()
@@ -80,7 +81,7 @@ trait PproAttributes
      */
     public function setConsumerReference($value)
     {
-        if (strlen($value) > $this->getMaxConsumerReferenceLen()) {
+        if (strlen((string)$value) > $this->getMaxConsumerReferenceLen()) {
             throw new ErrorParameter("Consumer reference can be max {$this->getMaxConsumerReferenceLen()} characters.");
         }
 
@@ -99,7 +100,7 @@ trait PproAttributes
      */
     public function setNationalId($value)
     {
-        if (strlen($value) > $this->getNationalIdLen()) {
+        if (strlen((string)$value) > $this->getNationalIdLen()) {
             throw new ErrorParameter("National Identifier can be max {$this->getNationalIdLen()} characters.");
         }
 

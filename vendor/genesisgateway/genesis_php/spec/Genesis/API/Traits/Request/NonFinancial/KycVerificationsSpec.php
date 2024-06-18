@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\KYC\VerificationAddressesTypes;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationLanguages;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationSupportedModes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationAddressesTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationLanguages;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationSupportedModes;
 use Genesis\Exceptions\InvalidArgument;
-use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\KycVerificationsStub;
-use spec\SharedExamples\Faker;
 use Genesis\Utils\Country;
+use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\KycVerificationsStub;
+use spec\SharedExamples\Faker;
 
 class KycVerificationsSpec extends ObjectBehavior
 {

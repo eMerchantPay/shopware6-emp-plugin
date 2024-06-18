@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\Reconcile;
+namespace Genesis\Api\Request\NonFinancial\Reconcile;
 
-use Genesis\API\Traits\Request\NonFinancial\DateAttributes;
+use Genesis\Api\Traits\Request\NonFinancial\DateAttributes;
 
 /**
  * Reconcile request by Date Range
@@ -33,7 +34,7 @@ use Genesis\API\Traits\Request\NonFinancial\DateAttributes;
  * @package    Genesis
  * @subpackage Request
  */
-class DateRange extends \Genesis\API\Request
+class DateRange extends \Genesis\Api\Request
 {
     use DateAttributes;
 

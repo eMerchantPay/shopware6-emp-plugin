@@ -1,22 +1,25 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives\Trustly;
+namespace spec\Genesis\Api\Request\Financial\Alternatives\Trustly;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Constants\Transaction\Parameters\IFrameTargets;
-use Genesis\API\Request\Financial\Alternatives\Trustly\Sale;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Constants\Transaction\Parameters\IFrameTargets;
+use Genesis\Api\Request\Financial\Alternatives\Trustly\Sale;
 use Genesis\Exceptions\InvalidArgument;
+use Genesis\Utils\Country;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use Genesis\Utils\Country;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class SaleSpec extends ObjectBehavior
 {
-    use RequestExamples, BirthDateAttributesExample, BusinessAttributesExample, NeighborhoodAttributesExamples;
+    use BirthDateAttributesExample;
+    use BusinessAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public $allowed_country = [
         'AT', 'BE', 'CZ', 'DK', 'EE', 'FI', 'DE', 'LV', 'LT', 'NL', 'NO', 'PL',

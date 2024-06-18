@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,9 +24,9 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Cards\Recurring;
+namespace Genesis\Api\Traits\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Constants\Transaction\Parameters\Recurring\Categories;
+use Genesis\Api\Constants\Transaction\Parameters\Recurring\Categories;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
@@ -34,7 +35,7 @@ use Genesis\Exceptions\InvalidArgument;
  * Specifies whether the recurring transaction is a subscription(fixed amount, fixed intervals)or if it is a standing
  * order(varying amount, fixed intervals).
  *
- * @package Genesis\API\Traits\Request\Financial\Cards\Recurring
+ * @package Genesis\Api\Traits\Request\Financial\Cards\Recurring
  *
  * @method string|null getRecurringCategory() Specifies whether the recurring is a subscription or standing order
  */

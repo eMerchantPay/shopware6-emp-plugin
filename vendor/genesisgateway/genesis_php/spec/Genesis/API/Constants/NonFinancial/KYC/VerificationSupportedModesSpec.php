@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\VerificationSupportedModes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationSupportedModes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class VerificationSupportedModesSpec
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class VerificationSupportedModesSpec extends ObjectBehavior
 {

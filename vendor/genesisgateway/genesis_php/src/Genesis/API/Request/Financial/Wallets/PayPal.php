@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,19 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Wallets;
+namespace Genesis\Api\Request\Financial\Wallets;
 
-use Genesis\API\Constants\Transaction\Parameters\Wallets\PayPal\PaymentTypes;
-use Genesis\API\Constants\Transaction\Types as TransactionType;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\Request\Financial\NotificationAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Wallets\PayPal\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Types as TransactionType;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\Request\Financial\NotificationAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 use Genesis\Utils\Currency;
@@ -45,14 +46,20 @@ use Genesis\Utils\Currency;
  *
  * Electronic Wallet
  *
- * @package Genesis\API\Request\Financial\Wallets
+ * @package Genesis\Api\Request\Financial\Wallets
  * @method string getPaymentType()
  * @method $this setPaymentToken($value)
  */
 class PayPal extends Financial
 {
-    use PaymentAttributes, AddressInfoAttributes, BirthDateAttributes, DocumentAttributes,
-        BusinessAttributes, AsyncAttributes, PendingPaymentAttributes, NotificationAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BirthDateAttributes;
+    use BusinessAttributes;
+    use DocumentAttributes;
+    use NotificationAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * PayPal Payment Type

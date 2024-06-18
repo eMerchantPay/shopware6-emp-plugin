@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial;
+namespace spec\Genesis\Api\Request\Financial;
 
-use Genesis\API\Request\Financial\Capture;
+use Genesis\Api\Request\Financial\Capture;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class CaptureSpec extends ObjectBehavior
 {
-    use RequestExamples, BusinessAttributesExample;
+    use BusinessAttributesExample;
+    use RequestExamples;
 
     public function it_is_initializable()
     {

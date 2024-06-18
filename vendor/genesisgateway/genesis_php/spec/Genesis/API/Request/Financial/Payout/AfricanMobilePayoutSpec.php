@@ -1,17 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Payout;
+namespace spec\Genesis\Api\Request\Financial\Payout;
 
-use Genesis\API\Request\Financial\Payout\AfricanMobilePayout;
-use Genesis\Utils\Country;
-use Genesis\Utils\Currency;
+use Genesis\Api\Request\Financial\Payout\AfricanMobilePayout;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class AfricanMobilePayoutSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
 
     public function is_it_initializable()
     {

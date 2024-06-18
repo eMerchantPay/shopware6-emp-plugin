@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control;
 
 /**
  * Identifies the device channel of the consumer, required in the 3DSv2 authentication protocol.
  *
  * Class DeviceTypes
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control
  */
 class DeviceTypes
 {

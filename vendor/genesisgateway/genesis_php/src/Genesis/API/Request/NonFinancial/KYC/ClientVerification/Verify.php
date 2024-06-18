@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,18 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\ClientVerification;
+namespace Genesis\Api\Request\NonFinancial\Kyc\ClientVerification;
 
-use DateTime;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationAddressesTypes;
-use Genesis\API\Constants\NonFinancial\KYC\VerificationLanguages;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest as KYCBaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\KYC\KycVerifications;
-use Genesis\API\Traits\Request\NonFinancial\KYC\KycDocumentVerifications;
-use Genesis\API\Traits\Request\NonFinancial\KYC\KycBackgroundChecksVerifications;
-use Genesis\API\Traits\Request\NonFinancial\KYC\KycFaceVerifications;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest as KYCBaseRequest;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Traits\Request\NonFinancial\Kyc\KycBackgroundChecksVerifications;
+use Genesis\Api\Traits\Request\NonFinancial\Kyc\KycDocumentVerifications;
+use Genesis\Api\Traits\Request\NonFinancial\Kyc\KycFaceVerifications;
+use Genesis\Api\Traits\Request\NonFinancial\Kyc\KycVerifications;
+use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
 
 /**
  * class Verify
@@ -43,7 +42,7 @@ use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
  * The customer will provide the required documents and will be verified against them.
  * As a result, the user will be redirected back to merchant based on the provided redirect URL.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\ClientVerification
+ * @package Genesis\Api\Request\NonFinancial\Kyc\ClientVerification
  *
  * @method $this  setEmail($value);
  * @method $this  setRedirectUrl($value);
@@ -58,8 +57,11 @@ use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
  */
 class Verify extends KYCBaseRequest
 {
-    use KycVerifications, ReferenceAttributes, KycDocumentVerifications,
-        KycBackgroundChecksVerifications, KycFaceVerifications;
+    use KycBackgroundChecksVerifications;
+    use KycDocumentVerifications;
+    use KycFaceVerifications;
+    use KycVerifications;
+    use ReferenceAttributes;
 
     const REFERENCE_ID_MIN_LENGTH = 6;
     const REFERENCE_ID_MAX_LENGTH = 250;
@@ -70,21 +72,6 @@ class Verify extends KYCBaseRequest
      * @var string
      */
     protected $email;
-
-    /**
-     * Country code in ISO 3166
-     *
-     * @var string
-     */
-    protected $country;
-
-    /**
-     * Supported Language Code
-     *
-     * @var string
-     * @see VerificationLanguages
-     */
-    protected $language;
 
     /**
      * URL where the customer is sent to after completing the verification process
@@ -108,14 +95,6 @@ class Verify extends KYCBaseRequest
     protected $address_backside_proof_required;
 
     /**
-     * Document's expiry date at yyyy-mm-dd format, for example - 2025-12-31, can be a blank string.
-     * A blank string means that the user will need to enter the expiry date from the UI
-     *
-     * @var DateTime
-     */
-    protected $expiry_date;
-
-    /**
      * If the parameter value is set to 'true', the customer will be able to retry if the verification request is
      * declined by the AI. On retry, the customer can re-upload the verification proof after
      * correcting the indicated issues.
@@ -123,21 +102,6 @@ class Verify extends KYCBaseRequest
      * @var bool
      */
     protected $allow_retry;
-
-    /**
-     * Supported types of address that can be verified
-     *
-     * @var string
-     * @see VerificationAddressesTypes
-     */
-    protected $address_supported_types;
-
-    /**
-     * This key specifies the types of proof that can be used for verification
-     *
-     * @var string
-     */
-    protected $verification_mode;
 
     /**
      * Define Verifications request endpoint
@@ -180,6 +144,29 @@ class Verify extends KYCBaseRequest
             'face_allow_online'            => 'allow_online',
             'face_check_duplicate_request' => 'check_duplicate_request',
             'expiry_date'                  => 'expiry_date'
+        );
+    }
+
+    /**
+     * Verify Reference ID value
+     *
+     * @param $value
+     * @return $this
+     * @throws InvalidArgument
+     */
+    public function setReferenceId($value)
+    {
+        if (empty($value)) {
+            $this->reference_id = null;
+
+            return $this;
+        }
+
+        return $this->setLimitedString(
+            'reference_id',
+            $value,
+            self::REFERENCE_ID_MIN_LENGTH,
+            self::REFERENCE_ID_MAX_LENGTH
         );
     }
 

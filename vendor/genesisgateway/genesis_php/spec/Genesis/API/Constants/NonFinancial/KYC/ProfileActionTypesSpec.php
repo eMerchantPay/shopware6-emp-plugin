@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\ProfileActionTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileActionTypes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class ProfileActionTypes
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class ProfileActionTypesSpec extends ObjectBehavior
 {

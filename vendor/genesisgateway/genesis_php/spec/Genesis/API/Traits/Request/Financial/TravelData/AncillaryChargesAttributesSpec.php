@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\TravelData;
+namespace spec\Genesis\Api\Traits\Request\Financial\TravelData;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\TravelData\TravelDataAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\TravelData\TravelDataAttributesStub;
 
 class AncillaryChargesAttributesSpec extends ObjectBehavior
 {

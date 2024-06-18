@@ -1,17 +1,18 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
-use Genesis\API\Request\Financial\Cards\Authorize3D;
-use Genesis\API\Request\Financial\Cards\Recurring\InitRecurringSale3D;
-use Genesis\API\Request\Financial\Cards\Sale3D;
-use Genesis\API\Request\WPF\Create as WpfCreate;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\UiTypes;
+use Genesis\Api\Request\Financial\Cards\Authorize3D;
+use Genesis\Api\Request\Financial\Cards\Recurring\InitRecurringSale3D;
+use Genesis\Api\Request\Financial\Cards\Sale3D;
+use Genesis\Api\Request\Wpf\Create as WpfCreate;
 use Genesis\Config;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\Exception\Example\SkippingException;
-use spec\fixtures\API\Stubs\Parser\ParserStub;
+use spec\Fixtures\Api\Stubs\Parser\ParserStub;
 use spec\SharedExamples\Faker;
+
 
 trait ThreedsV2AttributesExamples
 {
@@ -288,7 +289,7 @@ trait ThreedsV2AttributesExamples
     {
         $parser = new ParserStub('Financial\Threeds\V2');
 
-        $response->beADoubleOf('Genesis\API\Response');
+        $response->beADoubleOf('Genesis\Api\Response');
         $response->getResponseObject()->willReturn(
             $parser->Transaction('xml', 'response')->getParsedDocument()
         );

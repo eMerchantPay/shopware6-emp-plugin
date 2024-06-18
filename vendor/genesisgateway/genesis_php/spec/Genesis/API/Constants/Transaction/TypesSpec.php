@@ -1,16 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction;
+namespace spec\Genesis\Api\Constants\Transaction;
 
-use Genesis\API\Constants\Transaction\Types;
+use Genesis\Api\Constants\Transaction\Types;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 class TypesSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\Transaction\Types');
+        $this->shouldHaveType('Genesis\Api\Constants\Transaction\Types');
     }
 
     public function it_can_validate_transaction_types()
@@ -27,14 +26,7 @@ class TypesSpec extends ObjectBehavior
 
     public function it_can_detect_not_supported_wpf_trx_types()
     {
-        $this->isValidWPFTransactionType(Types::EARTHPORT)->shouldReturn(false);
-    }
-
-    public function it_can_validate_pay_by_voucher_transaction_types()
-    {
-        $this->isPayByVoucher(Types::PAYBYVOUCHER_YEEPAY)->shouldReturn(true);
-        $this->isPayByVoucher(Types::PAYBYVOUCHER_SALE)->shouldReturn(true);
-        $this->isPayByVoucher(Types::EARTHPORT)->shouldReturn(false);
+        $this->isValidWPFTransactionType(Types::EZEECARD_PAYOUT)->shouldReturn(false);
     }
 
     public function it_can_detect_3d_transaction_types()
@@ -54,11 +46,8 @@ class TypesSpec extends ObjectBehavior
     public function it_can_get_custom_required_parameters()
     {
         $this->getCustomRequiredParameters(Types::PPRO)->shouldNotBe(false);
-        $this->getCustomRequiredParameters(Types::PAYBYVOUCHER_SALE)->shouldNotBe(false);
-        $this->getCustomRequiredParameters(Types::PAYBYVOUCHER_YEEPAY)->shouldNotBe(false);
         $this->getCustomRequiredParameters(Types::INSTA_DEBIT_PAYIN)->shouldNotBe(false);
         $this->getCustomRequiredParameters(Types::IDEBIT_PAYIN)->shouldNotBe(false);
-        $this->getCustomRequiredParameters(Types::CITADEL_PAYIN)->shouldNotBe(false);
         $this->getCustomRequiredParameters(Types::KLARNA_AUTHORIZE)->shouldNotBe(false);
     }
 
@@ -166,8 +155,7 @@ class TypesSpec extends ObjectBehavior
             $typesObject::TRUSTLY_SALE,
             $typesObject::UPI,
             $typesObject::WEBPAY,
-            $typesObject::WECHAT,
-            $typesObject::ZIMPLER
+            $typesObject::WECHAT
         ];
 
         foreach ($refundableTypes as $type) {

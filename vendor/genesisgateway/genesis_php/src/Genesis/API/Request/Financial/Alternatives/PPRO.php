@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,35 +24,38 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives;
+namespace Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BankAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Constants\Payment\Methods as PaymentMethods;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Constants\Payment\Methods as PaymentMethods;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BankAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
- * Class PPRO
+ * Class Ppro
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives
+ * @package Genesis\Api\Request\Financial\Alternatives
  *
- * @method PPRO setPaymentType($value) Set used payment type
- * @method PPRO setAccountNumber($value) Set valid account number
- * @method PPRO setBankCode($value) Set a valid bank code
- * @method PPRO setBic($value) Set a valid BIC
- * @method PPRO setIban($value) Set a valid IBAN bank account
- * @method PPRO setAccountPhone($value) Set phone number for destination account to pay out
+ * @method Ppro setPaymentType($value) Set used payment type
+ * @method Ppro setAccountNumber($value) Set valid account number
+ * @method Ppro setBankCode($value) Set a valid bank code
+ * @method Ppro setBic($value) Set a valid BIC
+ * @method Ppro setIban($value) Set a valid IBAN bank account
+ * @method Ppro setAccountPhone($value) Set phone number for destination account to pay out
  */
-class PPRO extends \Genesis\API\Request\Base\Financial
+class Ppro extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AsyncAttributes, AddressInfoAttributes, BankAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BankAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Used payment method
@@ -99,7 +103,7 @@ class PPRO extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::PPRO;
+        return \Genesis\Api\Constants\Transaction\Types::PPRO;
     }
 
     /**

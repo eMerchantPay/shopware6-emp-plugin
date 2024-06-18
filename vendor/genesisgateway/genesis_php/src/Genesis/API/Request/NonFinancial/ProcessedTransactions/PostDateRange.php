@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,20 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\ProcessedTransactions;
+namespace Genesis\Api\Request\NonFinancial\ProcessedTransactions;
 
-use Genesis\API\Request\Base\NonFinancial\DateRangeRequest as BaseDateRangeRequest;
-use Genesis\API\Traits\Request\NonFinancial\ExternallyProcessed;
-use Genesis\API\Traits\Request\NonFinancial\ProcessingType;
+use Genesis\Api\Request\Base\NonFinancial\DateRangeRequest as BaseDateRangeRequest;
+use Genesis\Api\Traits\Request\NonFinancial\ExternallyProcessed;
+use Genesis\Api\Traits\Request\NonFinancial\ProcessingType;
 
 /**
  * Class PostDateRange
- * @package Genesis\API\Request\NonFinancial\ProcessedTransactions
+ * @package Genesis\Api\Request\NonFinancial\ProcessedTransactions
  */
 class PostDateRange extends BaseDateRangeRequest
 {
-    use ExternallyProcessed, ProcessingType;
+    use ExternallyProcessed;
+    use ProcessingType;
 
     /**
      * Batch number of processed transactions

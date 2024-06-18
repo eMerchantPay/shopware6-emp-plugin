@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Mobile\GooglePay;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Mobile\GooglePay;
 
-use Genesis\API\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Mobile\GooglePay\PaymentTypes;
 use PhpSpec\ObjectBehavior;
 
 class PaymentTypesSpec extends ObjectBehavior

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Base;
+namespace Genesis\Api\Request\Base;
 
 use Genesis\Builder;
 use Genesis\Exceptions\EnvironmentNotSet;
@@ -31,11 +32,11 @@ use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
- * Class GraphQLRequest
+ * Class GraphqlRequest
  *
- * @package Genesis\API\Request\Base
+ * @package Genesis\Api\Request\Base
  */
-abstract class GraphQLRequest extends BaseVersionedRequest
+abstract class GraphqlRequest extends BaseVersionedRequest
 {
     /**
      * List of fields in the response
@@ -100,7 +101,8 @@ abstract class GraphQLRequest extends BaseVersionedRequest
      */
     public function setResponseFields($value)
     {
-        if (CommonUtils::isValidArray($value)
+        if (
+            CommonUtils::isValidArray($value)
             && empty(array_diff($value, $this->getResponseFieldsAllowedValues()))
         ) {
             $this->response_fields = $value;
@@ -149,11 +151,10 @@ abstract class GraphQLRequest extends BaseVersionedRequest
     /**
      * Set the per-request configuration
      *
-     * @param $subdomain
      * @return void
      * @throws EnvironmentNotSet
      */
-    protected function initConfiguration($subdomain = 'not_used')
+    protected function initConfiguration()
     {
         $this->initGraphqlConfiguration();
 
@@ -172,7 +173,7 @@ abstract class GraphQLRequest extends BaseVersionedRequest
     protected function initializeServiceApiRouter($request_path)
     {
         $this->initApiGatewayConfiguration(
-            $request_path. '/' . $this->getVersion() . '/graphql',
+            $request_path . '/' . $this->getVersion() . '/graphql',
             false,
             'api_service'
         );

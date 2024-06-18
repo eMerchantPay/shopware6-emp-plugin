@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\VerificationAddressesTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationAddressesTypes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class VerificationAddressesTypesSpec
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class VerificationAddressesTypesSpec extends ObjectBehavior
 {

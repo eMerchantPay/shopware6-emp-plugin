@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Genesis\API\Constants;
+namespace spec\Genesis\Api\Constants;
 
 use PhpSpec\ObjectBehavior;
 
@@ -8,7 +8,7 @@ class DateTimeFormatSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\DateTimeFormat');
+        $this->shouldHaveType('Genesis\Api\Constants\DateTimeFormat');
     }
 
     public function it_should_be_array()

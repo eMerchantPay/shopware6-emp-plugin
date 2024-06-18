@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +24,25 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\TravelData;
+namespace Genesis\Api\Request\Financial\TravelData;
 
-use Genesis\API\Constants\DateTimeFormat;
-use Genesis\API\Traits\MagicAccessors;
+use Genesis\Api\Constants\DateTimeFormat;
+use Genesis\Api\Request\Financial\TravelData\Base\AidAttributes;
+use Genesis\Api\Traits\MagicAccessors;
 use Genesis\Exceptions\InvalidArgument;
-use Genesis\API\Request\Financial\TravelData\Base\AidAttributes;
 
 /**
  * Class AirlineItineraryLegData
- * @package Genesis\API\Request\Financial\TravelData
+ * @package Genesis\Api\Request\Financial\TravelData
  */
 class AirlineItineraryLegData extends AidAttributes
 {
+    use MagicAccessors;
+
     const DEPARTURE_TIME_SEGMENT_AM = 'A';
     const DEPARTURE_TIME_SEGMENT_PM = 'P';
     const STOPOVER_CODE_ALLOWED     = 1;
     const STOPOVER_CODE_DISALLOWED  = 0;
-
-    use MagicAccessors;
 
     /**
      * @var \DateTime

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Payout;
+namespace Genesis\Api\Request\Financial\Payout;
 
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -37,11 +38,13 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Russian Mobile Payout Request
  *
- * @package Genesis\API\Request\Financial\Payout\RussianMobilePayout
+ * @package Genesis\Api\Request\Financial\Payout\RussianMobilePayout
  */
 class RussianMobilePayout extends Financial
 {
-    use  AddressInfoAttributes, AsyncAttributes, PaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
 
     /**
      * @return string

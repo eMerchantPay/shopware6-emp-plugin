@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
 use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\PurposeOfPaymentAttributesStub;
 use spec\SharedExamples\Faker;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\PurposeOfPaymentAttributesStub;
 
 class PurposeOfPaymentAttributesSpec extends ObjectBehavior
 {

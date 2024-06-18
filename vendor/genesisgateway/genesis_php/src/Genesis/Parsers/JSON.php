@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +23,14 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
+
 namespace Genesis\Parsers;
 
 /**
- * Class JSON
+ * Class Json
  * @package Genesis\Parsers
  */
-final class JSON implements \Genesis\Interfaces\Parser
+final class Json implements \Genesis\Interfaces\Parser
 {
     /**
      * Converted JSON

@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial\Cards;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationOwner;
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationSubType;
-use Genesis\API\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationType;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationOwner;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationSubType;
+use Genesis\Api\Constants\Transaction\Parameters\CustomerIdentification\CustomerIdentificationType;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Country;
 

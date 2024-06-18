@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\Call;
+namespace Genesis\Api\Request\NonFinancial\Kyc\Call;
 
-use Genesis\API\Constants\NonFinancial\KYC\CallVerificationStatuses;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Constants\NonFinancial\Kyc\CallVerificationStatuses;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
+use Genesis\Api\Validators\Request\RegexValidator;
 
 /**
  * Class Update
@@ -35,7 +36,7 @@ use Genesis\API\Validators\Request\RegexValidator;
  * This method is used to update the call status with the latest info received from the main system. It
  * also updates the transaction associated with this verification call.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\Call
+ * @package Genesis\Api\Request\NonFinancial\Kyc\Call
  */
 class Update extends BaseRequest
 {

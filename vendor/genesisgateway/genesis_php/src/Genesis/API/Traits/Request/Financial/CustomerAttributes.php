@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,14 +24,14 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
  * Trait CustomerAttributes
- * @package Genesis\API\Traits\Request\Financial\OnlineBankingPayments
+ * @package Genesis\Api\Traits\Request\Financial\OnlineBankingPayments
  *
  * @method $this  setCompanyType($value)
  * @method $this  setCompanyActivity($value)

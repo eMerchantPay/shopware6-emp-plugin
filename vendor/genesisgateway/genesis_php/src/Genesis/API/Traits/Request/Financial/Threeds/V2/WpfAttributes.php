@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,23 +24,24 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeWindowSizes;
 use Genesis\Exceptions\InvalidMethod;
 
 /**
  * Trait WpfAttributes
  * Includes All Web Payment Form Threeds V2 Attributes
  *
- * @package Genesis\API\Traits\Request\Financial\Threeds\V2
+ * @package Genesis\Api\Traits\Request\Financial\Threeds\V2
  *
  * @SuppressWarnings("unused")
  */
 trait WpfAttributes
 {
-    use Recurring, CommonAttributes;
+    use CommonAttributes;
+    use Recurring;
 
     public function getThreedsV2ControlDeviceType()
     {
@@ -200,7 +202,7 @@ trait WpfAttributes
     {
         $this->throwMethodError(__METHOD__);
     }
-    
+
     protected function getThreedsV2ParamsStructure()
     {
         return array_merge(

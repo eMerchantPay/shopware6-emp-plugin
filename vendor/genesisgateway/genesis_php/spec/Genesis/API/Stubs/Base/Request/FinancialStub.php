@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request;
+namespace spec\Genesis\Api\Stubs\Base\Request;
 
-use Genesis\API\Request\Base\Financial;
+use Genesis\Api\Request\Base\Financial;
 
 class FinancialStub extends Financial
 {

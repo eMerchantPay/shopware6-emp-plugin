@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\Financial\Cards;
+namespace spec\Genesis\Api\Request\Base\Financial\Cards;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\Financial\Cards\CreditCard3DStub;
+use spec\Genesis\Api\Stubs\Base\Request\Financial\Cards\CreditCard3DStub;
 
 class CreditCard3DSpec extends ObjectBehavior
 {

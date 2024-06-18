@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,23 +24,26 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
-use Genesis\API\Traits\Request\Financial\CustomerIdentificationData;
-use Genesis\API\Traits\Request\Financial\SourceOfFundsAttributes;
-use Genesis\API\Traits\Request\Financial\PurposeOfPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Traits\Request\Financial\CustomerIdentificationData;
+use Genesis\Api\Traits\Request\Financial\PurposeOfPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\SourceOfFundsAttributes;
 
 /**
  * Class Credit
  *
  * Credit Request
  *
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
-class Credit extends \Genesis\API\Request\Base\Financial\Reference
+class Credit extends \Genesis\Api\Request\Base\Financial\Reference
 {
-    use SourceOfFundsAttributes, CustomerIdentificationData, AccountOwnerAttributes, PurposeOfPaymentAttributes;
+    use AccountOwnerAttributes;
+    use CustomerIdentificationData;
+    use PurposeOfPaymentAttributes;
+    use SourceOfFundsAttributes;
 
     /**
      * Set the required fields
@@ -81,7 +85,7 @@ class Credit extends \Genesis\API\Request\Base\Financial\Reference
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::CREDIT;
+        return \Genesis\Api\Constants\Transaction\Types::CREDIT;
     }
 
     /**

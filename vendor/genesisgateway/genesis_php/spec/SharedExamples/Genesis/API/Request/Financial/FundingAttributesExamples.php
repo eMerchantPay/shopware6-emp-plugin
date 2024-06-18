@@ -1,15 +1,14 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\Funding\IdentifierTypes;
-use Genesis\API\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
-use Genesis\Exceptions\ErrorParameter;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\IdentifierTypes;
+use Genesis\Api\Constants\Transaction\Parameters\Funding\ReceiverAccountTypes;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait FundingAttributesExamples
- * @package spec\SharedExamples\Genesis\API\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial
  */
 trait FundingAttributesExamples
 {

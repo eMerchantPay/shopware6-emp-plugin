@@ -1,21 +1,22 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives\Klarna;
+namespace spec\Genesis\Api\Request\Financial\Alternatives\Klarna;
 
-use Genesis\API\Request\Financial\Alternatives\Klarna\Authorize;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Authorize;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Item as KlarnaItem;
+use Genesis\Api\Request\Financial\Alternatives\Klarna\Items as KlarnaItems;
 use PhpSpec\ObjectBehavior;
-use \Genesis\API\Request\Financial\Alternatives\Klarna\Items as KlarnaItems;
-use \Genesis\API\Request\Financial\Alternatives\Klarna\Item as KlarnaItem;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class AuthorizeSpec extends ObjectBehavior
 {
-    use RequestExamples, NeighborhoodAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples; 
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(\Genesis\API\Request\Financial\Alternatives\Klarna\Authorize::class);
+        $this->shouldHaveType(\Genesis\Api\Request\Financial\Alternatives\Klarna\Authorize::class);
     }
 
     public function it_should_fail_when_missing_required_params()

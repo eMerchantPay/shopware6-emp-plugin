@@ -1,18 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\OnlineBankingPayments;
+namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments;
 
-use Genesis\API\Request\Financial\OnlineBankingPayments\Upi;
+use Genesis\Api\Request\Financial\OnlineBankingPayments\Upi;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\OnlineBankingPayments\UserCategoryAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\OnlineBankingPayments\UserCategoryAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class UpiSpec extends ObjectBehavior
 {
-    use RequestExamples, DocumentAttributesExample, UserCategoryAttributesExamples, NeighborhoodAttributesExamples;
+    use DocumentAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RequestExamples;
+    use UserCategoryAttributesExamples;
 
     public function it_is_initializable()
     {

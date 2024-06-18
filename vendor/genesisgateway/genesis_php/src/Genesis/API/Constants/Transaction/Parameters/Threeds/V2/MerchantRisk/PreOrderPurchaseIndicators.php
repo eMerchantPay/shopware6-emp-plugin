@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,13 +24,13 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk;
 
 /**
  * Indicates whether cardholder is placing an order for merchandise with a future-availability or release date.
  *
  * Class PreOrderPurchaseIndicators
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk
  */
 class PreOrderPurchaseIndicators
 {

@@ -1,19 +1,19 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\CVVPresents;
+use Genesis\Api\Constants\NonFinancial\Kyc\CvvPresents;
 use PhpSpec\ObjectBehavior;
 
 /**
- * Class CVVPresentsSpec
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * Class CvvPresentsSpec
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
-class CVVPresentsSpec extends ObjectBehavior
+class CvvPresentsSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType(CVVPresents::class);
+        $this->shouldHaveType(CvvPresents::class);
     }
 
     public function it_should_be_array()

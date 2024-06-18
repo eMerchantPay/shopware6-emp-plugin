@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,28 +24,31 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Alternatives;
+namespace Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 /**
  * Class Sofort
  *
  * Alternative payment method
  *
- * @package Genesis\API\Request\Financial\Alternatives
+ * @package Genesis\Api\Request\Financial\Alternatives
  *
  * @method string getBic()          Bank Identifier Code
  * @method $this  setBic($value)    Bank Identifier Code
  * @method string getIban()         International bank account number of the customer
  * @method $this  setIban($value)   International bank account number of the customer
  */
-class Sofort extends \Genesis\API\Request\Base\Financial
+class Sofort extends \Genesis\Api\Request\Base\Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, PendingPaymentAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * The bank id of the bank where the customer resides
@@ -132,7 +136,7 @@ class Sofort extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::SOFORT;
+        return \Genesis\Api\Constants\Transaction\Types::SOFORT;
     }
 
     /**

@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Refund;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Refund;
 
-use Genesis\API\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class BankAccountTypeParametersSpec
- * @package spec\Genesis\API\Constants\Transaction\Parameters\Refund
+ * @package spec\Genesis\Api\Constants\Transaction\Parameters\Refund
  */
 class BankAccountTypeParametersSpec extends ObjectBehavior
 {

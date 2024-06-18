@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\CryptoAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\CryptoAttributesStub;
 use spec\SharedExamples\Faker;
 
 class CryptoAttributesSpec extends ObjectBehavior

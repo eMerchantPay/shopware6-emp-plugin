@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Genesis\\' => array($vendorDir . '/genesisgateway/genesis_php/src/Genesis'),
     'Emerchantpay\\Genesis\\' => array($baseDir . '/src'),
 );

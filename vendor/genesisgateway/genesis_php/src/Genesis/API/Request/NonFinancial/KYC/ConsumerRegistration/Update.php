@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +24,10 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration;
+namespace Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration;
 
-use Genesis\API\Constants\NonFinancial\KYC\ProfileCurrentStatuses;
-use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
+use Genesis\Api\Constants\NonFinancial\Kyc\ProfileCurrentStatuses;
+use Genesis\Api\Request\Base\NonFinancial\Kyc\BaseRequest;
 
 /**
  * Class Update
@@ -34,7 +35,7 @@ use Genesis\API\Request\Base\NonFinancial\KYC\BaseRequest;
  * Update the customer registration to be able to pass on the latest status required so we can continue improving
  * the data models and provide the best scores and recommendations possible.
  *
- * @package Genesis\API\Request\NonFinancial\KYC\ConsumerRegistration
+ * @package Genesis\Api\Request\NonFinancial\Kyc\ConsumerRegistration
  */
 class Update extends BaseRequest
 {

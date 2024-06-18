@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +23,12 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\NonFinancial\Consumers;
 
-use Genesis\API\Request\Base\NonFinancial\Consumers\BaseRequest as ConsumerBaseRequest;
-use Genesis\API\Traits\Request\CustomerAddress\BillingInfoAttributes;
-use Genesis\API\Traits\Request\CustomerAddress\ShippingInfoAttributes;
+namespace Genesis\Api\Request\NonFinancial\Consumers;
+
+use Genesis\Api\Request\Base\NonFinancial\Consumers\BaseRequest as ConsumerBaseRequest;
+use Genesis\Api\Traits\Request\CustomerAddress\BillingInfoAttributes;
+use Genesis\Api\Traits\Request\CustomerAddress\ShippingInfoAttributes;
 
 /**
  * Class Create
@@ -34,14 +36,15 @@ use Genesis\API\Traits\Request\CustomerAddress\ShippingInfoAttributes;
  * Creates a consumer based on email address. Optionally, one can provide billing and shipping address.
  * Addresses will be used, if none given, in Processing or WPF APIs.
  *
- * @package Genesis\API\Request\NonFinancial\Consumers
+ * @package Genesis\Api\Request\NonFinancial\Consumers
  *
  * @method string getEmail()
  * @method Create setEmail(string $email)
  */
 class Create extends ConsumerBaseRequest
 {
-    use BillingInfoAttributes, ShippingInfoAttributes;
+    use BillingInfoAttributes;
+    use ShippingInfoAttributes;
 
     /**
      * @var string

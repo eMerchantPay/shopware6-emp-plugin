@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Browser;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Browser;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Browser\ColorDepths;
 use PhpSpec\ObjectBehavior;
 
 class ColorDepthsSpec extends ObjectBehavior

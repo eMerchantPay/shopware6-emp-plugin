@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +23,12 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\NonFinancial\TokenizationApi;
 
-use Genesis\API\Request\Base\NonFinancial\TokenizationApi\BaseRequest;
-use Genesis\API\Traits\Request\NonFinancial\TokenizationApiAttributes;
-use Genesis\API\Traits\Request\NonFinancial\TokenizationApiTokenAttributes;
+namespace Genesis\Api\Request\NonFinancial\TokenizationApi;
+
+use Genesis\Api\Request\Base\NonFinancial\TokenizationApi\BaseRequest;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiAttributes;
+use Genesis\Api\Traits\Request\NonFinancial\TokenizationApiTokenAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -34,11 +36,12 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Exchanges the token with the tokenized cardholder data
  *
- * @package Genesis\API\Request\NonFinancial\Tokenization
+ * @package Genesis\Api\Request\NonFinancial\Tokenization
  */
 class Detokenize extends BaseRequest
 {
-    use TokenizationApiAttributes, TokenizationApiTokenAttributes;
+    use TokenizationApiAttributes;
+    use TokenizationApiTokenAttributes;
 
     /**
      * Detokenize constructor

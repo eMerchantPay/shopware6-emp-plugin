@@ -1,18 +1,17 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial\KYC;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial\Kyc;
 
-use Genesis\API\Constants\Endpoints;
-use Genesis\API\Constants\Environments;
+use Genesis\Api\Constants\Endpoints;
 use Genesis\Config;
 use Genesis\Exceptions\EnvironmentNotSet;
 use Genesis\Exceptions\InvalidArgument;
 
 /**
- * Trait KYCRequestExamples
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial\KYC
+ * Trait KycRequestExamples
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial\Kyc
  */
-trait KYCRequestExamples
+trait KycRequestExamples
 {
     /**
      * @throws InvalidArgument|EnvironmentNotSet

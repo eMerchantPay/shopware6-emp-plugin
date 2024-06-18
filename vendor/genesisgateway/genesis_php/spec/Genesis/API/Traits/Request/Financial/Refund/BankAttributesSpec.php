@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Refund;
+namespace spec\Genesis\Api\Traits\Request\Financial\Refund;
 
-use Genesis\API\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\Refund\BankAccountTypeParameters;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Refund\BankAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Refund\BankAttributesStub;
 use spec\SharedExamples\Faker;
 
 /**
  * Class BankAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Refund
+ * @package spec\Genesis\Api\Traits\Request\Financial\Refund
  */
 class BankAttributesSpec extends ObjectBehavior
 {

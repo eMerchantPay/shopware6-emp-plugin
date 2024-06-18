@@ -1,14 +1,14 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Threeds\V2;
+namespace spec\Genesis\Api\Traits\Request\Financial\Threeds\V2;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Threeds\V2\AllAttributesStub;
-use spec\SharedExamples\Genesis\API\Request\Financial\Threeds\V2\ThreedsV2AllCommonAttributesExamples;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Threeds\V2\AllAttributesStub;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AllCommonAttributesExamples;
 
 /**
  * Class AllAttributesSpec
- * @package spec\Genesis\API\Traits\Request\Financial\Three\V2
+ * @package spec\Genesis\Api\Traits\Request\Financial\Three\V2
  */
 class AllAttributesSpec extends ObjectBehavior
 {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,19 +24,18 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\Alternatives\TransferTo;
+namespace Genesis\Api\Request\NonFinancial\Alternatives\TransferTo;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Builder;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class Payers
- * @package Genesis\API\Request\NonFinancial\Alternatives\TransferTo
+ * @package Genesis\Api\Request\NonFinancial\Alternatives\TransferTo
  */
 class Payers extends Request
 {
-
     /**
      * Set configuration for the request
      *

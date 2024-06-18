@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial\TokenizationApi;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial\TokenizationApi;
 
 /**
  * Trait ParametersExamples
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial\TokenizationApi
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial\TokenizationApi
  */
 trait ParametersExamples
 {

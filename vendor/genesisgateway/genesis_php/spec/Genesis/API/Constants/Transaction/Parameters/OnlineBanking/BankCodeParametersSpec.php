@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\OnlineBanking;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\OnlineBanking;
 
-use Genesis\API\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
+use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\BankCodeParameters;
 use PhpSpec\ObjectBehavior;
 
 class BankCodeParametersSpec extends ObjectBehavior

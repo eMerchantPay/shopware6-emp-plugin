@@ -1,15 +1,15 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\CustomerAddress;
+namespace spec\Genesis\Api\Stubs\Traits\Request\CustomerAddress;
 
-use Genesis\API\Traits\Request\CustomerAddress\CustomerInfoAttributes;
+use Genesis\Api\Traits\Request\CustomerAddress\CustomerInfoAttributes;
 
 /**
  * Class CustomerInfoAttributesStub
  *
  * Used to spec CustomerInfoAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request
+ * @package spec\Genesis\Api\Traits\Request
  */
 class CustomerInfoAttributesStub
 {

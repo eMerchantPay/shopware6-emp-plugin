@@ -1,21 +1,22 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Alternatives;
+namespace spec\Genesis\Api\Request\Financial\Alternatives;
 
-use Genesis\API\Constants\Payment\Methods;
-use Genesis\API\Request\Financial\Alternatives\PPRO;
+use Genesis\Api\Constants\Payment\Methods;
+use Genesis\Api\Request\Financial\Alternatives\Ppro;
 use Genesis\Exceptions\ErrorParameter;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\PendingPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PendingPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
-class PPROSpec extends ObjectBehavior
+class PproSpec extends ObjectBehavior
 {
-    use RequestExamples, PendingPaymentAttributesExamples;
+    use PendingPaymentAttributesExamples;
+    use RequestExamples;
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(PPRO::class);
+        $this->shouldHaveType(Ppro::class);
     }
 
     public function it_should_fail_when_missing_required_parameters()

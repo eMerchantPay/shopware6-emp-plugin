@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\CustomerAddress;
+namespace Genesis\Api\Traits\Request\CustomerAddress;
 
 /**
  * Trait ShippingInfoAttributes
- * @package Genesis\API\Traits\Request\CustomerAddress
+ * @package Genesis\Api\Traits\Request\CustomerAddress
  *
  * @method $this setShippingFirstName($value) Set Customer's Shipping Address: First name
  * @method $this setShippingLastName($value) Set Customer's Shipping Address: First name

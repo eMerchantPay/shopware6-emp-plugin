@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\SharedExamples\Genesis\API\Request\NonFinancial\Fraud;
+namespace spec\SharedExamples\Genesis\Api\Request\NonFinancial\Fraud;
 use Genesis\Exceptions\ErrorParameter;
 
 /**
  * Trait RequestExamples
- * @package spec\SharedExamples\Genesis\API\Request\NonFinancial\Fraud;
+ * @package spec\SharedExamples\Genesis\Api\Request\NonFinancial\Fraud;
  */
 trait TransactionExample
 {

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
 use spec\SharedExamples\Faker;
 
 /**
  * Trait AccountOwnerAttributesExamples
- * @package spec\SharedExamples\Genesis\API\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial
  */
 trait AccountOwnerAttributesExamples
 {

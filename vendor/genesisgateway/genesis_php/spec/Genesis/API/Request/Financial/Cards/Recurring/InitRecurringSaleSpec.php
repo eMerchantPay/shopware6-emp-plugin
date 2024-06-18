@@ -1,30 +1,38 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards\Recurring;
+namespace spec\Genesis\Api\Request\Financial\Cards\Recurring;
 
-use Genesis\API\Request\Financial\Cards\Recurring\InitRecurringSale;
+use Genesis\Api\Request\Financial\Cards\Recurring\InitRecurringSale;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\AllowedZeroAmount;
-use spec\SharedExamples\Genesis\API\Request\Financial\Business\BusinessAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\CredentialOnFileAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\FxRateAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\TokenizationAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\FundingAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FundingAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FxRateAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\TokenizationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class InitRecurringSaleSpec extends ObjectBehavior
 {
-    use RequestExamples, FxRateAttributesExamples, DescriptorAttributesExample,
-        TokenizationAttributesExamples, BusinessAttributesExample, CredentialOnFileAttributesExamples,
-        AllowedZeroAmount, DocumentAttributesExample, ManagedRecurringAttributesExample,
-        RecurringCategoryAttributesExample, FundingAttributesExamples, AccountOwnerAttributesExamples,
-        NeighborhoodAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use AllowedZeroAmount;
+    use BusinessAttributesExample;
+    use CredentialOnFileAttributesExamples;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use FundingAttributesExamples;
+    use FxRateAttributesExamples;
+    use ManagedRecurringAttributesExample;
+    use NeighborhoodAttributesExamples;
+    use RecurringCategoryAttributesExample;
+    use RequestExamples;
+    use TokenizationAttributesExamples;
 
     public function it_is_initializable()
     {

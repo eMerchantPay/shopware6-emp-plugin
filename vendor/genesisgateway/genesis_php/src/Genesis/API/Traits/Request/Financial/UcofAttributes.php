@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Traits\Request\Financial;
+namespace Genesis\Api\Traits\Request\Financial;
 
 /**
  * The UCOF transaction uses a previously stored credential for a fixed or variable amount and it does not occur
@@ -31,7 +32,7 @@ namespace Genesis\API\Traits\Request\Financial;
  * to initiate one or more future transactions. An example of such a transaction is an account auto-top up.
  *
  * Trait UcofAttributes
- * @package Genesis\API\Traits\Request\Financial
+ * @package Genesis\Api\Traits\Request\Financial
  *
  * @method string getCredentialOnFileTransactionIdentifier()       Ucof attribute
  * @method $this  setCredentialOnFileTransactionIdentifier($value) Ucof attribute

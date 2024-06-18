@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial\Business;
+namespace spec\Genesis\Api\Traits\Request\Financial\Business;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\Business\BusinessAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\Business\BusinessAttributesStub;
 use spec\SharedExamples\Faker;
 
 class CarPlaneAndBoatRentalsAttributesSpec extends ObjectBehavior

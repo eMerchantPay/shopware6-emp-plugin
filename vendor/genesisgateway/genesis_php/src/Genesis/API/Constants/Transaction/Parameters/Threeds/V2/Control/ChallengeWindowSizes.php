@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,7 +24,7 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control;
+namespace Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control;
 
 use Genesis\Utils\Common;
 
@@ -31,7 +32,7 @@ use Genesis\Utils\Common;
  * Identifies the size of the challenge window for the consumer.
  *
  * Class ChallengeWindowSizes
- * @package Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control
+ * @package Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control
  */
 class ChallengeWindowSizes
 {

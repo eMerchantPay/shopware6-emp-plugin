@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial;
+namespace spec\Genesis\Api\Constants\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\Services;
+use Genesis\Api\Constants\NonFinancial\Services;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class ServicesSpec
- * @package spec\Genesis\API\Constants\NonFinancial
+ * @package spec\Genesis\Api\Constants\NonFinancial
  */
 class ServicesSpec extends ObjectBehavior
 {

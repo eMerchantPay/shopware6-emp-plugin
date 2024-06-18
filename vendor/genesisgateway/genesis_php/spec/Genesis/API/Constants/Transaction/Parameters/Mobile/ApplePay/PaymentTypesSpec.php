@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePay;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Mobile\ApplePay;
 
 use PhpSpec\ObjectBehavior;
 
@@ -9,7 +9,7 @@ class PaymentTypesSpec extends ObjectBehavior
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(\Genesis\API\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes::class);
+        $this->shouldHaveType(\Genesis\Api\Constants\Transaction\Parameters\Mobile\ApplePay\PaymentTypes::class);
     }
 
     public function it_should_be_array_allowed_payment_types()

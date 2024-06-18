@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request;
+namespace spec\Genesis\Api\Stubs\Base\Request;
 
-use Genesis\API\Request\Base\GraphQLRequest;
+use Genesis\Api\Request\Base\GraphqlRequest;
 
-class GraphQLRequestStub extends GraphQLRequest
+class GraphqlRequestStub extends GraphqlRequest
 {
     public function __construct()
     {

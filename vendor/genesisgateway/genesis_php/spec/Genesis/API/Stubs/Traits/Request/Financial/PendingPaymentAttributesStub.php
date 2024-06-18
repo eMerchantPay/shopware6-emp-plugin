@@ -1,11 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 
 class PendingPaymentAttributesStub
 {
-    use MagicAccessors, PendingPaymentAttributes;
+    use MagicAccessors;
+    use PendingPaymentAttributes;
 }

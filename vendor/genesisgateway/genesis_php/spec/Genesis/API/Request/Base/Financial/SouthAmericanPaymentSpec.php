@@ -1,15 +1,16 @@
 <?php
 
-namespace spec\Genesis\API\Request\Base\Financial;
+namespace spec\Genesis\Api\Request\Base\Financial;
 
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Base\Request\Financial\SouthAmericanPaymentStub;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\Financial\BirthDateAttributesExample;
+use spec\Genesis\Api\Stubs\Base\Request\Financial\SouthAmericanPaymentStub;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class SouthAmericanPaymentSpec extends ObjectBehavior
 {
-    use RequestExamples, BirthDateAttributesExample;
+    use BirthDateAttributesExample;
+    use RequestExamples;
 
     public function let()
     {

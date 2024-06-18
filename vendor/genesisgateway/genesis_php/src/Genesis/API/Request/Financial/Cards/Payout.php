@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,16 +24,16 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Cards;
+namespace Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Traits\Request\Financial\CustomerIdentificationData;
-use Genesis\API\Traits\Request\Financial\DescriptorAttributes;
-use Genesis\API\Traits\Request\Financial\FxRateAttributes;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\AccountOwnerAttributes;
-use Genesis\API\Traits\Request\Financial\PurposeOfPaymentAttributes;
-use Genesis\API\Traits\Request\Financial\SourceOfFundsAttributes;
-use Genesis\API\Traits\Request\Payout\MoneyTransferPayoutAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\AccountOwnerAttributes;
+use Genesis\Api\Traits\Request\Financial\CustomerIdentificationData;
+use Genesis\Api\Traits\Request\Financial\DescriptorAttributes;
+use Genesis\Api\Traits\Request\Financial\FxRateAttributes;
+use Genesis\Api\Traits\Request\Financial\PurposeOfPaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\SourceOfFundsAttributes;
+use Genesis\Api\Traits\Request\Payout\MoneyTransferPayoutAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
@@ -40,13 +41,18 @@ use Genesis\Utils\Common as CommonUtils;
  *
  * Payout Request
  *
- * @package Genesis\API\Request\Financial\Cards
+ * @package Genesis\Api\Request\Financial\Cards
  */
-class Payout extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
+class Payout extends \Genesis\Api\Request\Base\Financial\Cards\CreditCard
 {
-    use AddressInfoAttributes, SourceOfFundsAttributes,
-        FxRateAttributes, DescriptorAttributes, MoneyTransferPayoutAttributes,
-        CustomerIdentificationData, AccountOwnerAttributes, PurposeOfPaymentAttributes;
+    use AddressInfoAttributes;
+    use AccountOwnerAttributes;
+    use CustomerIdentificationData;
+    use DescriptorAttributes;
+    use FxRateAttributes;
+    use MoneyTransferPayoutAttributes;
+    use PurposeOfPaymentAttributes;
+    use SourceOfFundsAttributes;
 
     const MONEY_TRANSFER_SENDER_ACCOUNT_NUMBER_MAX_LENGTH = 33;
     const MONEY_TRANSFER_SERVICE_PROVIDER_NAME_MAX_LENGTH = 25;
@@ -57,7 +63,7 @@ class Payout extends \Genesis\API\Request\Base\Financial\Cards\CreditCard
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::PAYOUT;
+        return \Genesis\Api\Constants\Transaction\Types::PAYOUT;
     }
 
     /**

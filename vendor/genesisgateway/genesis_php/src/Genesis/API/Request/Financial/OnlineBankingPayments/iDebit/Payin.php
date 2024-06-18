@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,24 +24,25 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\OnlineBankingPayments\iDebit;
+namespace Genesis\Api\Request\Financial\OnlineBankingPayments\Idebit;
 
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
 
 /**
  * Class Payin
  *
  * iDebit Payin - Online Banking ePayments (oBeP)
  *
- * @package Genesis\API\Request\Financial\OnlineBankingPayments\iDebit
+ * @package Genesis\Api\Request\Financial\OnlineBankingPayments\Idebit
  *
  * @method Payin setCustomerAccountId($value) Set Unique consumer account ID
  * @method Payin setReturnUrl($value) Set the URL where customer is sent to after payment
  */
-class Payin extends \Genesis\API\Request\Base\Financial
+class Payin extends \Genesis\Api\Request\Base\Financial
 {
-    use PaymentAttributes, AddressInfoAttributes;
+    use AddressInfoAttributes;
+    use PaymentAttributes;
 
     /**
      * Unique consumer account ID
@@ -62,7 +64,7 @@ class Payin extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::IDEBIT_PAYIN;
+        return \Genesis\Api\Constants\Transaction\Types::IDEBIT_PAYIN;
     }
 
     /**

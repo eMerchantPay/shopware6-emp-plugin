@@ -2,26 +2,24 @@
 
 namespace spec\SharedExamples\Genesis\Network;
 
-use Genesis\API\Request;
+use Genesis\Api\Request;
 use Genesis\Config;
 
 /**
- * Trait GraphQLConnectionExample
+ * Trait GraphqlConnectionExample
  *
  * @package spec\SharedExamples\Genesis\Network
  */
-trait GraphQLConnectionExample
+trait GraphqlConnectionExample
 {
     public function it_can_connect_to_staging_graphql_billing_api()
     {
         $this->getWrappedObject()->is_billing_api = true;
         $this->getWrappedObject()->is_prod        = false;
 
-        Config::setEnvironment(
-            \Genesis\API\Constants\Environments::STAGING
-        );
-
-        Config::setEndpoint(\Genesis\API\Constants\Endpoints::EMERCHANTPAY);
+        Config::setBillingApiToken('password');
+        Config::setEnvironment(\Genesis\Api\Constants\Environments::STAGING);
+        Config::setEndpoint(\Genesis\Api\Constants\Endpoints::EMERCHANTPAY);
 
         $this->sendRemoteConnection(
             $this->getGraphqlServiceUrl('billing_transactions'),
@@ -35,9 +33,9 @@ trait GraphQLConnectionExample
         $this->getWrappedObject()->is_billing_api = true;
         $this->getWrappedObject()->is_prod        = true;
 
-        Config::setEnvironment(
-            \Genesis\API\Constants\Environments::PRODUCTION
-        );
+        Config::setBillingApiToken('password');
+        Config::setEnvironment(\Genesis\Api\Constants\Environments::PRODUCTION);
+        Config::setEndpoint(\Genesis\Api\Constants\Endpoints::EMERCHANTPAY);
 
         $this->sendRemoteConnection(
             $this->getGraphqlServiceUrl('billing_transactions'),

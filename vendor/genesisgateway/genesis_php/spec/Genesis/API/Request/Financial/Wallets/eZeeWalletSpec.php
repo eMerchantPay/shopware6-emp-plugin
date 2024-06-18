@@ -1,22 +1,22 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Wallets;
+namespace spec\Genesis\Api\Request\Financial\Wallets;
 
-use PhpSpec\ObjectBehavior;
-use Genesis\API\Request\Financial\Wallets\eZeeWallet;
+use Genesis\Api\Request\Financial\Wallets\EzeeWallet;
 use Genesis\Exceptions\InvalidArgument;
+use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 // @codingStandardsIgnoreStart
-class eZeeWalletSpec extends ObjectBehavior
+class EzeeWalletSpec extends ObjectBehavior
 // @codingStandardsIgnoreEnd
 {
     use RequestExamples;
 
     public function it_is_initializable()
     {
-        $this->shouldHaveType(eZeeWallet::class);
+        $this->shouldHaveType(EzeeWallet::class);
     }
 
     public function it_should_fail_when_missing_required_params()

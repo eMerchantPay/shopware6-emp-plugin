@@ -1,30 +1,37 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\Cards;
+namespace spec\Genesis\Api\Request\Financial\Cards;
 
-use Genesis\API\Constants\Transaction\Parameters\Payout\MoneyTransferTypes;
-use Genesis\API\Request\Financial\Cards\Payout;
-use Genesis\API\Traits\Request\Financial\PurposeOfPaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\Payout\MoneyTransferTypes;
+use Genesis\Api\Request\Financial\Cards\Payout;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\Financial\Cards\CustomerIdentificationExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\CredentialOnFileAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\CreditCardAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\DescriptorAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\FxRateAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\SourceOfFundsAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\TokenizationAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
-use spec\SharedExamples\Genesis\API\Traits\Request\DocumentAttributesExample;
-use spec\SharedExamples\Genesis\API\Request\Financial\AccountOwnerAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\PurposeOfPaymentAttributesExamples;
-use spec\SharedExamples\Genesis\API\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\CustomerIdentificationExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\CreditCardAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\DescriptorAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\FxRateAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\PurposeOfPaymentAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\SourceOfFundsAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\TokenizationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 
 class PayoutSpec extends ObjectBehavior
 {
-    use RequestExamples, FxRateAttributesExamples, SourceOfFundsAttributesExamples,
-        DescriptorAttributesExample, TokenizationAttributesExamples, CredentialOnFileAttributesExamples,
-        CreditCardAttributesExamples, DocumentAttributesExample, CustomerIdentificationExamples,
-        AccountOwnerAttributesExamples, PurposeOfPaymentAttributesExamples, NeighborhoodAttributesExamples;
+    use AccountOwnerAttributesExamples;
+    use CredentialOnFileAttributesExamples;
+    use CreditCardAttributesExamples;
+    use CustomerIdentificationExamples;
+    use DescriptorAttributesExample;
+    use DocumentAttributesExample;
+    use FxRateAttributesExamples;
+    use NeighborhoodAttributesExamples;
+    use PurposeOfPaymentAttributesExamples;
+    use RequestExamples;
+    use SourceOfFundsAttributesExamples;
+    use TokenizationAttributesExamples;
 
     public function it_is_initializable()
     {

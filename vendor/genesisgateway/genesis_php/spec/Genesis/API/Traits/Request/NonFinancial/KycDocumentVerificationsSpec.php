@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial;
 
-use Genesis\API\Constants\NonFinancial\KYC\VerificationDocumentTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\VerificationDocumentTypes;
 use Genesis\Exceptions\InvalidArgument;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\KycDocumentVerificationsStub;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\KycDocumentVerificationsStub;
 use spec\SharedExamples\Faker;
 
 class KycDocumentVerificationsSpec extends ObjectBehavior

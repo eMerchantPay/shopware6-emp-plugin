@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,21 +24,22 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\Crypto\BitPay;
+namespace Genesis\Api\Request\Financial\Crypto\BitPay;
 
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\ReferenceAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\ReferenceAttributes;
 
 /**
  * BitPay Refund is a custom refund method which will handle the asynchronous BitPay refund workflow.
  * BitPay refunds can only be done on former transactions. Therefore, the reference id for the
  * corresponding BitPay Sale transaction is mandatory.
  *
- * @package Genesis\API\Request\Financial\Crypto\BitPay
+ * @package Genesis\Api\Request\Financial\Crypto\BitPay
  */
-class Refund extends \Genesis\API\Request\Base\Financial
+class Refund extends \Genesis\Api\Request\Base\Financial
 {
-    use ReferenceAttributes, PaymentAttributes;
+    use PaymentAttributes;
+    use ReferenceAttributes;
 
     /**
      * Returns the Request transaction type
@@ -45,7 +47,7 @@ class Refund extends \Genesis\API\Request\Base\Financial
      */
     protected function getTransactionType()
     {
-        return \Genesis\API\Constants\Transaction\Types::BITPAY_REFUND;
+        return \Genesis\Api\Constants\Transaction\Types::BITPAY_REFUND;
     }
 
     /**

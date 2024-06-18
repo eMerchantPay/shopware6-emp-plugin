@@ -24,7 +24,7 @@ use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 class GenesisReturnController extends StorefrontController
 {
@@ -40,14 +40,15 @@ class GenesisReturnController extends StorefrontController
     }
 
     /**
-     * @Route(
-     *     "/emerchantpay/return/{token}",
-     *     name="frontend.emerchantpay.return",
-     *     options={"seo"="false"},
-     *     methods={"GET"},
-     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}}
-     * )
+     * Redirect handler Controller action
      */
+    #[Route(
+        path:     '/emerchantpay/return/{token}',
+        name:     'frontend.emerchantpay.return',
+        options:  ['seo' => 'false'],
+        defaults: ['auth_required' => false, 'csrf_protected' => false, '_routeScope' => ['storefront']],
+        methods:  ['GET']
+    )]
     public function redirectOrderEndpoint(string $token): RedirectResponse
     {
         return $this->redirect($this->returnUrlService->getOrderEndpoint($token));
@@ -59,15 +60,14 @@ class GenesisReturnController extends StorefrontController
      * @param string $token
      *
      * @return Response
-     *
-     * @Route(
-     *     path="/emerchantpay/return-iframe/{token}",
-     *     name="frontend.emerchantpay.return_iframe",
-     *     options={"seo"="false"},
-     *     defaults={"auth_required"=false, "csrf_protected"=false, "_routeScope"={"storefront"}},
-     *     methods={"GET"}
-     * )
      */
+    #[Route(
+        path:     '/emerchantpay/return-iframe/{token}',
+        name:     'frontend.emerchantpay.return_iframe',
+        options:  ['seo' => 'false'],
+        defaults: ['auth_required' => false, 'csrf_protected' => false, '_routeScope' => ['storefront']],
+        methods:  ['GET']
+    )]
     public function redirectOrderEndpointBreakIframe(string $token): Response
     {
         $response = $this->render(

@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Request\Financial\GiftCards;
+namespace spec\Genesis\Api\Request\Financial\GiftCards;
 
-use Genesis\API\Request\Financial\GiftCards\Fashioncheque;
+use Genesis\Api\Request\Financial\GiftCards\Fashioncheque;
 use PhpSpec\ObjectBehavior;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class FashionchequeSpec extends ObjectBehavior
 {

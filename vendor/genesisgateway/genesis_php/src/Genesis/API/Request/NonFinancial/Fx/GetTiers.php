@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,10 +23,11 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Request\NonFinancial\Fx;
 
-use Genesis\API\Request;
-use Genesis\API\Request\Base\NonFinancial\Fx\BaseRequest;
+namespace Genesis\Api\Request\NonFinancial\Fx;
+
+use Genesis\Api\Request;
+use Genesis\Api\Request\Base\NonFinancial\Fx\BaseRequest;
 use Genesis\Builder;
 use Genesis\Utils\Common;
 
@@ -34,7 +36,7 @@ use Genesis\Utils\Common;
  *
  * This call is used to return all Tiers that are related to your account.
  *
- * @package Genesis\API\Request\NonFinancial\Fx
+ * @package Genesis\Api\Request\NonFinancial\Fx
  */
 class GetTiers extends BaseRequest
 {

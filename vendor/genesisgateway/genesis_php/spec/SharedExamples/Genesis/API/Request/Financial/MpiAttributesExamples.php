@@ -1,16 +1,15 @@
 <?php
 
 
-namespace spec\SharedExamples\Genesis\API\Request\Financial;
+namespace spec\SharedExamples\Genesis\Api\Request\Financial;
 
-use Genesis\API\Constants\Transaction\Parameters\MpiProtocolVersions;
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
-use Genesis\Exceptions\ErrorParameter;
+use Genesis\Api\Constants\Transaction\Parameters\MpiProtocolVersions;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Control\ChallengeIndicators;
 use spec\SharedExamples\Faker;
 
 /**
  * Trait MpiAttributesExamples
- * @package spec\SharedExamples\Genesis\API\Request\Financial
+ * @package spec\SharedExamples\Genesis\Api\Request\Financial
  */
 trait MpiAttributesExamples
 {

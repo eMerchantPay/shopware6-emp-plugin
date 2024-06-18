@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +23,18 @@
  * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
-namespace Genesis\API\Constants\Transaction;
+
+namespace Genesis\Api\Constants\Transaction;
 
 use Genesis\Exceptions\InvalidMethod;
+use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class States
  *
  * Transaction states of a Genesis Transaction
  *
- * @package Genesis\API\Constants\Transaction
+ * @package Genesis\Api\Constants\Transaction
  *
  * @method bool isApproved()
  * @method bool isDeclined()
@@ -201,7 +204,7 @@ class States
      * Used in Tokenization API
      */
     const INVALIDATED = 'invalidated';
-    
+
     /**
      * Once a chargebacked transaction has been charged, the state changes to chargeback_reversal.
      * The chargeback has been cancelled.
@@ -283,20 +286,24 @@ class States
      */
     public function __call($method, $args)
     {
-        list($action, $target) = \Genesis\Utils\Common::resolveDynamicMethod($method);
+        list($action, $target) = CommonUtils::resolveDynamicMethod($method);
 
-        switch ($action) {
-            case 'is':
-                if (isset($this->status)) {
-                    return $this->compare($target);
-                }
+        if (
+            $action === 'is' &&
+            in_array(
+                $target,
+                array_merge(CommonUtils::getClassConstants(__CLASS__), $this->getAllStateAliases())
+            )
+        ) {
+            return $this->compare($target);
         }
 
         throw new InvalidMethod(
             sprintf(
-                'You\'re trying to call a non-existent method %s of class %s!',
+                'You\'re trying to call a non-existent method %s of class %s! The transaction states are: %s',
                 $method,
-                __CLASS__
+                __CLASS__,
+                implode(', ', CommonUtils::getClassConstants(__CLASS__))
             )
         );
     }
@@ -322,7 +329,7 @@ class States
      */
     public function isValid()
     {
-        $statusList = \Genesis\Utils\Common::getClassConstants(__CLASS__);
+        $statusList = CommonUtils::getClassConstants(__CLASS__);
 
         return in_array(strtolower($this->status), $statusList);
     }
@@ -336,14 +343,23 @@ class States
     private function getStateAliasConstantName($state)
     {
         $subject = $state;
-        $alias   = [
-            self::NEW_STATUS => 'new_status'
-        ];
+        $alias   = $this->getAllStateAliases();
 
         if (array_key_exists($state, $alias)) {
             $subject = $alias[$state];
         }
 
         return $subject;
+    }
+
+    /**
+     * The list of state aliases
+     * @return string[]
+     */
+    private function getAllStateAliases()
+    {
+        return [
+            self::NEW_STATUS => 'new_status'
+        ];
     }
 }

@@ -1,19 +1,21 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial\Business;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial\Business;
 
-use Genesis\API\Traits\MagicAccessors;
-use Genesis\API\Traits\Request\Financial\Business\BusinessAttributes;
-use Genesis\API\Traits\RestrictedSetter;
+use Genesis\Api\Traits\MagicAccessors;
+use Genesis\Api\Traits\Request\Financial\Business\BusinessAttributes;
+use Genesis\Api\Traits\RestrictedSetter;
 
 /**
  * Class AirlinesAirCarriersAttributesStub
  *
  * Used to spec BusinessAttributes trait
  *
- * @package spec\Genesis\API\Traits\Request\Financial\Business
+ * @package spec\Genesis\Api\Traits\Request\Financial\Business
  */
 class BusinessAttributesStub
 {
-    use BusinessAttributes, RestrictedSetter, MagicAccessors;
+    use BusinessAttributes;
+    use MagicAccessors;
+    use RestrictedSetter;
 }

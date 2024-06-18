@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Genesis\API\Constants\NonFinancial\KYC;
+namespace spec\Genesis\Api\Constants\NonFinancial\Kyc;
 
-use Genesis\API\Constants\NonFinancial\KYC\IndustryTypes;
+use Genesis\Api\Constants\NonFinancial\Kyc\IndustryTypes;
 use PhpSpec\ObjectBehavior;
 
 /**
  * Class IndustryTypes
- * @package spec\Genesis\API\Constants\NonFinancial\KYC
+ * @package spec\Genesis\Api\Constants\NonFinancial\Kyc
  */
 class IndustryTypesSpec extends ObjectBehavior
 {

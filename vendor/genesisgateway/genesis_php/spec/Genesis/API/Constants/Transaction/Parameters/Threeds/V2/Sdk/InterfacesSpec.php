@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk;
+namespace spec\Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk;
 
-use Genesis\API\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
+use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Sdk\Interfaces;
 use PhpSpec\ObjectBehavior;
 
 class InterfacesSpec extends ObjectBehavior

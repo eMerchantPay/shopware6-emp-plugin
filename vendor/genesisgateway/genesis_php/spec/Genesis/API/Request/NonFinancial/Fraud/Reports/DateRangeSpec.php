@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Request\NonFinancial\Fraud\Reports;
+namespace spec\Genesis\Api\Request\NonFinancial\Fraud\Reports;
 
-use Genesis\API\Request\NonFinancial\Fraud\Reports\DateRange;
+use Genesis\Api\Request\NonFinancial\Fraud\Reports\DateRange;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
-use spec\SharedExamples\Genesis\API\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 class DateRangeSpec extends ObjectBehavior
 {

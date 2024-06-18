@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,11 +24,11 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\NonFinancial\Sca;
+namespace Genesis\Api\Request\NonFinancial\Sca;
 
-use Genesis\API\Constants\Transaction\Parameters\ScaExemptions;
-use Genesis\API\Request\Base\BaseVersionedRequest;
-use Genesis\API\Validators\Request\RegexValidator;
+use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
+use Genesis\Api\Request\Base\BaseVersionedRequest;
+use Genesis\Api\Validators\Request\RegexValidator;
 use Genesis\Builder;
 use Genesis\Config;
 use Genesis\Utils\Common;
@@ -38,7 +39,7 @@ use Genesis\Utils\Currency;
  *
  * This call is used to check if SCA is required
  *
- * @package Genesis\API\Request\NonFinancial\Sca
+ * @package Genesis\Api\Request\NonFinancial\Sca
  *
  * @method setTransactionCurrency($value) Transaction currency
  */

@@ -1,13 +1,12 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Base\Request\NonFinancial\TokenizationApi;
+namespace spec\Genesis\Api\Stubs\Base\Request\NonFinancial\TokenizationApi;
 
-use Genesis\API\Request\Base\NonFinancial\TokenizationApi\BaseRequest as TokenizationApiBaseRequest;
-use Genesis\Utils\Common;
+use Genesis\Api\Request\Base\NonFinancial\TokenizationApi\BaseRequest as TokenizationApiBaseRequest;
 
 /**
  * Class BaseRequestStub
- * @package spec\Genesis\API\Stubs\Base\Request\NonFinancial\TokenizationApi
+ * @package spec\Genesis\Api\Stubs\Base\Request\NonFinancial\TokenizationApi
  */
 class BaseRequestStub extends TokenizationApiBaseRequest
 {

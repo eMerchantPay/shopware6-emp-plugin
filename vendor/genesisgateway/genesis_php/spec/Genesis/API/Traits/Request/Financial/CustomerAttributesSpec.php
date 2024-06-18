@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\Financial;
+namespace spec\Genesis\Api\Traits\Request\Financial;
 
-use Genesis\API\Constants\DateTimeFormat;
+use Genesis\Api\Constants\DateTimeFormat;
 use PhpSpec\ObjectBehavior;
-use spec\Genesis\API\Stubs\Traits\Request\Financial\OnlineBankingPayments\CustomerAttributesStub;
+use spec\Genesis\Api\Stubs\Traits\Request\Financial\OnlineBankingPayments\CustomerAttributesStub;
 use spec\SharedExamples\Faker;
 
 class CustomerAttributesSpec extends ObjectBehavior

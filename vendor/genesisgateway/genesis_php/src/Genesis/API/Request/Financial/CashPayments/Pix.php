@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -23,25 +24,25 @@
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
-namespace Genesis\API\Request\Financial\CashPayments;
+namespace Genesis\Api\Request\Financial\CashPayments;
 
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\Gender;
-use Genesis\API\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
-use Genesis\API\Constants\Transaction\Types;
-use Genesis\API\Request\Base\Financial;
-use Genesis\API\Traits\Request\AddressInfoAttributes;
-use Genesis\API\Traits\Request\DocumentAttributes;
-use Genesis\API\Traits\Request\Financial\AsyncAttributes;
-use Genesis\API\Traits\Request\Financial\BirthDateAttributes;
-use Genesis\API\Traits\Request\Financial\CustomerAttributes;
-use Genesis\API\Traits\Request\Financial\PaymentAttributes;
-use Genesis\API\Traits\Request\Financial\PendingPaymentAttributes;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\CompanyTypes;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\Gender;
+use Genesis\Api\Constants\Transaction\Parameters\CashPayments\MaritalStatuses;
+use Genesis\Api\Constants\Transaction\Types;
+use Genesis\Api\Request\Base\Financial;
+use Genesis\Api\Traits\Request\AddressInfoAttributes;
+use Genesis\Api\Traits\Request\DocumentAttributes;
+use Genesis\Api\Traits\Request\Financial\AsyncAttributes;
+use Genesis\Api\Traits\Request\Financial\BirthDateAttributes;
+use Genesis\Api\Traits\Request\Financial\CustomerAttributes;
+use Genesis\Api\Traits\Request\Financial\PaymentAttributes;
+use Genesis\Api\Traits\Request\Financial\PendingPaymentAttributes;
 use Genesis\Utils\Common as CommonUtils;
 
 /**
  * Class Pix
- * @package Genesis\API\Request\Financial\CashPayments
+ * @package Genesis\Api\Request\Financial\CashPayments
  *
  * Pix is a payment service created by the Central Bank of Brazil (BACEN),
  * which represents a new way of receiving/sending money. Pix allows payments
@@ -71,8 +72,13 @@ use Genesis\Utils\Common as CommonUtils;
  */
 class Pix extends Financial
 {
-    use AsyncAttributes, PaymentAttributes, AddressInfoAttributes, DocumentAttributes, PendingPaymentAttributes,
-        CustomerAttributes, BirthDateAttributes;
+    use AddressInfoAttributes;
+    use AsyncAttributes;
+    use BirthDateAttributes;
+    use CustomerAttributes;
+    use DocumentAttributes;
+    use PaymentAttributes;
+    use PendingPaymentAttributes;
 
     /**
      * Gender

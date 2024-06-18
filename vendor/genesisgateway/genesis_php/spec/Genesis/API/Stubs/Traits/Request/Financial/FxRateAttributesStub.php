@@ -1,8 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Stubs\Traits\Request\Financial;
+namespace spec\Genesis\Api\Stubs\Traits\Request\Financial;
 
-use Genesis\API\Traits\Request\Financial\FxRateAttributes;
+use Genesis\Api\Traits\Request\Financial\FxRateAttributes;
 
 class FxRateAttributesStub
 {

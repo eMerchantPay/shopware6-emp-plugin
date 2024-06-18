@@ -1,9 +1,8 @@
 <?php
 
-namespace spec\Genesis\API\Constants;
+namespace spec\Genesis\Api\Constants;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 
 // @codingStandardsIgnoreStart
 class i18nSpec extends ObjectBehavior
@@ -11,7 +10,7 @@ class i18nSpec extends ObjectBehavior
 {
     public function it_is_initializable()
     {
-        $this->shouldHaveType('Genesis\API\Constants\i18n');
+        $this->shouldHaveType('Genesis\Api\Constants\i18n');
     }
 
     public function it_should_have_support_for_all_checkout_language()

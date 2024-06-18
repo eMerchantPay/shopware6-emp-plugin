@@ -1,11 +1,11 @@
 <?php
 
-namespace spec\Genesis\API\Traits\Request\NonFinancial\BillingApi;
+namespace spec\Genesis\Api\Traits\Request\NonFinancial\BillingApi;
 
-use PhpSpec\ObjectBehavior;
 use Genesis\Exceptions\InvalidArgument;
+use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Stubs\Traits\Request\NonFinancial\BillingApi\OrderByDirectionStub;
 use spec\SharedExamples\Faker;
-use spec\Genesis\API\Stubs\Traits\Request\NonFinancial\BillingApi\OrderByDirectionStub;
 
 class OrderByDirectionSpec extends ObjectBehavior
 {
