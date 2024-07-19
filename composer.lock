@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a83b44844ffecaed9628603b5df870e3",
+    "content-hash": "b89c2bf754441880dc79e1a08c1b982d",
     "packages": [
         {
             "name": "genesisgateway/genesis_php",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GenesisGateway/genesis_php.git",
-                "reference": "75b39b4b165453072cf95188feb0b42c44c8dbb5"
+                "reference": "6b03c8bfa2ab3154b79de11c86e5aaf62e124b1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/75b39b4b165453072cf95188feb0b42c44c8dbb5",
-                "reference": "75b39b4b165453072cf95188feb0b42c44c8dbb5",
+                "url": "https://api.github.com/repos/GenesisGateway/genesis_php/zipball/6b03c8bfa2ab3154b79de11c86e5aaf62e124b1b",
+                "reference": "6b03c8bfa2ab3154b79de11c86e5aaf62e124b1b",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +94,6 @@
                 "fx_tiers",
                 "genesis",
                 "genesisgateway",
-                "giropay",
                 "google_pay",
                 "ideal",
                 "idebit",
@@ -157,9 +156,9 @@
             ],
             "support": {
                 "issues": "https://github.com/GenesisGateway/genesis_php/issues",
-                "source": "https://github.com/GenesisGateway/genesis_php/tree/2.0.0"
+                "source": "https://github.com/GenesisGateway/genesis_php/tree/2.0.1"
             },
-            "time": "2024-05-23T11:24:30+00:00"
+            "time": "2024-07-09T13:50:18+00:00"
         }
     ],
     "packages-dev": [

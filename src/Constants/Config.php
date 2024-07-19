@@ -39,11 +39,6 @@ class Config
     public const CHECKOUT_IFRAME_PROCESSING           = self::CHECKOUT_CONFIG_KEY . 'IframeProcessing';
 
     /**
-     * Nested Transaction Types suffix
-     */
-    public const PPRO_TRANSACTION_SUFFIX = '_ppro';
-
-    /**
      * Google Pay Transaction Prefix and Types
      */
     public const GOOGLE_PAY_TRANSACTION_PREFIX     = 'google_pay_';

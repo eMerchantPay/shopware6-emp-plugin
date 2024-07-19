@@ -35,7 +35,6 @@ use Emerchantpay\Genesis\Utils\Mappers\ReferenceData as ReferenceDataMapper;
 use Emerchantpay\Genesis\Utils\ReferenceTransactions;
 use Genesis\Api\Constants\Endpoints;
 use Genesis\Api\Constants\Environments;
-use Genesis\Api\Constants\Payment\Methods as GenesisPproMethods;
 use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\MerchantRisk\DeliveryTimeframes;
 use Genesis\Api\Constants\Transaction\Parameters\Threeds\V2\Purchase\Categories;
 use Genesis\Api\Constants\Transaction\States as GenesisStates;
@@ -563,14 +562,7 @@ class Checkout extends Base
             $this->getMethodConfig()[ConfigKey::CHECKOUT_TRANSACTION_TYPES]
         );
 
-        $pproSuffix = ConfigKey::PPRO_TRANSACTION_SUFFIX;
-        $methods = GenesisPproMethods::getMethods();
-
-        foreach ($methods as $method) {
-            $aliasMap[$method . $pproSuffix] = GenesisTypes::PPRO;
-        }
-
-        $aliasMap = array_merge($aliasMap, [
+        $aliasMap = [
             ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_AUTHORIZE =>
                 GenesisTypes::GOOGLE_PAY,
             ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX . ConfigKey::GOOGLE_PAY_PAYMENT_TYPE_SALE      =>
@@ -585,7 +577,7 @@ class Checkout extends Base
                 GenesisTypes::APPLE_PAY,
             ConfigKey::APPLE_PAY_TRANSACTION_PREFIX . ConfigKey::APPLE_PAY_PAYMENT_TYPE_SALE        =>
                 GenesisTypes::APPLE_PAY,
-        ]);
+        ];
 
         foreach ($selectedTypes as $selectedType) {
             if (!array_key_exists($selectedType, $aliasMap)) {
@@ -603,7 +595,6 @@ class Checkout extends Base
             $processedList[$transactionType]['parameters'][] = [
                 $key => str_replace(
                     [
-                        $pproSuffix,
                         ConfigKey::GOOGLE_PAY_TRANSACTION_PREFIX,
                         ConfigKey::PAYPAL_TRANSACTION_PREFIX,
                         ConfigKey::APPLE_PAY_TRANSACTION_PREFIX,
@@ -716,9 +707,6 @@ class Checkout extends Base
     private function getCustomParameterKey($transactionType)
     {
         switch ($transactionType) {
-            case GenesisTypes::PPRO:
-                $result = 'payment_method';
-                break;
             case GenesisTypes::PAY_PAL:
                 $result = 'payment_type';
                 break;

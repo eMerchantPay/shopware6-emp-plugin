@@ -54,10 +54,6 @@
                     <name>Eps</name>
                 </option>
                 <option>
-                    <id>giropay</id>
-                    <name>GiroPay</name>
-                </option>
-                <option>
                     <id>google_pay_authorize</id>
                     <name>GOOGLE_PAY_AUTHORIZE</name>
                 </option>
@@ -70,12 +66,12 @@
                     <name>iDeal</name>
                 </option>
                 <option>
-                    <id>ideal_ppro</id>
-                    <name>IDEAL_PPRO</name>
-                </option>
-                <option>
                     <id>online_banking</id>
                     <name>Online Banking</name>
+                </option>
+                <option>
+                    <id>p24</id>
+                    <name>P24</name>
                 </option>
                 <option>
                     <id>pay_pal_authorize</id>

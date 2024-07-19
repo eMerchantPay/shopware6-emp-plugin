@@ -1,5 +1,12 @@
 Change Log
 ---------------------
+__1.3.2__
+-----
+* Updated Genesis PHP SDK to version 2.0.1
+* Added P24 transaction type support
+* Removed GiroPay transaction type from the Checkout payment method
+* Updated transaction types list in the emerchantpay Checkout payment method
+
 __1.3.1__
 -----
 Fixed Genesis PHP SDK directory structure
