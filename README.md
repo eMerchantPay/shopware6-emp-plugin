@@ -8,8 +8,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.6.x (Tested up to __6.6.4.1__)
-* [GenesisPHP v2.0.1](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.1)
+* Shopware 6.6.x (Tested up to __6.6.5.1__)
+* [GenesisPHP v2.0.2](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.2)
 * [Composer v2.6.0](https://github.com/composer/composer/releases/tag/2.6.0)
 
 GenesisPHP Requirements
@@ -120,12 +120,14 @@ Supported Transactions
   * __Sepa Direct Debit__
     * __SDD Sale__
   * __Online Banking Payments__
-    * __Bancontact__
+    * __Bancontact (BCT)__
     * __iDEAL__
     * __iDebit Payin__
-    * __Interac Combined Pay-in__
-    * __Blik One Click (BLK)__
+    * __Interac Combined Pay-in (CPI)__
+    * __BLIK (BLK)__
     * __P24__
+    * __SPEI (SE)__
+    * __LatiPay (PID)__
   * __Mobile__
     * __Apple Pay__
     * __Google Pay__

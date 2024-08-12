@@ -136,7 +136,15 @@
                 </option>
                 <option>
                     <id>BLK</id>
-                    <name>Blik One Click</name>
+                    <name>BLIK</name>
+                </option>
+                <option>
+                    <id>SE</id>
+                    <name>SPEI</name>
+                </option>
+                <option>
+                    <id>PID</id>
+                    <name>LatiPay</name>
                 </option>
             </options>
             <label>Bank codes for Online banking</label>

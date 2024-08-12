@@ -1,5 +1,13 @@
 Change Log
 ---------------------
+__1.3.3__
+-----
+* Updated Genesis PHP SDK to version 2.0.2
+* Updated transaction types list in the emerchantpay Checkout payment method
+* Added the following bank codes support through Online Banking transaction type:
+  * LatiPay
+  * SPEI
+
 __1.3.2__
 -----
 * Updated Genesis PHP SDK to version 2.0.1
