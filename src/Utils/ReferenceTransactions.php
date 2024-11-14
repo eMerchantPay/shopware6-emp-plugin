@@ -246,7 +246,7 @@ final class ReferenceTransactions
         $transaction = $this->transactionTreeService->findReferenceTransaction(
             $this->transactionTree,
             [States::APPROVED, States::REFUNDED],
-            [Types::REFUND, Types::SDD_REFUND, Types::KLARNA_REFUND]
+            [Types::REFUND, Types::SDD_REFUND, Types::INVOICE_REFUND]
         );
 
         if (!empty($transaction)) {
@@ -286,7 +286,7 @@ final class ReferenceTransactions
         $transaction = $this->transactionTreeService->findReferenceTransaction(
             $this->transactionTree,
             [States::APPROVED],
-            [Types::CAPTURE, Types::KLARNA_CAPTURE]
+            [Types::CAPTURE, Types::INVOICE_CAPTURE]
         );
 
         if (!empty($transaction)) {

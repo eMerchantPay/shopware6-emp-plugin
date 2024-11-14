@@ -1,5 +1,12 @@
 Change Log
 ---------------------
+__1.4.0__
+-----
+* Updated Genesis PHP SDK to 2.0.3
+* Removed Klarna transaction type
+* Improved Shopware platform compatibility
+* Improved compatibility with rest bundles
+
 __1.3.3__
 -----
 * Updated Genesis PHP SDK to version 2.0.2

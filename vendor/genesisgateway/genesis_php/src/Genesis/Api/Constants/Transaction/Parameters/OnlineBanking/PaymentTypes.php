@@ -62,6 +62,11 @@ class PaymentTypes
     const ALIPAY_QR      = 'alipay_qr';
 
     /**
+     * Payment Type Scotiabank
+     */
+    const SCOTIABANK     = 'scotiabank';
+
+    /**
      * Get all available Payment Types
      *
      * @return array

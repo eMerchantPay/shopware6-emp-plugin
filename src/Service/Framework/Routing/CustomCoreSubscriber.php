@@ -19,10 +19,11 @@
 
 namespace Emerchantpay\Genesis\Service\Framework\Routing;
 
-use Shopware\Core\Framework\Routing\CoreSubscriber;
 use Shopware\Core\PlatformRequest;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Class CustomCoreSubscriber
@@ -31,13 +32,8 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
  *
  * @package Emerchantpay\Genesis\Service\Framework\Routing
  */
-class CustomCoreSubscriber extends CoreSubscriber
+class CustomCoreSubscriber implements EventSubscriberInterface
 {
-    /**
-     * @var array
-     */
-    private array $cspTemplates;
-
     /**
      * @var RequestStack
      */
@@ -47,11 +43,9 @@ class CustomCoreSubscriber extends CoreSubscriber
      * @param array        $cspTemplates
      * @param RequestStack $requestStack
      */
-    public function __construct(array $cspTemplates, RequestStack $requestStack)
+    public function __construct(RequestStack $requestStack)
     {
-        $this->cspTemplates = $cspTemplates;
         $this->requestStack = $requestStack;
-        parent::__construct($this->cspTemplates);
     }
 
     /**
@@ -63,7 +57,6 @@ class CustomCoreSubscriber extends CoreSubscriber
      */
     public function setSecurityHeaders(ResponseEvent $event): void
     {
-        parent::setSecurityHeaders($event);
         if ($request = $this->requestStack->getCurrentRequest()) {
             $currentRoute = $request->attributes->get('_route');
             if ($currentRoute === 'frontend.emerchantpay.return_iframe') {
@@ -71,5 +64,19 @@ class CustomCoreSubscriber extends CoreSubscriber
                 $response->headers->set(PlatformRequest::HEADER_FRAME_OPTIONS, 'ALLOWALL');
             }
         }
+    }
+
+    /**
+     * Returns an array of events this subscriber wants to listen to.
+     *
+     * @return array<string, string|array{0: string, 1: int}|list<array{0: string, 1?: int}>>
+     */
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            KernelEvents::RESPONSE => [
+                ['setSecurityHeaders', -2000], // Ensures it runs after CoreSubscriber
+            ]
+        ];
     }
 }

@@ -59,8 +59,8 @@ class TwigHelperExtension extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('isIframeEnabled', [$this, 'isIframeEnabled']),
-            new TwigFunction('paymentMethodId', [$this, 'paymentMethodId']),
+            new TwigFunction('isEmpIframeEnabled', [$this, 'isIframeEnabled']),
+            new TwigFunction('empPaymentMethodId', [$this, 'paymentMethodId']),
         ];
     }
 

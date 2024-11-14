@@ -1,0 +1,11 @@
+{% block base_footer %}
+    {% if isEmpIframeEnabled() %}
+        {% set currentRoute = app.request.attributes.get('_route') %}
+        <script>
+            const empPaymentMethodId   = '{{ empPaymentMethodId() }}';
+            const empCartValidationUrl = '{{ path('emerchantpay.frontend.cart.validate') }}';
+            const empCurrentRoute      = '{{ currentRoute }}';
+        </script>
+        <script src="{{ asset('bundles/emerchantpaygenesis/redirect-interceptor.js') }}"></script>
+    {% endif %}
+{% endblock %}

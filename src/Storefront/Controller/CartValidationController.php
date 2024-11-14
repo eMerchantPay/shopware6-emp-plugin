@@ -59,7 +59,7 @@ class CartValidationController extends StorefrontController
      *
      */
     #[Route(
-        path:     '/cart/validate',
+        path:     '/emerchantpay/cart/validate',
         name:     'emerchantpay.frontend.cart.validate',
         options:  ['seo'=> 'false'],
         defaults: ['auth_required' => false, 'csrf_protected' => false, '_routeScope' => ['storefront']],

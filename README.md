@@ -9,7 +9,7 @@ Requirements
 ------------
 
 * Shopware 6.6.x (Tested up to __6.6.5.1__)
-* [GenesisPHP v2.0.2](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.2)
+* [GenesisPHP v2.0.3](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.3)
 * [Composer v2.6.0](https://github.com/composer/composer/releases/tag/2.6.0)
 
 GenesisPHP Requirements

@@ -123,10 +123,9 @@
 
         <service id="Emerchantpay\Genesis\Service\Payment\Helpers\ThreedsIndicatorService"/>
 
-        <service id="Emerchantpay\Genesis\Service\Framework\Routing\CustomCoreSubscriber" decorates="Shopware\Core\Framework\Routing\CoreSubscriber">
-            <argument>%shopware.security.csp_templates%</argument>
+        <service id="Emerchantpay\Genesis\Service\Framework\Routing\CustomCoreSubscriber">
             <argument type="service" id="Symfony\Component\HttpFoundation\RequestStack"/>
-            <argument type="service" id="Emerchantpay\Genesis\Service\Framework\Routing\CustomCoreSubscriber.inner" />
+            <tag name="kernel.event_subscriber"/>
         </service>
 
         <service id="Emerchantpay\Genesis\Twig\TwigHelperExtension" public="true">
