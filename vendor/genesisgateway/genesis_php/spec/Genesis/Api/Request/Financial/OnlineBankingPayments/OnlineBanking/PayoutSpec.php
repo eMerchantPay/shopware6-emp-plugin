@@ -4,7 +4,6 @@ namespace spec\Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking
 
 use Genesis\Api\Constants\BankAccountTypes;
 use Genesis\Api\Constants\DateTimeFormat;
-use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutBankCodeParameters;
 use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutBankParameters;
 use Genesis\Api\Constants\Transaction\Parameters\OnlineBanking\PayoutPaymentTypesParameters;
 use Genesis\Api\Request\Financial\OnlineBankingPayments\OnlineBanking\Payout;
@@ -14,12 +13,15 @@ use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
 use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\UcofAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
+use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
 use spec\SharedExamples\Genesis\Api\Traits\Request\Financial\BirthDateAttributesExample;
 
 class PayoutSpec extends ObjectBehavior
 {
     use BirthDateAttributesExample;
+    use DocumentAttributesExample;
     use NeighborhoodAttributesExamples;
     use RequestExamples;
 
@@ -99,6 +101,16 @@ class PayoutSpec extends ObjectBehavior
         $faker = $this->getFaker();
         $this->shouldThrow(InvalidArgument::class)
             ->during('setBankAccountType', [$faker->asciify('**')]);
+    }
+
+    public function it_should_contain_payer_bank_phone_number()
+    {
+        $this->setRequestParameters();
+
+        $number = '+1234567890123';
+        $this->setPayerBankPhoneNumber($number);
+
+        $this->getDocument()->shouldContain("<payer_bank_phone_number>$number</payer_bank_phone_number>");
     }
 
     public function it_should_fail_with_invalid_document_type_length()
@@ -230,7 +242,7 @@ class PayoutSpec extends ObjectBehavior
             'bank_account_number',
             'bank_province',
             'id_card_number',
-            'payer_bank_account_number',
+            'payer_bank_phone_number',
             'bank_account_type',
             'document_type',
             'account_id',
@@ -253,6 +265,15 @@ class PayoutSpec extends ObjectBehavior
     public function it_should_set_pix_key_correctly()
     {
         $this->shouldNotThrow()->during('setPixKey', ['abcdef']);
+    }
+
+    public function it_should_not_fail_when_specific_billing_country_without_document_id()
+    {
+        $this->setRequestParameters();
+        $this->setBillingCountry('UY');
+        $this->setDocumentId(null);
+
+        $this->shouldNotThrow()->duringGetDocument();
     }
 
     protected function setRequestParameters()

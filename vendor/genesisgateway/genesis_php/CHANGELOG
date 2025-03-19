@@ -1,3 +1,92 @@
+2.1.2
+-----
+**Features**
+
+* Added Installments API
+* Added Installments Transaction Params
+* Added support for COF and UCOF parameters to Cards\Payout request
+* Improved Online Banking Payout validations
+* Updated support for Level 3 Travel Data attributes
+* Updated KYC Create Transaction request parameters
+* Updated service_language values for KYC Make call request
+
+**Fixes**
+
+* Fixed Payer Bank Phone Number element in Online Banking Payout
+
+2.1.1
+-----
+**Features**:
+
+* Added Beneficiary parameter support to PIX transaction request
+* Added Mode attribute support to the following API requests:
+  * Chargebacks
+  * Fraud
+  * Retrieval
+* Improved PHP 8.x+ compatibility
+
+**Fixes**:
+
+* Fixed issues in the Payout card transaction request
+
+2.1.0
+-----
+**Features**:
+
+* Added UCOF parameters support to the following transaction requests:
+  * Authorize 3D
+  * Sale 3D
+  * Init Recurring Sale 3D
+* Added Funding Parameters support to the following transaction requests:
+  * Apple Pay
+  * Google Pay
+* Updated Billing Transaction API with the latest gateway requirements
+* Added Tokenized e-commerce support to the following transaction requests:
+  * Authorize
+  * Authorize 3D
+  * Sale
+  * Sale 3D
+  * Init Recurring Sale
+  * Init Recurring Sale 3D
+* Updated Online Banking Payout transaction request with:
+  * Added Document ID parameter support
+  * Updated allowed Payment Types
+* Added Recurring Type parameter support to SCA Checker API request and removed Recurring.
+
+**Fixes**:
+
+* Fixed PHP 8+ compatibility
+* Fixed Acs Transaction ID accessor which is part of MPI params
+
+2.0.5
+-----
+**Features**:
+
+* Added terminal token automatic configuration in the Notification class required by the initReconciliation action. There is no need for Terminal Token configuration during notification handling and Smart Router used.
+
+**Fixes**:
+
+* Fixed missing 404 page returned from the Gateway for the requests which require a terminal token. InvalidArgument exception is thrown with an empty token configuration.
+
+2.0.4
+-----
+**Features**
+
+* Added **POLI** Bank code to Online banking PayIn
+* Added support for **UCOF** parameters to Online Banking PayOut request
+* Added **KYC** background check filter parameters
+* Added support for **Dynamic descriptor geo coordinates**
+* Improved **PHP-8.1** compatibility
+* Updated **MyBank** allowed currencies
+* Updated **KYC** verification params
+* Updated **funding parameters** support for VISA transaction
+* Updated Klarna UpdateItems API request attributes
+
+**Fixes**
+
+* Fixed canRefund allowed transaction types in Types utility class
+
+
 2.0.3
 -----
 **Features**

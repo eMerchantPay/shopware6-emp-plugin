@@ -144,7 +144,7 @@
                 </option>
                 <option>
                     <id>PID</id>
-                    <name>LatiPay</name>
+                    <name>PayID</name>
                 </option>
             </options>
             <label>Bank codes for Online banking</label>

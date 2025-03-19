@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2025 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -871,7 +871,7 @@ class Types
             self::INIT_RECURRING_SALE,
             self::INIT_RECURRING_SALE_3D,
             self::ITAU,
-            self::INVOICE,
+            self::INVOICE_CAPTURE,
             self::MY_BANK,
             self::MY_BANK,
             self::NEOSURF,

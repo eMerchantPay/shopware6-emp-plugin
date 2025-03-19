@@ -6,10 +6,14 @@ use Faker\Generator;
 use Genesis\Api\Constants\Transaction\Parameters\ScaExemptions;
 use Genesis\Api\Request\NonFinancial\Sca\Checker;
 use Genesis\Builder;
+use Genesis\Config;
+use Genesis\Exceptions\ErrorParameter;
 use Genesis\Exceptions\InvalidArgument;
 use Genesis\Utils\Currency;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Faker;
+use spec\SharedExamples\Genesis\Api\MissingTerminalTokenExamples;
+use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 
 /**
  * Class CheckerSpec
@@ -17,6 +21,9 @@ use spec\SharedExamples\Faker;
  */
 class CheckerSpec extends ObjectBehavior
 {
+    use MissingTerminalTokenExamples;
+    use RequestExamples;
+
     /**
      * @property Generator $faker
      */
@@ -55,7 +62,7 @@ class CheckerSpec extends ObjectBehavior
 
         $this->getDocument()->shouldContain('moto');
         $this->getDocument()->shouldContain('mit');
-        $this->getDocument()->shouldContain('recurring');
+        $this->getDocument()->shouldContain('recurring_type');
         $this->getDocument()->shouldContain('transaction_exemption');
     }
 
@@ -69,8 +76,8 @@ class CheckerSpec extends ObjectBehavior
         $this->setMit(false);
         $this->getDocument()->shouldNotContain('mit');
 
-        $this->setRecurring(false);
-        $this->getDocument()->shouldNotContain('recurring');
+        $this->setRecurringType(null);
+        $this->getDocument()->shouldNotContain('recurring_type');
 
         $this->setTransactionExemption(null);
         $this->getDocument()->shouldNotContain('transaction_exemption');
@@ -175,23 +182,6 @@ class CheckerSpec extends ObjectBehavior
         $this->getMit()->shouldBeBool();
     }
 
-    public function it_should_be_bool_recurring_parameter()
-    {
-        $this->setDefaultRequestParameters();
-
-        $this->setRecurring(true);
-        $this->getRecurring()->shouldBeBool();
-
-        $this->setRecurring('1');
-        $this->getRecurring()->shouldBeBool();
-
-        $this->setRecurring(0);
-        $this->getRecurring()->shouldBeBool();
-
-        $this->setRecurring(null);
-        $this->getRecurring()->shouldBeBool();
-    }
-
     public function it_should_not_fail_with_correct_exemption()
     {
         $this->shouldNotThrow()->duringSetTransactionExemption($this->getRandomExemption());
@@ -216,6 +206,25 @@ class CheckerSpec extends ObjectBehavior
 
         $this->shouldThrow(InvalidArgument::class)->during('setTransactionAmount', ['-23.45']);
         $this->shouldThrow(InvalidArgument::class)->during('setTransactionAmount', ['23,45']);
+    }
+
+    public function it_should_build_proper_url()
+    {
+        Config::setToken('123456');
+        Config::setEndpoint('emp');
+        Config::setEnvironment('staging');
+        $this->setRequestParameters();
+        $this->getDocument();
+
+        $this->getApiConfig('url')->shouldBe('https://staging.gate.emerchantpay.net:443/v1/sca/checker/123456/');
+    }
+
+    public function it_should_throw_with_invalid_recurring_type()
+    {
+        $this->setRequestParameters();
+        $this->setRecurringType('invalid');
+
+        $this->shouldThrow(ErrorParameter::class)->duringGetDocument();
     }
 
     /**
@@ -254,7 +263,7 @@ class CheckerSpec extends ObjectBehavior
     {
         $this->setMoto(true);
         $this->setMit(true);
-        $this->setRecurring(true);
+        $this->setRecurringType('initial');
         $this->setTransactionExemption($this->getRandomExemption());
     }
 
@@ -270,5 +279,10 @@ class CheckerSpec extends ObjectBehavior
         $exemptions = ScaExemptions::getAll();
 
         return $exemptions[array_rand($exemptions)];
+    }
+
+    protected function setRequestParameters()
+    {
+        $this->setDefaultRequestParameters();
     }
 }

@@ -20,7 +20,7 @@
  * THE SOFTWARE.
  *
  * @author      emerchantpay
- * @copyright   Copyright (C) 2015-2024 emerchantpay Ltd.
+ * @copyright   Copyright (C) 2015-2025 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/MIT The MIT License
  */
 
@@ -224,6 +224,12 @@ class Payin extends Financial
                 ],
                 'AUD' => [
                     ['bank_code' => BankCodeParameters::getBankCodesPerCurrency('AUD')]
+                ],
+                'GBP' => [
+                    ['bank_code' => BankCodeParameters::getBankCodesPerCurrency('GBP')]
+                ],
+                'NZD' => [
+                    ['bank_code' => BankCodeParameters::getBankCodesPerCurrency('NZD')]
                 ]
             ]
         ];

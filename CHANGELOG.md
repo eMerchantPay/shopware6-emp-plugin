@@ -1,5 +1,10 @@
 Change Log
 ---------------------
+__1.4.1__
+-----
+* Updated Genesis PHP SDK to 2.1.2
+* Renamed LatiPay bank code to PayID
+
 __1.4.0__
 -----
 * Updated Genesis PHP SDK to 2.0.3

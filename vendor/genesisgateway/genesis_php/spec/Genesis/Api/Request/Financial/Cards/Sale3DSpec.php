@@ -3,6 +3,7 @@
 namespace spec\Genesis\Api\Request\Financial\Cards;
 
 use Genesis\Api\Request\Financial\Cards\Sale3D;
+use Genesis\Api\Traits\Request\Financial\UcofAttributes;
 use PhpSpec\ObjectBehavior;
 use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
@@ -10,6 +11,7 @@ use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttribute
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\SchemeTokenized3DExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\ThreedsV2DatesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\CreditCardAttributesExamples;
@@ -22,8 +24,10 @@ use spec\SharedExamples\Genesis\Api\Request\Financial\NeighborhoodAttributesExam
 use spec\SharedExamples\Genesis\Api\Request\Financial\ScaAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Threeds\V2\ThreedsV2AttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\TokenizationAttributesExamples;
+use spec\SharedExamples\Genesis\Api\Request\Financial\UcofAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\RequestExamples;
 use spec\SharedExamples\Genesis\Api\Traits\Request\DocumentAttributesExample;
+use spec\Genesis\Api\Traits\Request\Financial\InstallmentAttributesExamples;
 
 class Sale3DSpec extends ObjectBehavior
 {
@@ -45,8 +49,11 @@ class Sale3DSpec extends ObjectBehavior
     use RequestExamples;
     use ScaAttributesExamples;
     use ThreedsV2AttributesExamples;
-    use TokenizationAttributesExamples;
     use ThreedsV2DatesExamples;
+    use TokenizationAttributesExamples;
+    use UcofAttributesExamples;
+    use SchemeTokenized3DExamples;
+    use InstallmentAttributesExamples;
 
     public function it_is_initializable()
     {

@@ -5,12 +5,14 @@ namespace spec\Genesis\Api\Request\Financial\Cards;
 use Genesis\Api\Constants\Transaction\Parameters\Recurring\Types;
 use Genesis\Api\Request\Financial\Cards\Authorize;
 use PhpSpec\ObjectBehavior;
+use spec\Genesis\Api\Traits\Request\Financial\InstallmentAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\AccountOwnerAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\AllowedZeroAmount;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Business\BusinessAttributesExample;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\ManagedRecurringAttributesExample;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringCategoryAttributesExample;
 use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\Recurring\RecurringTypeAttributesExample;
+use spec\SharedExamples\Genesis\Api\Request\Financial\Cards\SchemeTokenizedExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\CredentialOnFileAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\CreditCardAttributesExamples;
 use spec\SharedExamples\Genesis\Api\Request\Financial\CryptoAttributesExamples;
@@ -44,6 +46,8 @@ class AuthorizeSpec extends ObjectBehavior
     use ScaAttributesExamples;
     use TokenizationAttributesExamples;
     use UcofAttributesExamples;
+    use SchemeTokenizedExamples;
+    use InstallmentAttributesExamples;
 
     public function it_is_initializable()
     {

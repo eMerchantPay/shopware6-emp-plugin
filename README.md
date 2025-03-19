@@ -8,8 +8,8 @@ This is a Payment Plugin for Shopware 6, that gives you the ability to process p
 Requirements
 ------------
 
-* Shopware 6.6.x (Tested up to __6.6.5.1__)
-* [GenesisPHP v2.0.3](https://github.com/GenesisGateway/genesis_php/releases/tag/2.0.3)
+* Shopware 6.6.x (Tested up to __6.6.10.2__)
+* [GenesisPHP v2.1.2](https://github.com/GenesisGateway/genesis_php/releases/tag/2.1.2)
 * [Composer v2.6.0](https://github.com/composer/composer/releases/tag/2.6.0)
 
 GenesisPHP Requirements
@@ -127,7 +127,7 @@ Supported Transactions
     * __BLIK (BLK)__
     * __P24__
     * __SPEI (SE)__
-    * __LatiPay (PID)__
+    * __PayID (PID)__
   * __Mobile__
     * __Apple Pay__
     * __Google Pay__

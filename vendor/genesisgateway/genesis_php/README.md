@@ -36,7 +36,7 @@ Installation
 composer.phar require genesisgateway/genesis_php
 ```
 
-Note: If you want to use the package with PHP version lover than 7.4, you can use 
+Note: If you want to use the package with PHP version lower or equal to 7.4, you can use
 
 ```sh
 composer.phar require genesisgateway/genesis_php --update-no-dev
@@ -1548,6 +1548,10 @@ NonFinancial\Reconcile\Transaction
 
 // SCA Checker API
 NonFinancial\Sca\Checker
+
+// Installments API services
+NonFinancial\Installments\Fetch
+NonFinancial\Installments\Show
 
 // Processed Transactions API
 NonFinancial\ProcessedTransactions\Transaction
