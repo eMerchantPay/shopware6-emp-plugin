@@ -146,6 +146,10 @@
                     <id>PID</id>
                     <name>PayID</name>
                 </option>
+                <option>
+                    <id>POLI</id>
+                    <name>POLi</name>
+                </option>
             </options>
             <label>Bank codes for Online banking</label>
             <helpText>You can select Bank codes for Online banking transaction type.</helpText>

@@ -1,5 +1,10 @@
 Change Log
 ---------------------
+__1.4.2__
+-----
+* Added POLi Bank code to Online Banking transaction request
+* Updated Genesis PHP SDK to 2.1.3
+
 __1.4.1__
 -----
 * Updated Genesis PHP SDK to 2.1.2
