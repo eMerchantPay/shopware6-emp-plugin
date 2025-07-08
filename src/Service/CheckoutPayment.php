@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /*
- * Copyright (C) 2021 emerchantpay Ltd.
+ * Copyright (C) 2025 emerchantpay Ltd.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -13,12 +13,13 @@
  * GNU General Public License for more details.
  *
  * @author      emerchantpay
- * @copyright   2021 emerchantpay Ltd.
+ * @copyright   2025 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2 (GPL-2.0)
  */
 
 namespace Emerchantpay\Genesis\Service;
 
+use Emerchantpay\Genesis\Constants\Config as ConfigKeys;
 use Emerchantpay\Genesis\Constants\ReturnUrl;
 use Emerchantpay\Genesis\Service\Payment\Checkout;
 use Emerchantpay\Genesis\Utils\Config;
@@ -32,6 +33,7 @@ use Shopware\Core\Framework\Validation\DataBag\RequestDataBag;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * Class CheckoutPayment
@@ -54,6 +56,11 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
     private $logger;
 
     /**
+     * @var RequestStack
+     */
+    private $requestStack;
+
+    /**
      * @var Checkout
      */
     private $paymentService;
@@ -62,12 +69,14 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
         OrderTransactionStateHandler $transactionStateHandler,
         Config $config,
         LoggerInterface $logger,
-        Checkout $paymentService
+        Checkout $paymentService,
+        RequestStack $requestStack
     ) {
         $this->logger = $logger;
         $this->transactionStateHandler = $transactionStateHandler;
         $this->configService = $config;
         $this->paymentService = $paymentService;
+        $this->requestStack = $requestStack;
     }
 
     /**
@@ -88,6 +97,9 @@ class CheckoutPayment implements AsynchronousPaymentHandlerInterface
                 $transaction->getOrderTransaction()->getId(),
                 $e->getMessage()
             );
+        }
+        if ($this->configService->getCheckout()[ConfigKeys::CHECKOUT_IFRAME_PROCESSING]) {
+            $this->requestStack->getSession()->set('redirectUrl', $redirectUrl);
         }
 
         // Redirect to external gateway

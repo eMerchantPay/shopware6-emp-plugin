@@ -18,6 +18,9 @@ const empForm = {
                     this.createIframeElement();
                     this.form.setAttribute('target', 'emp-threeds-iframe');
                     this.form.submit();
+                    this.iframeUrl().then(iframeUrl => {
+                        document.getElementsByClassName('emp-threeds-iframe')[0].setAttribute('src', iframeUrl);
+                    });
                 }
             });
         }
@@ -38,6 +41,7 @@ const empForm = {
         iframe.className = 'emp-threeds-iframe';
 
         iframe.setAttribute('name', 'emp-threeds-iframe');
+        iframe.setAttribute('allow', 'payment');
         header.innerHTML = '<h3>The payment is being processed<br><span>Please, wait</span></h3>';
 
         iframe.onload = () => {
@@ -62,6 +66,17 @@ const empForm = {
         })
             .then(response => response.json())
             .then(data => data.valid);
+    },
+
+    iframeUrl() {
+        return fetch(empIframeUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => data.iframeUrl);
     }
 };
 

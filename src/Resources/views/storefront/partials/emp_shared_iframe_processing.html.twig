@@ -5,6 +5,7 @@
             const empPaymentMethodId   = '{{ empPaymentMethodId() }}';
             const empCartValidationUrl = '{{ path('emerchantpay.frontend.cart.validate') }}';
             const empCurrentRoute      = '{{ currentRoute }}';
+            const empIframeUrl         = '{{ path('emerchantpay.frontend.iframe.url') }}';
         </script>
         <script src="{{ asset('bundles/emerchantpaygenesis/redirect-interceptor.js') }}"></script>
     {% endif %}

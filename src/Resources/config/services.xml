@@ -34,6 +34,7 @@
             <argument type="service" id="Emerchantpay\Genesis\Utils\Config"/>
             <argument type="service" id="monolog.logger.emerchantpay"/>
             <argument type="service" id="Emerchantpay\Genesis\Service\Payment\Checkout"/>
+            <argument type="service" id="Symfony\Component\HttpFoundation\RequestStack"/>
             <tag name="shopware.payment.method.async" />
         </service>
 
@@ -142,6 +143,10 @@
             <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
             <argument type="service" id="service_container"/>
             <tag name="controller.service_arguments"/>
+        </service>
+
+        <service id="Emerchantpay\Genesis\Storefront\Controller\GenesisIframeController" public="true">
+            <argument type="service" id="service_container"/>
         </service>
 
     </services>

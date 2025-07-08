@@ -1,5 +1,10 @@
 Change Log
 ---------------------
+__1.4.3__
+-----
+* Updated iFrame attributes for ApplePay through WPF
+* Updated Genesis PHP SDK to 2.1.6
+
 __1.4.2__
 -----
 * Added POLi Bank code to Online Banking transaction request

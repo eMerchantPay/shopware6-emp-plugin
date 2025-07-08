@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /*
- * Copyright (C) 2024 emerchantpay Ltd.
+ * Copyright (C) 2025 emerchantpay Ltd.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * @author      emerchantpay
- * @copyright   2024 emerchantpay Ltd.
+ * @copyright   2025 emerchantpay Ltd.
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU General Public License, version 2 (GPL-2.0)
  */
 
