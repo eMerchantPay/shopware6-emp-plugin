@@ -1,5 +1,9 @@
 Change Log
 ---------------------
+__1.4.4__
+-----
+* Updated Genesis PHP SDK to 2.2.0
+
 __1.4.3__
 -----
 * Updated iFrame attributes for ApplePay through WPF
